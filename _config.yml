@@ -7,7 +7,7 @@ first_name: Yusmaris
 middle_name: 
 last_name: Cariaco
 contact_note: >
-  You can even add a little note about which of these is the best way to reach you.
+  The best way to reach the lab for collaborations or prospective student inquiries is via email.
 description: > 
   Decoding the placenta as an adaptive sensor of prenatal exposures 
   through integrated multi-omics and fetal outcome modeling.
@@ -24,8 +24,6 @@ url: https://ycariaco.github.io
 baseurl: "" # Keep this empty if this is your main website!
 
 # --- Lab Vision / "About" Snippet ---
-contact_note: >
-  The best way to reach the lab for collaborations or prospective student inquiries is via email.
 
 # --- Site Features ---
 last_updated: true 

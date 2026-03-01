@@ -23,7 +23,7 @@ fetch("/assets/json/publications.json")
     }));
 
     var links = [];
-    // Simple year-based grouping for now
+
     data.forEach(p => {
       links.push({
         source: p.year,
@@ -31,8 +31,8 @@ fetch("/assets/json/publications.json")
       });
     });
 
-    // Add year nodes
     var years = [...new Set(data.map(p => p.year))];
+
     years.forEach(y => {
       nodes.push({
         id: y,

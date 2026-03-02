@@ -10,7 +10,9 @@
     ],
     "year": 2023,
     "journal": "Frontiers in endocrinology",
-    "doi": "10.3389/fendo.2023.1330396"
+    "doi": "10.3389/fendo.2023.1330396",
+    "pmid": "37900788",
+    "tags": ["Microplastics", "Pregnancy", "Toxicity", "Environmental Health"]
   },
   {
     "id": "jahan_nad_2024",
@@ -26,7 +28,9 @@
     ],
     "year": 2024,
     "journal": "Life science alliance",
-    "doi": "10.26508/lsa.202302505"
+    "doi": "10.26508/lsa.202302505",
+    "pmid": "38466134",
+    "tags": ["Preeclampsia", "NAD Metabolism", "Placental Dysfunction", "Inflammation"]
   },
   {
     "id": "cariaco_ferroptosis_2025",
@@ -42,7 +46,9 @@
     ],
     "year": 2025,
     "journal": "Placenta",
-    "doi": "10.1016/j.placenta.2025.07.085"
+    "doi": "10.1016/j.placenta.2025.07.085",
+    "pmid": "",
+    "tags": ["Ferroptosis", "Preeclampsia", "Placental Dysfunction", "Iron Metabolism"]
   },
   {
     "id": "cariaco_ccr5_2023",
@@ -55,7 +61,9 @@
     ],
     "year": 2023,
     "journal": "Cytokine",
-    "doi": "10.1016/j.cyto.2022.156110"
+    "doi": "10.1016/j.cyto.2022.156110",
+    "pmid": "36598651",
+    "tags": ["Malaria", "Pregnancy", "CCR5", "Immune Response"]
   },
   {
     "id": "araujo_toxoplasma_2022",
@@ -71,7 +79,9 @@
     ],
     "year": 2022,
     "journal": "Infection and immunity",
-    "doi": "10.1128/iai.00029-22"
+    "doi": "10.1128/iai.00029-22",
+    "pmid": "35354608",
+    "tags": ["Toxoplasmosis", "Intestinal Immunity", "Lipoxygenase", "Parasite Control"]
   },
   {
     "id": "briceno_effects_2022",
@@ -88,7 +98,9 @@
     ],
     "year": 2022,
     "journal": "Tissue & cell",
-    "doi": "10.1016/j.tice.2022.101952"
+    "doi": "10.1016/j.tice.2022.101952",
+    "pmid": "35417521",
+    "tags": ["Toxoplasmosis", "Notch Signaling", "Inflammation", "Drug Therapy"]
   },
   {
     "id": "jahan_comparison_2023",
@@ -104,7 +116,9 @@
     ],
     "year": 2023,
     "journal": "Frontiers in endocrinology",
-    "doi": "10.3389/fendo.2023.1219205"
+    "doi": "10.3389/fendo.2023.1219205",
+    "pmid": "36998463",
+    "tags": ["Preeclampsia", "Disease Models", "Inflammation", "Hypertension"]
   },
   {
     "id": "cariaco_inhibition_2022",
@@ -121,7 +135,9 @@
     ],
     "year": 2022,
     "journal": "Frontiers in immunology",
-    "doi": "10.3389/fimmu.2022.879158"
+    "doi": "10.3389/fimmu.2022.879158",
+    "pmid": "35733696",
+    "tags": ["Malaria", "Pregnancy", "Heme Oxygenase", "Ferroptosis", "Iron Metabolism"]
   },
   {
     "id": "cristina_borges_araujo_beneficial_2021",
@@ -138,7 +154,9 @@
     ],
     "year": 2021,
     "journal": "Parasite immunology",
-    "doi": "10.1111/pim.12811"
+    "doi": "10.1111/pim.12811",
+    "pmid": "34379360",
+    "tags": ["Toxoplasmosis", "Helminth", "Immune Modulation", "Parasite Control"]
   },
   {
     "id": "coutinho_both_2023",
@@ -155,7 +173,9 @@
     ],
     "year": 2023,
     "journal": "Acta tropica",
-    "doi": "10.1016/j.actatropica.2023.107022"
+    "doi": "10.1016/j.actatropica.2023.107022",
+    "pmid": "37909906",
+    "tags": ["Congenital Toxoplasmosis", "Genetic Susceptibility", "Pregnancy", "Immune Response"]
   },
   {
     "id": "cariaco_ethanolic_2018",
@@ -173,7 +193,9 @@
     ],
     "year": 2018,
     "journal": "Scientific reports",
-    "doi": "10.1038/s41598-018-19840-x"
+    "doi": "10.1038/s41598-018-19840-x",
+    "pmid": "29449548",
+    "tags": ["Cerebral Malaria", "Natural Products", "Anti-Inflammatory", "Fungi"]
   },
   {
     "id": "sousa_imbalance_2021",
@@ -196,7 +218,9 @@
     ],
     "year": 2021,
     "journal": "Cytokine",
-    "doi": "10.1016/j.cyto.2021.155517"
+    "doi": "10.1016/j.cyto.2021.155517",
+    "pmid": "34452849",
+    "tags": ["Congenital Toxoplasmosis", "Cytokines", "Maternal-Fetal Interface", "Immune Response"]
   },
   {
     "id": "miranda_anti-parasitic_2021",
@@ -213,7 +237,9 @@
     ],
     "year": 2021,
     "journal": "Journal of ethnopharmacology",
-    "doi": "10.1016/j.jep.2021.114019"
+    "doi": "10.1016/j.jep.2021.114019",
+    "pmid": "34210633",
+    "tags": ["Toxoplasmosis", "Plant Extract", "Ethnopharmacology", "Parasite Control"]
   },
   {
     "id": "nascimento_ethanolic_2022",
@@ -235,7 +261,9 @@
     ],
     "year": 2022,
     "journal": "Current research in microbial sciences",
-    "doi": "10.1016/j.crmicr.2022.100173"
+    "doi": "10.1016/j.crmicr.2022.100173",
+    "pmid": "36311196",
+    "tags": ["Toxoplasmosis", "Fungi", "Parasite Replication", "Anti-inflammatory"]
   },
   {
     "id": "duran-rodriguez_macrophage_2025",
@@ -251,6 +279,8 @@
     ],
     "year": 2025,
     "journal": "The American journal of pathology",
-    "doi": "10.1016/j.ajpath.2025.03.004"
+    "doi": "10.1016/j.ajpath.2025.03.004",
+    "pmid": "",
+    "tags": ["Gestational Malaria", "Macrophage Function", "Pregnancy Outcomes", "Immune Response"]
   }
 ]

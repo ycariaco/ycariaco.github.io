@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Publications
+title: Research Hub
 permalink: /research/
 nav: true
 nav_order: 3
@@ -8,9 +8,7 @@ nav_order: 3
 
 ## Publications Network
 
-Interactive visualization of my research publications. **Drag nodes**, **zoom**, and **hover** for
-details. Articles are connected by **shared authors** and **research themes**. **Click** any article
-to visit PubMed or DOI.
+Interactive visualization of my research publications organized by research theme. **Drag nodes**, **zoom**, and **hover** for details. **Click** any article to visit PubMed or DOI.
 
 <div
   id="cytoscape"
@@ -74,8 +72,12 @@ to visit PubMed or DOI.
 
       const nodes = [];
       const edges = [];
-      const years = new Set();
-      const themeMap = {}; // Track themes for coloring
+      const themeClusters = {}; // Track nodes by theme
+
+      // Initialize theme clusters
+      Object.keys(themeColors).forEach((theme) => {
+        themeClusters[theme] = [];
+      });
 
       // Create publication nodes
       data.forEach((pub) => {
@@ -86,8 +88,10 @@ to visit PubMed or DOI.
         const mainTheme = extractMainTheme(pub.tags);
         const color = getColorForTags(pub.tags);
 
-        if (!themeMap[mainTheme]) themeMap[mainTheme] = [];
-        themeMap[mainTheme].push(pub.id);
+        if (!themeClusters[mainTheme]) {
+          themeClusters[mainTheme] = [];
+        }
+        themeClusters[mainTheme].push(pub.id);
 
         nodes.push({
           data: {
@@ -101,38 +105,31 @@ to visit PubMed or DOI.
             authors: pub.authors || [],
             tags: pub.tags || [],
             theme: mainTheme,
+            parent: `cluster-${mainTheme}`,
           },
           style: {
             "background-color": color,
           },
         });
-        years.add(pub.year);
       });
 
-      // Create year nodes (grouped by theme color)
-      Array.from(years)
-        .sort((a, b) => b - a)
-        .forEach((year) => {
+      // Create invisible cluster nodes for spatial organization
+      Object.entries(themeClusters).forEach(([theme, pubIds]) => {
+        if (pubIds.length > 0) {
           nodes.push({
             data: {
-              id: `year-${year}`,
-              label: year.toString(),
+              id: `cluster-${theme}`,
+              label: theme,
             },
             style: {
-              "background-color": "#64748b",
+              "background-opacity": 0,
+              "border-opacity": 0,
+              width: 150,
+              height: 150,
             },
+            isCluster: true,
           });
-        });
-
-      // Create edges: publications to years
-      data.forEach((pub) => {
-        edges.push({
-          data: {
-            source: pub.id,
-            target: `year-${pub.year}`,
-            type: "year-link",
-          },
-        });
+        }
       });
 
       // Create edges between co-authored papers
@@ -231,19 +228,6 @@ to visit PubMed or DOI.
             },
           },
           {
-            selector: 'node[id ^= "year"]',
-            style: {
-              width: 70,
-              height: 70,
-              "font-size": 15,
-              "font-weight": "bold",
-              "border-width": 3,
-              "border-color": "#1e293b",
-              "background-opacity": 0.9,
-              cursor: "default",
-            },
-          },
-          {
             selector: "edge",
             style: {
               width: "mapData(weight, 1, 5, 2, 5)",
@@ -268,14 +252,6 @@ to visit PubMed or DOI.
             },
           },
           {
-            selector: 'edge[type = "year-link"]',
-            style: {
-              "line-color": "#cbd5e1",
-              opacity: 0.3,
-              width: 1,
-            },
-          },
-          {
             selector: "node:hover",
             style: {
               "border-width": 3,
@@ -296,71 +272,75 @@ to visit PubMed or DOI.
           },
         ],
         layout: {
-          name: "cose",
+          name: "cose-bilkent",
           directed: false,
           animate: true,
           animationDuration: 500,
           avoidOverlap: true,
-          nodeSpacing: 15,
-          gravity: 1,
-          cooling: 0.99,
-          coolingFactor: 0.999,
-          randomize: true,
+          nodeSpacing: 20,
+          gravity: 0.5,
+          gravityRange: 200,
+          numIter: 2500,
+          tile: true,
+          tilingPaddingVertical: 10,
+          tilingPaddingHorizontal: 10,
+          randomize: false,
         },
       });
 
       // Click to open PubMed/DOI
       cy.on("tap", "node", function (evt) {
         const node = evt.target;
-        if (node.id().startsWith("year")) return;
+        if (node.isNode() && !node.isParent()) {
+          const data = node.data();
+          const pmid = data.pmid || "";
+          const doi = data.doi || "";
 
-        const data = node.data();
-        const pmid = data.pmid || "";
-        const doi = data.doi || "";
+          let url = "";
+          if (pmid) {
+            url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+          } else if (doi) {
+            url = `https://doi.org/${doi}`;
+          }
 
-        let url = "";
-        if (pmid) {
-          url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
-        } else if (doi) {
-          url = `https://doi.org/${doi}`;
+          if (url) {
+            window.open(url, "_blank");
+          }
+
+          // Update info panel
+          const infoPanel = document.getElementById("info-panel");
+          document.getElementById("info-title").textContent =
+            data.fullTitle;
+          document.getElementById("info-details").innerHTML = `
+            <strong>Theme:</strong> ${data.theme}<br>
+            <strong>Authors:</strong> ${data.authors.join(
+              ", "
+            )}<br>
+            <strong>Journal:</strong> ${data.journal}<br>
+            <strong>Year:</strong> ${data.year}<br>
+            <strong>Tags:</strong> ${data.tags.join(", ")}
+          `;
+
+          if (pmid) {
+            document.getElementById("info-link").href =
+              `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+            document.getElementById("info-link").textContent =
+              "View on PubMed";
+          } else if (doi) {
+            document.getElementById("info-link").href =
+              `https://doi.org/${doi}`;
+            document.getElementById("info-link").textContent =
+              "View on DOI";
+          }
+
+          infoPanel.style.display = "block";
         }
-
-        if (url) {
-          window.open(url, "_blank");
-        }
-
-        // Update info panel
-        const infoPanel = document.getElementById("info-panel");
-        document.getElementById("info-title").textContent =
-          data.fullTitle;
-        document.getElementById("info-details").innerHTML = `
-          <strong>Authors:</strong> ${data.authors.join(", ")}<br>
-          <strong>Journal:</strong> ${data.journal}<br>
-          <strong>Year:</strong> ${data.year}<br>
-          <strong>Tags:</strong> ${data.tags.join(", ")}
-        `;
-
-        if (pmid) {
-          document.getElementById("info-link").href =
-            `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
-          document.getElementById("info-link").textContent =
-            "View on PubMed";
-        } else if (doi) {
-          document.getElementById("info-link").href =
-            `https://doi.org/${doi}`;
-          document.getElementById("info-link").textContent =
-            "View on DOI";
-        }
-
-        infoPanel.style.display = "block";
       });
 
       // Hover tooltip
       cy.on("mouseover", "node", function (evt) {
         const node = evt.target;
-        if (node.id().startsWith("year")) {
-          node.style("label", "data(label)");
-        } else {
+        if (node.isNode() && !node.isParent()) {
           const data = node.data();
           node.style(
             "label",
@@ -371,7 +351,9 @@ to visit PubMed or DOI.
 
       cy.on("mouseout", "node", function (evt) {
         const node = evt.target;
-        node.style("label", "data(label)");
+        if (node.isNode() && !node.isParent()) {
+          node.style("label", "data(label)");
+        }
       });
     })
     .catch((err) => console.error("Error loading publications:", err));

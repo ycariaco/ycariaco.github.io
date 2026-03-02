@@ -8,7 +8,7 @@ nav_order: 3
 
 ## Publications Network
 
-Interactive visualization of my research publications organized by research theme. **Drag nodes**, **zoom**, and **hover** for details. **Click** any article to visit PubMed or DOI.
+Interactive visualization grouped by **research theme**. **Drag nodes** to move them (they repel and attract based on connections), **zoom**, and **click** to view details.
 
 <div
   id="cytoscape"
@@ -17,7 +17,7 @@ Interactive visualization of my research publications organized by research them
 
 <div
   id="info-panel"
-  style="padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px; display: none;"
+  style="padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px; display: none; border-left: 4px solid #3b82f6;"
 >
   <h4 id="info-title"></h4>
   <p id="info-details"></p>
@@ -72,26 +72,19 @@ Interactive visualization of my research publications organized by research them
 
       const nodes = [];
       const edges = [];
-      const themeClusters = {}; // Track nodes by theme
-
-      // Initialize theme clusters
-      Object.keys(themeColors).forEach((theme) => {
-        themeClusters[theme] = [];
-      });
+      const themeMap = {};
 
       // Create publication nodes
       data.forEach((pub) => {
         const title =
-          pub.title.length > 60
-            ? pub.title.substring(0, 60) + "..."
+          pub.title.length > 55
+            ? pub.title.substring(0, 55) + "..."
             : pub.title;
         const mainTheme = extractMainTheme(pub.tags);
         const color = getColorForTags(pub.tags);
 
-        if (!themeClusters[mainTheme]) {
-          themeClusters[mainTheme] = [];
-        }
-        themeClusters[mainTheme].push(pub.id);
+        if (!themeMap[mainTheme]) themeMap[mainTheme] = 0;
+        themeMap[mainTheme]++;
 
         nodes.push({
           data: {
@@ -105,7 +98,6 @@ Interactive visualization of my research publications organized by research them
             authors: pub.authors || [],
             tags: pub.tags || [],
             theme: mainTheme,
-            parent: `cluster-${mainTheme}`,
           },
           style: {
             "background-color": color,
@@ -113,26 +105,7 @@ Interactive visualization of my research publications organized by research them
         });
       });
 
-      // Create invisible cluster nodes for spatial organization
-      Object.entries(themeClusters).forEach(([theme, pubIds]) => {
-        if (pubIds.length > 0) {
-          nodes.push({
-            data: {
-              id: `cluster-${theme}`,
-              label: theme,
-            },
-            style: {
-              "background-opacity": 0,
-              "border-opacity": 0,
-              width: 150,
-              height: 150,
-            },
-            isCluster: true,
-          });
-        }
-      });
-
-      // Create edges between co-authored papers
+      // Create edges between co-authored papers (stronger weight)
       for (let i = 0; i < data.length; i++) {
         for (let j = i + 1; j < data.length; j++) {
           const pubA = data[i];
@@ -158,7 +131,7 @@ Interactive visualization of my research publications organized by research them
               data: {
                 source: pubA.id,
                 target: pubB.id,
-                weight: commonAuthors.length,
+                weight: commonAuthors.length * 2,
                 type: "co-author",
               },
             });
@@ -206,6 +179,7 @@ Interactive visualization of my research publications organized by research them
       }
 
       console.log("Nodes:", nodes.length, "Edges:", edges.length);
+      console.log("Themes:", themeMap);
 
       const cy = cytoscape({
         container: document.getElementById("cytoscape"),
@@ -215,23 +189,30 @@ Interactive visualization of my research publications organized by research them
             selector: "node",
             style: {
               label: "data(label)",
-              "text-opacity": 0.9,
-              "font-size": 11,
+              "text-opacity": 0.95,
+              "font-size": 10,
               "text-valign": "center",
               "text-halign": "center",
-              width: 45,
-              height: 45,
+              width: 50,
+              height: 50,
               "border-width": 2,
-              "border-color": "#000",
-              "background-opacity": 0.85,
-              cursor: "pointer",
+              "border-color": "#1a1a1a",
+              "background-opacity": 0.9,
+              cursor: "grab",
+              "overlay-padding": 5,
+            },
+          },
+          {
+            selector: "node:active",
+            style: {
+              cursor: "grabbing",
             },
           },
           {
             selector: "edge",
             style: {
-              width: "mapData(weight, 1, 5, 2, 5)",
-              opacity: 0.5,
+              width: 2,
+              opacity: 0.4,
               "curve-style": "bezier",
               "line-color": "#cbd5e1",
             },
@@ -241,23 +222,24 @@ Interactive visualization of my research publications organized by research them
             style: {
               "line-color": "#f59e0b",
               "line-style": "dashed",
-              opacity: 0.4,
+              opacity: 0.35,
+              width: 1.5,
             },
           },
           {
             selector: 'edge[type = "co-author"]',
             style: {
               "line-color": "#06b6d4",
-              opacity: 0.6,
+              opacity: 0.55,
+              width: 2.5,
             },
           },
           {
             selector: "node:hover",
             style: {
               "border-width": 3,
+              "border-color": "#fbbf24",
               "background-opacity": 1,
-              "box-shadow":
-                "0 0 20px 2px rgba(59, 130, 246, 0.5)",
             },
           },
           {
@@ -267,94 +249,120 @@ Interactive visualization of my research publications organized by research them
               "border-color": "#fbbf24",
               "background-opacity": 1,
               "box-shadow":
-                "0 0 25px 3px rgba(251, 191, 36, 0.6)",
+                "0 0 30px 3px rgba(251, 191, 36, 0.7)",
             },
           },
         ],
         layout: {
-          name: "cose-bilkent",
+          name: "cose",
           directed: false,
           animate: true,
           animationDuration: 500,
           avoidOverlap: true,
-          nodeSpacing: 20,
-          gravity: 0.5,
-          gravityRange: 200,
+          avoidOverlapPadding: 10,
+          nodeSpacing: 5,
+          refresh: 20,
+          fit: true,
+          padding: 30,
+          randomize: true,
+          componentSpacing: 100,
+          nodeRepulsion: (node) => 200000,
+          idealEdgeLength: (edge) => {
+            if (edge.data("type") === "co-author") return 80;
+            if (edge.data("type") === "theme-link") return 120;
+            return 150;
+          },
+          edgeElasticity: (edge) => {
+            if (edge.data("type") === "co-author") return 0.45;
+            return 0.1;
+          },
+          nestingFactor: 1.2,
+          gravity: 0.25,
           numIter: 2500,
-          tile: true,
-          tilingPaddingVertical: 10,
-          tilingPaddingHorizontal: 10,
-          randomize: false,
+          initialTemp: 200,
+          coolingFactor: 0.95,
+          minTemp: 1.0,
         },
       });
 
-      // Click to open PubMed/DOI
+      // Enable dragging to repel/attract
+      cy.on("grabon", "node", function (evt) {
+        evt.target.unselectify();
+      });
+
+      cy.on("graboff", "node", function (evt) {
+        evt.target.selectify();
+      });
+
+      // Click to show info and open link
       cy.on("tap", "node", function (evt) {
         const node = evt.target;
-        if (node.isNode() && !node.isParent()) {
-          const data = node.data();
-          const pmid = data.pmid || "";
-          const doi = data.doi || "";
+        const data = node.data();
 
-          let url = "";
-          if (pmid) {
-            url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
-          } else if (doi) {
-            url = `https://doi.org/${doi}`;
-          }
+        const pmid = data.pmid || "";
+        const doi = data.doi || "";
 
-          if (url) {
-            window.open(url, "_blank");
-          }
-
-          // Update info panel
-          const infoPanel = document.getElementById("info-panel");
-          document.getElementById("info-title").textContent =
-            data.fullTitle;
-          document.getElementById("info-details").innerHTML = `
-            <strong>Theme:</strong> ${data.theme}<br>
-            <strong>Authors:</strong> ${data.authors.join(
-              ", "
-            )}<br>
-            <strong>Journal:</strong> ${data.journal}<br>
-            <strong>Year:</strong> ${data.year}<br>
-            <strong>Tags:</strong> ${data.tags.join(", ")}
-          `;
-
-          if (pmid) {
-            document.getElementById("info-link").href =
-              `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
-            document.getElementById("info-link").textContent =
-              "View on PubMed";
-          } else if (doi) {
-            document.getElementById("info-link").href =
-              `https://doi.org/${doi}`;
-            document.getElementById("info-link").textContent =
-              "View on DOI";
-          }
-
-          infoPanel.style.display = "block";
+        let url = "";
+        if (pmid) {
+          url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+        } else if (doi) {
+          url = `https://doi.org/${doi}`;
         }
+
+        if (url) {
+          window.open(url, "_blank");
+        }
+
+        // Update info panel
+        const infoPanel = document.getElementById("info-panel");
+        document.getElementById("info-title").textContent =
+          data.fullTitle;
+        document.getElementById("info-details").innerHTML = `
+          <strong>Theme:</strong> <span style="color: ${getColorForTags(
+            data.tags
+          )}">●</span> ${data.theme}<br>
+          <strong>Authors:</strong> ${data.authors.join(
+            ", "
+          )}<br>
+          <strong>Journal:</strong> ${data.journal}<br>
+          <strong>Year:</strong> ${data.year}<br>
+          <strong>Tags:</strong> ${data.tags.join(", ")}
+        `;
+
+        if (pmid) {
+          document.getElementById("info-link").href =
+            `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+          document.getElementById("info-link").textContent =
+            "View on PubMed";
+        } else if (doi) {
+          document.getElementById("info-link").href =
+            `https://doi.org/${doi}`;
+          document.getElementById("info-link").textContent =
+            "View on DOI";
+        }
+
+        infoPanel.style.display = "block";
       });
 
       // Hover tooltip
       cy.on("mouseover", "node", function (evt) {
         const node = evt.target;
-        if (node.isNode() && !node.isParent()) {
-          const data = node.data();
-          node.style(
-            "label",
-            data.fullTitle.substring(0, 40) + "..."
-          );
-        }
+        const data = node.data();
+        node.style(
+          "label",
+          data.fullTitle.substring(0, 50) + "..."
+        );
       });
 
       cy.on("mouseout", "node", function (evt) {
         const node = evt.target;
-        if (node.isNode() && !node.isParent()) {
-          node.style("label", "data(label)");
-        }
+        node.style("label", "data(label)");
       });
+
+      // Fit on load
+      setTimeout(() => {
+        cy.fit();
+      }, 1000);
     })
     .catch((err) => console.error("Error loading publications:", err));
 </script>

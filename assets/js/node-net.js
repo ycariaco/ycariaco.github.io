@@ -1,7 +1,7 @@
 (() => {
-  const canvas = document.getElementById('node-net');
+  const canvas = document.getElementById("node-net");
   if (!canvas) return;
-  const ctx = canvas.getContext('2d');
+  const ctx = canvas.getContext("2d");
 
   let w, h, dpr;
   const N = 70;
@@ -10,7 +10,7 @@
     x: Math.random() * window.innerWidth,
     y: Math.random() * window.innerHeight,
     vx: (Math.random() - 0.5) * 0.3,
-    vy: (Math.random() - 0.5) * 0.3
+    vy: (Math.random() - 0.5) * 0.3,
   }));
 
   function resize() {
@@ -19,11 +19,11 @@
     h = window.innerHeight;
     canvas.width = Math.round(w * dpr);
     canvas.height = Math.round(h * dpr);
-    canvas.style.width = w + 'px';
-    canvas.style.height = h + 'px';
+    canvas.style.width = w + "px";
+    canvas.style.height = h + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
   }
-  window.addEventListener('resize', resize);
+  window.addEventListener("resize", resize);
   resize();
 
   function frame() {
@@ -38,8 +38,10 @@
 
     for (let i = 0; i < nodes.length; i++) {
       for (let j = i + 1; j < nodes.length; j++) {
-        const a = nodes[i], b = nodes[j];
-        const dx = a.x - b.x, dy = a.y - b.y;
+        const a = nodes[i],
+          b = nodes[j];
+        const dx = a.x - b.x,
+          dy = a.y - b.y;
         const dist = Math.hypot(dx, dy);
         if (dist < maxDist) {
           const alpha = 1 - dist / maxDist;
@@ -52,7 +54,7 @@
       }
     }
 
-    ctx.fillStyle = 'rgba(255,255,255,0.8)';
+    ctx.fillStyle = "rgba(255,255,255,0.8)";
     for (const n of nodes) {
       ctx.beginPath();
       ctx.arc(n.x, n.y, 1.5, 0, Math.PI * 2);

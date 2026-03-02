@@ -5,23 +5,6 @@ permalink: /research/
 nav: true
 nav_order: 3
 ---
-<style>
-  #node-net {
-    position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    z-index: 0;
-  }
-  header, footer, .container {
-    position: relative;
-    z-index: 1;
-  }
-</style>
-
-<canvas id="node-net" aria-hidden="true"></canvas>
-<script defer src="{{ '/assets/js/node-net.js' | relative_url }}"></script>
 
 <div id="pub-network" style="height:700px;"></div>
 

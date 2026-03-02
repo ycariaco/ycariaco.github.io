@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Research Hub
+title: Publications
 permalink: /research/
 nav: true
 nav_order: 3
@@ -8,58 +8,88 @@ nav_order: 3
 
 ## Publications Network
 
-Below is an interactive visualization of my research and publications. The animated
-background shows a force-directed network of nodes and edges, while your publication
-data (when available) can be integrated with the ECharts overlay below.
+Interactive visualization of my research publications.
 
-<div id="pub-network" style="height: 700px;"></div>
+<div id="network" style="width: 100%; height: 800px; border: 1px solid #ddd;"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/echarts/dist/echarts.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.js"></script>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/vis/4.21.0/vis.min.css"
+/>
 
 <script>
   fetch("/assets/json/publications.json")
     .then((response) => response.json())
     .then((data) => {
-      const chart = echarts.init(document.getElementById("pub-network"));
+      const nodes = new vis.DataSet();
+      const edges = new vis.DataSet();
+      const years = new Set();
 
-      const nodes = [];
-      const links = [];
-
-      data.forEach((p) => {
-        nodes.push({
-          id: p.id,
-          name: p.title,
-          value: p.year,
-          symbolSize: 12,
+      // Add publication nodes
+      data.forEach((pub, idx) => {
+        nodes.add({
+          id: pub.id,
+          label: pub.title.substring(0, 30) + "...",
+          title: pub.title,
+          group: pub.year.toString(),
+          shape: "box",
         });
+        years.add(pub.year);
+      });
 
-        nodes.push({
-          id: p.year,
-          name: p.year,
-          symbolSize: 40,
-        });
-
-        links.push({
-          source: p.year,
-          target: p.id,
+      // Add year nodes for grouping
+      years.forEach((year) => {
+        nodes.add({
+          id: `year-${year}`,
+          label: year.toString(),
+          group: "year",
+          shape: "circle",
+          color: "#ff6b6b",
+          font: { size: 16, bold: true },
         });
       });
 
-      const option = {
-        tooltip: { trigger: "item" },
-        series: [
-          {
-            type: "graph",
-            layout: "force",
-            roam: true,
-            label: { show: false },
-            force: { repulsion: 120 },
-            data: nodes,
-            links: links,
-          },
-        ],
+      // Connect publications to their year
+      data.forEach((pub) => {
+        edges.add({
+          from: pub.id,
+          to: `year-${pub.year}`,
+          color: { color: "rgba(200,200,200,0.3)" },
+        });
+      });
+
+      // Connect co-authored papers
+      for (let i = 0; i < data.length; i++) {
+        for (let j = i + 1; j < data.length; j++) {
+          const pubA = data[i];
+          const pubB = data[j];
+          const commonAuthors = pubA.authors.filter((a) =>
+            pubB.authors.includes(a)
+          );
+          if (commonAuthors.length > 0) {
+            edges.add({
+              from: pubA.id,
+              to: pubB.id,
+              color: { color: "rgba(100,150,255,0.5)" },
+              width: commonAuthors.length,
+              title: `${commonAuthors.length} common author(s)`,
+            });
+          }
+        }
+      }
+
+      const container = document.getElementById("network");
+      const data_obj = { nodes: nodes, edges: edges };
+      const options = {
+        physics: {
+          enabled: true,
+          stabilization: { iterations: 200 },
+        },
+        interaction: { hover: true },
       };
 
-      chart.setOption(option);
-    });
+      new vis.Network(container, data_obj, options);
+    })
+    .catch((err) => console.error("Error loading publications:", err));
 </script>

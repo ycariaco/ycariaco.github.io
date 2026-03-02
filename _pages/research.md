@@ -9,16 +9,61 @@ nav_order: 3
 ## Publications Network
 
 Interactive visualization of my research publications. **Drag nodes**, **zoom**, and **hover** for
-details. Node size reflects publication year, and edges connect co-authored papers.
+details. Articles are connected by **shared authors** and **research themes**. **Click** any article
+to visit PubMed or DOI.
 
 <div
   id="cytoscape"
-  style="width: 100%; height: 800px; border: 1px solid #ddd; margin: 20px 0;"
+  style="width: 100%; height: 900px; border: 1px solid #ddd; margin: 20px 0; background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);"
 ></div>
+
+<div
+  id="info-panel"
+  style="padding: 20px; background: #f8f9fa; border-radius: 8px; margin-top: 20px; display: none;"
+>
+  <h4 id="info-title"></h4>
+  <p id="info-details"></p>
+  <a
+    id="info-link"
+    target="_blank"
+    rel="noopener noreferrer"
+    style="display: inline-block; margin-top: 10px; padding: 8px 16px; background: #3b82f6; color: white; border-radius: 4px; text-decoration: none;"
+  >
+    View on PubMed / DOI
+  </a>
+</div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
 
 <script>
+  // Color palette for research themes
+  const themeColors = {
+    Preeclampsia: "#ef4444",
+    Malaria: "#f97316",
+    Toxoplasmosis: "#8b5cf6",
+    Pregnancy: "#ec4899",
+    Immunity: "#06b6d4",
+    "Natural Products": "#22c55e",
+    Parasites: "#eab308",
+    Metabolism: "#3b82f6",
+  };
+
+  function getColorForTags(tags) {
+    if (!tags || tags.length === 0) return "#6b7280";
+    for (const tag of tags) {
+      if (themeColors[tag]) return themeColors[tag];
+    }
+    return "#9ca3af";
+  }
+
+  function extractMainTheme(tags) {
+    if (!tags || tags.length === 0) return "Other";
+    for (const tag of tags) {
+      if (themeColors[tag]) return tag;
+    }
+    return tags[0];
+  }
+
   fetch("/assets/json/publications.json")
     .then((response) => {
       if (!response.ok) throw new Error("Failed to load publications.json");
@@ -30,13 +75,20 @@ details. Node size reflects publication year, and edges connect co-authored pape
       const nodes = [];
       const edges = [];
       const years = new Set();
+      const themeMap = {}; // Track themes for coloring
 
       // Create publication nodes
       data.forEach((pub) => {
         const title =
-          pub.title.length > 50
-            ? pub.title.substring(0, 50) + "..."
+          pub.title.length > 60
+            ? pub.title.substring(0, 60) + "..."
             : pub.title;
+        const mainTheme = extractMainTheme(pub.tags);
+        const color = getColorForTags(pub.tags);
+
+        if (!themeMap[mainTheme]) themeMap[mainTheme] = [];
+        themeMap[mainTheme].push(pub.id);
+
         nodes.push({
           data: {
             id: pub.id,
@@ -45,12 +97,19 @@ details. Node size reflects publication year, and edges connect co-authored pape
             year: pub.year,
             journal: pub.journal,
             doi: pub.doi,
+            pmid: pub.pmid,
+            authors: pub.authors || [],
+            tags: pub.tags || [],
+            theme: mainTheme,
+          },
+          style: {
+            "background-color": color,
           },
         });
         years.add(pub.year);
       });
 
-      // Create year nodes (for grouping)
+      // Create year nodes (grouped by theme color)
       Array.from(years)
         .sort((a, b) => b - a)
         .forEach((year) => {
@@ -58,6 +117,9 @@ details. Node size reflects publication year, and edges connect co-authored pape
             data: {
               id: `year-${year}`,
               label: year.toString(),
+            },
+            style: {
+              "background-color": "#64748b",
             },
           });
         });
@@ -68,6 +130,7 @@ details. Node size reflects publication year, and edges connect co-authored pape
           data: {
             source: pub.id,
             target: `year-${pub.year}`,
+            type: "year-link",
           },
         });
       });
@@ -99,6 +162,46 @@ details. Node size reflects publication year, and edges connect co-authored pape
                 source: pubA.id,
                 target: pubB.id,
                 weight: commonAuthors.length,
+                type: "co-author",
+              },
+            });
+          }
+        }
+      }
+
+      // Create edges between papers sharing research themes
+      for (let i = 0; i < data.length; i++) {
+        for (let j = i + 1; j < data.length; j++) {
+          const pubA = data[i];
+          const pubB = data[j];
+
+          if (
+            !Array.isArray(pubA.tags) ||
+            !Array.isArray(pubB.tags)
+          ) {
+            continue;
+          }
+
+          const commonTags = pubA.tags.filter((tag) =>
+            pubB.tags.includes(tag)
+          );
+
+          if (
+            commonTags.length > 0 &&
+            !edges.some(
+              (e) =>
+                (e.data.source === pubA.id &&
+                  e.data.target === pubB.id) ||
+                (e.data.source === pubB.id &&
+                  e.data.target === pubA.id)
+            )
+          ) {
+            edges.push({
+              data: {
+                source: pubA.id,
+                target: pubB.id,
+                weight: commonTags.length,
+                type: "theme-link",
               },
             });
           }
@@ -114,44 +217,81 @@ details. Node size reflects publication year, and edges connect co-authored pape
           {
             selector: "node",
             style: {
-              "background-color": "#3b82f6",
               label: "data(label)",
               "text-opacity": 0.9,
               "font-size": 11,
               "text-valign": "center",
               "text-halign": "center",
-              width: 40,
-              height: 40,
+              width: 45,
+              height: 45,
               "border-width": 2,
-              "border-color": "#1e40af",
+              "border-color": "#000",
+              "background-opacity": 0.85,
+              cursor: "pointer",
             },
           },
           {
             selector: 'node[id ^= "year"]',
             style: {
-              "background-color": "#ef4444",
-              width: 60,
-              height: 60,
-              "font-size": 14,
+              width: 70,
+              height: 70,
+              "font-size": 15,
               "font-weight": "bold",
               "border-width": 3,
-              "border-color": "#7f1d1d",
+              "border-color": "#1e293b",
+              "background-opacity": 0.9,
+              cursor: "default",
             },
           },
           {
             selector: "edge",
             style: {
-              "line-color": "#cbd5e1",
-              width: "mapData(weight, 1, 5, 1, 4)",
-              opacity: 0.6,
+              width: "mapData(weight, 1, 5, 2, 5)",
+              opacity: 0.5,
               "curve-style": "bezier",
+              "line-color": "#cbd5e1",
+            },
+          },
+          {
+            selector: 'edge[type = "theme-link"]',
+            style: {
+              "line-color": "#f59e0b",
+              "line-style": "dashed",
+              opacity: 0.4,
+            },
+          },
+          {
+            selector: 'edge[type = "co-author"]',
+            style: {
+              "line-color": "#06b6d4",
+              opacity: 0.6,
+            },
+          },
+          {
+            selector: 'edge[type = "year-link"]',
+            style: {
+              "line-color": "#cbd5e1",
+              opacity: 0.3,
+              width: 1,
             },
           },
           {
             selector: "node:hover",
             style: {
-              "background-color": "#1e40af",
               "border-width": 3,
+              "background-opacity": 1,
+              "box-shadow":
+                "0 0 20px 2px rgba(59, 130, 246, 0.5)",
+            },
+          },
+          {
+            selector: "node:selected",
+            style: {
+              "border-width": 4,
+              "border-color": "#fbbf24",
+              "background-opacity": 1,
+              "box-shadow":
+                "0 0 25px 3px rgba(251, 191, 36, 0.6)",
             },
           },
         ],
@@ -161,7 +301,7 @@ details. Node size reflects publication year, and edges connect co-authored pape
           animate: true,
           animationDuration: 500,
           avoidOverlap: true,
-          nodeSpacing: 10,
+          nodeSpacing: 15,
           gravity: 1,
           cooling: 0.99,
           coolingFactor: 0.999,
@@ -169,12 +309,69 @@ details. Node size reflects publication year, and edges connect co-authored pape
         },
       });
 
-      // Add hover tooltip
-      cy.on("mouseover", "node", function (evt) {
+      // Click to open PubMed/DOI
+      cy.on("tap", "node", function (evt) {
         const node = evt.target;
         if (node.id().startsWith("year")) return;
+
         const data = node.data();
-        console.log(data);
+        const pmid = data.pmid || "";
+        const doi = data.doi || "";
+
+        let url = "";
+        if (pmid) {
+          url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+        } else if (doi) {
+          url = `https://doi.org/${doi}`;
+        }
+
+        if (url) {
+          window.open(url, "_blank");
+        }
+
+        // Update info panel
+        const infoPanel = document.getElementById("info-panel");
+        document.getElementById("info-title").textContent =
+          data.fullTitle;
+        document.getElementById("info-details").innerHTML = `
+          <strong>Authors:</strong> ${data.authors.join(", ")}<br>
+          <strong>Journal:</strong> ${data.journal}<br>
+          <strong>Year:</strong> ${data.year}<br>
+          <strong>Tags:</strong> ${data.tags.join(", ")}
+        `;
+
+        if (pmid) {
+          document.getElementById("info-link").href =
+            `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
+          document.getElementById("info-link").textContent =
+            "View on PubMed";
+        } else if (doi) {
+          document.getElementById("info-link").href =
+            `https://doi.org/${doi}`;
+          document.getElementById("info-link").textContent =
+            "View on DOI";
+        }
+
+        infoPanel.style.display = "block";
+      });
+
+      // Hover tooltip
+      cy.on("mouseover", "node", function (evt) {
+        const node = evt.target;
+        if (node.id().startsWith("year")) {
+          node.style("label", "data(label)");
+        } else {
+          const data = node.data();
+          node.style(
+            "label",
+            data.fullTitle.substring(0, 40) + "..."
+          );
+        }
+      });
+
+      cy.on("mouseout", "node", function (evt) {
+        const node = evt.target;
+        node.style("label", "data(label)");
       });
     })
     .catch((err) => console.error("Error loading publications:", err));

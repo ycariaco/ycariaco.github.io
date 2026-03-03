@@ -2,29 +2,29 @@
 layout: Bio
 title: Bio
 permalink: /
-subtitle: <a href='#'>Affiliations</a>. Address. Contacts. Motto. Etc.
+subtitle: Postdoctoral Fellow, Interdisciplinary School of Health Sciences, University of Ottawa
 
 profile:
   align: right
   image: prof_pic.jpg
-  image_circular: false # crops the image to make it circular
+  image_circular: false
   more_info: >
-    <p>1234</p>
-    <p>123 141 Av. du Président-Kennedy</p>
-    <p>Montréal, QC H2X 1Y4</p>
+    <p>University of Ottawa</p>
+    <p>Faculty of Health Sciences</p>
+    <p>Ottawa, ON, Canada</p>
 
-selected_papers: true # includes a list of papers marked as "selected={true}"
-social: true # includes social icons at the bottom of the page
+selected_papers: true
+social: true
 
 announcements:
-  enabled: true # includes a list of news items
-  scrollable: true # adds a vertical scroll bar if there are more than 3 news items
-  limit: 5 # leave blank to include all the news in the `_news` folder
+  enabled: true
+  scrollable: true
+  limit: 5
 
 latest_posts:
   enabled: true
-  scrollable: true # adds a vertical scroll bar if there are more than 3 new posts items
-  limit: 3 # leave blank to include all the blog posts
+  scrollable: true
+  limit: 3
 ---
 
 Dr. Yusmaris Cariaco is an associate professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Her research investigates how maternal metabolic, inflammatory, and environmental exposures influence placental function and shape fetal development through immunological and biochemical mechanisms.  ￼

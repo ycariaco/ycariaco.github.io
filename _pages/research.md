@@ -54,10 +54,9 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
 </style>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
-<script src="https://unpkg.com/webcola/WebCola/cola.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape.js-cola/2.3.0/cytoscape-cola.min.js"></script>
 
 <script>
+  // Color palette for research themes
   const themeColors = {
     Preeclampsia: "#ef4444",
     Malaria: "#f97316",
@@ -67,15 +66,14 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
     "Natural Products": "#22c55e",
     Parasites: "#eab308",
     Metabolism: "#3b82f6",
-    Other: "#64748b",
   };
 
   function getColorForTags(tags) {
-    if (!tags || tags.length === 0) return themeColors.Other;
+    if (!tags || tags.length === 0) return "#6b7280";
     for (const tag of tags) {
       if (themeColors[tag]) return themeColors[tag];
     }
-    return themeColors.Other;
+    return "#9ca3af";
   }
 
   function extractMainTheme(tags) {
@@ -83,43 +81,42 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
     for (const tag of tags) {
       if (themeColors[tag]) return tag;
     }
-    return "Other";
+    return tags[0];
   }
 
-  function slugify(value) {
-    return value
+  function slugifyTheme(theme) {
+    return theme
       .toLowerCase()
-      .trim()
       .replace(/[^a-z0-9]+/g, "-")
       .replace(/(^-|-$)/g, "");
   }
 
-  fetch("/assets/json/publications.json")
+  fetch("{{ '/assets/json/publications.json' | relative_url }}")
     .then((response) => {
       if (!response.ok) throw new Error("Failed to load publications.json");
       return response.json();
     })
     .then((data) => {
-      const container = document.getElementById("cytoscape");
-      const width = container.clientWidth || 1200;
-      const height = container.clientHeight || 900;
-
       const nodes = [];
       const edges = [];
-      const themesInData = new Set();
+      const themes = new Set();
+      const themeIdMap = {};
 
+      // Publication nodes
       data.forEach((pub) => {
-        const label =
-          pub.title.length > 45 ? pub.title.substring(0, 45) + "‚Ä¶" : pub.title;
+        const title =
+          pub.title.length > 60
+            ? pub.title.substring(0, 60) + "..."
+            : pub.title;
         const mainTheme = extractMainTheme(pub.tags);
         const color = getColorForTags(pub.tags);
 
-        themesInData.add(mainTheme);
+        themes.add(mainTheme);
 
         nodes.push({
           data: {
             id: pub.id,
-            label,
+            label: title,
             fullTitle: pub.title,
             year: pub.year,
             journal: pub.journal,
@@ -128,69 +125,45 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
             authors: pub.authors || [],
             tags: pub.tags || [],
             theme: mainTheme,
-            color,
           },
           classes: "pub",
+          style: {
+            "background-color": color,
+          },
         });
       });
 
-      const themes = Array.from(themesInData);
-      const themeIdMap = {};
-
-      themes.forEach((theme) => {
-        const themeId = `theme-${slugify(theme)}`;
+      // Theme hub nodes (cluster anchors)
+      Array.from(themes).forEach((theme, index) => {
+        const themeId = `theme-${slugifyTheme(theme) || index}`;
         themeIdMap[theme] = themeId;
 
         nodes.push({
           data: {
             id: themeId,
             label: theme,
-            color: themeColors[theme] || themeColors.Other,
+            theme,
           },
           classes: "theme",
-          selectable: false,
-          grabbable: false,
+          style: {
+            "background-color": themeColors[theme] || "#9ca3af",
+          },
         });
       });
 
-      const cols = Math.ceil(Math.sqrt(themes.length));
-      const rows = Math.ceil(themes.length / cols);
-      const padding = 120;
-      const gapX = cols > 1 ? (width - padding * 2) / (cols - 1) : 0;
-      const gapY = rows > 1 ? (height - padding * 2) / (rows - 1) : 0;
-
-      themes.forEach((theme, index) => {
-        const themeId = themeIdMap[theme];
-        const col = index % cols;
-        const row = Math.floor(index / cols);
-        const center = {
-          x: padding + gapX * col,
-          y: padding + gapY * row,
-        };
-
-        const themeNode = nodes.find((n) => n.data.id === themeId);
-        themeNode.position = center;
-        themeNode.locked = true;
-
-        nodes.forEach((n) => {
-          if (n.classes !== "pub") return;
-          if (n.data.theme !== theme) return;
-
-          n.position = {
-            x: center.x + (Math.random() - 0.5) * 220,
-            y: center.y + (Math.random() - 0.5) * 220,
-          };
-
-          edges.push({
-            data: {
-              source: themeId,
-              target: n.data.id,
-              type: "theme-anchor",
-            },
-          });
+      // Theme edges: pub -> theme hub
+      data.forEach((pub) => {
+        const mainTheme = extractMainTheme(pub.tags);
+        edges.push({
+          data: {
+            source: pub.id,
+            target: themeIdMap[mainTheme],
+            type: "theme-link",
+          },
         });
       });
 
+      // Co-author edges
       for (let i = 0; i < data.length; i++) {
         for (let j = i + 1; j < data.length; j++) {
           const pubA = data[i];
@@ -221,152 +194,182 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
         }
       }
 
+      // Degree (co-author only)
+      const degreeMap = {};
+      edges.forEach((edge) => {
+        if (edge.data.type !== "co-author") return;
+        degreeMap[edge.data.source] = (degreeMap[edge.data.source] || 0) + 1;
+        degreeMap[edge.data.target] = (degreeMap[edge.data.target] || 0) + 1;
+      });
+
+      nodes.forEach((node) => {
+        if (node.classes !== "pub") return;
+        node.data.degree = degreeMap[node.data.id] || 0;
+      });
+
       const cy = cytoscape({
-        container,
+        container: document.getElementById("cytoscape"),
         elements: [...nodes, ...edges],
         style: [
           {
             selector: "node.pub",
             style: {
               label: "",
-              width: 22,
-              height: 22,
-              "background-color": "data(color)",
-              "background-opacity": 0.95,
-              "border-width": 1.5,
+              "text-opacity": 0,
+              "font-size": 10,
+              "text-valign": "center",
+              "text-halign": "center",
+              width: "mapData(degree, 0, 8, 20, 36)",
+              height: "mapData(degree, 0, 8, 20, 36)",
+              "border-width": 2,
               "border-color": "#0f172a",
-              "text-valign": "bottom",
-              "text-margin-y": 6,
-              "font-size": 9,
-              color: "#0f172a",
-              "text-opacity": 0.9,
+              "background-opacity": 0.85,
+              cursor: "pointer",
             },
           },
           {
             selector: "node.theme",
             style: {
               label: "data(label)",
-              shape: "round-rectangle",
-              width: 140,
-              height: 60,
-              "background-color": "data(color)",
-              "background-opacity": 0.12,
-              "border-width": 2,
-              "border-color": "data(color)",
-              "font-size": 12,
-              "font-weight": 600,
-              color: "#0f172a",
+              "font-size": 13,
+              "font-weight": "bold",
+              "text-wrap": "wrap",
+              "text-max-width": 120,
               "text-valign": "center",
               "text-halign": "center",
+              width: 70,
+              height: 70,
+              "border-width": 2,
+              "border-color": "#1f2937",
+              "background-opacity": 0.95,
+              cursor: "default",
             },
           },
           {
             selector: "node.pub:hover, node.pub:selected",
             style: {
               label: "data(label)",
+              "text-opacity": 1,
               "text-wrap": "wrap",
-              "text-max-width": 110,
+              "text-max-width": 130,
               "text-background-color": "#ffffff",
-              "text-background-opacity": 0.85,
-              "text-background-padding": 3,
+              "text-background-opacity": 0.9,
+              "text-background-padding": 4,
               "text-background-shape": "round-rectangle",
               "border-width": 3,
-              "border-color": "#f59e0b",
+              "border-color": "#fbbf24",
             },
           },
           {
             selector: "edge",
             style: {
-              width: 1.5,
-              opacity: 0.35,
+              width: "mapData(weight, 1, 5, 1, 3)",
+              opacity: 0.3,
               "curve-style": "bezier",
+              "line-color": "#cbd5e1",
+            },
+          },
+          {
+            selector: 'edge[type = "theme-link"]',
+            style: {
               "line-color": "#94a3b8",
+              "line-style": "dashed",
+              opacity: 0.25,
+              width: 1,
             },
           },
           {
             selector: 'edge[type = "co-author"]',
             style: {
-              width: "mapData(weight, 1, 5, 1.5, 3.5)",
-              "line-color": "#0ea5e9",
-              opacity: 0.45,
-            },
-          },
-          {
-            selector: 'edge[type = "theme-anchor"]',
-            style: {
-              opacity: 0,
+              "line-color": "#06b6d4",
+              opacity: 0.5,
             },
           },
         ],
         layout: {
-          name: "cola",
+          name: "cose",
+          directed: false,
           animate: true,
-          animationDuration: 800,
+          animationDuration: 900,
           avoidOverlap: true,
-          nodeDimensionsIncludeLabels: false,
-          handleDisconnected: true,
-          randomize: false,
-          nodeSpacing: 20,
-          edgeLength: (edge) =>
-            edge.data("type") === "theme-anchor" ? 220 : 120,
+          nodeOverlap: 6,
+          nodeSpacing: 35,
+          nodeDimensionsIncludeLabels: true,
+          nodeRepulsion: (node) => {
+            if (node.hasClass("theme")) return 14000;
+            const degree = node.data("degree") || 0;
+            return 6500 + degree * 350;
+          },
+          idealEdgeLength: (edge) => {
+            const type = edge.data("type");
+            if (type === "co-author") return 140;
+            if (type === "theme-link") return 260;
+            return 180;
+          },
+          edgeElasticity: 0.1,
+          gravity: 0.08,
+          numIter: 3000,
+          initialTemp: 200,
+          coolingFactor: 0.99,
+          randomize: true,
+          fit: true,
+          padding: 50,
         },
       });
 
-      cy.one("layoutstop", () => {
-        cy.fit(cy.elements(), 60);
-      });
-
+      // Click to open PubMed/DOI
       cy.on("tap", "node.pub", function (evt) {
         const node = evt.target;
         const data = node.data();
-
         const pmid = data.pmid || "";
         const doi = data.doi || "";
 
         let url = "";
-        if (pmid && pmid.length > 0) {
+        if (pmid) {
           url = `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
-        } else if (doi && doi.length > 0) {
+        } else if (doi) {
           url = `https://doi.org/${doi}`;
+        }
+
+        if (url) {
+          window.open(url, "_blank");
         }
 
         const infoPanel = document.getElementById("info-panel");
         document.getElementById("info-title").textContent = data.fullTitle;
         document.getElementById("info-details").innerHTML = `
-          <strong>Theme:</strong> <span style="color: ${getColorForTags(
-            data.tags
-          )}">‚óè</span> ${data.theme}<br>
-          <strong>Authors:</strong> ${data.authors.slice(0, 3).join(", ")}$
-          {data.authors.length > 3 ? ` +${data.authors.length - 3} more` : ""}<br>
+          <strong>Authors:</strong> ${data.authors.join(", ")}<br>
           <strong>Journal:</strong> ${data.journal}<br>
           <strong>Year:</strong> ${data.year}<br>
           <strong>Tags:</strong> ${data.tags.join(", ")}
         `;
 
-        if (pmid && pmid.length > 0) {
+        if (pmid) {
           document.getElementById("info-link").href =
             `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`;
           document.getElementById("info-link").textContent = "View on PubMed";
-          document.getElementById("info-link").style.display = "inline-block";
-        } else if (doi && doi.length > 0) {
+        } else if (doi) {
           document.getElementById("info-link").href = `https://doi.org/${doi}`;
           document.getElementById("info-link").textContent = "View on DOI";
-          document.getElementById("info-link").style.display = "inline-block";
-        } else {
-          document.getElementById("info-link").style.display = "none";
         }
 
         infoPanel.style.display = "block";
-
-        if (url) {
-          window.open(url, "_blank");
-        }
       });
 
-      cy.on("tap", (evt) => {
-        if (evt.target === cy) {
-          document.getElementById("info-panel").style.display = "none";
-        }
+      // Hover tooltip (pub nodes only)
+      cy.on("mouseover", "node.pub", function (evt) {
+        const node = evt.target;
+        const data = node.data();
+        const label =
+          data.fullTitle.length > 70
+            ? data.fullTitle.substring(0, 70) + "..."
+            : data.fullTitle;
+        node.style("label", label);
+      });
+
+      cy.on("mouseout", "node.pub", function (evt) {
+        const node = evt.target;
+        node.style("label", "");
       });
     })
     .catch((err) => console.error("Error loading publications:", err));

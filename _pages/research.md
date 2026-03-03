@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Research Hub
-permalink: /research/
+title: Publications
+permalink: /publications/
 nav: true
 nav_order: 3
 ---
@@ -149,8 +149,8 @@ details. Node size reflects publication year, and edges connect co-authored pape
         "text-background-opacity": 1,
         "text-background-padding": 3,
         "text-background-shape": "round-rectangle",
-        width: 22,
-        height: 22,
+        width: 26,
+        height: 26,
         "border-width": 1,
         "border-color": "#94a3b8",
       },
@@ -203,8 +203,8 @@ details. Node size reflects publication year, and edges connect co-authored pape
     randomize: true,
   },
 });
-      const floatSpeed = 0.08;
-const jitter = 0.015;
+      const floatSpeed = 0.02;
+const jitter = 0.004;
 
 const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
 
@@ -240,12 +240,26 @@ function floatTick() {
 
 floatTick();
       // Add hover tooltip
-      cy.on("mouseover", "node", function (evt) {
-        const node = evt.target;
-        if (node.id().startsWith("year")) return;
-        const data = node.data();
-        console.log(data);
-      });
+      cy.on("tap", "node", function (evt) {
+  const node = evt.target;
+
+  // ignore year nodes
+  if (node.id().startsWith("year-")) return;
+
+  const data = node.data();
+  const pmid = data.pmid || "";
+  const doi = data.doi || "";
+  const url =
+    data.url ||
+    (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` :
+     doi ? `https://doi.org/${doi}` : "");
+
+  if (url) {
+    window.open(url, "_blank");
+  } else {
+    console.log("No link found for:", data);
+  }
+});
     })
     .catch((err) => console.error("Error loading publications:", err));
 </script>

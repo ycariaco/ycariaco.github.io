@@ -155,7 +155,7 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
 
       const cols = Math.ceil(Math.sqrt(themes.length));
       const rows = Math.ceil(themes.length / cols);
-      const padding = 120;
+      const padding = 140;
       const gapX = cols > 1 ? (width - padding * 2) / (cols - 1) : 0;
       const gapY = rows > 1 ? (height - padding * 2) / (rows - 1) : 0;
 
@@ -209,12 +209,16 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
           );
 
           if (commonAuthors.length > 0) {
+            const themeA = extractMainTheme(pubA.tags);
+            const themeB = extractMainTheme(pubB.tags);
+
             edges.push({
               data: {
                 source: pubA.id,
                 target: pubB.id,
                 weight: commonAuthors.length,
                 type: "co-author",
+                sameTheme: themeA === themeB ? 1 : 0,
               },
             });
           }
@@ -229,8 +233,8 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
             selector: "node.pub",
             style: {
               label: "",
-              width: 22,
-              height: 22,
+              width: 20,
+              height: 20,
               "background-color": "data(color)",
               "background-opacity": 0.95,
               "border-width": 1.5,
@@ -247,8 +251,8 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
             style: {
               label: "data(label)",
               shape: "round-rectangle",
-              width: 140,
-              height: 60,
+              width: 150,
+              height: 64,
               "background-color": "data(color)",
               "background-opacity": 0.12,
               "border-width": 2,
@@ -267,7 +271,7 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
               "text-wrap": "wrap",
               "text-max-width": 110,
               "text-background-color": "#ffffff",
-              "text-background-opacity": 0.85,
+              "text-background-opacity": 0.9,
               "text-background-padding": 3,
               "text-background-shape": "round-rectangle",
               "border-width": 3,
@@ -278,17 +282,24 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
             selector: "edge",
             style: {
               width: 1.5,
-              opacity: 0.35,
+              opacity: 0.25,
               "curve-style": "bezier",
               "line-color": "#94a3b8",
             },
           },
           {
-            selector: 'edge[type = "co-author"]',
+            selector: 'edge[type = "co-author"][sameTheme = 1]',
             style: {
               width: "mapData(weight, 1, 5, 1.5, 3.5)",
               "line-color": "#0ea5e9",
               opacity: 0.45,
+            },
+          },
+          {
+            selector: 'edge[type = "co-author"][sameTheme = 0]',
+            style: {
+              opacity: 0.15,
+              "line-color": "#94a3b8",
             },
           },
           {
@@ -306,9 +317,12 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
           nodeDimensionsIncludeLabels: false,
           handleDisconnected: true,
           randomize: false,
-          nodeSpacing: 20,
-          edgeLength: (edge) =>
-            edge.data("type") === "theme-anchor" ? 220 : 120,
+          nodeSpacing: 28,
+          edgeLength: (edge) => {
+            if (edge.data("type") === "theme-anchor") return 240;
+            if (edge.data("sameTheme") === 1) return 90;
+            return 260;
+          },
         },
       });
 
@@ -336,8 +350,9 @@ Interactive visualization grouped by **research theme**. **Drag nodes** around‚Ä
           <strong>Theme:</strong> <span style="color: ${getColorForTags(
             data.tags
           )}">‚óè</span> ${data.theme}<br>
-          <strong>Authors:</strong> ${data.authors.slice(0, 3).join(", ")}$
-          {data.authors.length > 3 ? ` +${data.authors.length - 3} more` : ""}<br>
+          <strong>Authors:</strong> ${data.authors.slice(0, 3).join(", ")}${
+          data.authors.length > 3 ? ` +${data.authors.length - 3} more` : ""
+        }<br>
           <strong>Journal:</strong> ${data.journal}<br>
           <strong>Year:</strong> ${data.year}<br>
           <strong>Tags:</strong> ${data.tags.join(", ")}

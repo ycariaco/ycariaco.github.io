@@ -282,5 +282,26 @@
     "doi": "10.1016/j.ajpath.2025.03.004",
     "pmid": "",
     "tags": ["Gestational Malaria", "Macrophage Function", "Pregnancy Outcomes", "Immune Response"]
-  }
+  },
+  {
+  "id": "berrizbeitia_de_morgado_activity_2017",
+  "title": "Activity of Artemisia annua infusions on epimastigotes of Trypanosoma cruzi",
+  "authors": [
+    "Mariolga Berrizbeitia de Morgado",
+    "Yusmaris Cariaco Sifontes",
+    "José Imery Buiza",
+    "Pierre Lutgen"
+  ],
+  "year": 2017,
+  "journal": "Enferm Infecc Microbiol Clin",
+  "doi": "10.1016/j.eimc.2016.09.011",
+  "pmid": "27884407",
+  "tags": [
+    "Artemisia annua",
+    "Trypanosoma cruzi",
+    "Drug effects",
+    "Dose-Response Relationship, Drug",
+    "Plant Leaves",
+    "Time Factors"
+}
 ]

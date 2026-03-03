@@ -1,7 +1,7 @@
 ---
 layout: page
 permalink: /funding/
-title: Funding Agencies
+title: Funding
 nav: true
 nav_order: 4
 ---

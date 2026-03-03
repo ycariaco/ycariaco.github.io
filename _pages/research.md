@@ -6,8 +6,6 @@ nav: true
 nav_order: 3
 ---
 
-## Publications Network
-
 Interactive visualization of my research publications. **Drag nodes**, **zoom**, and **hover** for
 details. Node size reflects publication year, and edges connect co-authored papers.
 

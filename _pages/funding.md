@@ -6,8 +6,6 @@ nav: true
 nav_order: 4
 ---
 
-## Funding Agencies
-
 <div class="funders-grid">
   {% for f in site.data.funders %}
     <a class="funder-card" href="{{ f.url }}" target="_blank" rel="noopener">

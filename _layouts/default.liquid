@@ -13,34 +13,30 @@
       <meta http-equiv="refresh" content="3; url={{ redirect }}">
     {% endif %}
     {% include head.liquid %}
-    {% if page.url == '/research/' %}
-      <style>
-        #node-net {
-          position: fixed;
-          inset: 0;
-          width: 100%;
-          height: 100%;
-          pointer-events: none;
-          z-index: 0;
-        }
+    <style>
+      #node-net {
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 0;
+      }
 
-        header,
-        footer,
-        .container {
-          position: relative;
-          z-index: 1;
-        }
-      </style>
-    {% endif %}
+      header,
+      footer,
+      .container {
+        position: relative;
+        z-index: 1;
+      }
+    </style>
   </head>
 
   <!-- Body -->
   <body class="{% if site.navbar_fixed %}fixed-top-nav{% endif %} {% unless site.footer_fixed %}sticky-bottom-footer{% endunless %}">
     <!-- Header -->
     {% include header.liquid %}
-    {% if page.url == '/research/' %}
-      <canvas id="node-net" aria-hidden="true"></canvas>
-    {% endif %}
+    <canvas id="node-net" aria-hidden="true"></canvas>
 
     <!-- Content -->
     <div class="container mt-5" role="main">
@@ -73,9 +69,7 @@
     {% include footer.liquid %}
 
     <!-- JavaScripts -->
-    {% if page.url == '/research/' %}
-      <script defer src="{{ '/assets/js/node-net.js' | relative_url }}"></script>
-    {% endif %}
+    <script defer src="{{ '/assets/js/node-net.js' | relative_url }}"></script>
     {% include scripts.liquid %}
   </body>
 </html>

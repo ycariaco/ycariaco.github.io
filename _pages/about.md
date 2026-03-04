@@ -1,5 +1,5 @@
 ---
-layout: Bio
+layout: about
 title: Bio
 permalink: /
 subtitle: Associate Professor | <a href="https://sciences.uqam.ca/biologie/" target="_blank">Department of Biological Sciences, UQAM</a>

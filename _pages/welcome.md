@@ -26,21 +26,17 @@ nav_order: 1
   transform: translate(-50%, -50%);
   
   background: rgba(255,255,255,0.78);
-  padding: 35px 45px;
+  padding: 40px 50px;
   border-radius: 10px;
 
   text-align: center;
-  max-width: 650px;
-}
-
-.hero-text h1 {
-  font-size: 46px;
-  margin-bottom: 12px;
+  max-width: 700px;
 }
 
 .hero-text p {
-  font-size: 19px;
-  line-height: 1.5;
+  font-size: 26px;   /* bigger text */
+  font-style: italic; /* italic text */
+  line-height: 1.6;
 }
 </style>
 
@@ -50,9 +46,7 @@ nav_order: 1
 
 <div class="hero-text">
 
-# Cariaco Lab
-
-Decoding the placenta as an adaptive sensor of prenatal exposures through integrated multi-omics, experimental models, and computational biology to understand how maternal environments shape fetal development and long-term health.
+Our vision is to decode the placenta as an adaptive sensor of prenatal exposures through integrated multi-omics, experimental models, and computational biology to understand how maternal environments shape fetal development and long-term health.
 
 </div>
 

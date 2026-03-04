@@ -1,7 +1,7 @@
 ---
 layout: about
 title: Bio
-permalink: /
+permalink: /bio/
 subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
 nav_order: 2

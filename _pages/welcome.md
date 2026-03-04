@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Welcome
 permalink: /
 nav: true  
 nav_order: 1

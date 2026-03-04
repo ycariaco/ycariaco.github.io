@@ -2,7 +2,7 @@
 layout: page
 title: Welcome
 permalink: /
-nav: true
+nav: false
 nav_order: 1
 ---
 
@@ -66,6 +66,9 @@ nav_order: 1
 <img src="/assets/img/placenta_hero.png" class="hero-image">
 
 <div class="hero-text">
+
+<img src="/assets/img/placenta_hero.png" class="hero-image">
+
   <p>
     <strong>Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain<em>—and ultimately improve—<em>fetal outcomes<strong>
   </p>

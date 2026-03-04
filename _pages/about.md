@@ -3,6 +3,8 @@ layout: about
 title: Bio
 permalink: /
 subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
+nav: true
+nav_order: 2
 
 profile:
   align: right

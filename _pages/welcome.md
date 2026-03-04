@@ -1,7 +1,9 @@
 ---
 layout: default
 title: Welcome
-permalink: /
+permalink: /welcome/
+nav: true  
+nav_order: 1
 ---
 
 <style>

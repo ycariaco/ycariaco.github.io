@@ -3,6 +3,7 @@ layout: page
 title: Funding
 permalink: /funding/
 nav: true
+nav_order: 6
 ---
 
 <div class="funders-grid">

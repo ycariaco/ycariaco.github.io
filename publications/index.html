@@ -115,133 +115,159 @@
       console.log("Nodes:", nodes.length, "Edges:", edges.length);
 
       const cy = cytoscape({
-  container: document.getElementById("cytoscape"),
-  elements: [...nodes, ...edges],
-  style: [
-    {
-      selector: "node",
-      style: {
-        "background-color": "data(color)",
-        label: "",
-        "text-opacity": 0,
-        "font-size": 9,
-        "text-valign": "center",
-        "text-halign": "center",
-        "text-background-color": "rgba(255,255,255,0.9)",
-        "text-background-opacity": 1,
-        "text-background-padding": 3,
-        "text-background-shape": "round-rectangle",
-        width: 26,
-        height: 26,
-        "border-width": 1,
-        "border-color": "#94a3b8",
-      },
-    },
-    {
-      selector: 'node[id ^= "year"]',
-      style: {
-        "background-color": "#94a3b8",
-        label: "data(label)",
-        "text-opacity": 1,
-        width: 42,
-        height: 42,
-        "font-size": 12,
-        "font-weight": "bold",
-        "border-width": 2,
-        "border-color": "#475569",
-      },
-    },
-    {
-      selector: "node:hover",
-      style: {
-        label: "data(label)",
-        "text-opacity": 1,
-        "border-width": 2,
-        "border-color": "#64748b",
-      },
-    },
-    {
-      selector: "edge",
-      style: {
-        "line-color": "#cbd5e1",
-        width: "mapData(weight, 1, 5, 1, 3)",
-        opacity: 0.5,
-        "curve-style": "bezier",
-      },
-    },
-  ],
-  layout: {
-    name: "cose",
-    directed: false,
-    animate: true,
-    animationDuration: 600,
-    avoidOverlap: true,
-    nodeSpacing: 40,
-    nodeRepulsion: 9000,
-    idealEdgeLength: 160,
-    edgeElasticity: 0.2,
-    gravity: 0.08,
-    numIter: 2000,
-    randomize: true,
-  },
-});
+        container: document.getElementById("cytoscape"),
+        elements: [...nodes, ...edges],
+        style: [
+          {
+            selector: "node",
+            style: {
+              "background-color": "data(color)",
+              label: "",
+              "text-opacity": 0,
+              "font-size": 9,
+              "text-valign": "center",
+              "text-halign": "center",
+              "text-background-color": "rgba(255,255,255,0.9)",
+              "text-background-opacity": 1,
+              "text-background-padding": 3,
+              "text-background-shape": "round-rectangle",
+              width: 26,
+              height: 26,
+              "border-width": 1,
+              "border-color": "#94a3b8",
+            },
+          },
+          {
+            selector: 'node[id ^= "year"]',
+            style: {
+              "background-color": "#94a3b8",
+              label: "data(label)",
+              "text-opacity": 1,
+              width: 42,
+              height: 42,
+              "font-size": 12,
+              "font-weight": "bold",
+              "border-width": 2,
+              "border-color": "#475569",
+            },
+          },
+          {
+            selector: "node:hover",
+            style: {
+              label: "data(label)",
+              "text-opacity": 1,
+              "border-width": 2,
+              "border-color": "#64748b",
+            },
+          },
+          {
+            selector: "edge",
+            style: {
+              "line-color": "#cbd5e1",
+              width: "mapData(weight, 1, 5, 1, 3)",
+              opacity: 0.5,
+              "curve-style": "bezier",
+            },
+          },
+        ],
+        layout: {
+          name: "preset",
+        },
+      });
+
+      const yearsClock = Array.from(years).sort((a, b) => b - a);
+      const yearNodes = cy.nodes('[id ^= "year-"]');
+      const center = { x: cy.width() / 2, y: cy.height() / 2 };
+      const radius = Math.min(cy.width(), cy.height()) * 0.38;
+
+      yearsClock.forEach((year, i) => {
+        const angle = (i / yearsClock.length) * 2 * Math.PI - Math.PI / 2;
+        const node = cy.getElementById(`year-${year}`);
+        node.position({
+          x: center.x + radius * Math.cos(angle),
+          y: center.y + radius * Math.sin(angle),
+        });
+      });
+
+      yearNodes.lock();
+      yearNodes.grabbable(false);
+
+      cy.layout({
+        name: "cose",
+        directed: false,
+        animate: true,
+        animationDuration: 600,
+        avoidOverlap: true,
+        nodeSpacing: 40,
+        nodeRepulsion: 9000,
+        idealEdgeLength: 160,
+        edgeElasticity: 0.2,
+        gravity: 0.08,
+        numIter: 2000,
+        randomize: true,
+      }).run();
+
       const floatSpeed = 0.02;
-const jitter = 0.004;
+      const jitter = 0.004;
 
-const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
+      const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
 
-floating.forEach((n) => {
-  n.scratch("_v", {
-    vx: (Math.random() - 0.5) * floatSpeed,
-    vy: (Math.random() - 0.5) * floatSpeed,
-  });
-});
+      floating.forEach((n) => {
+        n.scratch("_v", {
+          vx: (Math.random() - 0.5) * floatSpeed,
+          vy: (Math.random() - 0.5) * floatSpeed,
+        });
+      });
 
-function floatTick() {
-  const w = cy.width();
-  const h = cy.height();
+      function floatTick() {
+        const w = cy.width();
+        const h = cy.height();
 
-  cy.batch(() => {
-    floating.forEach((n) => {
-      const v = n.scratch("_v");
-      v.vx += (Math.random() - 0.5) * jitter;
-      v.vy += (Math.random() - 0.5) * jitter;
+        cy.batch(() => {
+          floating.forEach((n) => {
+            const v = n.scratch("_v");
+            v.vx += (Math.random() - 0.5) * jitter;
+            v.vy += (Math.random() - 0.5) * jitter;
 
-      let x = n.position("x") + v.vx;
-      let y = n.position("y") + v.vy;
+            let x = n.position("x") + v.vx;
+            let y = n.position("y") + v.vy;
 
-      if (x < 0 || x > w) v.vx *= -1;
-      if (y < 0 || y > h) v.vy *= -1;
+            if (x < 0 || x > w) v.vx *= -1;
+            if (y < 0 || y > h) v.vy *= -1;
 
-      n.position({ x, y });
-    });
-  });
+            n.position({ x, y });
+          });
+        });
 
-  requestAnimationFrame(floatTick);
-}
+        requestAnimationFrame(floatTick);
+      }
 
-floatTick();
+      floatTick();
+
       // Add hover tooltip
       cy.on("tap", "node", function (evt) {
-  const node = evt.target;
+        const node = evt.target;
 
-  // ignore year nodes
-  if (node.id().startsWith("year-")) return;
+        // ignore year nodes
+        if (node.id().startsWith("year-")) return;
 
-  const data = node.data();
-  const pmid = data.pmid || "";
-  const doi = data.doi || "";
-  const url =
-    data.url ||
-    (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` :
-     doi ? `https://doi.org/${doi}` : "");
+        const data = node.data();
+        const pmid = data.pmid || "";
+        const doi = data.doi || "";
+        const url =
+          data.url ||
+          (pmid
+            ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
+            : doi
+              ? `https://doi.org/${doi}`
+              : "");
 
-  if (url) {
-    window.open(url, "_blank");
-  } else {
-    console.log("No link found for:", data);
-  }
-});
+        if (url) {
+          window.open(url, "_blank");
+        } else {
+          console.log("No link found for:", data);
+        }
+      });
     })
     .catch((err) => console.error("Error loading publications:", err));
 </script> </article> </div> </div> <footer class="fixed-bottom" role="contentinfo"> <div class="container mt-0"> © Copyright 2026 Yusmaris Cariaco. © 2026 Cariaco Lab — Université du Québec à Montréal (UQAM). Powered by <a href="https://jekyllrb.com/" rel="external nofollow noopener" target="_blank">Jekyll</a> and the <a href="https://github.com/alshedivat/al-folio" rel="external nofollow noopener" target="_blank">al-folio</a> theme. Last updated: March 04, 2026. </div> </footer> <script defer src="/assets/js/node-net.js"></script> <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script> <script src="/assets/js/bootstrap.bundle.min.js"></script> <script src="https://cdn.jsdelivr.net/npm/mdbootstrap@4.20.0/js/mdb.min.js" integrity="sha256-NdbiivsvWt7VYCt6hYNT3h/th9vSTL4EDWeGs5SN3DA=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/masonry-layout@4.2.2/dist/masonry.pkgd.min.js" integrity="sha256-Nn1q/fx0H7SNLZMQ5Hw5JLaTRZp0yILA/FRexe19VdI=" crossorigin="anonymous"></script> <script defer src="https://cdn.jsdelivr.net/npm/imagesloaded@5.0.0/imagesloaded.pkgd.min.js" integrity="sha256-htrLFfZJ6v5udOG+3kNLINIKh2gvoKqwEhHYfTTMICc=" crossorigin="anonymous"></script> <script defer src="/assets/js/masonry.js?v=a0db7e5d5c70cc3252b3138b0c91dcaf" type="text/javascript"></script> <script defer src="https://cdn.jsdelivr.net/npm/medium-zoom@1.1.0/dist/medium-zoom.min.js" integrity="sha256-ZgMyDAIYDYGxbcpJcfUnYwNevG/xi9OHKaR/8GK+jWc=" crossorigin="anonymous"></script> <script defer src="/assets/js/zoom.js?v=85ddb88934d28b74e78031fd54cf8308"></script> <script src="/assets/js/no_defer.js?v=2781658a0a2b13ed609542042a859126"></script> <script defer src="/assets/js/common.js?v=c15de51d4bb57887caa2c21988d97279"></script> <script defer src="/assets/js/copy_code.js?v=c8a01c11a92744d44b093fc3bda915df" type="text/javascript"></script> <script defer src="/assets/js/jupyter_new_tab.js?v=d9f17b6adc2311cbabd747f4538bb15f"></script> <script async src="https://d1bxh8uas1mnw7.cloudfront.net/assets/embed.js"></script> <script async src="https://badge.dimensions.ai/badge.js"></script> <script defer type="text/javascript" id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3.2.2/es5/tex-mml-chtml.js" integrity="sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI=" crossorigin="anonymous"></script> <script src="/assets/js/mathjax-setup.js?v=a5bb4e6a542c546dd929b24b8b236dfd"></script> <script defer src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6" crossorigin="anonymous"></script> <script defer src="/assets/js/progress-bar.js?v=2f30e0e6801ea8f5036fa66e1ab0a71a" type="text/javascript"></script> <script src="/assets/js/vanilla-back-to-top.min.js?v=f40d453793ff4f64e238e420181a1d17"></script> <script>

@@ -3,7 +3,7 @@ layout: page
 title: Publications
 permalink: /publications/
 nav: true
-nav_order: 3
+nav_order: 4
 ---
 
 Interactive visualization of my research publications. **Drag nodes**, **zoom**, and **hover** for

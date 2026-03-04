@@ -1,5 +1,5 @@
 ---
-layout: page
+layout: funding
 title: Funding
 permalink: /funding/
 nav: true

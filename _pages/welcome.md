@@ -67,8 +67,7 @@ nav_order: 1
 
 <div class="hero-text">
   <p>
-    Our vision is to decode the placenta as an adaptive sensor of prenatal exposures through integrated multi-omics, experimental
-    models, and computational biology to understand how maternal environments shape fetal development and long-term health.
+    <strong>Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain<em>—and ultimately improve—<em>fetal outcomes<strong>
   </p>
 </div>
 

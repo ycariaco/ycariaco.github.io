@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /funding/
 title: Funding
+permalink: /funding/
 nav: true
 nav_order: 5
 ---

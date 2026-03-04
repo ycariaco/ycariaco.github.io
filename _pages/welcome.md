@@ -44,7 +44,7 @@ permalink: /
 
 <div class="hero-container">
 
-<img src="/assets/img/placenta_hero.jpg" class="hero-image">
+<img src="/assets/img/placenta_hero.png" class="hero-image">
 
 <div class="hero-text">
 

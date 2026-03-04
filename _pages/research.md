@@ -131,133 +131,159 @@ details. Node size reflects publication year, and edges connect co-authored pape
       console.log("Nodes:", nodes.length, "Edges:", edges.length);
 
       const cy = cytoscape({
-  container: document.getElementById("cytoscape"),
-  elements: [...nodes, ...edges],
-  style: [
-    {
-      selector: "node",
-      style: {
-        "background-color": "data(color)",
-        label: "",
-        "text-opacity": 0,
-        "font-size": 9,
-        "text-valign": "center",
-        "text-halign": "center",
-        "text-background-color": "rgba(255,255,255,0.9)",
-        "text-background-opacity": 1,
-        "text-background-padding": 3,
-        "text-background-shape": "round-rectangle",
-        width: 26,
-        height: 26,
-        "border-width": 1,
-        "border-color": "#94a3b8",
-      },
-    },
-    {
-      selector: 'node[id ^= "year"]',
-      style: {
-        "background-color": "#94a3b8",
-        label: "data(label)",
-        "text-opacity": 1,
-        width: 42,
-        height: 42,
-        "font-size": 12,
-        "font-weight": "bold",
-        "border-width": 2,
-        "border-color": "#475569",
-      },
-    },
-    {
-      selector: "node:hover",
-      style: {
-        label: "data(label)",
-        "text-opacity": 1,
-        "border-width": 2,
-        "border-color": "#64748b",
-      },
-    },
-    {
-      selector: "edge",
-      style: {
-        "line-color": "#cbd5e1",
-        width: "mapData(weight, 1, 5, 1, 3)",
-        opacity: 0.5,
-        "curve-style": "bezier",
-      },
-    },
-  ],
-  layout: {
-    name: "cose",
-    directed: false,
-    animate: true,
-    animationDuration: 600,
-    avoidOverlap: true,
-    nodeSpacing: 40,
-    nodeRepulsion: 9000,
-    idealEdgeLength: 160,
-    edgeElasticity: 0.2,
-    gravity: 0.08,
-    numIter: 2000,
-    randomize: true,
-  },
-});
+        container: document.getElementById("cytoscape"),
+        elements: [...nodes, ...edges],
+        style: [
+          {
+            selector: "node",
+            style: {
+              "background-color": "data(color)",
+              label: "",
+              "text-opacity": 0,
+              "font-size": 9,
+              "text-valign": "center",
+              "text-halign": "center",
+              "text-background-color": "rgba(255,255,255,0.9)",
+              "text-background-opacity": 1,
+              "text-background-padding": 3,
+              "text-background-shape": "round-rectangle",
+              width: 26,
+              height: 26,
+              "border-width": 1,
+              "border-color": "#94a3b8",
+            },
+          },
+          {
+            selector: 'node[id ^= "year"]',
+            style: {
+              "background-color": "#94a3b8",
+              label: "data(label)",
+              "text-opacity": 1,
+              width: 42,
+              height: 42,
+              "font-size": 12,
+              "font-weight": "bold",
+              "border-width": 2,
+              "border-color": "#475569",
+            },
+          },
+          {
+            selector: "node:hover",
+            style: {
+              label: "data(label)",
+              "text-opacity": 1,
+              "border-width": 2,
+              "border-color": "#64748b",
+            },
+          },
+          {
+            selector: "edge",
+            style: {
+              "line-color": "#cbd5e1",
+              width: "mapData(weight, 1, 5, 1, 3)",
+              opacity: 0.5,
+              "curve-style": "bezier",
+            },
+          },
+        ],
+        layout: {
+          name: "preset",
+        },
+      });
+
+      const yearsClock = Array.from(years).sort((a, b) => b - a);
+      const yearNodes = cy.nodes('[id ^= "year-"]');
+      const center = { x: cy.width() / 2, y: cy.height() / 2 };
+      const radius = Math.min(cy.width(), cy.height()) * 0.38;
+
+      yearsClock.forEach((year, i) => {
+        const angle = (i / yearsClock.length) * 2 * Math.PI - Math.PI / 2;
+        const node = cy.getElementById(`year-${year}`);
+        node.position({
+          x: center.x + radius * Math.cos(angle),
+          y: center.y + radius * Math.sin(angle),
+        });
+      });
+
+      yearNodes.lock();
+      yearNodes.grabbable(false);
+
+      cy.layout({
+        name: "cose",
+        directed: false,
+        animate: true,
+        animationDuration: 600,
+        avoidOverlap: true,
+        nodeSpacing: 40,
+        nodeRepulsion: 9000,
+        idealEdgeLength: 160,
+        edgeElasticity: 0.2,
+        gravity: 0.08,
+        numIter: 2000,
+        randomize: true,
+      }).run();
+
       const floatSpeed = 0.02;
-const jitter = 0.004;
+      const jitter = 0.004;
 
-const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
+      const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
 
-floating.forEach((n) => {
-  n.scratch("_v", {
-    vx: (Math.random() - 0.5) * floatSpeed,
-    vy: (Math.random() - 0.5) * floatSpeed,
-  });
-});
+      floating.forEach((n) => {
+        n.scratch("_v", {
+          vx: (Math.random() - 0.5) * floatSpeed,
+          vy: (Math.random() - 0.5) * floatSpeed,
+        });
+      });
 
-function floatTick() {
-  const w = cy.width();
-  const h = cy.height();
+      function floatTick() {
+        const w = cy.width();
+        const h = cy.height();
 
-  cy.batch(() => {
-    floating.forEach((n) => {
-      const v = n.scratch("_v");
-      v.vx += (Math.random() - 0.5) * jitter;
-      v.vy += (Math.random() - 0.5) * jitter;
+        cy.batch(() => {
+          floating.forEach((n) => {
+            const v = n.scratch("_v");
+            v.vx += (Math.random() - 0.5) * jitter;
+            v.vy += (Math.random() - 0.5) * jitter;
 
-      let x = n.position("x") + v.vx;
-      let y = n.position("y") + v.vy;
+            let x = n.position("x") + v.vx;
+            let y = n.position("y") + v.vy;
 
-      if (x < 0 || x > w) v.vx *= -1;
-      if (y < 0 || y > h) v.vy *= -1;
+            if (x < 0 || x > w) v.vx *= -1;
+            if (y < 0 || y > h) v.vy *= -1;
 
-      n.position({ x, y });
-    });
-  });
+            n.position({ x, y });
+          });
+        });
 
-  requestAnimationFrame(floatTick);
-}
+        requestAnimationFrame(floatTick);
+      }
 
-floatTick();
+      floatTick();
+
       // Add hover tooltip
       cy.on("tap", "node", function (evt) {
-  const node = evt.target;
+        const node = evt.target;
 
-  // ignore year nodes
-  if (node.id().startsWith("year-")) return;
+        // ignore year nodes
+        if (node.id().startsWith("year-")) return;
 
-  const data = node.data();
-  const pmid = data.pmid || "";
-  const doi = data.doi || "";
-  const url =
-    data.url ||
-    (pmid ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` :
-     doi ? `https://doi.org/${doi}` : "");
+        const data = node.data();
+        const pmid = data.pmid || "";
+        const doi = data.doi || "";
+        const url =
+          data.url ||
+          (pmid
+            ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
+            : doi
+              ? `https://doi.org/${doi}`
+              : "");
 
-  if (url) {
-    window.open(url, "_blank");
-  } else {
-    console.log("No link found for:", data);
-  }
-});
+        if (url) {
+          window.open(url, "_blank");
+        } else {
+          console.log("No link found for:", data);
+        }
+      });
     })
     .catch((err) => console.error("Error loading publications:", err));
 </script>

@@ -1,19 +1,13 @@
 ---
-layout: about
-title: about
+layout: Bio
+title: Bio
 permalink: /
-subtitle: Associate Professor | Department of Biological Sciences | Université du Québec à Montréal (UQAM)
+subtitle: Associate Professor | <a href="https://sciences.uqam.ca/biologie/" target="_blank">Department of Biological Sciences, UQAM</a>
 
 profile:
   align: right
   image: prof_pic.jpg
   image_circular: false
-  more_info: >
-    <p>Department of Biological Sciences</p>
-    <p>Université du Québec à Montréal</p>
-    <p>141 Avenue du Président-Kennedy</p>
-    <p>Montréal, QC H2X 1Y4</p>
-    <p>Canada</p>
 
 selected_papers: true
 social: true

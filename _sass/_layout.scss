@@ -33,6 +33,21 @@ body.sticky-bottom-footer {
   max-width: v.$max-content-width;
 }
 
+// Opaque content panel so the node-net background stays behind text
+.post {
+  position: relative;
+  background: var(--global-card-bg-color);
+  border: 1px solid var(--global-divider-color);
+  border-radius: 16px;
+  padding: 2rem;
+}
+
+@media (max-width: 576px) {
+  .post {
+    padding: 1.25rem;
+  }
+}
+
 // Profile
 .profile {
   img {

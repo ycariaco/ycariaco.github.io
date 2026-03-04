@@ -4,7 +4,8 @@
     <div class="container">
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% if site.title == 'blank' %}
+          {% assign brand_title = site.nav_title | default: site.title %}
+          {% if brand_title == 'blank' %}
             {% if site.first_name %}
               <span class="font-weight-bold">
                 {{- site.first_name -}}
@@ -17,7 +18,7 @@
               {{- site.last_name -}}
             {% endif %}
           {% else %}
-            {{- site.title -}}
+            {{- brand_title -}}
           {% endif %}
         </a>
       {% elsif site.enable_navbar_social %}

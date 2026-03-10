@@ -1,6 +1,5 @@
 ---
 layout: page
-title: Albert Einstein
 permalink: /people/einstein/
 ---
 <h1 class="profile-name">Albert Einstein</h1>

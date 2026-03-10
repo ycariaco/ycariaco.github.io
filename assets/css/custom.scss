@@ -1,3 +1,4 @@
+<style>
 .team-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -14,29 +15,10 @@
   padding: 16px;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
-}
-
-.team-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
-  border-color: #e91e63;
-}
-
-.team-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 12px;
-  display: block;
-  margin-bottom: 12px;
-}
-
-.team-name {
-  margin: 8px 0 4px;
 }
 
 .team-position {
-  margin: 0;
-  color: #e91e63; /* replace with your site’s pink if different */
+  color: #e91e63;
   font-weight: 600;
 }
+</style>

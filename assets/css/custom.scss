@@ -41,7 +41,21 @@
 }
 
 .team-position {
-  color: var(--global-theme-color);
   font-size: 14px;
   margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Role colors */
+
+.team-position.postdoc {
+  color: var(--global-theme-color);
+}
+
+.team-position.phd {
+  color: #5a6df0;
+}
+
+.team-position.ra {
+  color: #e83e8c;
 }

@@ -2,10 +2,23 @@
   margin-top: 12px;
 }
 
+/* 2x3 on desktop, 2x? on tablet, 1x on mobile */
 .team-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 24px;
+}
+
+@media (max-width: 900px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(220px, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 .team-card {
@@ -50,17 +63,17 @@
   gap: 8px;
 }
 
+/* remove the pink line before position */
 .team-position::before {
-  content: "|";
-  color: #e91e63;
-  font-weight: 700;
+  content: none;
 }
 
 .alumni-section {
-  margin-top: 40px;
+  margin-top: 32px;
 }
 
 .alumni-box {
+  width: 100%;
   background: #fff7fb;
   border: 1px solid rgba(233, 30, 99, 0.25);
   border-radius: 14px;

@@ -30,3 +30,12 @@ nav_order: 4
 
 </div>
 </div>
+<div class="alumni-section">
+  <h2 class="section-title">Alumni</h2>
+  <div class="alumni-box">
+    <ul class="alumni-list">
+      <li>Jane Doe — Former PhD Student (2020–2024)</li>
+      <li>John Smith — Former Postdoc (2018–2021)</li>
+    </ul>
+  </div>
+</div>

@@ -82,6 +82,22 @@
     >
       <circle cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
 
+{% if node.icon %}
+  {% assign icon_size = node.icon_size | default: 20 %}
+  {% assign icon_half = icon_size | divided_by: 2 %}
+  {% assign icon_x = node.x | minus: icon_half %}
+  {% assign icon_y = node.y | minus: icon_half %}
+  <image
+    class="rs-icon"
+    href="{{ node.icon | relative_url }}"
+    x="{{ icon_x }}"
+    y="{{ icon_y }}"
+    width="{{ icon_size }}"
+    height="{{ icon_size }}"
+    preserveAspectRatio="xMidYMid meet"
+  />
+{% endif %}
+
       {% assign parts = node.label | split: " / " %}
       <text class="rs-label" x="{{ label_x }}" y="{{ label_y }}" text-anchor="{{ label_anchor }}">
         {% for part in parts %}

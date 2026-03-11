@@ -1,11 +1,33 @@
-<section class="research-streams" id="research-streams" data-default="placenta">
+<section class="research-streams dark" id="research-streams" data-default="placenta">
   <div class="rs-header">Research Streams</div>
 
   <div class="rs-wrap">
-    <svg class="rs-svg" viewBox="0 0 900 420" role="img" aria-label="Research streams diagram">
-      <text class="rs-col-title" x="120" y="24">Prenatal exposures</text>
-      <text class="rs-col-title" x="430" y="24" text-anchor="middle">Placenta health &amp; fetal development</text>
-      <text class="rs-col-title" x="760" y="24" text-anchor="middle">Analytical tools</text>
+    <svg class="rs-svg" viewBox="0 0 1100 600" role="img" aria-label="Research streams diagram">
+      <defs>
+        <filter id="rs-glow" x="-50%" y="-50%" width="200%" height="200%">
+          <feGaussianBlur stdDeviation="6" result="blur"/>
+          <feMerge>
+            <feMergeNode in="blur"/>
+            <feMergeNode in="SourceGraphic"/>
+          </feMerge>
+        </filter>
+      </defs>
+
+      <rect x="12" y="12" width="1076" height="576" rx="18" class="rs-bg"/>
+
+      <text class="rs-col-title exposure" x="140" y="48">Prenatal exposures</text>
+      <text class="rs-col-title core" x="550" y="48" text-anchor="middle">Placenta health &amp; fetal development</text>
+      <text class="rs-col-title tools" x="940" y="48" text-anchor="middle">Analytical tools</text>
+
+      <!-- center image -->
+      <image
+        href="{{ '/assets/img/research/placenta.png' | relative_url }}"
+        x="430"
+        y="165"
+        width="240"
+        height="210"
+        preserveAspectRatio="xMidYMid meet"
+      />
 
       {% assign nodes = site.data.research_streams.nodes %}
       {% assign links = site.data.research_streams.links %}
@@ -14,19 +36,32 @@
         {% assign from_node = nodes | where: "id", link.from | first %}
         {% assign to_node = nodes | where: "id", link.to | first %}
         {% if from_node and to_node %}
-          <line
+          {% assign c1x = from_node.x | plus: 140 %}
+          {% assign c2x = to_node.x | minus: 140 %}
+          <path
             class="rs-link"
             data-from="{{ link.from }}"
             data-to="{{ link.to }}"
-            x1="{{ from_node.x }}"
-            y1="{{ from_node.y }}"
-            x2="{{ to_node.x }}"
-            y2="{{ to_node.y }}"
-          ></line>
+            d="M {{ from_node.x }} {{ from_node.y }} C {{ c1x }} {{ from_node.y }}, {{ c2x }} {{ to_node.y }}, {{ to_node.x }} {{ to_node.y }}"
+          ></path>
         {% endif %}
       {% endfor %}
 
       {% for node in nodes %}
+        {% assign label_x = node.x %}
+        {% assign label_y = node.y | plus: 4 %}
+        {% assign label_anchor = "middle" %}
+
+        {% if node.group == "exposure" %}
+          {% assign label_x = node.x | plus: 60 %}
+          {% assign label_anchor = "start" %}
+        {% elsif node.group == "tool" or node.group == "integration" %}
+          {% assign label_x = node.x | minus: 60 %}
+          {% assign label_anchor = "end" %}
+        {% elsif node.group == "core" %}
+          {% assign label_y = node.y | plus: 56 %}
+        {% endif %}
+
         <g
           class="rs-node group-{{ node.group }}"
           data-id="{{ node.id }}"
@@ -35,11 +70,12 @@
           tabindex="0"
           aria-pressed="false"
         >
-          <circle cx="{{ node.x }}" cy="{{ node.y }}" r="28"></circle>
+          <circle cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
+
           {% assign parts = node.label | split: " / " %}
-          <text class="rs-label" x="{{ node.x }}" y="{{ node.y }}" text-anchor="middle" dominant-baseline="middle">
+          <text class="rs-label" x="{{ label_x }}" y="{{ label_y }}" text-anchor="{{ label_anchor }}">
             {% for part in parts %}
-              <tspan x="{{ node.x }}" dy="{% if forloop.first %}0{% else %}1.1em{% endif %}">{{ part }}</tspan>
+              <tspan x="{{ label_x }}" dy="{% if forloop.first %}0{% else %}1.2em{% endif %}">{{ part }}</tspan>
             {% endfor %}
           </text>
         </g>
@@ -49,6 +85,7 @@
     <div class="rs-panel" id="rs-panel">
       <div class="rs-title">Hover or tap a stream</div>
       <div class="rs-body">Details appear here.</div>
+      <div class="rs-hint">Click to lock on mobile. Click another to switch.</div>
     </div>
   </div>
 </section>
@@ -63,7 +100,9 @@
   const nodes = root.querySelectorAll(".rs-node");
   const links = root.querySelectorAll(".rs-link");
 
-  function activate(node) {
+  let locked = null;
+
+  function setActive(node) {
     const id = node.dataset.id;
     panelTitle.textContent = node.textContent.trim().replace(/\s+/g, " ");
     panelBody.textContent = node.dataset.desc || "";
@@ -78,18 +117,31 @@
   }
 
   nodes.forEach(n => {
-    n.addEventListener("mouseenter", () => activate(n));
-    n.addEventListener("click", () => activate(n));
+    n.addEventListener("mouseenter", () => {
+      if (locked) return;
+      setActive(n);
+    });
+
+    n.addEventListener("click", () => {
+      if (locked === n) {
+        locked = null;
+        return;
+      }
+      locked = n;
+      setActive(n);
+    });
+
     n.addEventListener("keydown", (e) => {
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
-        activate(n);
+        locked = n;
+        setActive(n);
       }
     });
   });
 
   const defaultId = root.dataset.default;
   const defaultNode = root.querySelector(`.rs-node[data-id="${defaultId}"]`) || nodes[0];
-  if (defaultNode) activate(defaultNode);
+  if (defaultNode) setActive(defaultNode);
 })();
 </script>

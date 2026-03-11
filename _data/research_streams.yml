@@ -1,0 +1,90 @@
+nodes:
+  - id: metabolic
+    label: "Metabolic stress / weight-loss drugs"
+    group: exposure
+    x: 120
+    y: 70
+    desc: "Metabolic dysregulation and weight-loss drugs reshape placental energetics and signaling."
+
+  - id: psychoactive
+    label: "Psychoactive drugs"
+    group: exposure
+    x: 120
+    y: 150
+    desc: "Opioids and cannabis alter immune and neurodevelopmental pathways."
+
+  - id: environmental
+    label: "Environmental contaminants"
+    group: exposure
+    x: 120
+    y: 230
+    desc: "Microplastics and pollutants disrupt placental barrier and endocrine function."
+
+  - id: infectious
+    label: "Infectious diseases"
+    group: exposure
+    x: 120
+    y: 310
+    desc: "Protozoan infections drive inflammatory programming in pregnancy."
+
+  - id: placenta
+    label: "Placenta health / fetal development"
+    group: core
+    x: 430
+    y: 210
+    desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
+
+  - id: pathomics
+    label: "Pathomics"
+    group: tool
+    x: 760
+    y: 80
+    desc: "Spatial pathology and imaging quantify tissue‑level change."
+
+  - id: transcriptomics
+    label: "Transcriptomics"
+    group: tool
+    x: 760
+    y: 160
+    desc: "RNA profiling identifies dysregulated pathways."
+
+  - id: proteomics
+    label: "Proteomics"
+    group: tool
+    x: 760
+    y: 240
+    desc: "Protein signatures of stress, inflammation, and repair."
+
+  - id: metabolomics
+    label: "Metabolomics"
+    group: tool
+    x: 760
+    y: 320
+    desc: "Metabolic rewiring and biomarker discovery."
+
+  - id: integration
+    label: "Multi‑omics integration"
+    group: integration
+    x: 760
+    y: 390
+    desc: "AI‑driven integration links exposures to outcomes across scales."
+
+links:
+  - from: metabolic
+    to: placenta
+  - from: psychoactive
+    to: placenta
+  - from: environmental
+    to: placenta
+  - from: infectious
+    to: placenta
+  - from: placenta
+    to: pathomics
+  - from: placenta
+    to: transcriptomics
+  - from: placenta
+    to: proteomics
+  - from: placenta
+    to: metabolomics
+  - from: placenta
+    to: integration

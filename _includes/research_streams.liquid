@@ -1,15 +1,49 @@
-<!-- /Users/yusmariscariaco/Documents/New project/_includes/research_streams.liquid -->
-<section class="research-streams" id="research-streams">
+<section class="research-streams" id="research-streams" data-default="placenta">
   <div class="rs-header">Research Streams</div>
+
   <div class="rs-wrap">
     <svg class="rs-svg" viewBox="0 0 900 420" role="img" aria-label="Research streams diagram">
-      <!-- nodes + connectors (each node has data-id) -->
-      <g class="rs-node" data-id="metabolic">
-        <circle cx="120" cy="90" r="36"></circle>
-        <text x="120" y="95">Metabolic</text>
-      </g>
-      <!-- more nodes... -->
-      <path class="rs-link" data-from="metabolic" data-to="placenta" d="M156 90 L360 160"></path>
+      <text class="rs-col-title" x="120" y="24">Prenatal exposures</text>
+      <text class="rs-col-title" x="430" y="24" text-anchor="middle">Placenta health &amp; fetal development</text>
+      <text class="rs-col-title" x="760" y="24" text-anchor="middle">Analytical tools</text>
+
+      {% assign nodes = site.data.research_streams.nodes %}
+      {% assign links = site.data.research_streams.links %}
+
+      {% for link in links %}
+        {% assign from_node = nodes | where: "id", link.from | first %}
+        {% assign to_node = nodes | where: "id", link.to | first %}
+        {% if from_node and to_node %}
+          <line
+            class="rs-link"
+            data-from="{{ link.from }}"
+            data-to="{{ link.to }}"
+            x1="{{ from_node.x }}"
+            y1="{{ from_node.y }}"
+            x2="{{ to_node.x }}"
+            y2="{{ to_node.y }}"
+          ></line>
+        {% endif %}
+      {% endfor %}
+
+      {% for node in nodes %}
+        <g
+          class="rs-node group-{{ node.group }}"
+          data-id="{{ node.id }}"
+          data-desc="{{ node.desc | escape }}"
+          role="button"
+          tabindex="0"
+          aria-pressed="false"
+        >
+          <circle cx="{{ node.x }}" cy="{{ node.y }}" r="28"></circle>
+          {% assign parts = node.label | split: " / " %}
+          <text class="rs-label" x="{{ node.x }}" y="{{ node.y }}" text-anchor="middle" dominant-baseline="middle">
+            {% for part in parts %}
+              <tspan x="{{ node.x }}" dy="{% if forloop.first %}0{% else %}1.1em{% endif %}">{{ part }}</tspan>
+            {% endfor %}
+          </text>
+        </g>
+      {% endfor %}
     </svg>
 
     <div class="rs-panel" id="rs-panel">
@@ -21,19 +55,41 @@
 
 <script>
 (() => {
-  const panel = document.getElementById("rs-panel");
-  const nodes = document.querySelectorAll(".rs-node");
+  const root = document.getElementById("research-streams");
+  if (!root) return;
+
+  const panelTitle = root.querySelector(".rs-title");
+  const panelBody = root.querySelector(".rs-body");
+  const nodes = root.querySelectorAll(".rs-node");
+  const links = root.querySelectorAll(".rs-link");
+
+  function activate(node) {
+    const id = node.dataset.id;
+    panelTitle.textContent = node.textContent.trim().replace(/\s+/g, " ");
+    panelBody.textContent = node.dataset.desc || "";
+
+    nodes.forEach(n => n.classList.remove("active"));
+    links.forEach(l => l.classList.remove("active"));
+
+    node.classList.add("active");
+    links.forEach(l => {
+      if (l.dataset.from === id || l.dataset.to === id) l.classList.add("active");
+    });
+  }
+
   nodes.forEach(n => {
     n.addEventListener("mouseenter", () => activate(n));
     n.addEventListener("click", () => activate(n));
+    n.addEventListener("keydown", (e) => {
+      if (e.key === "Enter" || e.key === " ") {
+        e.preventDefault();
+        activate(n);
+      }
+    });
   });
-  function activate(node) {
-    const id = node.dataset.id;
-    panel.querySelector(".rs-title").textContent = node.textContent.trim();
-    panel.querySelector(".rs-body").textContent = node.dataset.desc || "";
-    document.querySelectorAll(".rs-node, .rs-link").forEach(el => el.classList.remove("active"));
-    node.classList.add("active");
-    document.querySelectorAll(`.rs-link[data-from="${id}"], .rs-link[data-to="${id}"]`).forEach(el => el.classList.add("active"));
-  }
+
+  const defaultId = root.dataset.default;
+  const defaultNode = root.querySelector(`.rs-node[data-id="${defaultId}"]`) || nodes[0];
+  if (defaultNode) activate(defaultNode);
 })();
 </script>

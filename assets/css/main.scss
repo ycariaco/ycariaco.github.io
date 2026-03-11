@@ -38,3 +38,95 @@
 @use "font-awesome/brands";
 @use "font-awesome/solid";
 @use "font-awesome/regular";
+
+.research-streams {
+  margin: 2.5rem 0;
+}
+
+.rs-header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.rs-wrap {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1fr) 260px;
+  align-items: start;
+}
+
+.rs-svg {
+  width: 100%;
+  height: auto;
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  background: #fff;
+}
+
+.rs-col-title {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  fill: #666;
+}
+
+.rs-link {
+  stroke: #cfd8e3;
+  stroke-width: 2;
+  opacity: 0.7;
+}
+
+.rs-link.active {
+  stroke: #2f7fbf;
+  opacity: 1;
+  stroke-width: 3;
+}
+
+.rs-node circle {
+  stroke: #2a2a2a;
+  stroke-width: 1.5;
+  fill: #f7f7f7;
+}
+
+.rs-node.active circle {
+  stroke: #2f7fbf;
+  fill: #eaf3fb;
+}
+
+.rs-label {
+  font-size: 10.5px;
+  fill: #1f1f1f;
+  pointer-events: none;
+}
+
+.group-exposure circle { fill: #fff4da; }
+.group-core circle { fill: #f7e9ef; }
+.group-tool circle { fill: #e8f4ee; }
+.group-integration circle { fill: #efe7fb; }
+
+.rs-panel {
+  border: 1px solid #e6e6e6;
+  border-radius: 10px;
+  padding: 1rem;
+  background: #fafafa;
+}
+
+.rs-title {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+}
+
+.rs-body {
+  color: #555;
+  line-height: 1.4;
+}
+
+@media (max-width: 900px) {
+  .rs-wrap {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+

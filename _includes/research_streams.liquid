@@ -22,9 +22,8 @@
   height="260"
   preserveAspectRatio="xMidYMid meet"
 />
-      <text class="rs-col-title" x="140" y="36">Prenatal exposures</text>
-      <text class="rs-col-title" x="480" y="36" text-anchor="middle">Placenta health &amp; fetal development</text>
-      <text class="rs-col-title" x="820" y="36" text-anchor="middle">Analytical tools</text>
+      <text class="rs-col-title rs-left" x="140" y="36">Prenatal exposures</text>
+      <text class="rs-col-title rs-right" x="820" y="36" text-anchor="middle">Analytical tools</text>
 
       {% assign nodes = site.data.research_streams.nodes %}
       {% assign links = site.data.research_streams.links %}
@@ -59,7 +58,7 @@
           {% assign label_y = node.y | plus: 52 %}
         {% endif %}
 
-        {% if node.id == "placenta" and node.img %}
+{% if node.id == "placenta" and node.img %}
   <g
     class="rs-node rs-img-node group-{{ node.group }}"
     data-id="{{ node.id }}"
@@ -77,12 +76,11 @@
       preserveAspectRatio="xMidYMid meet"
     />
     <circle class="rs-core-ring" cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
+  </g>
+{% else %}
+  <!-- other nodes render label as usual -->
+{% endif %}
 
-    <text class="rs-label" x="{{ node.label_x }}" y="{{ node.label_y }}" text-anchor="{{ node.label_anchor }}">
-      {% assign parts = node.label | split: " / " %}
-      {% for part in parts %}
-        <tspan x="{{ node.label_x }}" dy="{% if forloop.first %}0{% else %}1.1em{% endif %}">{{ part }}</tspan>
-      {% endfor %}
     </text>
   </g>
 {% else %}

@@ -2,72 +2,82 @@ nodes:
   - id: metabolic
     label: "Metabolic stress / weight-loss drugs"
     group: exposure
-    x: 120
-    y: 70
+    x: 140
+    y: 90
+    r: 22
     desc: "Metabolic dysregulation and weight-loss drugs reshape placental energetics and signaling."
 
   - id: psychoactive
     label: "Psychoactive drugs"
     group: exposure
-    x: 120
-    y: 150
+    x: 140
+    y: 170
+    r: 22
     desc: "Opioids and cannabis alter immune and neurodevelopmental pathways."
 
   - id: environmental
     label: "Environmental contaminants"
     group: exposure
-    x: 120
-    y: 230
+    x: 140
+    y: 250
+    r: 22
     desc: "Microplastics and pollutants disrupt placental barrier and endocrine function."
 
   - id: infectious
     label: "Infectious diseases"
     group: exposure
-    x: 120
-    y: 310
+    x: 140
+    y: 330
+    r: 22
     desc: "Protozoan infections drive inflammatory programming in pregnancy."
 
   - id: placenta
     label: "Placenta health / fetal development"
     group: core
-    x: 430
-    y: 210
+    x: 480
+    y: 250
+    r: 28
     desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
 
   - id: pathomics
     label: "Pathomics"
     group: tool
-    x: 760
-    y: 80
-    desc: "Spatial pathology and imaging quantify tissue‑level change."
+    x: 820
+    y: 110
+    r: 22
+    desc: "Spatial pathology and imaging quantify tissue-level change."
 
   - id: transcriptomics
     label: "Transcriptomics"
     group: tool
-    x: 760
-    y: 160
+    x: 820
+    y: 190
+    r: 22
     desc: "RNA profiling identifies dysregulated pathways."
 
   - id: proteomics
     label: "Proteomics"
     group: tool
-    x: 760
-    y: 240
+    x: 820
+    y: 270
+    r: 22
     desc: "Protein signatures of stress, inflammation, and repair."
 
   - id: metabolomics
     label: "Metabolomics"
     group: tool
-    x: 760
-    y: 320
+    x: 820
+    y: 350
+    r: 22
     desc: "Metabolic rewiring and biomarker discovery."
 
   - id: integration
-    label: "Multi‑omics integration"
+    label: "Multi-omics integration"
     group: integration
-    x: 760
-    y: 390
-    desc: "AI‑driven integration links exposures to outcomes across scales."
+    x: 820
+    y: 430
+    r: 22
+    desc: "AI-driven integration links exposures to outcomes across scales."
 
 links:
   - from: metabolic

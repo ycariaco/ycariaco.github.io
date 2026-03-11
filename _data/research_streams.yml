@@ -5,6 +5,8 @@ nodes:
     x: 140
     y: 90
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Metabolic dysregulation and weight-loss drugs reshape placental energetics and signaling."
 
   - id: psychoactive
@@ -13,6 +15,8 @@ nodes:
     x: 140
     y: 170
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Opioids and cannabis alter immune and neurodevelopmental pathways."
 
   - id: environmental
@@ -21,6 +25,8 @@ nodes:
     x: 140
     y: 250
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Microplastics and pollutants disrupt placental barrier and endocrine function."
 
   - id: infectious
@@ -29,6 +35,8 @@ nodes:
     x: 140
     y: 330
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Protozoan infections drive inflammatory programming in pregnancy."
 
   - id: placenta
@@ -53,6 +61,8 @@ nodes:
     x: 820
     y: 110
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Spatial pathology and imaging quantify tissue-level change."
 
   - id: transcriptomics
@@ -61,6 +71,8 @@ nodes:
     x: 820
     y: 190
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "RNA profiling identifies dysregulated pathways."
 
   - id: proteomics
@@ -69,6 +81,8 @@ nodes:
     x: 820
     y: 270
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Protein signatures of stress, inflammation, and repair."
 
   - id: metabolomics
@@ -77,6 +91,8 @@ nodes:
     x: 820
     y: 350
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "Metabolic rewiring and biomarker discovery."
 
   - id: integration
@@ -85,6 +101,8 @@ nodes:
     x: 820
     y: 430
     r: 30
+    icon: "/assets/img/research/icons/metabolic.png"
+    icon_size: 20
     desc: "AI-driven integration links exposures to outcomes across scales."
 
 links:

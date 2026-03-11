@@ -152,6 +152,10 @@
   pointer-events: visiblePainted;
 }
 
+#research-streams .rs-icon {
+  pointer-events: none;
+}
+
 @media (max-width: 900px) {
   #research-streams {
     padding: 0 1rem;

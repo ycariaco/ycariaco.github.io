@@ -40,15 +40,19 @@
 @use "font-awesome/regular";
 
 /* Research Streams (full-width, image-node aware) */
+/* Contained (fits the page box) */
 #research-streams {
-  width: 100vw;
-  max-width: 100vw;
-  margin-left: calc(50% - 50vw);
-  margin-right: calc(50% - 50vw);
-  padding: 0 1rem;      /* less side padding */
-  margin-top: 1.25rem;  /* less top margin */
-  margin-bottom: 1.25rem;
-  overflow-x: hidden;
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+#research-streams .rs-svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
 #research-streams .rs-header {

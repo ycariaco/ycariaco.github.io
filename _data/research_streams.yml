@@ -4,7 +4,7 @@ nodes:
     group: exposure
     x: 140
     y: 90
-    r: 22
+    r: 30
     desc: "Metabolic dysregulation and weight-loss drugs reshape placental energetics and signaling."
 
   - id: psychoactive
@@ -12,7 +12,7 @@ nodes:
     group: exposure
     x: 140
     y: 170
-    r: 22
+    r: 30
     desc: "Opioids and cannabis alter immune and neurodevelopmental pathways."
 
   - id: environmental
@@ -20,7 +20,7 @@ nodes:
     group: exposure
     x: 140
     y: 250
-    r: 22
+    r: 30
     desc: "Microplastics and pollutants disrupt placental barrier and endocrine function."
 
   - id: infectious
@@ -28,7 +28,7 @@ nodes:
     group: exposure
     x: 140
     y: 330
-    r: 22
+    r: 30
     desc: "Protozoan infections drive inflammatory programming in pregnancy."
 
     - id: placenta
@@ -52,7 +52,7 @@ nodes:
     group: tool
     x: 820
     y: 110
-    r: 22
+    r: 30
     desc: "Spatial pathology and imaging quantify tissue-level change."
 
   - id: transcriptomics
@@ -60,7 +60,7 @@ nodes:
     group: tool
     x: 820
     y: 190
-    r: 22
+    r: 30
     desc: "RNA profiling identifies dysregulated pathways."
 
   - id: proteomics
@@ -68,7 +68,7 @@ nodes:
     group: tool
     x: 820
     y: 270
-    r: 22
+    r: 30
     desc: "Protein signatures of stress, inflammation, and repair."
 
   - id: metabolomics
@@ -76,7 +76,7 @@ nodes:
     group: tool
     x: 820
     y: 350
-    r: 22
+    r: 30
     desc: "Metabolic rewiring and biomarker discovery."
 
   - id: integration
@@ -84,7 +84,7 @@ nodes:
     group: integration
     x: 820
     y: 430
-    r: 22
+    r: 30
     desc: "AI-driven integration links exposures to outcomes across scales."
 
 links:

@@ -44,7 +44,7 @@ nodes:
     group: core
     x: 500
     y: 150
-    r: 26
+    r: 1
     img: "/assets/img/research/placenta.png"
     img_x: 380
     img_y: 40

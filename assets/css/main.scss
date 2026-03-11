@@ -43,8 +43,12 @@
   margin: 2.5rem 0;
 }
 
+.research-streams.dark .rs-header {
+  color: #f3f4f6;
+}
+
 .rs-header {
-  font-size: 1.25rem;
+  font-size: 1.35rem;
   font-weight: 600;
   margin-bottom: 1rem;
 }
@@ -52,64 +56,84 @@
 .rs-wrap {
   display: grid;
   gap: 1.5rem;
-  grid-template-columns: minmax(0, 1fr) 260px;
+  grid-template-columns: minmax(0, 1fr) 280px;
   align-items: start;
 }
 
 .rs-svg {
   width: 100%;
   height: auto;
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
-  background: #fff;
+}
+
+.rs-bg {
+  fill: #0b0b0e;
+  stroke: #1f2937;
 }
 
 .rs-col-title {
   font-size: 12px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.1em;
   text-transform: uppercase;
-  fill: #666;
 }
 
+.rs-col-title.exposure { fill: #fbbf24; }
+.rs-col-title.core { fill: #22d3ee; }
+.rs-col-title.tools { fill: #fb7185; }
+
 .rs-link {
-  stroke: #cfd8e3;
-  stroke-width: 2;
-  opacity: 0.7;
+  stroke: #475569 !important;
+  stroke-width: 2.6;
+  opacity: 0.6;
+  fill: none;
 }
 
 .rs-link.active {
-  stroke: #2f7fbf;
+  stroke: #38bdf8 !important;
   opacity: 1;
-  stroke-width: 3;
+  stroke-width: 3.6;
+}
+
+.rs-node {
+  cursor: pointer;
+  transition: transform 160ms ease;
 }
 
 .rs-node circle {
-  stroke: #2a2a2a;
-  stroke-width: 1.5;
-  fill: #f7f7f7;
+  stroke: #e5e7eb !important;
+  stroke-width: 1.4;
+  fill: #111827 !important;
+}
+
+.rs-node.active {
+  transform: scale(1.06);
 }
 
 .rs-node.active circle {
-  stroke: #2f7fbf;
-  fill: #eaf3fb;
+  stroke: #38bdf8 !important;
+  fill: #0f172a !important;
+  filter: url(#rs-glow);
 }
 
 .rs-label {
-  font-size: 10.5px;
-  fill: #1f1f1f;
-  pointer-events: none;
+  font-size: 12px;
+  fill: #d1d5db !important;
+  paint-order: stroke;
+  stroke: #0b0b0e;
+  stroke-width: 4;
 }
 
-.group-exposure circle { fill: #fff4da; }
-.group-core circle { fill: #f7e9ef; }
-.group-tool circle { fill: #e8f4ee; }
-.group-integration circle { fill: #efe7fb; }
+.group-exposure circle { fill: #1f2937 !important; }
+.group-core circle { fill: #1f1b2e !important; }
+.group-tool circle { fill: #1c2421 !important; }
+.group-integration circle { fill: #1a1b2e !important; }
 
 .rs-panel {
-  border: 1px solid #e6e6e6;
-  border-radius: 10px;
+  border: 1px solid #1f2937;
+  border-radius: 12px;
   padding: 1rem;
-  background: #fafafa;
+  background: #0f172a;
+  color: #e5e7eb;
+  box-shadow: 0 10px 24px rgba(0,0,0,0.35);
 }
 
 .rs-title {
@@ -118,8 +142,14 @@
 }
 
 .rs-body {
-  color: #555;
-  line-height: 1.4;
+  color: #cbd5e1;
+  line-height: 1.45;
+}
+
+.rs-hint {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #94a3b8;
 }
 
 @media (max-width: 900px) {
@@ -127,6 +157,3 @@
     grid-template-columns: 1fr;
   }
 }
-
-
-

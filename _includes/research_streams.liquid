@@ -1,0 +1,39 @@
+<!-- /Users/yusmariscariaco/Documents/New project/_includes/research_streams.liquid -->
+<section class="research-streams" id="research-streams">
+  <div class="rs-header">Research Streams</div>
+  <div class="rs-wrap">
+    <svg class="rs-svg" viewBox="0 0 900 420" role="img" aria-label="Research streams diagram">
+      <!-- nodes + connectors (each node has data-id) -->
+      <g class="rs-node" data-id="metabolic">
+        <circle cx="120" cy="90" r="36"></circle>
+        <text x="120" y="95">Metabolic</text>
+      </g>
+      <!-- more nodes... -->
+      <path class="rs-link" data-from="metabolic" data-to="placenta" d="M156 90 L360 160"></path>
+    </svg>
+
+    <div class="rs-panel" id="rs-panel">
+      <div class="rs-title">Hover or tap a stream</div>
+      <div class="rs-body">Details appear here.</div>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const panel = document.getElementById("rs-panel");
+  const nodes = document.querySelectorAll(".rs-node");
+  nodes.forEach(n => {
+    n.addEventListener("mouseenter", () => activate(n));
+    n.addEventListener("click", () => activate(n));
+  });
+  function activate(node) {
+    const id = node.dataset.id;
+    panel.querySelector(".rs-title").textContent = node.textContent.trim();
+    panel.querySelector(".rs-body").textContent = node.dataset.desc || "";
+    document.querySelectorAll(".rs-node, .rs-link").forEach(el => el.classList.remove("active"));
+    node.classList.add("active");
+    document.querySelectorAll(`.rs-link[data-from="${id}"], .rs-link[data-to="${id}"]`).forEach(el => el.classList.add("active"));
+  }
+})();
+</script>

@@ -31,12 +31,20 @@ nodes:
     r: 22
     desc: "Protozoan infections drive inflammatory programming in pregnancy."
 
-  - id: placenta
+    - id: placenta
     label: "Placenta health / fetal development"
     group: core
     x: 500
     y: 150
-    r: 20
+    r: 26
+    img: "/assets/img/research/placenta.png"
+    img_x: 420
+    img_y: 70
+    img_w: 180
+    img_h: 260
+    label_x: 500
+    label_y: 350
+    label_anchor: middle
     desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
 
   - id: pathomics

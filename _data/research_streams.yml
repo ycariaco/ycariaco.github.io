@@ -5,7 +5,7 @@ nodes:
     x: 140
     y: 90
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-metabolic.svg"
     icon_size: 20
     desc: "Metabolic dysregulation and weight-loss drugs reshape placental energetics and signaling."
 
@@ -15,7 +15,7 @@ nodes:
     x: 140
     y: 170
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-psychoactive.svg"
     icon_size: 20
     desc: "Opioids and cannabis alter immune and neurodevelopmental pathways."
 
@@ -25,7 +25,7 @@ nodes:
     x: 140
     y: 250
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-environmental.svg"
     icon_size: 20
     desc: "Microplastics and pollutants disrupt placental barrier and endocrine function."
 
@@ -35,7 +35,7 @@ nodes:
     x: 140
     y: 330
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-infectious.svg"
     icon_size: 20
     desc: "Protozoan infections drive inflammatory programming in pregnancy."
 
@@ -61,7 +61,7 @@ nodes:
     x: 820
     y: 110
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-pathomics.svg"
     icon_size: 20
     desc: "Spatial pathology and imaging quantify tissue-level change."
 
@@ -71,7 +71,7 @@ nodes:
     x: 820
     y: 190
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-transcriptomics.svg"
     icon_size: 20
     desc: "RNA profiling identifies dysregulated pathways."
 
@@ -81,7 +81,7 @@ nodes:
     x: 820
     y: 270
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-proteomics.svg"
     icon_size: 20
     desc: "Protein signatures of stress, inflammation, and repair."
 
@@ -91,7 +91,7 @@ nodes:
     x: 820
     y: 350
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-metabolomics.svg"
     icon_size: 20
     desc: "Metabolic rewiring and biomarker discovery."
 
@@ -101,7 +101,7 @@ nodes:
     x: 820
     y: 430
     r: 30
-    icon: "/assets/img/research/icons/metabolic.png"
+    icon: "/assets/img/research/icons/icon-integration.svg"
     icon_size: 20
     desc: "AI-driven integration links exposures to outcomes across scales."
 

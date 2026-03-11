@@ -11,6 +11,11 @@ horizontal: false
 
 {% include research_streams.liquid %}
 
+## Projects
+A growing collection of your cool projects.
+
+{% include projects.liquid %}
+
 <!-- pages/projects.md -->
 <div class="projects">
 {% if site.enable_project_categories and page.display_categories %}

@@ -38,10 +38,6 @@ nodes:
     y: 150
     r: 20
     desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
-#research-streams .group-core circle {
-  fill: transparent !important;
-  stroke: transparent !important;
-}
 
   - id: pathomics
     label: "Pathomics"

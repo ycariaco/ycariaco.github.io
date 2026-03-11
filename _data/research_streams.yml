@@ -34,10 +34,14 @@ nodes:
   - id: placenta
     label: "Placenta health / fetal development"
     group: core
-    x: 480
-    y: 250
-    r: 28
+    x: 500
+    y: 150
+    r: 20
     desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
+#research-streams .group-core circle {
+  fill: transparent !important;
+  stroke: transparent !important;
+}
 
   - id: pathomics
     label: "Pathomics"

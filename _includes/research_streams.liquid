@@ -43,67 +43,62 @@
         {% endif %}
       {% endfor %}
 
-      {% for node in nodes %}
-        {% assign label_x = node.x %}
-        {% assign label_y = node.y | plus: 4 %}
-        {% assign label_anchor = "middle" %}
+{% for node in nodes %}
+  {% assign label_x = node.x %}
+  {% assign label_y = node.y | plus: 4 %}
+  {% assign label_anchor = "middle" %}
 
-        {% if node.group == "exposure" %}
-          {% assign label_x = node.x | plus: 56 %}
-          {% assign label_anchor = "start" %}
-        {% elsif node.group == "tool" or node.group == "integration" %}
-          {% assign label_x = node.x | minus: 56 %}
-          {% assign label_anchor = "end" %}
-        {% elsif node.group == "core" %}
-          {% assign label_y = node.y | plus: 52 %}
-        {% endif %}
+  {% if node.group == "exposure" %}
+    {% assign label_x = node.x | plus: 56 %}
+    {% assign label_anchor = "start" %}
+  {% elsif node.group == "tool" or node.group == "integration" %}
+    {% assign label_x = node.x | minus: 56 %}
+    {% assign label_anchor = "end" %}
+  {% elsif node.group == "core" %}
+    {% assign label_y = node.y | plus: 52 %}
+  {% endif %}
 
-{% if node.id == "placenta" and node.img %}
-  <g
-    class="rs-node rs-img-node group-{{ node.group }}"
-    data-id="{{ node.id }}"
-    data-desc="{{ node.desc | escape }}"
-    role="button"
-    tabindex="0"
-    aria-pressed="false"
-  >
-    <image
-      href="{{ node.img | relative_url }}"
-      x="{{ node.img_x }}"
-      y="{{ node.img_y }}"
-      width="{{ node.img_w }}"
-      height="{{ node.img_h }}"
-      preserveAspectRatio="xMidYMid meet"
-    />
-    <circle class="rs-core-ring" cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
-  </g>
-{% else %}
-  <!-- other nodes render label as usual -->
-{% endif %}
+  {% if node.id == "placenta" and node.img %}
+    <g
+      class="rs-node rs-img-node group-{{ node.group }}"
+      data-id="{{ node.id }}"
+      data-desc="{{ node.desc | escape }}"
+      role="button"
+      tabindex="0"
+      aria-pressed="false"
+    >
+      <image
+        href="{{ node.img | relative_url }}"
+        x="{{ node.img_x }}"
+        y="{{ node.img_y }}"
+        width="{{ node.img_w }}"
+        height="{{ node.img_h }}"
+        preserveAspectRatio="xMidYMid meet"
+      />
+      <circle class="rs-core-ring" cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
+    </g>
+  {% else %}
+    <g
+      class="rs-node group-{{ node.group }}"
+      data-id="{{ node.id }}"
+      data-desc="{{ node.desc | escape }}"
+      role="button"
+      tabindex="0"
+      aria-pressed="false"
+      filter="url(#rs-shadow)"
+    >
+      <circle cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
 
-    </text>
-  </g>
-{% else %}
-  <g
-    class="rs-node group-{{ node.group }}"
-    data-id="{{ node.id }}"
-    data-desc="{{ node.desc | escape }}"
-    role="button"
-    tabindex="0"
-    aria-pressed="false"
-    filter="url(#rs-shadow)"
-  >
-    <circle cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
+      {% assign parts = node.label | split: " / " %}
+      <text class="rs-label" x="{{ label_x }}" y="{{ label_y }}" text-anchor="{{ label_anchor }}">
+        {% for part in parts %}
+          <tspan x="{{ label_x }}" dy="{% if forloop.first %}0{% else %}1.1em{% endif %}">{{ part }}</tspan>
+        {% endfor %}
+      </text>
+    </g>
+  {% endif %}
+{% endfor %}
 
-    {% assign parts = node.label | split: " / " %}
-    <text class="rs-label" x="{{ label_x }}" y="{{ label_y }}" text-anchor="{{ label_anchor }}">
-      {% for part in parts %}
-        <tspan x="{{ label_x }}" dy="{% if forloop.first %}0{% else %}1.1em{% endif %}">{{ part }}</tspan>
-      {% endfor %}
-    </text>
-  </g>
-{% endif %}
-      {% endfor %}
     </svg>
 
   </div>

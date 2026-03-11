@@ -108,7 +108,10 @@
 }
 
 .group-exposure circle { fill: #fff5d6; }
-.group-core circle { fill: #fde7ee; }
+.group-core circle {
+  fill: transparent !important;
+  stroke: transparent !important;
+}
 .group-tool circle { fill: #e7f7f1; }
 .group-integration circle { fill: #eef2ff; }
 

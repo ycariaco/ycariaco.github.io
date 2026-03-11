@@ -45,16 +45,16 @@
   max-width: 100vw;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  padding: 0 2rem;
-  margin-top: 2.5rem;
-  margin-bottom: 2.5rem;
+  padding: 0 1rem;      /* less side padding */
+  margin-top: 1.25rem;  /* less top margin */
+  margin-bottom: 1.25rem;
   overflow-x: hidden;
 }
 
 #research-streams .rs-header {
-  font-size: 1.35rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-size: 1.75rem;   /* bigger title */
+  font-weight: 700;
+  margin-bottom: 0.5rem; /* tighter */
 }
 
 #research-streams .rs-wrap {
@@ -69,11 +69,16 @@
 }
 
 #research-streams .rs-col-title {
-  font-size: 12px;
-  letter-spacing: 0.08em;
+  font-size: 14.5px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
-  fill: #6b7280;
 }
+
+#research-streams .rs-col-title:nth-of-type(1) { fill: #b45309; } /* dark yellow */
+#research-streams .rs-col-title:nth-of-type(2) { fill: #1d4ed8; } /* dark blue */
+#research-streams .rs-col-title:nth-of-type(3) { fill: #b91c1c; } /* dark red */
+
 
 #research-streams .rs-link {
   stroke: #cbd5e1 !important;

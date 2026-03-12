@@ -2,6 +2,18 @@
   margin-top: 12px;
 }
 
+/* Wider global content container */
+.container {
+  max-width: 1200px; /* try 1200–1400 */
+}
+
+/* Make the page card follow the same width */
+.post {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* 2x3 on desktop, 2x? on tablet, 1x on mobile */
 .team-grid {
   display: grid;

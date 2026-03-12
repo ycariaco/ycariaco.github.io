@@ -2,7 +2,22 @@
   margin-top: 12px;
 }
 
-/* 2x3 on desktop, 2x? on tablet, 1x on mobile */
+/* Wider global content container (large screens only) */
+@media (min-width: 1200px) {
+  .container,
+  .container-lg,
+  .container-xl {
+    max-width: 1200px;
+  }
+
+  .post {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+/* 3 columns desktop, 2 tablet, 1 mobile */
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -63,7 +78,6 @@
   gap: 8px;
 }
 
-/* remove the pink line before position */
 .team-position::before {
   content: none;
 }

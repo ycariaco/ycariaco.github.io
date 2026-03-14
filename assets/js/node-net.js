@@ -74,7 +74,7 @@
         const dist = Math.hypot(dx, dy);
         if (dist < maxDist) {
           const alpha = 1 - dist / maxDist;
-          ctx.strokeStyle = `rgba(59,130,246,${alpha * 0.35})`;
+          ctx.strokeStyle = `rgba(236,72,153,${alpha * 0.35})`;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -83,7 +83,7 @@
       }
     }
 
-    ctx.fillStyle = "rgba(15,23,42,0.6)";
+    ctx.fillStyle = "rgba(236,72,153,0.6)";
     for (const n of nodes) {
       ctx.beginPath();
       ctx.arc(n.x, n.y, 1.7, 0, Math.PI * 2);

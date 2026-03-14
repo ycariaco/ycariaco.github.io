@@ -3,7 +3,7 @@ nodes:
     label: "Metabolic stress / weight-loss drugs"
     group: exposure
     x: 140
-    y: 90
+    y: 120
     r: 60
     icon: "/assets/img/research/icon-metabolic.svg"
     icon_size: 110
@@ -13,7 +13,7 @@ nodes:
     label: "Psychoactive drugs"
     group: exposure
     x: 140
-    y: 170
+    y: 200
     r: 60
     icon: "/assets/img/research/icon-psychoactive.svg"
     icon_size: 110
@@ -23,7 +23,7 @@ nodes:
     label: "Environmental contaminants"
     group: exposure
     x: 140
-    y: 250
+    y: 280
     r: 60
     icon: "/assets/img/research/icon-environmental.svg"
     icon_size: 110
@@ -33,7 +33,7 @@ nodes:
     label: "Infectious diseases"
     group: exposure
     x: 140
-    y: 330
+    y: 360
     r: 60
     icon: "/assets/img/research/icon-infectious.svg"
     icon_size: 110
@@ -43,15 +43,15 @@ nodes:
     label: "Placenta health / fetal development"
     group: core
     x: 500
-    y: 150
+    y: 260
     r: 0.5
     img: "/assets/img/research/placenta.png"
     img_x: 380
-    img_y: 40
+    img_y: 80
     img_w: 260
     img_h: 360
     label_x: 500
-    label_y: 420
+    label_y: 460
     label_anchor: middle
     desc: "Central outcomes: placental function, fetal growth, and neurodevelopmental trajectories."
 
@@ -69,7 +69,7 @@ nodes:
     label: "Transcriptomics"
     group: tool
     x: 820
-    y: 190
+    y: 220
     r: 60
     icon: "/assets/img/research/icon-transcriptomics.svg"
     icon_size: 110
@@ -79,7 +79,7 @@ nodes:
     label: "Proteomics"
     group: tool
     x: 820
-    y: 270
+    y: 300
     r: 60
     icon: "/assets/img/research/icon-proteomics.svg"
     icon_size: 110
@@ -89,7 +89,7 @@ nodes:
     label: "Metabolomics"
     group: tool
     x: 820
-    y: 350
+    y: 380
     r: 60
     icon: "/assets/img/research/icon-metabolomics.svg"
     icon_size: 110
@@ -99,7 +99,7 @@ nodes:
     label: "Multi-omics integration"
     group: integration
     x: 820
-    y: 430
+    y: 460
     r: 60
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 110

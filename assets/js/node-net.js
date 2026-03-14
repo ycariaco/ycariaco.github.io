@@ -9,6 +9,9 @@
   const mouseRadius = 160;
   const baseSpeed = 0.35;
 
+  const LINE = "236,72,153"; // pink
+  const DOT = "236,72,153";  // pink
+
   const mouse = { x: 0, y: 0, active: false };
 
   const nodes = Array.from({ length: N }, () => ({
@@ -74,7 +77,8 @@
         const dist = Math.hypot(dx, dy);
         if (dist < maxDist) {
           const alpha = 1 - dist / maxDist;
-          ctx.strokeStyle = `rgba(236,72,153,${alpha * 0.35})`;
+          ctx.strokeStyle = `rgba(${LINE},${alpha * 0.35})`;
+          ctx.lineWidth = 1;
           ctx.beginPath();
           ctx.moveTo(a.x, a.y);
           ctx.lineTo(b.x, b.y);
@@ -83,7 +87,7 @@
       }
     }
 
-    ctx.fillStyle = "rgba(236,72,153,0.6)";
+    ctx.fillStyle = `rgba(${DOT},0.6)`;
     for (const n of nodes) {
       ctx.beginPath();
       ctx.arc(n.x, n.y, 1.7, 0, Math.PI * 2);

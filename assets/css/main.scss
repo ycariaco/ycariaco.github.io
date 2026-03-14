@@ -51,7 +51,7 @@
 
 #research-streams .rs-svg {
   width: 100%;
-  height: auto;
+  min-height: 520px;
   display: block;
 }
 
@@ -158,6 +158,6 @@
 
 @media (max-width: 900px) {
   #research-streams {
-    padding: 0 1rem;
+    padding: 2.5rem 2rem;
   }
 }

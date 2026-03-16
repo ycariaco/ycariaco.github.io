@@ -6,10 +6,7 @@ subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">D
 nav: true
 nav_order: 2
 
-profile:
-  align: right
-  image: plexo_clear.svg
-  image_circular: false
+<img src="/assets/img/plexo_clear.svg" style="width:100%; max-width:100%; display:block;">
 
 selected_papers: true
 social: true

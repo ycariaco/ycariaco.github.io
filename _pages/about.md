@@ -8,7 +8,7 @@ nav_order: 2
 
 profile:
   align: right
-  image: plexo.svg
+  image: plexo_clear.svg
   image_circular: false
 
 selected_papers: true

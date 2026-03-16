@@ -6,8 +6,6 @@ subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">D
 nav: true
 nav_order: 2
 
-<img src="/assets/img/plexo_clear.svg" style="width:100%; max-width:100%; display:block;">
-
 selected_papers: true
 social: true
 
@@ -21,6 +19,8 @@ latest_posts:
   scrollable: true
   limit: 3
 ---
+
+<img src="/assets/img/plexo_clear.svg" style="width:100%; max-width:100%; display:block;">
 
 Dr. Yusmaris Cariaco is an associate professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Her research investigates how maternal metabolic, inflammatory, and environmental exposures influence placental function and shape fetal development through immunological and biochemical mechanisms.
 

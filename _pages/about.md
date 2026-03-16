@@ -1,14 +1,14 @@
 ---
 layout: about
-title: Bio
-permalink: /bio/
+title: PlExO
+permalink: /plexo/
 subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
 nav_order: 2
 
 profile:
   align: right
-  image: prof_pic.jpg
+  image: plexo.svg
   image_circular: false
 
 selected_papers: true

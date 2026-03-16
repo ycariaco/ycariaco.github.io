@@ -4,7 +4,7 @@
   const ctx = canvas.getContext("2d");
 
   let w, h, dpr;
-  const N = 90;
+  const N = 150;
   const maxDist = 140;
   const mouseRadius = 160;
   const baseSpeed = 0.35;

@@ -5,6 +5,14 @@ permalink: /team/
 nav: true
 nav_order: 4
 ---
+<style>
+  .team-card img {
+    height: 220px;
+    object-fit: cover;
+    width: 100%;
+    border-radius: 12px;
+  }
+</style>
 
 <div class="team-container">
   <div class="team-grid">

@@ -18,14 +18,14 @@ Her research has been supported by several competitive funding programs, includi
 </p>
 <style>
   .profile-photo {
-    width: 640px;   /* increase this */
+    width: 350px;   /* increase this */
     height: auto;
     border-radius: 12px;
     display: block;
     margin: 10px 0 20px;
   }
   .profile-name {
-    font-size: 36px;  /* bigger name */
+    font-size: 42px;  /* bigger name */
   }
   .profile-position {
     font-size: 20px;  /* bigger title */

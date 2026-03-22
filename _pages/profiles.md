@@ -15,7 +15,7 @@ nav_order: 4
     </a>
 
     <a class="team-card" href="/people/ ">
-      <img src="/assets/img/you.jpg" alt=" ">
+      <img src="/assets/img/You.jpg" alt=" ">
       <h3 class="team-name"> </h3>
       <p class="team-position"> </p>
     </a>

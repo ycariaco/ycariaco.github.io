@@ -1,6 +1,6 @@
 ---
 layout: page
-permalink: /people/einstein/
+permalink: /people/yusmariscariaco/
 ---
 <h1 class="profile-name">Yusmaris Cariaco</h1>
 <p class="profile-position" style="color:#e91e63; font-weight:600;">Principal Investigator</p>

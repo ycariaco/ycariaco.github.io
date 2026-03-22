@@ -7,10 +7,15 @@ nav_order: 4
 ---
 <style>
   .team-card img {
-    height: 220px;
-    object-fit: cover;
-    width: 100%;
+    height: 220px !important;
+    width: 100% !important;
+    object-fit: cover !important;
     border-radius: 12px;
+  }
+
+  .team-position {
+    font-size: 18px !important;
+    font-weight: 600;
   }
 </style>
 

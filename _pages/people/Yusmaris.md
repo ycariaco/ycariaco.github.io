@@ -4,7 +4,7 @@ permalink: /people/yusmariscariaco/
 ---
 <h1 class="profile-name">Yusmaris Cariaco</h1>
 <p class="profile-position" style="color:#e91e63; font-weight:600;">Principal Investigator</p>
-<img class="profile-photo" src="/assets/img/prof_pic.jpg" alt="Yusmaris Cariaco">
+<img class="profile-photo" src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
 <p class="profile-bio">
   Dr. Yusmaris Cariaco is an associate professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Her research investigates how maternal metabolic, inflammatory, and environmental exposures influence placental function and shape fetal development through immunological and biochemical mechanisms.
 

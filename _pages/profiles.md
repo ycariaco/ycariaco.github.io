@@ -8,10 +8,10 @@ nav_order: 4
 
 <div class="team-container">
   <div class="team-grid">
-    <a class="team-card" href="/people/einstein">
-      <img src="/assets/img/einstein.jpg" alt="Albert Einstein">
-      <h3 class="team-name">Albert Einstein</h3>
-      <p class="team-position">Postdoctoral Fellow</p>
+    <a class="team-card" href="/people/yusmariscariaco">
+      <img src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
+      <h3 class="team-name">Yusmaris Cariaco</h3>
+      <p class="team-position">Principal Investigator</p>
     </a>
 
     <a class="team-card" href="/people/newton">

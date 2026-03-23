@@ -99,3 +99,33 @@
   margin: 0;
   padding-left: 18px;
 }
+
+/* Dark mode fixes for Team + Alumni */
+html[data-theme="dark"] .team-card,
+body.dark .team-card {
+  background: #111827;
+  border-color: #374151;
+}
+
+html[data-theme="dark"] .team-card .team-name,
+body.dark .team-card .team-name {
+  color: #f9fafb;
+}
+
+html[data-theme="dark"] .team-card .team-position,
+body.dark .team-card .team-position {
+  color: #f472b6;
+}
+
+html[data-theme="dark"] .alumni-box,
+body.dark .alumni-box {
+  background: #0f172a;
+  border-color: rgba(244, 114, 182, 0.35);
+}
+
+html[data-theme="dark"] .alumni-box,
+html[data-theme="dark"] .alumni-box li,
+body.dark .alumni-box,
+body.dark .alumni-box li {
+  color: #e5e7eb;
+}

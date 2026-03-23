@@ -129,3 +129,14 @@ body.dark .alumni-box,
 body.dark .alumni-box li {
   color: #e5e7eb;
 }
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.site-logo {
+  height: 28px;
+  width: auto;
+}

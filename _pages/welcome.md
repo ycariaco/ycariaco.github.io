@@ -63,17 +63,31 @@ footer.fixed-bottom {
 }
 
 .hero-text p {
-  font-size: 26px;
-  font-style: italic;
-  line-height: 1.6;
-}
+    font-size: 26px;
+    font-style: italic;
+    line-height: 1.6;
+  }
+
+  /* Dark mode fix for hero text */
+  html[data-theme="dark"] .hero-text,
+  body.dark .hero-text {
+    color: #111827 !important;
+  }
+
+  html[data-theme="dark"] .hero-text p,
+  html[data-theme="dark"] .hero-text em,
+  body.dark .hero-text p,
+  body.dark .hero-text em {
+    color: #111827 !important;
+  }
 </style>
 
 <div class="hero-container">
+  <img src="/assets/img/placenta_hero.png" class="hero-image">
 
-<img src="/assets/img/placenta_hero.png" class="hero-image">
-
-<div class="hero-text">
-<p>
-  Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain <em>—and ultimately improve—</em> fetal outcomes.
-</p>
+  <div class="hero-text">
+    <p>
+      Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain <em>—and ultimately improve—</em> fetal outcomes.
+    </p>
+  </div>
+</div>

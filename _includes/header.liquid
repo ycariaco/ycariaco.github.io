@@ -4,23 +4,24 @@
     <div class="container">
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-          {% assign brand_title = site.nav_title | default: site.title %}
-          {% if brand_title == 'blank' %}
-            {% if site.first_name %}
-              <span class="font-weight-bold">
-                {{- site.first_name -}}
-              </span>
-            {% endif %}
-            {% if site.middle_name %}
-              {{- site.middle_name -}}
-            {% endif %}
-            {% if site.last_name %}
-              {{- site.last_name -}}
-            {% endif %}
-          {% else %}
-            {{- brand_title -}}
-          {% endif %}
-        </a>
+  <img class="site-logo" src="{{ '/assets/img/plexo.svg' | relative_url }}" alt="Cariaco Lab logo">
+  {% assign brand_title = site.nav_title | default: site.title %}
+  {% if brand_title == 'blank' %}
+    {% if site.first_name %}
+      <span class="font-weight-bold">
+        {{- site.first_name -}}
+      </span>
+    {% endif %}
+    {% if site.middle_name %}
+      {{- site.middle_name -}}
+    {% endif %}
+    {% if site.last_name %}
+      {{- site.last_name -}}
+    {% endif %}
+  {% else %}
+    {{- brand_title -}}
+  {% endif %}
+</a>
       {% elsif site.enable_navbar_social %}
         <!-- Social Icons -->
         <div class="navbar-brand social">{% social_links %}</div>

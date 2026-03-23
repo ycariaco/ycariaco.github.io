@@ -130,13 +130,23 @@ body.dark .alumni-box li {
   color: #e5e7eb;
 }
 
+/* Bigger navbar + logo */
+#navbar {
+  min-height: 80px;              /* increase height */
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
 .navbar-brand {
   display: inline-flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
 }
 
 .site-logo {
-  height: 28px;
+  height: 48px;                  /* increase logo size */
   width: auto;
 }
+
+
+

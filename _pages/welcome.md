@@ -87,7 +87,7 @@ footer.fixed-bottom {
 
   <div class="hero-text">
     <p>
-      Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain <em>—and ultimately improve—</em> fetal outcomes.
+      Our vision is to establish the placenta as an adaptive sensor of prenatal exposures, whose molecular programs can be decoded through integrated multi-omics to explain <em><strong>—and ultimately improve—</strong></em> fetal outcomes.
     </p>
   </div>
 </div>

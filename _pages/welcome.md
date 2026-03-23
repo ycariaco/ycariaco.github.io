@@ -63,10 +63,15 @@ footer.fixed-bottom {
 }
 
 .hero-text p {
-    font-size: 26px;
-    font-style: italic;
-    line-height: 1.6;
-  }
+  font-size: 26px;
+  font-style: italic;
+  line-height: 1.6;
+}
+
+.hero-text,
+.hero-text * {
+  color: #111827 !important;
+}
 
   /* Dark mode fix for hero text */
   html[data-theme="dark"] .hero-text,

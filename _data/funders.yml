@@ -7,12 +7,14 @@
 - name: Brain & Behavior Research Foundation
   logo: /assets/img/funding/bbrf-350px.png
   url: https://bbrfoundation.org/
-- name: Toxen
+- name: TOXEN
   logo: /assets/img/funders/TOXEN.png
   url: https://toxen.uqam.ca/
+
 - name: CERMO
   logo: /assets/img/funders/CERMO.png
   url: https://www.cermofc.uqam.ca/en/home-page/
-  - name: Département des sciences biologiques
+
+- name: Département des sciences biologiques
   logo: /assets/img/funders/Sciences_Biologiques.png
   url: https://bio.uqam.ca/en/

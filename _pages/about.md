@@ -22,12 +22,4 @@ latest_posts:
 
 <img src="/assets/img/plexo_clear.svg" style="width:100%; max-width:100%; display:block;">
 
-Dr. Yusmaris Cariaco is an associate professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Her research investigates how maternal metabolic, inflammatory, and environmental exposures influence placental function and shape fetal development through immunological and biochemical mechanisms.
-
-Her work focuses on immunometabolic stressors during pregnancy, including maternal obesity, systemic inflammation, infections caused by protozoan parasites, exposure to opioids and cannabis, and environmental contaminants such as microplastics. She studies how these exposures reprogram placental cellular function and alter fetal growth and neurodevelopmental trajectories.
-
-A central component of her research program is the development of integrative computational and artificial intelligence tools to quantitatively analyze placental tissues. By combining experimental models, human placental samples, and systems biology approaches, she aims to identify molecular, cellular, and tissue-level mechanisms underlying placental dysfunction and pregnancy complications.
-
-Dr. Cariaco has extensive technical expertise spanning rodent pregnancy models, human placental biology, cell culture and CRISPR gene editing, multi-omics profiling, and advanced imaging analysis. She integrates transcriptomics, metabolomics, and spatial biology with computational methods—including machine learning and deep learning pipelines—to map cellular interactions within the placenta and uncover mechanisms driving disease.
-
-Her research has been supported by several competitive funding programs, including the Brain & Behavior Research Foundation Young Investigator Grant, the Histochemical Society Keystone Grant, and the Molly Towell Perinatal Research Foundation Postdoctoral Fellowship.
+PlExO Lab investigates how diverse prenatal exposures—metabolic, inflammatory, infectious, and environmental—alter placental biology and influence fetal growth and long‑term health. We combine molecular biology, advanced histology, and multi‑omics to map how the placenta senses and responds to stress, and how those signals are transmitted to the developing fetus. Our goal is to decode these pathways, integrate them across scales, and build predictive models that lead to better maternal and child outcomes.

@@ -17,7 +17,7 @@ nav_order: 6
 <style>
   .funders-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    grid-template-columns: repeat(3, minmax(160px, 1fr));
     gap: 18px;
     margin-top: 16px;
   }
@@ -41,5 +41,13 @@ nav_order: 6
     max-width: 100%;
     width: auto;
     height: auto;
+  }
+  
+  @media (max-width: 900px) {
+    .funders-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+
+  @media (max-width: 600px) {
+    .funders-grid { grid-template-columns: 1fr; }
   }
 </style>

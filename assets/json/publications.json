@@ -304,5 +304,28 @@
     "Plant Leaves",
     "Time Factors",
     "Natural Products"]
+},
+  {
+  "id": "cariaco_placental_ferroptosis_2026",
+  "title": "Placental Ferroptosis and Impaired Fetal Growth in Symptomatic and Asymptomatic SARS-CoV-2 Infections",
+  "authors": [
+    "Yusmaris Cariaco",
+    "A. Nik-Akhtar",
+    "M. E. Brien",
+    "K. Menzies",
+    "S. Girard",
+    "S. Bainbridge"
+  ],
+  "year": 2026,
+  "journal": "Clin Sci (Lond)",
+  "doi": "10.1042/CS20257407",
+  "pmid": "41885260",
+  "tags": [
+    "Placenta",
+    "Ferroptosis",
+    "Fetal Growth",
+    "SARS-CoV-2",
+    "COVID-19",
+    "Pregnancy"]
 }
 ]

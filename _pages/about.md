@@ -1,17 +1,17 @@
 ---
 layout: about
-title: PlExO
-permalink: /plexo/
-subtitle: Associate Professor | <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
+title: Research
+permalink: /research/
+subtitle: <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
 nav_order: 2
 
-selected_papers: true
-social: true
+selected_papers: false
+social: false
 
 announcements:
-  enabled: true
-  scrollable: true
+  enabled: false
+  scrollable: false
   limit: 5
 
 latest_posts:
@@ -20,6 +20,6 @@ latest_posts:
   limit: 3
 ---
 
-<img src="/assets/img/plexo_clear.svg" style="width:100%; max-width:100%; display:block;">
+<img src="/assets/img/CariacoLab.jpeg" style="width:100%; max-width:100%; display:block;">
 
-PlExO Lab investigates how diverse prenatal exposures—metabolic, inflammatory, infectious, and environmental—alter placental biology and influence fetal growth and long‑term health. We combine molecular biology, advanced histology, and multi‑omics to map how the placenta senses and responds to stress, and how those signals are transmitted to the developing fetus. Our goal is to decode these pathways, integrate them across scales, and build predictive models that lead to better maternal and child outcomes.
+Our research focuses on how maternal metabolic and inflammatory states, as well as exposure to diverse toxicants, shape placental function and fetal development through immunological and biochemical mechanisms. We are particularly interested in how immunometabolic stressors—such as obesity, systemic inflammation, infections, drugs and environmental contaminants—reprogram placental cellular function and alter developmental trajectories. A central component of this program is the use of Omics techniques and the development and leverage of integrated, AI‑enabled computational tools for quantitative placental tissue analysis, revealing mechanisms at the molecular, cellular, and tissue scales. Our work bridges experimental models, human data, and systems biology approaches to identify pathways driving placental dysfunction and its consequences for fetal growth and neurodevelopment.

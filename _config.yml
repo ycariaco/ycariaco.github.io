@@ -2,7 +2,7 @@
 # Site settings
 # -----------------------------------------------------------------------------
 
-title: Yusmaris Cariaco
+title: Cariaco Lab
 nav_title: Cariaco Lab
 first_name: Yusmaris
 middle_name:
@@ -29,7 +29,7 @@ lang: en
 icon: 🧬
 
 # --- URL Settings ---
-url: https://ycariaco.github.io
+url: https://cariacolab.com
 baseurl: ""   # leave empty for main GitHub Pages site
 
 # --- Site Features ---

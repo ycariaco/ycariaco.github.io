@@ -30,3 +30,10 @@ A central component of this program is the use of Omics techniques and the devel
 
 </div>
 
+<img src="/assets/img/UQAM_BUILDING.png" style="width:100%; max-width:100%; display:block; margin:32px 0;">
+
+<div style="font-size:1.15rem; line-height:1.7;">
+
+Located in Montréal, a vibrant and diverse research hub, our lab is based at the Université du Québec à Montréal (UQAM) within the Department of Biological Sciences. Our environment fosters interdisciplinary collaboration across life sciences, computational biology, and clinical research, allowing us to connect fundamental placental biology with real‑world questions in maternal and fetal health.
+
+</div>

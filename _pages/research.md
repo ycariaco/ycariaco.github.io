@@ -5,9 +5,57 @@ permalink: /publications/
 nav: true
 nav_order: 4
 ---
-{% bibliography %}
-
 <hr style="margin:40px 0;">
+
+<h2><span style="color: var(--global-theme-color);">Publications</span></h2>
+
+<div id="pub-list" class="pub-list"></div>
+
+<style>
+  .pub-list { margin-top: 16px; }
+  .pub-item { padding: 14px 0; border-bottom: 1px solid #eee; }
+  .pub-title { font-weight: 600; }
+  .pub-meta { color: #555; margin-top: 4px; }
+  .pub-links { margin-top: 6px; }
+  .pub-links a { margin-right: 10px; text-decoration: none; }
+</style>
+
+<script>
+  fetch("/assets/json/publications.json")
+    .then((r) => {
+      if (!r.ok) throw new Error("Failed to load publications.json");
+      return r.json();
+    })
+    .then((data) => {
+      data.sort((a, b) => (b.year || 0) - (a.year || 0));
+
+      const container = document.getElementById("pub-list");
+      container.innerHTML = data.map((pub) => {
+        const authors = Array.isArray(pub.authors) ? pub.authors.join(", ") : "";
+        const year = pub.year ? ` (${pub.year})` : "";
+        const journal = pub.journal ? ` <em>${pub.journal}</em>` : "";
+
+        const doiLink = pub.doi
+          ? `<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener">DOI</a>`
+          : "";
+        const pmidLink = pub.pmid
+          ? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank" rel="noopener">PMID</a>`
+          : "";
+
+        const links = [doiLink, pmidLink].filter(Boolean).join(" · ");
+
+        return `
+          <div class="pub-item">
+            <div class="pub-title">${pub.title || "Untitled"}${year}</div>
+            <div class="pub-meta">${authors}${journal}</div>
+            ${links ? `<div class="pub-links">${links}</div>` : ""}
+          </div>
+        `;
+      }).join("");
+    })
+    .catch((err) => console.error(err));
+</script>
+
 
 <div
   id="cytoscape"

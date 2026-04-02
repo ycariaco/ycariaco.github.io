@@ -8,11 +8,9 @@ nav_order: 3
 display_categories: [work, fun]
 horizontal: false
 ---
+## Projects
 
 {% include research_streams.liquid %}
-
-## Projects
-A growing collection of your cool projects.
 
 {% include projects.liquid %}
 

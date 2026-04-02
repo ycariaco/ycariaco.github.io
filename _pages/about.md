@@ -5,6 +5,7 @@ permalink: /research/
 subtitle: <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
 nav_order: 2
+---
 
 selected_papers: false
 social: false

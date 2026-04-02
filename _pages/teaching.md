@@ -22,7 +22,7 @@ There is car parking under the SB building and numerous bike parking stations ar
 <img src="/assets/img/we_are_here.png" style="width:100%; max-width:100%; display:block; margin:12px 0 24px;">
 
 <div style="font-size:1.25rem; line-height:1.7; margin-top:18px; text-align:center;">
-<span style="color: var(--global-theme-color);">Pavillon des sciences biologiques</span>
+<span style="color: var(--global-theme-color);">Pavillon des sciences biologiques</span><br>
 141 Avenue du Président‑Kennedy<br>
 Montréal, QC H2X 1Y4<br>
 Canada<br>

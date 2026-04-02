@@ -32,23 +32,6 @@ latest_posts:
     We will advance this vision through three interconnected research directions:
   </p>
 
-  <ul style="margin:0 0 18px; padding-left:20px;">
-    <li style="margin-bottom:14px;">
-      <span style="color: var(--global-theme-color); font-weight:600;">Decoding placental immunometabolic reprogramming</span><br>
-      We will define how maternal metabolic and inflammatory states reshape placental function by altering key pathways in nutrient transport, mitochondrial metabolism, and immune signaling. Our goal is to uncover mechanisms that link maternal physiology to fetal growth, neurodevelopment, and disease susceptibility.
-    </li>
-
-    <li style="margin-bottom:14px;">
-      <span style="color: var(--global-theme-color); font-weight:600;">Identifying convergent pathways of environmental and drug toxicity</span><br>
-      We aim to move beyond single-exposure models to uncover shared biological programs through which pollutants and pharmacological agents disrupt placental structure and function. By identifying convergent oxidative, inflammatory, and stress-response pathways, we will reveal common mechanisms driving placental dysfunction across diverse exposures.
-    </li>
-
-    <li style="margin-bottom:0;">
-      <span style="color: var(--global-theme-color); font-weight:600;">Building next-generation AI-powered multi-omics frameworks</span><br>
-      A central innovation of our program is both the development and application of integrative computational tools that unify transcriptomics, proteomics, metabolomics, and pathomics. We will create and leverage AI-powered image analysis platforms to extract quantitative features from placental histology and spatial datasets, enabling a true “pixels-to-pathways” approach that connects tissue architecture with molecular programs.
-    </li>
-  </ul>
-
   <p style="margin:0;">
     By combining experimental systems, human cohorts, and computational innovation, our program will generate a systems-level understanding of placental biology. Ultimately, we aim to identify actionable pathways that can be targeted to improve fetal growth, protect neurodevelopment, and reduce long-term disease risk.
   </p>

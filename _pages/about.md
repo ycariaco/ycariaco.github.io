@@ -35,12 +35,7 @@ A central innovation of our program is both the development and application of i
 <br><br>
 By combining experimental systems, human cohorts, and computational innovation, our program will generate a systems-level understanding of placental biology. Ultimately, we aim to identify actionable pathways that can be targeted to improve fetal growth, protect neurodevelopment, and reduce long-term disease risk.
 
-
-
-Our research focuses on how maternal metabolic and inflammatory states, as well as exposure to diverse toxicants, shape placental function and fetal development through immunological and biochemical mechanisms. We are particularly interested in how immunometabolic stressors—such as obesity, systemic inflammation, infections, drugs and environmental contaminants—reprogram placental cellular function and alter developmental trajectories.<br><br>
-
-A central component of this program is the use of Omics techniques and the development and leverage of integrated, AI‑enabled computational tools for quantitative placental tissue analysis, revealing mechanisms at the molecular, cellular, and tissue scales. Our work bridges experimental models, human data, and systems biology approaches to identify pathways driving placental dysfunction and its consequences for fetal growth and neurodevelopment.
-
+</div>
 </div>
 
 <img src="/assets/img/UQAM_BUILDING.png" style="width:100%; max-width:100%; display:block; margin:32px 0;">

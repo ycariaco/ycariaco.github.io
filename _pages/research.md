@@ -7,8 +7,6 @@ nav_order: 4
 ---
 <hr style="margin:40px 0;">
 
-<h2><span style="color: var(--global-theme-color);">Publications</span></h2>
-
 <div id="pub-list" class="pub-list"></div>
 
 <style>

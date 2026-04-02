@@ -44,12 +44,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/funding/";
           },
-        },{id: "nav-teaching",
-          title: "teaching",
-          description: "Course materials, schedules, and resources for classes taught.",
+        },{id: "nav-contact",
+          title: "Contact",
+          description: "For all applications, please send a complete CV (including transcripts) along with the contact details of 3 references to ycariaco@uottawa.ca",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/teaching/";
+            window.location.href = "/contact/";
           },
         },{id: "nav-blog",
           title: "Blog",

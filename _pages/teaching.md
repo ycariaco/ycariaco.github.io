@@ -1,15 +1,37 @@
 ---
 layout: page
-permalink: /teaching/
-title: teaching
-description: Course materials, schedules, and resources for classes taught.
+permalink: /contact/
+title: Contact
+description: "For all applications, please send a complete CV (including transcripts) along with the contact details of 3 references to ycariaco@uottawa.ca"
 nav: true
 nav_order: 6
-calendar: true
+calendar: false
 ---
 
-This page displays a collection of courses with detailed schedules, materials, and resources. You can organize your courses by years, terms, or topics.
+<img src="/assets/img/we_are_here.png" style="width:100%; max-width:100%; display:block; margin:12px 0 24px;">
 
-{% include calendar.liquid calendar_id='test@gmail.com' timezone='Asia/Shanghai' %}
+<div style="font-size:1.1rem; line-height:1.7;">
 
-{% include courses.liquid %}
+Our lab is located in the SB (Sciences Biologiques) building.  
+The subway station Place‑des‑Arts is directly connected to the university.  
+There is car parking under the SB building and numerous bike parking stations around.
+
+</div>
+
+<div style="font-size:1.1rem; line-height:1.7; margin-top:16px;">
+141 Avenue du Président‑Kennedy<br>
+Montréal, QC H2X 1Y4<br>
+Canada<br>
+(514) 987‑3000
+</div>
+
+<iframe
+  src="https://www.google.com/maps?q=141%20Avenue%20du%20Pr%C3%A9sident-Kennedy%2C%20Montr%C3%A9al%2C%20QC%20H2X%201Y4&output=embed"
+  width="100%"
+  height="360"
+  style="border:0; margin-top:20px;"
+  allowfullscreen=""
+  loading="lazy"
+  referrerpolicy="no-referrer-when-downgrade">
+</iframe>
+

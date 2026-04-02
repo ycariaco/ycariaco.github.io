@@ -166,7 +166,22 @@
 ---
 
 @import "settings";
-@import "layout";
 @import "themes";
-/* other imports… */
+@import "layout";
+@import "typography";
+@import "navbar";
+@import "footer";
+@import "blog";
+@import "publications";
+@import "components";
+@import "utilities";
+@import "distill";
+@import "cv";
+@import "tabs";
+@import "teachings";
+@import "typograms";
+@import "font-awesome/fontawesome";
+@import "font-awesome/brands";
+@import "font-awesome/solid";
+@import "font-awesome/regular";
 @import "custom";

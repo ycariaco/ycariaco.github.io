@@ -46,7 +46,7 @@ ninja.data = [{
           },
         },{id: "nav-contact",
           title: "Contact",
-          description: "For all applications, please send a complete CV (including transcripts) along with the contact details of 3 references to ycariaco@uottawa.ca",
+          description: "",
           section: "Navigation",
           handler: () => {
             window.location.href = "/contact/";

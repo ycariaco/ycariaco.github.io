@@ -5,6 +5,9 @@ permalink: /publications/
 nav: true
 nav_order: 4
 ---
+{% bibliography %}
+
+<hr style="margin:40px 0;">
 
 <div
   id="cytoscape"
@@ -284,3 +287,7 @@ nav_order: 4
     })
     .catch((err) => console.error("Error loading publications:", err));
 </script>
+
+
+
+

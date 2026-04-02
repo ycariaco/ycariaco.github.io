@@ -1,3 +1,11 @@
+
+.post-title,
+.page-title,
+h1.post-title,
+h1.page-title {
+  color: var(--global-theme-color) !important;
+}
+
 .team-container {
   margin-top: 12px;
 }
@@ -129,24 +137,22 @@ body.dark .alumni-box,
 body.dark .alumni-box li {
   color: #e5e7eb;
 }
-
-/* Bigger navbar + logo */
+/* Navbar sizing */
 #navbar {
-  min-height: 100px;              /* increase height */
+  min-height: 60px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
+/* Brand layout */
 .navbar-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
+  gap: 0;
 }
 
-.site-logo {
-  height: 70px;                  /* increase logo size */
-  width: auto;
+/* Hide logo image */
+.site-logo,
+.navbar-brand img {
+  display: none !important;
 }
-
-
-

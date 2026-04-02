@@ -27,11 +27,12 @@ nav_order: 4
       <p class="team-position">Principal Investigator</p>
     </a>
 
-    <a class="team-card" href="/people/ ">
-      <img src="/assets/img/You.png" alt=" ">
-      <h3 class="team-name"> </h3>
-      <p class="team-position"> </p>
-    </a>
+    <a class="team-card team-card--wide" href="/people/">
+  <img src="/assets/img/You.png" alt="Open Position">
+  <h3 class="team-name"> </h3>
+  <p class="team-position"> </p>
+</a>
+
 
   </div>
 </div>

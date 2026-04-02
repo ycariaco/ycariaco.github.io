@@ -6,9 +6,6 @@ nav: true
 nav_order: 4
 ---
 
-Interactive visualization of my research publications. **Drag nodes**, **zoom**, and **hover** for
-details. Node size reflects publication year, and edges connect co-authored papers.
-
 <div
   id="cytoscape"
   style="width: 100%; height: 800px; border: 1px solid #ddd; margin: 20px 0;"

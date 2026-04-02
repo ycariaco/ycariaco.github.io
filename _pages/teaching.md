@@ -2,21 +2,24 @@
 layout: page
 permalink: /contact/
 title: Contact
-description: "For all applications, please send a complete CV (including transcripts) along with the contact details of 3 references to ycariaco@uottawa.ca"
+description: 
 nav: true
 nav_order: 6
 calendar: false
 ---
 
-<img src="/assets/img/we_are_here.png" style="width:100%; max-width:100%; display:block; margin:12px 0 24px;">
-
 <div style="font-size:1.1rem; line-height:1.7;">
-
-Our lab is located in the SB (Sciences Biologiques) building.  
-The subway station Place‑des‑Arts is directly connected to the university.  
-There is car parking under the SB building and numerous bike parking stations around.
-
+For all applications, please send a complete CV (including transcripts) along with the contact details of 3 references to
+<a href="mailto:ycariaco@uottawa.ca">ycariaco@uottawa.ca</a>.
 </div>
+
+<div style="font-size:1.1rem; line-height:1.7; margin-top:16px;">
+Our lab is located in the SB (Sciences Biologiques) building.<br>
+The subway station Place‑des‑Arts is directly connected to the university.<br>
+There is car parking under the SB building and numerous bike parking stations around.
+</div>
+
+<img src="/assets/img/we_are_here.png" style="width:100%; max-width:100%; display:block; margin:12px 0 24px;">
 
 <div style="font-size:1.1rem; line-height:1.7; margin-top:16px;">
 141 Avenue du Président‑Kennedy<br>
@@ -34,4 +37,5 @@ Canada<br>
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade">
 </iframe>
+
 

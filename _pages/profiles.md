@@ -15,10 +15,10 @@ nav_order: 4
     </a>
 
     <a class="team-card team-card--wide" href="/people/">
-      <img src="/assets/img/You.png" alt="Open Position">
-      <h3 class="team-name"></h3>
-      <p class="team-position"></p>
-    </a>
+  <img src="/assets/img/You.png" alt="Open Position">
+  <h3 class="team-name">Open Position</h3>
+  <p class="team-position">Join our lab</p>
+</a>
   </div>
 </div>
 

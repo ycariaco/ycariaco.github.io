@@ -169,3 +169,26 @@ body.dark .navbar-brand img {
   border-radius: 6px;
   box-shadow: 0 0 0 2px #fff;
 }
+/* --- Navbar overrides --- */
+.navbar-brand .site-title {
+  display: none; /* hide text title */
+}
+
+.navbar-brand img,
+.site-logo {
+  display: inline-block;
+  height: 48px;
+  width: auto;
+}
+
+/* Bigger nav links on desktop */
+@media (min-width: 992px) {
+  .navbar-nav .nav-link {
+    font-size: 1.05rem;
+  }
+}
+
+/* Optional: remove search icon if it still shows */
+#search-toggle {
+  display: none;
+}

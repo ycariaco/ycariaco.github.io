@@ -14,7 +14,7 @@ nav_order: 4
       <p class="team-position">Principal Investigator</p>
     </a>
 
-    <a class="team-card team-card--wide" href="/people/">
+    <a class="team-card team-card--wide" href="/contact/">
   <img src="/assets/img/You.png" alt="Open Position">
   <h3 class="team-name">Open Position</h3>
   <p class="team-position">Join our lab</p>

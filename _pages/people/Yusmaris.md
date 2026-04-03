@@ -44,6 +44,14 @@ permalink: /people/yusmariscariaco/
   <img class="profile-photo" src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
 
   <div class="profile-bio">
+    <h2>Training</h2>
+    <ul>
+      <li><strong>2022 – 2026:</strong> Postdoctoral Researcher, Interdisciplinary School of Health Sciences, University of Ottawa, Ottawa (Ontario), Canada.</li>
+      <li><strong>2017 – 2021:</strong> PhD in Applied Immunology and Parasitology, Universidade Federal de Uberlândia (UFU), Uberlândia, Brazil.</li>
+      <li><strong>2015 – 2017:</strong> MSc in Applied Immunology and Parasitology, Universidade Federal de Uberlândia (UFU), Uberlândia, Brazil.</li>
+      <li><strong> 2013:</strong> BSc in Bioanalysis (Medical Technologist), Universidad de Oriente (UDO), Venezuela.</li>
+    </ul>
+
     Dr. Yusmaris Cariaco is an Assistant Professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Dr. Cariaco studies how diverse gestational exposures reprogram placental cellular function and alter fetal growth and neurodevelopmental trajectories.
     <br><br>
     Dr. Cariaco has extensive technical expertise spanning rodent pregnancy models, human placental biology, multi-omics profiling, and advanced imaging analysis. She integrates transcriptomics, metabolomics, and spatial biology with computational methods—including machine learning and deep learning pipelines—to map cellular interactions within the placenta and uncover mechanisms driving pregnancy complications.
@@ -51,3 +59,4 @@ permalink: /people/yusmariscariaco/
     Her research has been supported by several competitive funding programs, including the Brain & Behavior Research Foundation Young Investigator Grant, the Histochemical Society Keystone Grant, and the Molly Towell Perinatal Research Foundation Postdoctoral Fellowship.
   </div>
 </div>
+

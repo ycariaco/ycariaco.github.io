@@ -3,7 +3,7 @@
 # -----------------------------------------------------------------------------
 
 title: Cariaco Lab
-nav_title:           # leave blank to hide text in navbar (logo only)
+nav_title: ""          # leave blank to hide text in navbar (logo only)
 first_name: Cariaco
 middle_name:
 last_name: Lab
@@ -74,10 +74,10 @@ external_services:
 
 navbar_fixed: true
 footer_fixed: true
-search_enabled: true
-socials_in_search: true
-posts_in_search: true
-bib_search: true
+search_enabled: false
+socials_in_search: false
+posts_in_search: false
+bib_search: false
 
 # Dimensions
 max_width: 930px

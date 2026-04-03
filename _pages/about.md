@@ -5,7 +5,6 @@ permalink: /research/
 subtitle: <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
 nav_order: 2
----
 
 selected_papers: false
 social: false
@@ -21,30 +20,26 @@ latest_posts:
   limit: 3
 ---
 
+
 <img src="/assets/img/CariacoLab.jpeg" style="width:100%; max-width:100%; display:block;">
 
 <div style="font-size:1.15rem; line-height:1.7;">
   <p style="margin:0 0 18px;">
-    Our research program seeks to redefine the placenta as a dynamic, adaptive sensor that integrates maternal metabolic, inflammatory, and environmental signals to shape fetal development. Moving forward, we aim to uncover how diverse immunometabolic stressors—ranging from obesity and infection to drugs and environmental contaminants—reprogram placental biology and drive lifelong developmental outcomes.
+    Our research program seeks to redefine the placenta as a dynamic, adaptive sensor that integrates maternal metabolic, inflammatory, and environmental signals to shape fetal development. Moving forward, we aim to uncover how diverse stressors—ranging from obesity and infection to drugs and environmental contaminants—reprogram placental biology and drive lifelong developmental outcomes.
   </p>
 
   <p style="margin:0 0 12px;">
-    We will advance this vision through three interconnected research directions:
-  </p>
+We will advance this vision through the following research directions:
+</p>
 <ul style="margin:0 0 18px; padding-left:20px;">
 <li style="margin-bottom:14px;">
-  <span style="color: var(--global-theme-color); font-weight:600;">Decoding placental immunometabolic reprogramming</span><br>
-  We will define how maternal metabolic and inflammatory states reshape placental function by altering key pathways in nutrient transport, mitochondrial metabolism, and immune signaling.
-</li>
-
-<li style="margin-bottom:14px;">
-  <span style="color: var(--global-theme-color); font-weight:600;">Identifying convergent pathways of environmental and drug toxicity</span><br>
-  We aim to move beyond single-exposure models to uncover shared biological programs through which pollutants and pharmacological agents disrupt placental structure and function.
+  <span style="color: var(--global-theme-color); font-weight:600;">Mapping placental response networks to complex prenatal exposures</span><br>
+  We aim to characterize how the placenta integrates diverse external stressors into coordinated molecular and cellular programs, revealing how exposure-specific signals translate into functional changes in placental biology. In particular, we will define how these signals reshape key processes such as immune signaling, metabolism, and tissue organization, and how their integration ultimately influences placental function and fetal development.
 </li>
 
 <li style="margin-bottom:0;">
   <span style="color: var(--global-theme-color); font-weight:600;">Building next-generation AI-powered multi-omics frameworks</span><br>
-  A central innovation of our program is both the development and application of integrative computational tools that unify transcriptomics, proteomics, metabolomics, and pathomics.
+ A central innovation of our program is both the development and application of integrative computational tools that unify transcriptomics, proteomics, metabolomics, and pathomics. By moving beyond single-layer analyses, we aim to capture coordinated biological signals across molecular, cellular, and tissue scales. This integrated approach will enable the identification of pathway-level signatures that reflect how placental function is reprogrammed in response to prenatal stressors.
 </li>
 </ul>
 

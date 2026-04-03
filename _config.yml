@@ -9,10 +9,10 @@ middle_name:
 last_name: Lab
 navbar_logo: true
 logo: /assets/img/Cariaco_clear_plain_svg.svg
-nav_title: ""
 
 # Search icon
 search_enabled: false
+
 
 contact_note: >
   The best way to reach the lab for collaborations or prospective student

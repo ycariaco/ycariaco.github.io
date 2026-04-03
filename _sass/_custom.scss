@@ -34,7 +34,7 @@ nav.navbar {
 }
 
 .site-logo svg {
-  height: 64px;   /* change logo size here */
+  height: 80px;   /* change logo size here */
   width: auto;
   display: block;
   pointer-events: auto;
@@ -45,13 +45,18 @@ nav.navbar {
   cursor: pointer;
 }
 
-/* Dark mode subtle halo */
-html[data-theme="dark"] .site-logo,
-body.dark .site-logo {
-  background: rgba(255,255,255,0.95);
-  padding: 3px 5px;
-  border-radius: 6px;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.95);
+/* Transparent background */
+.site-logo {
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
+/* Halo with no background (dark mode only) */
+html[data-theme="dark"] .site-logo svg,
+body.dark .site-logo svg {
+  filter: drop-shadow(0 0 6px rgba(255,255,255,0.95))
+          drop-shadow(0 0 2px rgba(255,255,255,0.95));
 }
 
 /* Mobile navbar */

@@ -1,26 +1,81 @@
-/* Hide navbar text title */
+/* ---------- NAVBAR + LOGO ---------- */
 .navbar-brand .site-title { display: none; }
 
-/* Logo sizing (inline SVG) */
-.site-logo { display: inline-block; }
+#navbar,
+nav.navbar {
+  min-height: 100px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.navbar-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.navbar-nav .nav-link {
+  font-size: 1.15rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.navbar-nav .nav-item {
+  margin-left: 6px;
+  margin-right: 6px;
+}
+
+.site-logo {
+  display: inline-flex;
+  align-items: center;
+  background: transparent;
+  padding: 0;
+  box-shadow: none;
+}
+
 .site-logo svg {
-  height: 80px;
+  height: 64px;   /* change logo size here */
   width: auto;
   display: block;
   pointer-events: auto;
 }
 
-.site-logo svg text { pointer-events: auto; cursor: pointer; }
-
-/* Huge clear halo */
-.site-logo {
-  background: rgba(255,255,255,0.95);
-  padding: 10px 14px;
-  border-radius: 16px;
-  box-shadow: 0 0 0 6px rgba(255,255,255,0.95);
+.site-logo svg text {
+  pointer-events: auto;
+  cursor: pointer;
 }
 
-/* Titles */
+/* Dark mode subtle halo */
+html[data-theme="dark"] .site-logo,
+body.dark .site-logo {
+  background: rgba(255,255,255,0.95);
+  padding: 3px 5px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.95);
+}
+
+/* Mobile navbar */
+@media (max-width: 640px) {
+  #navbar,
+  nav.navbar {
+    min-height: 80px;
+    padding-top: 12px;
+    padding-bottom: 12px;
+  }
+
+  .site-logo svg {
+    height: 50px;
+  }
+
+  .navbar-nav .nav-link {
+    font-size: 1rem;
+  }
+}
+
+/* Hide search icon if still present */
+#search-toggle { display: none; }
+
+/* ---------- TITLES ---------- */
 .post-title,
 .page-title,
 h1.post-title,
@@ -28,18 +83,24 @@ h1.page-title {
   color: var(--global-theme-color) !important;
 }
 
-.team-container { margin-top: 12px; }
-
-/* Wider containers on big screens */
+/* ---------- WIDE CONTAINERS ---------- */
 @media (min-width: 1200px) {
   .container,
   .container-lg,
-  .container-xl { max-width: 1400px; }
+  .container-xl {
+    max-width: 1400px;
+  }
 
-  .post { max-width: 1400px; margin: 0 auto; }
+  .post {
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
-/* Team grid */
+/* ---------- TEAM GRID ---------- */
+.team-container { margin-top: 12px; }
+
 .team-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -84,15 +145,31 @@ h1.page-title {
   margin-bottom: 12px;
 }
 
-/* Full-width “You” card */
 .team-card--wide { grid-column: 1 / -1; }
+
 .team-card--wide img {
   height: 260px;
   object-fit: cover;
 }
 
-/* Alumni */
+/* Team text */
+.team-name { margin: 6px 0 4px; }
+
+.team-position {
+  margin: 0;
+  color: #e91e63;
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.team-position::before { content: none; }
+
+/* ---------- ALUMNI ---------- */
 .alumni-section { margin-top: 32px; }
+
 .alumni-box {
   width: 100%;
   background: #fff7fb;
@@ -101,9 +178,10 @@ h1.page-title {
   padding: 16px 20px;
   box-shadow: 0 10px 24px rgba(0,0,0,0.06);
 }
+
 .alumni-list { margin: 0; padding-left: 18px; }
 
-/* Dark mode */
+/* Dark mode for team/alumni */
 html[data-theme="dark"] .team-card,
 body.dark .team-card {
   background: #111827;
@@ -127,26 +205,7 @@ html[data-theme="dark"] .alumni-box li,
 body.dark .alumni-box,
 body.dark .alumni-box li { color: #e5e7eb; }
 
-/* Navbar sizing + font */
-#navbar,
-nav.navbar {
-  min-height: 110px;
-  padding-top: 22px;
-  padding-bottom: 22px;
-}
-
-.navbar-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.navbar-nav .nav-link {
-  font-size: 1.25rem;
-  font-weight: 500;
-}
-
-/* Research streams sizing */
+/* ---------- RESEARCH STREAMS ---------- */
 #research-streams {
   width: 100%;
   max-width: 100%;
@@ -162,58 +221,4 @@ nav.navbar {
 @media (max-width: 900px) {
   #research-streams .rs-svg { min-height: 420px; }
   #research-streams .rs-col-title { font-size: 16px; }
-}
-
-/* Mobile */
-@media (max-width: 640px) {
-  #navbar,
-  nav.navbar {
-    min-height: 80px;
-    padding-top: 12px;
-    padding-bottom: 12px;
-  }
-
-  .site-logo svg { height: 56px; }
-
-  .navbar-nav .nav-link { font-size: 1rem; }
-}
-
-/* Hide search icon if still present */
-#search-toggle { display: none; }
-
-/* Subtle halo (visible, not big) */
-.site-logo {
-  background: transparent; /* clear background */
-  padding: 0;              /* no extra size */
-  box-shadow: none;
-}
-
-/* Only add a small white halo in dark mode */
-html[data-theme="dark"] .site-logo,
-body.dark .site-logo {
-  background: rgba(255,255,255,0.95);
-  padding: 3px 5px;
-  border-radius: 6px;
-  box-shadow: 0 0 0 2px rgba(255,255,255,0.95);
-}
-/* Logo size */
-.site-logo svg {
-  height: 64px;   /* ← change this number */
-  width: auto;
-}
-.navbar-brand img {
-  height: 64px;   /* match the svg height */
-  width: auto;
-}
-/* Navbar text style */
-.navbar-nav .nav-link {
-  font-size: 1.15rem;    /* bigger text */
-  font-weight: 400;      /* remove bold */
-  letter-spacing: 0.03em; /* more spacing */
-}
-
-/* Optional extra spacing between items */
-.navbar-nav .nav-item {
-  margin-left: 6px;
-  margin-right: 6px;
 }

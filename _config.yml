@@ -7,8 +7,12 @@ nav_title: Cariaco Lab
 first_name: Cariaco
 middle_name:
 last_name: Lab
-navbar_logo: false
+navbar_logo: true
+logo: /assets/img/Cariaco_clear_plain_svg.svg   # <- set this to your logo file
+nav_title: Cariaco Lab
 
+# Search icon
+search_enabled: false
 contact_note: >
   The best way to reach the lab for collaborations or prospective student
   inquiries is via email.

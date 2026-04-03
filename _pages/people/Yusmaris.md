@@ -46,15 +46,15 @@ permalink: /people/yusmariscariaco/
   <div class="profile-bio">
     <h2>Training</h2>
     <ul>
-      <li><strong>2022 – 2026:</strong> Postdoctoral Researcher, University of Ottawa, Canada</li>
-      <li><strong>2017 – 2021:</strong> PhD in Applied Immunology and Parasitology, Universidade Federal de Uberlândia, Brazil</li>
-      <li><strong>2015 – 2017:</strong> MSc in Applied Immunology and Parasitology, Universidade Federal de Uberlândia, Brazil</li>
-      <li><strong> 2013:</strong> BSc in Bioanalysis (Medical Technologist), Universidad de Oriente, Venezuela</li>
+      <li> Postdoctoral Researcher, University of Ottawa, Canada</li>
+      <li> PhD in Applied Immunology and Parasitology, Universidade Federal de Uberlândia, Brazil</li>
+      <li> MSc in Applied Immunology and Parasitology, Universidade Federal de Uberlândia, Brazil</li>
+      <li> BSc in Bioanalysis (Medical Technologist), Universidad de Oriente, Venezuela</li>
     </ul>
-
-    Dr. Yusmaris Cariaco is an Assistant Professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM). Dr. Cariaco studies how diverse gestational exposures reprogram placental cellular function and alter fetal growth and neurodevelopmental trajectories.
     <br><br>
-    Dr. Cariaco has extensive technical expertise spanning rodent pregnancy models, human placental biology, multi-omics profiling, and advanced imaging analysis. She integrates transcriptomics, metabolomics, and spatial biology with computational methods—including machine learning and deep learning pipelines—to map cellular interactions within the placenta and uncover mechanisms driving pregnancy complications.
+    Dr. Yusmaris Cariaco is an Assistant Professor in the Department of Biological Sciences at Université du Québec à Montréal (UQAM) where she studies how diverse gestational exposures reprogram placental cellular function and alter fetal growth and neurodevelopmental trajectories.
+    <br><br>
+    Dr. Cariaco has extensive technical expertise spanning rodent pregnancy models, human placental biology, multi-omics profiling, and advanced imaging analysis. She integrates transcriptomics, metabolomics, and spatial biology with computational methods—including machine learning and deep learning pipelines—to map cellular and molecular interactions within the placenta and uncover mechanisms driving pregnancy complications.
     <br><br>
     Her research has been supported by several competitive funding programs, including the Brain & Behavior Research Foundation Young Investigator Grant, the Histochemical Society Keystone Grant, and the Molly Towell Perinatal Research Foundation Postdoctoral Fellowship.
   </div>

@@ -180,3 +180,40 @@ nav.navbar {
 
 /* Hide search icon if still present */
 #search-toggle { display: none; }
+
+/* Subtle halo (visible, not big) */
+.site-logo {
+  background: transparent; /* clear background */
+  padding: 0;              /* no extra size */
+  box-shadow: none;
+}
+
+/* Only add a small white halo in dark mode */
+html[data-theme="dark"] .site-logo,
+body.dark .site-logo {
+  background: rgba(255,255,255,0.95);
+  padding: 3px 5px;
+  border-radius: 6px;
+  box-shadow: 0 0 0 2px rgba(255,255,255,0.95);
+}
+/* Logo size */
+.site-logo svg {
+  height: 64px;   /* ← change this number */
+  width: auto;
+}
+.navbar-brand img {
+  height: 64px;   /* match the svg height */
+  width: auto;
+}
+/* Navbar text style */
+.navbar-nav .nav-link {
+  font-size: 1.15rem;    /* bigger text */
+  font-weight: 400;      /* remove bold */
+  letter-spacing: 0.03em; /* more spacing */
+}
+
+/* Optional extra spacing between items */
+.navbar-nav .nav-item {
+  margin-left: 6px;
+  margin-right: 6px;
+}

@@ -29,6 +29,7 @@ h1.page-title {
   display: grid;
   grid-template-columns: repeat(3, minmax(220px, 1fr));
   gap: 24px;
+  align-items: stretch;
 }
 
 @media (max-width: 900px) {
@@ -54,7 +55,8 @@ h1.page-title {
   padding: 16px;
   box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
   transition: transform 180ms ease, box-shadow 180ms ease;
-  min-height: 320px;
+  min-height: 360px;
+  height: 100%;
 }
 
 .team-card:hover {
@@ -64,11 +66,22 @@ h1.page-title {
 
 .team-card img {
   width: 100%;
-  height: 170px;
+  height: 210px;
   object-fit: cover;
   border-radius: 10px;
   display: block;
   margin-bottom: 12px;
+}
+
+/* Full-width “You” card */
+.team-card--wide {
+  grid-column: 1 / -1;
+}
+
+.team-card--wide img {
+  height: 240px;
+  object-fit: contain;
+  background: #f8fafc;
 }
 
 .team-name {
@@ -152,11 +165,28 @@ nav.navbar {
   gap: 10px;
 }
 
-/* Logo size */
+/* Hide text title, show logo */
+.navbar-brand .site-title {
+  display: none;
+}
+
+/* Logo size + force visible */
 .site-logo,
 .navbar-brand img {
+  display: inline-block;
   height: 48px;
   width: auto;
+}
+
+/* Bigger navbar links on desktop */
+@media (min-width: 992px) {
+  .navbar-nav .nav-link {
+    font-size: 1.05rem;
+  }
+
+  .dropdown-item {
+    font-size: 1rem;
+  }
 }
 
 /* Dark mode logo halo */
@@ -169,6 +199,52 @@ body.dark .navbar-brand img {
   border-radius: 6px;
   box-shadow: 0 0 0 2px #fff;
 }
+
+/* Research streams sizing */
+#research-streams {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem 0;
+}
+
+#research-streams .rs-svg {
+  width: 100%;
+  height: auto;
+  min-height: 480px;
+}
+
+@media (max-width: 900px) {
+  #research-streams .rs-svg {
+    min-height: 420px;
+  }
+
+  #research-streams .rs-col-title {
+    font-size: 16px;
+  }
+}
+
+/* Mobile layout cleanup */
+@media (max-width: 640px) {
+  #navbar,
+  nav.navbar {
+    min-height: 60px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+  }
+
+  .site-logo,
+  .navbar-brand img {
+    height: 40px;
+  }
+
+  .container,
+  .container-lg,
+  .container-xl {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+}
+
 /* --- Navbar overrides --- */
 .navbar-brand .site-title {
   display: none; /* hide text title */

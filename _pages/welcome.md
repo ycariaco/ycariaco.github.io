@@ -15,27 +15,23 @@ body { padding-bottom: 0; }
 footer.fixed-bottom { position: static; }
 .container.mt-5 { margin-top: 0 !important; }
 
-/* Hero wrapper */
 .hero-container {
   position: relative;
   width: 100vw;
+  height: 100vh;
+  min-height: 600px;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
-  margin-top: 0;
   overflow: hidden;
-  padding-top: 72px; /* room for fixed navbar */
 }
 
-/* Hero image */
 .hero-image {
-  display: block;
   width: 100%;
-  height: clamp(320px, 60vh, 640px);
+  height: 100%;
   object-fit: cover;
-  border-radius: 0;
+  display: block;
 }
 
-/* Hero text card (desktop) */
 .hero-text {
   position: absolute;
   top: 50%;
@@ -55,23 +51,7 @@ footer.fixed-bottom { position: static; }
   margin: 0;
 }
 
-.hero-text,
-.hero-text * { color: #111827 !important; }
-
-/* Switch to stacked layout earlier (tablet/medium screens) */
-@media (max-width: 1100px) {
-  .hero-text {
-    position: static;
-    transform: none;
-    margin: -60px auto 24px;
-  }
-}
-
-/* Tighten on small phones */
-@media (max-width: 640px) {
-  .hero-container { padding-top: 64px; }
-  .hero-text { margin: -40px 16px 20px; }
-}
+.hero-text, .hero-text * { color: #111827 !important; }
 </style>
 
 <div class="hero-container">

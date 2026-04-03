@@ -5,19 +5,6 @@ permalink: /team/
 nav: true
 nav_order: 4
 ---
-<style>
-  .team-card img {
-    height: 100% !important;
-    width: 100% !important;
-    object-fit: cover !important;
-    border-radius: 12px;
-  }
-
-  .team-position {
-    font-size: 24px !important;
-    font-weight: 600;
-  }
-</style>
 
 <div class="team-container">
   <div class="team-grid">
@@ -28,12 +15,10 @@ nav_order: 4
     </a>
 
     <a class="team-card team-card--wide" href="/people/">
-  <img src="/assets/img/You.png" alt="Open Position">
-  <h3 class="team-name"> </h3>
-  <p class="team-position"> </p>
-</a>
-
-
+      <img src="/assets/img/You.png" alt="Open Position">
+      <h3 class="team-name"></h3>
+      <p class="team-position"></p>
+    </a>
   </div>
 </div>
 
@@ -41,8 +26,8 @@ nav_order: 4
   <h2 class="section-title">Alumni</h2>
   <div class="alumni-box">
     <ul class="alumni-list">
-      <li> </li>
-      <li> </li>
+      <li></li>
+      <li></li>
     </ul>
   </div>
 </div>

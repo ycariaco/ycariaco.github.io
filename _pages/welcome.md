@@ -88,16 +88,14 @@ footer.fixed-bottom {
 </style>
 
 <div class="hero-container">
-  <img src="/assets/img/placenta_hero.png" class="hero-image">
-
-  <div class="hero-text">
-    <p>
-  Our vision is to establish the placenta as an<br>
+<div class="welcome-hero">
+  <img class="welcome-hero__img" src="/assets/img/placenta_hero.png" alt="">
+  <div class="welcome-hero__card">
+    <!-- Our vision is to establish the placenta as an<br>
   adaptive sensor of prenatal exposures,<br>
   whose molecular programs can be decoded<br>
   through integrated multi-omics to explain<br>
   <em><strong>—and ultimately improve—</strong></em><br>
-  fetal outcomes.
-</p>
+  fetal outcomes. -->
   </div>
 </div>

@@ -55,18 +55,20 @@
            stroke-width="8"
            stroke-linecap="round" />
         <text
-           xml:space="preserve"
-           style="font-size:374.616px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';writing-mode:lr-tb;direction:ltr;fill:#f45c5c;fill-opacity:1;stroke:#0e0000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
-           x="-1010.0463"
-           y="625.94891"
-           id="text85"
-           transform="matrix(1.1131335,0.15933625,-0.12601188,0.88032724,0,0)"
-           onmouseover="const colors = [&quot;#e91e63&quot;,&quot;#3b82f6&quot;,&quot;#10b981&quot;,&quot;#f59e0b&quot;,&quot;#8b5cf6&quot;];&#10;this.style.fill = colors[Math.floor(Math.random() * colors.length)];"
-           onmouseout="const colors = [&quot;#e91e63&quot;,&quot;#3b82f6&quot;,&quot;#10b981&quot;,&quot;#f59e0b&quot;,&quot;#8b5cf6&quot;];&#10;this.style.fill = colors[Math.floor(Math.random() * colors.length)];"><tspan
-             id="tspan85"
-             style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:374.616px;font-family:'Hiragino Maru Gothic ProN';-inkscape-font-specification:'Hiragino Maru Gothic ProN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;fill:#010000;fill-opacity:1;stroke-width:0;stroke-dasharray:none"
-             x="-1010.0463"
-             y="625.94891">Cariaco La</tspan></text>
+  xml:space="preserve"
+  style="font-size:374.616px;font-family:Sans;-inkscape-font-specification:'Sans, Normal';writing-mode:lr-tb;direction:ltr;fill:#010000;fill-opacity:1;stroke:#0e0000;stroke-width:0;stroke-dasharray:none;stroke-opacity:1"
+  x="-1010.0463"
+  y="625.94891"
+  id="text85"
+  transform="matrix(1.1131335,0.15933625,-0.12601188,0.88032724,0,0)"
+  onmouseover="const colors = [&quot;#e91e63&quot;,&quot;#3b82f6&quot;,&quot;#10b981&quot;,&quot;#f59e0b&quot;,&quot;#8b5cf6&quot;]; this.style.fill = colors[Math.floor(Math.random() * colors.length)];"
+  onmouseout="const colors = [&quot;#e91e63&quot;,&quot;#3b82f6&quot;,&quot;#10b981&quot;,&quot;#f59e0b&quot;,&quot;#8b5cf6&quot;]; this.style.fill = colors[Math.floor(Math.random() * colors.length)];">
+  <tspan
+    id="tspan85"
+    style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:374.616px;font-family:'Hiragino Maru Gothic ProN';-inkscape-font-specification:'Hiragino Maru Gothic ProN, Normal';font-variant-ligatures:normal;font-variant-caps:normal;font-variant-numeric:normal;font-variant-east-asian:normal;stroke-width:0;stroke-dasharray:none"
+    x="-1010.0463"
+    y="625.94891">Cariaco La</tspan>
+</text>
       </g>
     </g>
   </g>

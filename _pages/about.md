@@ -38,7 +38,7 @@ We will advance this vision through the following research directions:
 </li>
 
 <li style="margin-bottom:0;">
-  <span style="color: var(--global-theme-color); font-weight:600;">Building next-generation AI-powered multi-omics frameworks</span><br>
+  <span style="color: var(--global-theme-color); font-weight:600;">Advancing next-generation AI-powered image analysis and multi-omics integration frameworks</span><br>
  A central innovation of our program is both the development and application of integrative computational tools that unify transcriptomics, proteomics, metabolomics, and pathomics. By moving beyond single-layer analyses, we aim to capture coordinated biological signals across molecular, cellular, and tissue scales. This integrated approach will enable the identification of pathway-level signatures that reflect how placental function is reprogrammed in response to prenatal stressors.
 </li>
 </ul>

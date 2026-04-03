@@ -3,16 +3,16 @@
 # -----------------------------------------------------------------------------
 
 title: Cariaco Lab
-nav_title: Cariaco Lab
+nav_title:           # leave blank to hide text in navbar (logo only)
 first_name: Cariaco
 middle_name:
 last_name: Lab
 navbar_logo: true
-logo: /assets/img/Cariaco_clear_plain_svg.svg   # <- set this to your logo file
-nav_title: Cariaco Lab
+logo: /assets/img/Cariaco_clear_plain_svg.svg   # your logo file
 
 # Search icon
 search_enabled: false
+
 contact_note: >
   The best way to reach the lab for collaborations or prospective student
   inquiries is via email.
@@ -22,6 +22,7 @@ description: >
   and fetal development. We combine experimental models, human placental
   samples, and integrative multi-omics to understand how metabolic,
   inflammatory, and environmental signals influence pregnancy outcomes.
+
 
 footer_text: >
   © 2026 Cariaco Lab — Université du Québec à Montréal (UQAM).  

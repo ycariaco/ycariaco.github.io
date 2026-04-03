@@ -227,3 +227,16 @@ body.dark .alumni-box li { color: #e5e7eb; }
   #research-streams .rs-svg { min-height: 420px; }
   #research-streams .rs-col-title { font-size: 16px; }
 }
+#research-streams .rs-label {
+  font-size: 15px;
+  fill: #111827;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 6px;
+}
+
+#research-streams .rs-link {
+  stroke-width: 2.5;
+  opacity: 0.7;
+}
+

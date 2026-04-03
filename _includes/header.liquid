@@ -4,8 +4,10 @@
     <div class="container">
       {% if page.permalink != '/' %}
   <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
+  <span class="site-logo">
     {% include cariaco-logo.svg %}
-  </a>
+  </span>
+</a>
 {% elsif site.enable_navbar_social %}
         <!-- Social Icons -->
         <div class="navbar-brand social">{% social_links %}</div>

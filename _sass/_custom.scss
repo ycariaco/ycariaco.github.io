@@ -1,3 +1,10 @@
+.navbar-brand .site-title { display: none; }
+
+.navbar-brand svg {
+  height: 48px;
+  width: auto;
+  display: block;
+}
 .post-title,
 .page-title,
 h1.post-title,

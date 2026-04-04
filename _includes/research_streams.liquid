@@ -38,18 +38,22 @@
 
 {% for node in nodes %}
   {% assign label_x = node.x %}
-  {% assign label_y = node.y | plus: 4 %}
-  {% assign label_anchor = "middle" %}
+{% assign label_y = node.y | plus: 4 %}
+{% assign label_anchor = "middle" %}
 
-  {% if node.group == "exposure" %}
-    {% assign label_x = node.x | plus: 56 %}
-    {% assign label_anchor = "start" %}
-  {% elsif node.group == "tool" or node.group == "integration" %}
-    {% assign label_x = node.x | minus: 56 %}
-    {% assign label_anchor = "end" %}
-  {% elsif node.group == "core" %}
-    {% assign label_y = node.y | plus: 52 %}
-  {% endif %}
+{% if node.group == "exposure" %}
+  {% assign label_x = node.x | plus: 56 %}
+  {% assign label_anchor = "start" %}
+{% elsif node.group == "tool" or node.group == "integration" %}
+  {% assign label_x = node.x | minus: 56 %}
+  {% assign label_anchor = "end" %}
+{% elsif node.group == "core" %}
+  {% assign label_y = node.y | plus: 52 %}
+{% endif %}
+
+{% if node.label_x %}{% assign label_x = node.label_x %}{% endif %}
+{% if node.label_y %}{% assign label_y = node.label_y %}{% endif %}
+{% if node.label_anchor %}{% assign label_anchor = node.label_anchor %}{% endif %}
 
   {% if node.id == "placenta" and node.img %}
     <g

@@ -261,3 +261,6 @@ body.dark .alumni-box li { color: #e5e7eb; }
   fill: #ffe3f0;     /* soft highlight */
   stroke: var(--global-theme-color);
 }
+.post-header .post-title {
+  color: var(--global-theme-color) !important;
+}

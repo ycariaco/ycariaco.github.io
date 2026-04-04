@@ -92,6 +92,39 @@ body.dark .site-logo svg {
 }
 
 #search-toggle { display: none; }
+/* --- Mobile navbar: fixed + always on top --- */
+@media (max-width: 640px) {
+  #navbar,
+  nav.navbar {
+    position: fixed;     /* keep it stuck at top */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;       /* higher than page content */
+  }
+
+  body { padding-top: 88px; } /* prevents content from hiding under navbar */
+}
+
+/* --- Mobile dropdown: overlay above page --- */
+@media (max-width: 576px) {
+  .navbar-collapse {
+    position: fixed;   /* overlay, not push */
+    top: 88px;         /* same as padding-top above */
+    left: 0;
+    right: 0;
+    z-index: 10000;
+    background: var(--global-bg-color);
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
+    padding: 0.6rem 0.8rem;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+  }
+}
+
+/* --- Override the inline z-index rule that pushes content above the menu --- */
+.container.mt-5,
+footer { z-index: 0 !important; }
 
 
 /* ---------- RESEARCH STREAMS ---------- */
@@ -141,6 +174,10 @@ body.dark .site-logo svg {
 #research-streams .rs-node.active circle {
   fill: #ffe3f0;
   stroke: var(--global-theme-color);
+}
+#research-streams .rs-node-link {
+  cursor: pointer;
+  text-decoration: none;
 }
 
 /* ---------- TITLES ---------- */

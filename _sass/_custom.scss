@@ -230,3 +230,21 @@ body.dark .alumni-box li { color: #e5e7eb; }
   opacity: 0.7;
 }
 
+#research-streams .rs-link {
+  stroke: #111827;
+  stroke-width: 2.5;
+  opacity: 0.7;
+}
+#research-streams .rs-link.active {
+  stroke: var(--global-theme-color);
+  opacity: 1;
+}
+
+#research-streams .rs-node circle {
+  fill: #0f172a;
+  stroke: #111827;
+  stroke-width: 2;
+}
+#research-streams .rs-node.active circle {
+  fill: var(--global-theme-color);
+}

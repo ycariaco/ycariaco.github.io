@@ -38,31 +38,42 @@
 
 {% for node in nodes %}
   {% assign label_x = node.x %}
-{% assign label_y = node.y | plus: 4 %}
-{% assign label_anchor = "middle" %}
+  {% assign label_y = node.y | plus: 4 %}
+  {% assign label_anchor = "middle" %}
 
-{% if node.group == "exposure" %}
-  {% assign label_x = node.x | plus: 56 %}
-  {% assign label_anchor = "start" %}
-{% elsif node.group == "tool" or node.group == "integration" %}
-  {% assign label_x = node.x | minus: 56 %}
-  {% assign label_anchor = "end" %}
-{% elsif node.group == "core" %}
-  {% assign label_y = node.y | plus: 52 %}
-{% endif %}
+  {% if node.group == "exposure" %}
+    {% assign label_x = node.x | plus: 56 %}
+    {% assign label_anchor = "start" %}
+  {% elsif node.group == "tool" or node.group == "integration" %}
+    {% assign label_x = node.x | minus: 56 %}
+    {% assign label_anchor = "end" %}
+  {% elsif node.group == "core" %}
+    {% assign label_y = node.y | plus: 52 %}
+  {% endif %}
 
-{% if node.label_x %}{% assign label_x = node.label_x %}{% endif %}
-{% if node.label_y %}{% assign label_y = node.label_y %}{% endif %}
-{% if node.label_anchor %}{% assign label_anchor = node.label_anchor %}{% endif %}
+  {% if node.label_x %}{% assign label_x = node.label_x %}{% endif %}
+  {% if node.label_y %}{% assign label_y = node.label_y %}{% endif %}
+  {% if node.label_anchor %}{% assign label_anchor = node.label_anchor %}{% endif %}
+
+  {% assign node_href = nil %}
+  {% if node.url %}
+    {% if node.url contains '://' %}
+      {% assign node_href = node.url %}
+    {% else %}
+      {% assign node_href = node.url | relative_url %}
+    {% endif %}
+  {% endif %}
+
+  {% if node_href %}
+    <a class="rs-node-link" href="{{ node_href }}" aria-label="{{ node.label }}">
+  {% endif %}
 
   {% if node.id == "placenta" and node.img %}
     <g
       class="rs-node rs-img-node group-{{ node.group }}"
       data-id="{{ node.id }}"
       data-desc="{{ node.desc | escape }}"
-      role="button"
-      tabindex="0"
-      aria-pressed="false"
+      {% unless node_href %}role="button" tabindex="0" aria-pressed="false"{% endunless %}
     >
       <image
         href="{{ node.img | relative_url }}"
@@ -79,28 +90,26 @@
       class="rs-node group-{{ node.group }}"
       data-id="{{ node.id }}"
       data-desc="{{ node.desc | escape }}"
-      role="button"
-      tabindex="0"
-      aria-pressed="false"
+      {% unless node_href %}role="button" tabindex="0" aria-pressed="false"{% endunless %}
       filter="url(#rs-shadow)"
     >
       <circle cx="{{ node.x }}" cy="{{ node.y }}" r="{{ node.r }}"></circle>
 
-{% if node.icon %}
-  {% assign icon_size = node.icon_size | default: 20 %}
-  {% assign icon_half = icon_size | divided_by: 2 %}
-  {% assign icon_x = node.x | minus: icon_half %}
-  {% assign icon_y = node.y | minus: icon_half %}
-  <image
-    class="rs-icon"
-    href="{{ node.icon | relative_url }}"
-    x="{{ icon_x }}"
-    y="{{ icon_y }}"
-    width="{{ icon_size }}"
-    height="{{ icon_size }}"
-    preserveAspectRatio="xMidYMid meet"
-  />
-{% endif %}
+      {% if node.icon %}
+        {% assign icon_size = node.icon_size | default: 20 %}
+        {% assign icon_half = icon_size | divided_by: 2 %}
+        {% assign icon_x = node.x | minus: icon_half %}
+        {% assign icon_y = node.y | minus: icon_half %}
+        <image
+          class="rs-icon"
+          href="{{ node.icon | relative_url }}"
+          x="{{ icon_x }}"
+          y="{{ icon_y }}"
+          width="{{ icon_size }}"
+          height="{{ icon_size }}"
+          preserveAspectRatio="xMidYMid meet"
+        />
+      {% endif %}
 
       {% assign parts = node.label | split: " / " %}
       <text class="rs-label" x="{{ label_x }}" y="{{ label_y }}" text-anchor="{{ label_anchor }}">
@@ -110,10 +119,13 @@
       </text>
     </g>
   {% endif %}
+
+  {% if node_href %}
+    </a>
+  {% endif %}
 {% endfor %}
 
     </svg>
-
   </div>
 </section>
 
@@ -141,6 +153,7 @@
     n.addEventListener("mouseenter", () => activate(n));
     n.addEventListener("click", () => activate(n));
     n.addEventListener("keydown", (e) => {
+      if (n.closest("a")) return; // don't block link activation
       if (e.key === "Enter" || e.key === " ") {
         e.preventDefault();
         activate(n);

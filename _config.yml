@@ -8,7 +8,7 @@ first_name: Cariaco
 middle_name:
 last_name: Lab
 navbar_logo: true
-logo: /assets/img/Cariaco_clear_plain_svg.svg
+logo: _includes/cariaco-logo.svg
 
 # Search icon
 search_enabled: false

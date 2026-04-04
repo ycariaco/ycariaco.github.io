@@ -1,12 +1,14 @@
 /* ---------- NAVBAR + LOGO ---------- */
 .navbar-brand .site-title { display: none; }
 
+header { position: relative; z-index: 3000; }
+
 #navbar,
 nav.navbar {
   min-height: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
-  z-index: 2000; /* keep above content */
+  z-index: 3001; /* keep above content */
 }
 
 .navbar-brand {
@@ -67,17 +69,22 @@ body.dark .site-logo svg {
   .navbar-nav .nav-link { font-size: 1rem; }
 }
 
-/* Mobile dropdown visibility */
+/* Mobile dropdown overlay */
 @media (max-width: 576px) {
+  .navbar { position: relative; }
+
   .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 3002;
     background: var(--global-bg-color);
     margin-top: 0.5rem;
     padding: 0.6rem 0.8rem;
     border: 1px solid var(--global-divider-color);
     border-radius: 12px;
     box-shadow: 0 12px 24px rgba(0,0,0,0.12);
-    position: relative;
-    z-index: 2001;
   }
 
   .navbar-nav { width: 100%; }
@@ -85,25 +92,6 @@ body.dark .site-logo svg {
 }
 
 #search-toggle { display: none; }
-
-/* Make navbar + dropdown sit above all page content */
-header { position: relative; z-index: 3000; }
-
-#navbar,
-nav.navbar {
-  z-index: 3001; /* higher than .container */
-}
-
-/* Force the mobile menu to overlay instead of sitting behind content */
-@media (max-width: 576px) {
-  .navbar-collapse {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    right: 0;
-    z-index: 3002;
-  }
-}
 
 
 /* ---------- RESEARCH STREAMS ---------- */

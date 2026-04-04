@@ -239,3 +239,25 @@ body.dark .alumni-box li { color: #e5e7eb; }
 #research-streams .rs-node.active circle {
   fill: var(--global-theme-color);
 }
+/* Lines */
+#research-streams .rs-link {
+  fill: none;
+  stroke: #e5e7eb;   /* light gray */
+  stroke-width: 2.5;
+  opacity: 0.8;
+}
+#research-streams .rs-link.active {
+  stroke: var(--global-theme-color);
+  opacity: 1;
+}
+
+/* Circles */
+#research-streams .rs-node circle {
+  fill: #ffffff;     /* white fill */
+  stroke: #e5e7eb;   /* light gray border */
+  stroke-width: 2;
+}
+#research-streams .rs-node.active circle {
+  fill: #ffe3f0;     /* soft highlight */
+  stroke: var(--global-theme-color);
+}

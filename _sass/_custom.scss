@@ -6,6 +6,7 @@ nav.navbar {
   min-height: 100px;
   padding-top: 20px;
   padding-bottom: 20px;
+  z-index: 2000; /* keep above content */
 }
 
 .navbar-brand {
@@ -34,7 +35,7 @@ nav.navbar {
 }
 
 .site-logo svg {
-  height: 80px;   /* change logo size here */
+  height: 80px;
   width: auto;
   display: block;
   pointer-events: auto;
@@ -45,14 +46,7 @@ nav.navbar {
   cursor: pointer;
 }
 
-/* Transparent background */
-.site-logo {
-  background: transparent;
-  padding: 0;
-  box-shadow: none;
-}
-
-/* Halo with no background (dark mode only) */
+/* Halo only in dark mode */
 html[data-theme="dark"] .site-logo svg,
 body.dark .site-logo svg {
   filter: drop-shadow(0 0 6px rgba(255,255,255,0.95))
@@ -68,17 +62,79 @@ body.dark .site-logo svg {
     padding-bottom: 12px;
   }
 
-  .site-logo svg {
-    height: 50px;
-  }
+  .site-logo svg { height: 50px; }
 
-  .navbar-nav .nav-link {
-    font-size: 1rem;
-  }
+  .navbar-nav .nav-link { font-size: 1rem; }
 }
 
-/* Hide search icon if still present */
+/* Mobile dropdown visibility */
+@media (max-width: 576px) {
+  .navbar-collapse {
+    background: var(--global-bg-color);
+    margin-top: 0.5rem;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid var(--global-divider-color);
+    border-radius: 12px;
+    box-shadow: 0 12px 24px rgba(0,0,0,0.12);
+    position: relative;
+    z-index: 2001;
+  }
+
+  .navbar-nav { width: 100%; }
+  .navbar-nav .nav-link { display: block; padding: 0.55rem 0; }
+}
+
 #search-toggle { display: none; }
+
+/* ---------- RESEARCH STREAMS ---------- */
+#research-streams {
+  width: 100%;
+  max-width: 100%;
+  margin: 1.25rem 0;
+}
+
+#research-streams .rs-svg {
+  width: 100%;
+  height: auto;
+  min-height: 480px;
+}
+
+@media (max-width: 900px) {
+  #research-streams .rs-svg { min-height: 420px; }
+  #research-streams .rs-col-title { font-size: 16px; }
+}
+
+/* Labels */
+#research-streams .rs-label {
+  font-size: 15px;
+  fill: #111827;
+  paint-order: stroke;
+  stroke: #ffffff;
+  stroke-width: 6px;
+}
+
+/* Lines */
+#research-streams .rs-link {
+  fill: none;
+  stroke: #e5e7eb;
+  stroke-width: 2.5;
+  opacity: 0.8;
+}
+#research-streams .rs-link.active {
+  stroke: var(--global-theme-color);
+  opacity: 1;
+}
+
+/* Circles */
+#research-streams .rs-node circle {
+  fill: #ffffff;
+  stroke: #e5e7eb;
+  stroke-width: 2;
+}
+#research-streams .rs-node.active circle {
+  fill: #ffe3f0;
+  stroke: var(--global-theme-color);
+}
 
 /* ---------- TITLES ---------- */
 .post-title,

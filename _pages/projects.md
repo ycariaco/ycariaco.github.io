@@ -9,4 +9,4 @@ horizontal: false
 ---
 
 {% include research_streams.liquid %}
-
+<h1 class="page-title">Projects</h1>

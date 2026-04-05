@@ -310,3 +310,34 @@ html[data-theme="dark"] .alumni-box li,
 body.dark .alumni-box,
 body.dark .alumni-box li { color: #e5e7eb; }
 
+
+
+/* Pathomics figures */
+.content-figure {
+  margin: 2rem 0;
+}
+
+.content-figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  display: block;
+}
+
+.content-figure figcaption {
+  text-align: center;
+  font-size: 0.95rem;
+  color: var(--global-text-color);
+  margin-top: 0.5rem;
+}
+
+/* Pink references */
+.ref-list a {
+  color: var(--global-theme-color);
+  text-decoration: none;
+}
+
+.ref-list a:hover {
+  color: var(--global-hover-color);
+  text-decoration: underline;
+}

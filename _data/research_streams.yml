@@ -115,7 +115,6 @@ nodes:
     url: "/research/integration/"
     desc: "AI-driven integration links exposures to outcomes across scales."
 
-
 links:
   - from: metabolic
     to: placenta
@@ -125,6 +124,7 @@ links:
     to: placenta
   - from: infectious
     to: placenta
+
   - from: placenta
     to: pathomics
   - from: placenta
@@ -133,7 +133,8 @@ links:
     to: proteomics
   - from: placenta
     to: metabolomics
-   - from: pathomics
+
+  - from: pathomics
     to: integration
   - from: transcriptomics
     to: integration

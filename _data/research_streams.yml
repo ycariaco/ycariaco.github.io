@@ -97,7 +97,7 @@ nodes:
     label: "Metabolomics"
     group: tool
     x: 760
-    y: 380
+    y: 390
     r: 30
     icon: "/assets/img/research/icon-metabolomics.svg"
     icon_size: 50

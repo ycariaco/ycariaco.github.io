@@ -1,13 +1,41 @@
 ---
-layout: book-shelf
-title: bookshelf
-permalink: /books/
+layout: page
+title: Pathomics
+permalink: /pathomics/
 nav: false
-collection: books
 ---
 
-> What an astonishing thing a book is. It's a flat object made from a tree with flexible parts on which are imprinted lots of funny dark squiggles. But one glance at it and you're inside the mind of another person, maybe somebody dead for thousands of years. Across the millennia, an author is speaking clearly and silently inside your head, directly to you. Writing is perhaps the greatest of human inventions, binding together people who never knew each other, citizens of distant epochs. Books break the shackles of time. A book is proof that humans are capable of working magic.
->
-> -- Carl Sagan, Cosmos, Part 11: The Persistence of Memory (1980)
+Pathomics refers to the high‑throughput quantitative analysis of digital histopathology images, typically whole‑slide images, to extract measurable information about tissue architecture, cell morphology, texture, and spatial organization. By transforming placental histology into structured quantitative data, pathomics complements conventional microscopy and enables more reproducible and scalable assessment of placental structure and disease. This is particularly valuable for the placenta, an organ characterized by marked spatial heterogeneity and dynamic changes across gestation.
 
-## Books that I am reading, have read, or will read
+<!-- FIGURE 1: Overview schematic -->
+<figure class="content-figure">
+  <img src="/assets/img/figures/pathomics-overview.png" alt="Pathomics overview schematic">
+  <figcaption>Figure 1. Overview of the pathomics workflow in placental histology.</figcaption>
+</figure>
+
+Recent placental applications illustrate this potential: deep learning models such as GestAltNet have estimated gestational age from placental whole‑slide images; hierarchical convolutional approaches have identified decidual vasculopathy; whole‑slide learning models have classified villous infarction and other parenchymal lesions; and computational pathology models have distinguished preeclamptic placentas from controls.
+
+<!-- FIGURE 2: Example model results -->
+<figure class="content-figure">
+  <img src="/assets/img/figures/pathomics-models.png" alt="Example model results">
+  <figcaption>Figure 2. Example outputs from placental pathomics models.</figcaption>
+</figure>
+
+Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologically interpretable framework for quantifying nuclei, cell types, and tissue microstructures across placenta whole‑slide images, and subsequent work has shown that lesion‑associated changes can extend beyond visibly abnormal regions. Together, these studies suggest that placental pathomics can improve diagnostic reproducibility, reveal subtle disease‑associated morphology, and support biomarker discovery, although broader validation and standardization are still needed for routine clinical implementation.
+
+<!-- FIGURE 3: Tissue microstructure quantification -->
+<figure class="content-figure">
+  <img src="/assets/img/figures/pathomics-microstructure.png" alt="Tissue microstructure quantification">
+  <figcaption>Figure 3. Microstructure quantification and cell‑to‑tissue mapping.</figcaption>
+</figure>
+
+**References**
+<ol class="ref-list">
+  <li><a href="https://www.nature.com/articles/s41540-023-00301-9">Bülow RD, Jäger PF, Isensee F, et al. Extending the landscape of omics technologies by pathomics. 2023.</a></li>
+  <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10900832/">Hosseini MS, Bera K, Wang S, et al. Computational pathology: A survey review and the way forward. 2024.</a></li>
+  <li><a href="https://www.nature.com/articles/s41374-021-00579-5">Mobadersany P, Cooper LAD, Goldstein JA. GestAltNet: aggregation and attention to improve deep learning of gestational age from placental whole-slide images. 2021.</a></li>
+  <li><a href="https://pubmed.ncbi.nlm.nih.gov/32679230/">Clymer D, Jimenez JA, Mamoon A, et al. Decidual vasculopathy identification in whole slide images using multiresolution hierarchical convolutional neural networks. 2020.</a></li>
+  <li><a href="https://www.nature.com/articles/s41467-024-46986-2">Vanea C, Campbell J, Dodi O, et al. Mapping cell-to-tissue graphs across human placenta histology whole slide images using deep learning with HAPPY. 2024.</a></li>
+  <li><a href="https://www.biorxiv.org/content/10.64898/2025.12.22.693945v1">Walker EC, Vanea C, Ernst LM, et al. Biologically Inspired Digital Histology for Deep Phenotyping of Placental Composition Changes Across Major Lesion Types. 2025.</a></li>
+  <li><a href="https://www.mdpi.com/2313-433X/11/4/110">d’Amati A, Baldini GM, Difonzo T, et al. Artificial Intelligence in Placental Pathology: New Diagnostic Imaging Tools in Evolution and in Perspective. 2025.</a></li>
+</ol>

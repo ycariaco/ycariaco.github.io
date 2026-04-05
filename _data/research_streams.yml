@@ -2,7 +2,7 @@ nodes:
   - id: metabolic
     label: "Metabolic stress / weight-loss drugs"
     group: exposure
-    x: 140
+    x: 120
     y: 90
     r: 30
     icon: "/assets/img/research/icon-metabolic.svg"
@@ -13,7 +13,7 @@ nodes:
   - id: psychoactive
     label: "Psychoactive drugs"
     group: exposure
-    x: 140
+    x: 120
     y: 170
     r: 30
     icon: "/assets/img/research/icon-psychoactive.svg"
@@ -24,7 +24,7 @@ nodes:
   - id: environmental
     label: "Environmental contaminants"
     group: exposure
-    x: 140
+    x: 120
     y: 250
     r: 30
     icon: "/assets/img/research/icon-environmental.svg"
@@ -35,7 +35,7 @@ nodes:
   - id: infectious
     label: "Infectious diseases"
     group: exposure
-    x: 140
+    x: 120
     y: 330
     r: 30
     icon: "/assets/img/research/icon-infectious.svg"
@@ -46,15 +46,15 @@ nodes:
   - id: placenta
     label: "Placenta health / fetal development"
     group: core
-    x: 500
+    x: 470
     y: 150
     r: 0.5
     img: "/assets/img/research/placenta.png"
-    img_x: 380
+    img_x: 350
     img_y: 40
     img_w: 260
     img_h: 360
-    label_x: 500
+    label_x: 470
     label_y: 420
     label_anchor: middle
     url: "/research/placenta/"
@@ -63,7 +63,7 @@ nodes:
   - id: pathomics
     label: "Pathomics"
     group: tool
-    x: 820
+    x: 780
     y: 110
     r: 30
     icon: "/assets/img/research/icon-pathomics.svg"
@@ -74,8 +74,8 @@ nodes:
   - id: transcriptomics
     label: "Transcriptomics"
     group: tool
-    x: 820
-    y: 190
+    x: 780
+    y: 175
     r: 30
     icon: "/assets/img/research/icon-transcriptomics.svg"
     icon_size: 50
@@ -85,8 +85,8 @@ nodes:
   - id: proteomics
     label: "Proteomics"
     group: tool
-    x: 820
-    y: 270
+    x: 780
+    y: 305
     r: 30
     icon: "/assets/img/research/icon-proteomics.svg"
     icon_size: 50
@@ -96,8 +96,8 @@ nodes:
   - id: metabolomics
     label: "Metabolomics"
     group: tool
-    x: 820
-    y: 350
+    x: 780
+    y: 415
     r: 30
     icon: "/assets/img/research/icon-metabolomics.svg"
     icon_size: 50
@@ -107,8 +107,8 @@ nodes:
   - id: integration
     label: "Multi-omics integration"
     group: integration
-    x: 880
-    y: 230
+    x: 860
+    y: 245
     r: 30
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 50

@@ -97,7 +97,7 @@ nodes:
     label: "Metabolomics"
     group: tool
     x: 760
-    y: 415
+    y: 420
     r: 30
     icon: "/assets/img/research/icon-metabolomics.svg"
     icon_size: 50
@@ -108,7 +108,7 @@ nodes:
     label: "Multi-omics integration"
     group: integration
     x: 860
-    y: 240
+    y: 250
     r: 30
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 50

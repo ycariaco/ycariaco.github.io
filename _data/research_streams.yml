@@ -108,7 +108,7 @@ nodes:
     label: "Multi-omics integration"
     group: integration
     x: 860
-    y: 280
+    y: 300
     r: 30
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 50

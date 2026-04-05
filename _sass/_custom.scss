@@ -180,21 +180,24 @@ footer { z-index: 0 !important; }
   text-decoration: none;
 }
 
-/* Mobile: allow horizontal scroll for the diagram */
+/* Mobile: allow horizontal scroll so the diagram stays readable */
 @media (max-width: 640px) {
   #research-streams .rs-wrap {
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
-    padding-bottom: 8px;
+    max-width: 100vw;
   }
 
   #research-streams .rs-svg {
-    min-width: 960px;  /* keep original size */
+    min-width: 960px; /* keep the original diagram size */
     height: auto;
   }
 
-  #research-streams .rs-label { font-size: 13px; }
+  #research-streams .rs-label {
+    font-size: 13px;
+  }
 }
+
 
 /* ---------- TITLES ---------- */
 .post-title,

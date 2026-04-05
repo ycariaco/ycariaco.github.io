@@ -63,7 +63,7 @@ nodes:
   - id: pathomics
     label: "Pathomics"
     group: tool
-    x: 820
+    x: 700
     y: 110
     r: 30
     icon: "/assets/img/research/icon-pathomics.svg"
@@ -74,7 +74,7 @@ nodes:
   - id: transcriptomics
     label: "Transcriptomics"
     group: tool
-    x: 820
+    x: 700
     y: 190
     r: 30
     icon: "/assets/img/research/icon-transcriptomics.svg"
@@ -85,34 +85,34 @@ nodes:
   - id: proteomics
     label: "Proteomics"
     group: tool
-    x: 820
+    x: 700
     y: 270
     r: 30
     icon: "/assets/img/research/icon-proteomics.svg"
     icon_size: 50
-    url: "/research/proteoomics/" 
+    url: "/research/proteomics/" 
     desc: "Protein signatures of stress, inflammation, and repair."
 
   - id: metabolomics
     label: "Metabolomics"
     group: tool
-    x: 820
+    x: 700
     y: 350
     r: 30
     icon: "/assets/img/research/icon-metabolomics.svg"
     icon_size: 50
-    url: "/research/metabolomics"
+    url: "/research/metabolomics/"
     desc: "Metabolic rewiring and biomarker discovery."
 
-  - id: integration
+    - id: integration
     label: "Multi-omics integration"
     group: integration
-    x: 820
-    y: 430
+    x: 800
+    y: 230
     r: 30
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 50
-    url: "/research/integration/" 
+    url: "/research/integration/"
     desc: "AI-driven integration links exposures to outcomes across scales."
 
 links:

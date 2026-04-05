@@ -2,7 +2,7 @@ nodes:
   - id: metabolic
     label: "Metabolic stress / weight-loss drugs"
     group: exposure
-    x: 120
+    x: 100
     y: 90
     r: 30
     icon: "/assets/img/research/icon-metabolic.svg"
@@ -13,7 +13,7 @@ nodes:
   - id: psychoactive
     label: "Psychoactive drugs"
     group: exposure
-    x: 120
+    x: 100
     y: 170
     r: 30
     icon: "/assets/img/research/icon-psychoactive.svg"
@@ -24,7 +24,7 @@ nodes:
   - id: environmental
     label: "Environmental contaminants"
     group: exposure
-    x: 120
+    x: 100
     y: 250
     r: 30
     icon: "/assets/img/research/icon-environmental.svg"
@@ -35,7 +35,7 @@ nodes:
   - id: infectious
     label: "Infectious diseases"
     group: exposure
-    x: 120
+    x: 100
     y: 330
     r: 30
     icon: "/assets/img/research/icon-infectious.svg"
@@ -46,15 +46,15 @@ nodes:
   - id: placenta
     label: "Placenta health / fetal development"
     group: core
-    x: 470
+    x: 450
     y: 150
     r: 0.5
     img: "/assets/img/research/placenta.png"
-    img_x: 350
+    img_x: 330
     img_y: 40
     img_w: 260
     img_h: 360
-    label_x: 470
+    label_x: 450
     label_y: 420
     label_anchor: middle
     url: "/research/placenta/"
@@ -63,7 +63,7 @@ nodes:
   - id: pathomics
     label: "Pathomics"
     group: tool
-    x: 780
+    x: 760
     y: 110
     r: 30
     icon: "/assets/img/research/icon-pathomics.svg"
@@ -74,7 +74,7 @@ nodes:
   - id: transcriptomics
     label: "Transcriptomics"
     group: tool
-    x: 780
+    x: 760
     y: 175
     r: 30
     icon: "/assets/img/research/icon-transcriptomics.svg"
@@ -85,8 +85,8 @@ nodes:
   - id: proteomics
     label: "Proteomics"
     group: tool
-    x: 780
-    y: 305
+    x: 760
+    y: 335
     r: 30
     icon: "/assets/img/research/icon-proteomics.svg"
     icon_size: 50
@@ -96,7 +96,7 @@ nodes:
   - id: metabolomics
     label: "Metabolomics"
     group: tool
-    x: 780
+    x: 760
     y: 415
     r: 30
     icon: "/assets/img/research/icon-metabolomics.svg"
@@ -108,7 +108,7 @@ nodes:
     label: "Multi-omics integration"
     group: integration
     x: 860
-    y: 245
+    y: 270
     r: 30
     icon: "/assets/img/research/icon-integration.svg"
     icon_size: 50

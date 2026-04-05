@@ -132,5 +132,11 @@ links:
     to: proteomics
   - from: placenta
     to: metabolomics
-  - from: placenta
+   - from: pathomics
+    to: integration
+  - from: transcriptomics
+    to: integration
+  - from: proteomics
+    to: integration
+  - from: metabolomics
     to: integration

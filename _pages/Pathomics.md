@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Pathomics
-permalink: /pathomics/
+permalink: /research/pathomics/
 nav: false
 ---
 

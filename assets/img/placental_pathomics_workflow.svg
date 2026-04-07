@@ -1,0 +1,3156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="2500"
+   version="1.1"
+   viewBox="0,0,1800,2500"
+   width="1800"
+   id="svg289"
+   sodipodi:docname="placental_pathomics_workflow.svg"
+   inkscape:version="1.4.3 (0d15f75, 2025-12-25)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview289"
+     pagecolor="#ffffff"
+     bordercolor="#000000"
+     borderopacity="0.25"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:zoom="0.45"
+     inkscape:cx="908.88889"
+     inkscape:cy="190"
+     inkscape:window-width="1470"
+     inkscape:window-height="840"
+     inkscape:window-x="876"
+     inkscape:window-y="1954"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="svg289" />
+  <defs
+     id="defs7">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect326"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect325"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect324"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect323"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect322"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect321"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect320"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect319"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect318"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect317"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect316"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect315"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect314"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect313"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect312"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect311"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect310"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect309"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect308"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect307"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect306"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect305"
+       is_visible="true"
+       lpeversion="1" />
+    <filter
+       height="1.7290552"
+       id="shadow"
+       width="1.295122"
+       x="-0.13536585"
+       y="-0.30827176">
+      <feGaussianBlur
+         in="SourceAlpha"
+         result="blur"
+         stdDeviation="8"
+         id="feGaussianBlur1" />
+      <feOffset
+         dx="4"
+         dy="8"
+         in="blur"
+         result="offsetBlur"
+         id="feOffset1" />
+      <feColorMatrix
+         in="offsetBlur"
+         result="shadow"
+         type="matrix"
+         values="[0, 0, 0, 0, 0.36, 0, 0, 0, 0, 0.27, 0, 0, 0, 0, 0.25, 0, 0, 0, 0.18, 0]"
+         id="feColorMatrix1" />
+      <feBlend
+         in="SourceGraphic"
+         in2="shadow"
+         mode="normal"
+         id="feBlend1" />
+    </filter>
+    <filter
+       color-interpolation-filters="sRGB"
+       height="1"
+       id="paper"
+       width="1"
+       x="0"
+       y="0">
+      <feTurbulence
+         baseFrequency="0.7"
+         numOctaves="2"
+         result="noise"
+         seed="2"
+         type="fractalNoise"
+         id="feTurbulence1" />
+      <feColorMatrix
+         in="noise"
+         result="mono"
+         type="saturate"
+         values="0"
+         id="feColorMatrix2" />
+      <feComponentTransfer
+         in="mono"
+         result="soft"
+         id="feComponentTransfer2" />
+    </filter>
+    <clipPath
+       id="placenta_clip">
+      <ellipse
+         cx="900"
+         cy="400"
+         rx="170"
+         ry="120"
+         id="ellipse2" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_1">
+      <circle
+         cx="788"
+         cy="630"
+         r="82"
+         id="circle2" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_2">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle3" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_3">
+      <circle
+         cx="788"
+         cy="1240"
+         r="82"
+         id="circle4" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_4">
+      <circle
+         cx="1012"
+         cy="1545"
+         r="82"
+         id="circle5" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_5">
+      <circle
+         cx="788"
+         cy="1850"
+         r="82"
+         id="circle6" />
+    </clipPath>
+    <clipPath
+       id="badge_clip_6">
+      <circle
+         cx="1012"
+         cy="2155"
+         r="82"
+         id="circle7" />
+    </clipPath>
+    <filter
+       height="1.3195122"
+       id="shadow-5"
+       width="1.2137143"
+       x="-0.075428571"
+       y="-0.13536585">
+      <feGaussianBlur
+         in="SourceAlpha"
+         result="blur"
+         stdDeviation="8"
+         id="feGaussianBlur1-9" />
+      <feOffset
+         dx="4"
+         dy="8"
+         in="blur"
+         result="offsetBlur"
+         id="feOffset1-7" />
+      <feColorMatrix
+         in="offsetBlur"
+         result="shadow"
+         type="matrix"
+         values="[0, 0, 0, 0, 0.36, 0, 0, 0, 0, 0.27, 0, 0, 0, 0, 0.25, 0, 0, 0, 0.18, 0]"
+         id="feColorMatrix1-5" />
+      <feBlend
+         in="SourceGraphic"
+         in2="shadow"
+         mode="normal"
+         id="feBlend1-3" />
+    </filter>
+    <clipPath
+       id="badge_clip_2-9">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle3-0" />
+    </clipPath>
+    <clipPath
+       id="clipPath1">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle1" />
+    </clipPath>
+    <clipPath
+       id="clipPath2">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle2-5" />
+    </clipPath>
+    <clipPath
+       id="clipPath4">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle4-5" />
+    </clipPath>
+    <clipPath
+       id="clipPath5">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle5-6" />
+    </clipPath>
+    <clipPath
+       id="clipPath6">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle6-3" />
+    </clipPath>
+    <clipPath
+       id="clipPath7">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle7-2" />
+    </clipPath>
+    <clipPath
+       id="clipPath8">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle8" />
+    </clipPath>
+    <clipPath
+       id="clipPath9">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle9" />
+    </clipPath>
+    <clipPath
+       id="clipPath10">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle10" />
+    </clipPath>
+    <clipPath
+       id="clipPath11">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle11" />
+    </clipPath>
+    <clipPath
+       id="clipPath12">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle12" />
+    </clipPath>
+    <clipPath
+       id="clipPath13">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle13" />
+    </clipPath>
+    <clipPath
+       id="clipPath14">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle14" />
+    </clipPath>
+    <clipPath
+       id="clipPath15">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle15" />
+    </clipPath>
+    <clipPath
+       id="clipPath16">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle16" />
+    </clipPath>
+    <clipPath
+       id="clipPath17">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle17" />
+    </clipPath>
+    <clipPath
+       id="clipPath18">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle18" />
+    </clipPath>
+    <clipPath
+       id="clipPath19">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle19" />
+    </clipPath>
+    <clipPath
+       id="clipPath20">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle20" />
+    </clipPath>
+    <clipPath
+       id="clipPath21">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle21" />
+    </clipPath>
+    <clipPath
+       id="clipPath22">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle22" />
+    </clipPath>
+    <clipPath
+       id="clipPath23">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle23" />
+    </clipPath>
+    <clipPath
+       id="clipPath24">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle24" />
+    </clipPath>
+    <clipPath
+       id="clipPath25">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle25" />
+    </clipPath>
+    <clipPath
+       id="clipPath26">
+      <circle
+         cx="1012"
+         cy="935"
+         r="82"
+         id="circle26" />
+    </clipPath>
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect305-0"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect305-9"
+       is_visible="true"
+       lpeversion="1" />
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect305-3"
+       is_visible="true"
+       lpeversion="1" />
+  </defs>
+  <text
+     fill="#4a2e2d"
+     font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+     font-size="76px"
+     font-weight="bold"
+     opacity="1"
+     stroke="#dad5d5"
+     stroke-width="4"
+     text-anchor="middle"
+     x="900"
+     y="110"
+     id="text8"><tspan
+       sodipodi:role="line"
+       id="tspan13"
+       x="900"
+       y="110">Overview of the Pathomics Workflow</tspan><tspan
+       sodipodi:role="line"
+       x="900"
+       y="205"
+       id="tspan15">in Placental Histology</tspan><tspan
+       sodipodi:role="line"
+       id="tspan14"
+       x="900"
+       y="300" /></text>
+  <text
+     fill="#4a2e2d"
+     font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+     font-size="62px"
+     font-weight="bold"
+     opacity="1"
+     stroke="none"
+     stroke-width="0"
+     text-anchor="middle"
+     x="900"
+     y="190"
+     id="text9" />
+  <g
+     filter="url(#shadow)"
+     id="g10">
+    <rect
+       fill="#f7ced8"
+       height="71.103706"
+       rx="49.959747"
+       ry="34.564304"
+       stroke="#4a2e2d"
+       stroke-width="5.43853"
+       width="1256.1307"
+       x="284.77246"
+       y="235.44815"
+       id="rect9" />
+    <text
+       fill="#4a2e2d"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="32px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="900"
+       y="284"
+       id="text10">H&amp;E whole-slide image → Nuclei → Cells → Graph → Tissues</text>
+  </g>
+  <g
+     id="g51">
+    <ellipse
+       cx="900"
+       cy="400"
+       fill="#f5c5d1"
+       filter="url(#shadow)"
+       rx="170"
+       ry="120"
+       stroke="#4a2e2d"
+       stroke-width="7"
+       id="ellipse10"
+       transform="matrix(1.0500757,0,0,0.85962117,-43.568478,103.1925)"
+       style="fill:#db2c55;stroke-width:7.00040381;stroke-dasharray:none;stroke:#f4bbc9;stroke-opacity:1;fill-opacity:1" />
+    <path
+       d="M 900 505 C 880 580, 950 650, 900 740 S 840 880, 905 980 S 960 1110, 900 1210 S 845 1340, 905 1440 S 960 1570, 900 1670 S 845 1800, 905 1900 S 960 2030, 900 2130 S 845 2260, 900 2360"
+       fill="none"
+       stroke="#e8bbc6"
+       stroke-linecap="round"
+       stroke-width="28"
+       id="path50" />
+    <path
+       d="M 900 505 C 880 580, 950 650, 900 740 S 840 880, 905 980 S 960 1110, 900 1210 S 845 1340, 905 1440 S 960 1570, 900 1670 S 845 1800, 905 1900 S 960 2030, 900 2130 S 845 2260, 900 2360"
+       fill="none"
+       opacity="0.75"
+       stroke="#f4bfcc"
+       stroke-linecap="round"
+       stroke-width="16"
+       id="path51"
+       style="fill:none;fill-opacity:1;stroke:#db2c55;stroke-opacity:1" />
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g55"
+     transform="translate(-13.333333,-2.2222222)">
+    <rect
+       fill="#fff9f6"
+       height="220"
+       rx="28"
+       ry="28"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       width="650"
+       x="120"
+       y="520"
+       id="rect51" />
+    <path
+       d="m 144,560 c 110.29254,-27.55395 467.90455,-22.24481 602,0"
+       fill="none"
+       opacity="0.5"
+       stroke="#f6cdd7"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path52"
+       sodipodi:nodetypes="cc" />
+    <circle
+       cx="153.78378"
+       cy="553.4054"
+       fill="#f5c7d3"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle52" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="153.78378"
+       y="564.75677"
+       id="text52">1</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="168.66667"
+       y="606.44446"
+       id="text53">H&amp;E whole-slide image</text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="162"
+       y="654"
+       id="text54">Placenta H&amp;E section digitized</text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="162"
+       y="688"
+       id="text55">as a whole-slide image (WSI).</text>
+  </g>
+  <path
+     d="m 900.48922,630.48778 c -34.57928,-12.20041 -44.95307,0 -134.16763,0"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="11.0228"
+     id="path55" />
+  <path
+     d="m 900.33006,630.32919 c -34.49725,-11.48365 -44.84642,0 -133.8493,0"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="5.3407"
+     id="path56" />
+  <g
+     filter="url(#shadow)"
+     id="g91">
+    <rect
+       fill="#fff9f6"
+       height="219.90282"
+       rx="28.927206"
+       ry="27.987631"
+       stroke="#4a2e2d"
+       stroke-width="6.09719"
+       width="671.52441"
+       x="1057.0756"
+       y="826.39996"
+       id="rect88" />
+    <path
+       d="M 1054,865 C 1170,835 1540,835 1656,865"
+       fill="none"
+       opacity="0.5"
+       stroke="#f8dcc2"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path88" />
+    <circle
+       cx="1682"
+       cy="861"
+       fill="#f7d8bb"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle88" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="1682"
+       y="871"
+       id="text88">2</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="1153.2433"
+       y="888.08105"
+       id="text89"><tspan
+         sodipodi:role="line"
+         id="tspan1"
+         x="1153.2433"
+         y="888.08105">QC, preprocessing</tspan><tspan
+         sodipodi:role="line"
+         id="tspan2"
+         x="1153.2433"
+         y="943.08105">and tiling</tspan></text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="1110"
+       y="991.43243"
+       id="text90"><tspan
+         sodipodi:role="line"
+         id="tspan4"
+         x="1110"
+         y="991.43243">Artifact checking, color handling, ROI</tspan><tspan
+         sodipodi:role="line"
+         x="1110"
+         y="1026.4324"
+         id="tspan5">selection, and partitioning into tiles</tspan></text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="1160"
+       y="993"
+       id="text91" />
+  </g>
+  <path
+     d="M 900 935 C 950 925, 965 935, 1094 935"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="12"
+     id="path91" />
+  <path
+     d="M 900 935 C 950 925, 965 935, 1094 935"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="6"
+     id="path92" />
+  <g
+     filter="url(#shadow)"
+     id="g120"
+     transform="translate(-222.97297,-252.70271)">
+    <circle
+       cx="1012"
+       cy="935"
+       fill="#f7d6b8"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle92"
+       style="fill:#eccfdc;fill-opacity:0.99768519" />
+    <g
+       transform="translate(1012,926.07143)"
+       id="g119">
+      <rect
+         fill="#fff9f6"
+         height="46"
+         rx="8"
+         ry="8"
+         stroke="#4a2e2d"
+         stroke-width="4"
+         width="104"
+         x="-52"
+         y="-18"
+         id="rect117" />
+      <rect
+         fill="#f5c9d4"
+         height="24"
+         rx="6"
+         ry="6"
+         stroke="#d0a7b1"
+         stroke-width="2.5"
+         width="54"
+         x="-20"
+         y="-10"
+         id="rect118" />
+      <polygon
+         fill="#dfd0f4"
+         opacity="0.9"
+         points="2,9 -10,6 -8,-2 2,-8 18,-5 24,3 18,10 "
+         stroke="#b0a2c2"
+         stroke-width="2.5"
+         id="polygon118" />
+      <path
+         d="m -55,-10 c -9,-12 15,-18 21,-2 6,14 -12,22 -21,2"
+         fill="#f7d6b8"
+         stroke="#4a2e2d"
+         stroke-width="3.5"
+         id="path118" />
+      <polygon
+         fill="#f5e9b5"
+         points="-18,42 -45,30 -8,30 "
+         stroke="#4a2e2d"
+         stroke-width="3"
+         id="polygon119" />
+    </g>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g120-8"
+     transform="translate(25.342857,-11.8)"
+     style="filter:url(#shadow-5)">
+    <circle
+       cx="1012"
+       cy="935"
+       fill="#f7d6b8"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle92-9" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="985"
+       cy="969"
+       fill="#f9e1cb"
+       opacity="0.16"
+       rx="34"
+       ry="16"
+       id="ellipse92-1" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="977"
+       cy="952"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="18"
+       ry="30"
+       id="ellipse93-4" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1000"
+       cy="903"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="39"
+       ry="34"
+       id="ellipse94-8" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1013"
+       cy="954"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="37"
+       ry="20"
+       id="ellipse95-8" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1045"
+       cy="942"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="41"
+       ry="22"
+       id="ellipse96-7" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="976"
+       cy="971"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="27"
+       ry="14"
+       id="ellipse97-1" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1009"
+       cy="888"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="42"
+       ry="28"
+       id="ellipse98-9" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1032"
+       cy="908"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="34"
+       ry="32"
+       id="ellipse99-3" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1047"
+       cy="982"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="43"
+       ry="23"
+       id="ellipse100-1" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1010"
+       cy="977"
+       fill="#f9e1cb"
+       opacity="0.16"
+       rx="38"
+       ry="14"
+       id="ellipse101-1" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="990"
+       cy="893"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="46"
+       ry="28"
+       id="ellipse102-4" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1047"
+       cy="922"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="43"
+       ry="19"
+       id="ellipse103-9" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="998"
+       cy="915"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="43"
+       ry="23"
+       id="ellipse104-5" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1054"
+       cy="956"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="42"
+       ry="20"
+       id="ellipse105-9" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="990"
+       cy="959"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="38"
+       ry="32"
+       id="ellipse106-0" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="983"
+       cy="947"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="36"
+       ry="23"
+       id="ellipse107-9" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1033"
+       cy="920"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="19"
+       ry="18"
+       id="ellipse108-3" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1023"
+       cy="908"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="41"
+       ry="28"
+       id="ellipse109-4" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1029"
+       cy="946"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="21"
+       ry="25"
+       id="ellipse110-0" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="997"
+       cy="970"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="22"
+       ry="34"
+       id="ellipse111-7" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="998"
+       cy="914"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="28"
+       ry="16"
+       id="ellipse112-5" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1055"
+       cy="940"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="28"
+       ry="23"
+       id="ellipse113-7" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1045"
+       cy="931"
+       fill="#f8ddc4"
+       opacity="0.16"
+       rx="38"
+       ry="16"
+       id="ellipse114-5" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="967"
+       cy="926"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="46"
+       ry="15"
+       id="ellipse115-0" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="997"
+       cy="935"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="29"
+       ry="27"
+       id="ellipse116-6" />
+    <ellipse
+       clip-path="url(#badge_clip_2-9)"
+       cx="1051"
+       cy="937"
+       fill="#e3c4a9"
+       opacity="0.16"
+       rx="22"
+       ry="26"
+       id="ellipse117-4" />
+    <g
+       transform="translate(1012,935)"
+       id="g119-7">
+      <rect
+         fill="#f5c9d4"
+         height="52.10075"
+         rx="13.025187"
+         ry="13.025187"
+         stroke="#d0a7b1"
+         stroke-width="5.42716"
+         width="117.22668"
+         x="-63.151806"
+         y="-23.408215"
+         id="rect118-4"
+         style="stroke:#2c3629;stroke-opacity:1" />
+      <polygon
+         fill="#dfd0f4"
+         opacity="0.9"
+         points="-8,-2 2,-8 18,-5 24,3 18,10 2,9 -10,6 "
+         stroke="#b0a2c2"
+         stroke-width="2.5"
+         id="polygon118-0"
+         transform="matrix(2.1743725,0,0,2.1743725,-21.347899,0.17129124)" />
+      <path
+         style="fill:#666666;fill-opacity:0.997685;stroke:#2c3629;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+         d="m -33.2403,-22.68718 1.5384,51.79487"
+         id="path307"
+         inkscape:path-effect="#path-effect308"
+         inkscape:original-d="m -33.2403,-22.68718 c 0.5128,17.60684 1.0256,34.70086 1.5384,51.79487" />
+      <path
+         style="fill:#666666;fill-opacity:0.997685;stroke:#2c3629;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+         d="M -1.4455,-21.66154 0.093,28.59487"
+         id="path308"
+         inkscape:path-effect="#path-effect309"
+         inkscape:original-d="m -1.4455,-21.66154 c 0.171,17.4359 0.8547,33.84616 1.5385,50.25641" />
+      <path
+         style="fill:#666666;fill-opacity:0.997685;stroke:#2c3629;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+         d="m 29.8366,-22.17436 0.5128,49.23077"
+         id="path309"
+         inkscape:path-effect="#path-effect310"
+         inkscape:original-d="m 29.8366,-22.17436 c -0.171,16.41026 0.1709,32.82051 0.5128,49.23077" />
+      <path
+         style="fill:#666666;fill-opacity:0.997685;stroke:#2c3629;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+         d="M -61.44546,-4.73846 52.9135,-4.22564"
+         id="path310"
+         inkscape:path-effect="#path-effect311"
+         inkscape:original-d="M -61.44546,-4.73846 C -23.6677,-4.56752 14.6229,-4.39658 52.9135,-4.22564" />
+      <path
+         style="fill:#666666;fill-opacity:0.997685;stroke:#2c3629;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+         d="M -63.49675,11.67179 53.9392,11.15897"
+         id="path311"
+         inkscape:path-effect="#path-effect312"
+         inkscape:original-d="M -63.49675,11.67179 C -24.6933,11.50085 14.6229,11.32991 53.9392,11.15897"
+         transform="translate(0,2.5641026)" />
+    </g>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g123">
+    <rect
+       fill="#FFF9F6"
+       height="220"
+       rx="28"
+       ry="28"
+       stroke="#4A2E2D"
+       stroke-width="6"
+       width="650"
+       x="120"
+       y="1130"
+       id="rect120" />
+    <path
+       d="M 144,1170 C 260,1140 630,1140 746,1170"
+       fill="none"
+       opacity="0.5"
+       stroke="#f4e8b2"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path120" />
+    <circle
+       cx="166"
+       cy="1164"
+       fill="#f3e6a9"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle120" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="166"
+       y="1174"
+       id="text120">3</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="189.02702"
+       y="1216.0541"
+       id="text121">Nuclei localization</text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="187.67567"
+       y="1264"
+       id="text122"><tspan
+         sodipodi:role="line"
+         id="tspan6"
+         x="187.67567"
+         y="1264">Identify cell locations or</tspan><tspan
+         sodipodi:role="line"
+         id="tspan7"
+         x="187.67567"
+         y="1299">boundaries across tiles</tspan></text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="187.67567"
+       y="1295.2972"
+       id="text123"
+       style="white-space:pre;inline-size:0" />
+  </g>
+  <path
+     d="m 869.14279,1240.2232 c -42.10481,-11.0068 -54.73625,0 -163.36666,0"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="11.5529"
+     id="path123" />
+  <path
+     d="m 863.69756,1240.1837 c -40.69114,-10.8276 -52.89848,0 -157.88161,0"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="5.63225"
+     id="path124" />
+  <g
+     filter="url(#shadow)"
+     id="g155"
+     transform="translate(-37.837838,-43.243243)">
+    <circle
+       cx="788"
+       cy="1240"
+       fill="#f3e5a5"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle124" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="783"
+       cy="1210"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="45"
+       ry="18"
+       id="ellipse124" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="759"
+       cy="1251"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="20"
+       ry="26"
+       id="ellipse125" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="798"
+       cy="1235"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="46"
+       ry="18"
+       id="ellipse126" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="763"
+       cy="1196"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="27"
+       ry="26"
+       id="ellipse127" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="741"
+       cy="1205"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="19"
+       ry="18"
+       id="ellipse128" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="744"
+       cy="1237"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="36"
+       ry="18"
+       id="ellipse129" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="743"
+       cy="1238"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="34"
+       ry="20"
+       id="ellipse130" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="749"
+       cy="1284"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="19"
+       ry="20"
+       id="ellipse131" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="793"
+       cy="1287"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="46"
+       ry="21"
+       id="ellipse132" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="776"
+       cy="1192"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="23"
+       ry="19"
+       id="ellipse133" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="820"
+       cy="1251"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="28"
+       ry="25"
+       id="ellipse134" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="811"
+       cy="1231"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="22"
+       ry="26"
+       id="ellipse135" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="831"
+       cy="1207"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="45"
+       ry="24"
+       id="ellipse136" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="766"
+       cy="1260"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="38"
+       ry="25"
+       id="ellipse137" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="810"
+       cy="1239"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="25"
+       ry="15"
+       id="ellipse138" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="793"
+       cy="1192"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="38"
+       ry="17"
+       id="ellipse139" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="800"
+       cy="1286"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="27"
+       ry="28"
+       id="ellipse140" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="806"
+       cy="1279"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="42"
+       ry="16"
+       id="ellipse141" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="821"
+       cy="1257"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="21"
+       ry="14"
+       id="ellipse142" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="767"
+       cy="1193"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="24"
+       ry="19"
+       id="ellipse143" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="780"
+       cy="1219"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="19"
+       ry="26"
+       id="ellipse144" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="756"
+       cy="1246"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="35"
+       ry="23"
+       id="ellipse145" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="828"
+       cy="1207"
+       fill="#f5e9b5"
+       opacity="0.16"
+       rx="36"
+       ry="17"
+       id="ellipse146" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="743"
+       cy="1251"
+       fill="#f6ecbe"
+       opacity="0.16"
+       rx="39"
+       ry="21"
+       id="ellipse147" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="824"
+       cy="1222"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="29"
+       ry="16"
+       id="ellipse148" />
+    <ellipse
+       clip-path="url(#badge_clip_3)"
+       cx="787"
+       cy="1257"
+       fill="#dfd297"
+       opacity="0.16"
+       rx="46"
+       ry="27"
+       id="ellipse149" />
+    <g
+       transform="translate(788,1240)"
+       id="g154">
+      <rect
+         fill="#f4e8b2"
+         height="86"
+         rx="18"
+         ry="18"
+         stroke="#4a2e2d"
+         stroke-width="4.5"
+         width="124"
+         x="-62"
+         y="-40"
+         id="rect149" />
+      <rect
+         fill="#fff9f6"
+         height="38"
+         rx="10"
+         ry="10"
+         stroke="#4a2e2d"
+         stroke-width="3.2"
+         width="80"
+         x="-40"
+         y="-22"
+         id="rect150" />
+      <rect
+         fill="#f6cad5"
+         height="22"
+         rx="6"
+         ry="6"
+         stroke="#c49da7"
+         stroke-width="2"
+         width="56"
+         x="-28"
+         y="-14"
+         id="rect151" />
+      <circle
+         cx="-10"
+         cy="-3"
+         fill="#d6e9d6"
+         r="4.5"
+         stroke="none"
+         id="circle151" />
+      <circle
+         cx="0"
+         cy="0"
+         fill="#ddcdf3"
+         r="4.5"
+         stroke="none"
+         id="circle152" />
+      <circle
+         cx="10"
+         cy="-2"
+         fill="#f7d8bb"
+         r="4.5"
+         stroke="none"
+         id="circle153" />
+      <rect
+         fill="#fff9f6"
+         height="18"
+         rx="8"
+         ry="8"
+         stroke="#4a2e2d"
+         stroke-width="3.2"
+         width="96"
+         x="-48"
+         y="20"
+         id="rect153" />
+      <rect
+         fill="#cfe8f2"
+         height="10"
+         rx="4"
+         ry="4"
+         stroke="#a5b9c1"
+         stroke-width="2"
+         width="46"
+         x="-20"
+         y="24"
+         id="rect154" />
+      <circle
+         cx="46"
+         cy="-28"
+         fill="#f7d6b8"
+         r="6"
+         stroke="#4a2e2d"
+         stroke-width="2.5"
+         id="circle154" />
+    </g>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g158">
+    <rect
+       fill="#fff9f6"
+       height="219.87277"
+       rx="29.216972"
+       ry="27.983807"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       width="678.25116"
+       x="1030.0636"
+       y="1435.0636"
+       id="rect155" />
+    <path
+       d="M 1054,1475 C 1170,1445 1540,1445 1656,1475"
+       fill="none"
+       opacity="0.5"
+       stroke="#daebda"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path155" />
+    <circle
+       cx="1660.1621"
+       cy="1473.8108"
+       fill="#d6e9d6"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle155" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="1658.1621"
+       y="1483.8108"
+       id="text155">4</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="1160"
+       y="1517"
+       id="text156">Cell classification</text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="1145.1353"
+       y="1566.2974"
+       id="text157"><tspan
+         sodipodi:role="line"
+         x="1145.1353"
+         y="1566.2974"
+         id="tspan293">Classify cell states or extract</tspan><tspan
+         sodipodi:role="line"
+         x="1145.1353"
+         y="1601.2974"
+         id="tspan8">per-cell embeddings</tspan></text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="1112.7028"
+       y="1613.8108"
+       id="text158"><tspan
+         sodipodi:role="line"
+         id="tspan290"
+         x="1112.7028"
+         y="1613.8108" /></text>
+  </g>
+  <path
+     d="m 942.91791,1545.3243 c 39.02253,-11.4631 50.72929,0 151.40739,0"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="11.3502"
+     id="path158" />
+  <path
+     d="m 938.98998,1545.1988 c 40.00238,-10.8958 52.00309,0 155.20922,0"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="5.60194"
+     id="path159" />
+  <g
+     filter="url(#shadow)"
+     id="g187"
+     transform="translate(31.081085,-60.810811)">
+    <circle
+       cx="1012"
+       cy="1545"
+       fill="#d4e8d4"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle159" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1011"
+       cy="1535"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="42"
+       ry="25"
+       id="ellipse159" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1003"
+       cy="1585"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="33"
+       ry="14"
+       id="ellipse160" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="973"
+       cy="1543"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="24"
+       ry="30"
+       id="ellipse161" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="973"
+       cy="1545"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="42"
+       ry="16"
+       id="ellipse162" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="993"
+       cy="1504"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="40"
+       ry="14"
+       id="ellipse163" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1046"
+       cy="1565"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="43"
+       ry="29"
+       id="ellipse164" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="995"
+       cy="1544"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="40"
+       ry="16"
+       id="ellipse165" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1000"
+       cy="1540"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="40"
+       ry="27"
+       id="ellipse166" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1016"
+       cy="1565"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="19"
+       ry="25"
+       id="ellipse167" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1011"
+       cy="1583"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="23"
+       ry="32"
+       id="ellipse168" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="981"
+       cy="1505"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="39"
+       ry="22"
+       id="ellipse169" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1020"
+       cy="1555"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="18"
+       ry="25"
+       id="ellipse170" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1015"
+       cy="1554"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="37"
+       ry="22"
+       id="ellipse171" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1004"
+       cy="1561"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="30"
+       ry="24"
+       id="ellipse172" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1028"
+       cy="1497"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="44"
+       ry="15"
+       id="ellipse173" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1060"
+       cy="1584"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="18"
+       ry="34"
+       id="ellipse174" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1007"
+       cy="1506"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="33"
+       ry="15"
+       id="ellipse175" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1016"
+       cy="1502"
+       fill="#e0eee0"
+       opacity="0.16"
+       rx="27"
+       ry="31"
+       id="ellipse176" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1029"
+       cy="1578"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="38"
+       ry="27"
+       id="ellipse177" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1000"
+       cy="1567"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="26"
+       ry="15"
+       id="ellipse178" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="991"
+       cy="1571"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="27"
+       ry="26"
+       id="ellipse179" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="976"
+       cy="1549"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="44"
+       ry="29"
+       id="ellipse180" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1044"
+       cy="1499"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="27"
+       ry="20"
+       id="ellipse181" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1017"
+       cy="1591"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="44"
+       ry="34"
+       id="ellipse182" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="1032"
+       cy="1521"
+       fill="#dbecdb"
+       opacity="0.16"
+       rx="36"
+       ry="21"
+       id="ellipse183" />
+    <ellipse
+       clip-path="url(#badge_clip_4)"
+       cx="971"
+       cy="1522"
+       fill="#c3d5c3"
+       opacity="0.16"
+       rx="44"
+       ry="24"
+       id="ellipse184" />
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g190"
+     transform="translate(-52.702703,-71.621622)">
+    <rect
+       fill="#fff9f6"
+       height="220"
+       rx="28"
+       ry="28"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       width="650"
+       x="120"
+       y="1740"
+       id="rect187" />
+    <path
+       d="m 144,1780 c 116,-30 486,-30 602,0"
+       fill="none"
+       opacity="0.5"
+       stroke="#d6ebf3"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path187" />
+    <circle
+       cx="153.78378"
+       cy="1772.0541"
+       fill="#d1e9f2"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle187" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="156.48648"
+       y="1782.0541"
+       id="text187">5</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="143.08109"
+       y="1836.8649"
+       id="text188">Spatial context modeling</text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="144.43243"
+       y="1884.8108"
+       id="text189"><tspan
+         sodipodi:role="line"
+         x="144.43243"
+         y="1884.8108"
+         id="tspan298">Build a cell graph, neighborhood</tspan><tspan
+         sodipodi:role="line"
+         x="144.43243"
+         y="1919.8108"
+         id="tspan10">representationor other spatial model</tspan></text>
+  </g>
+  <path
+     d="m 878.37838,1879.7297 c -50,-10 -65,0 -194,0"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="12"
+     id="path190" />
+  <path
+     d="m 878.37838,1875.6757 c -50,-10 -65,0 -194,0"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="6"
+     id="path191" />
+  <g
+     filter="url(#shadow)"
+     id="g229"
+     transform="translate(-27.027027,24.324327)">
+    <circle
+       cx="788"
+       cy="1850"
+       fill="#cfe8f2"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle191" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="795"
+       cy="1837"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="18"
+       ry="28"
+       id="ellipse191" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="803"
+       cy="1880"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="27"
+       ry="22"
+       id="ellipse192" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="759"
+       cy="1807"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="46"
+       ry="24"
+       id="ellipse193" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="790"
+       cy="1808"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="45"
+       ry="28"
+       id="ellipse194" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="770"
+       cy="1840"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="20"
+       ry="16"
+       id="ellipse195" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="791"
+       cy="1834"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="31"
+       ry="15"
+       id="ellipse196" />
+    <circle
+       clip-path="url(#badge_clip_5)"
+       cx="779"
+       cy="1832"
+       fill="#bed5de"
+       opacity="0.16"
+       id="ellipse197"
+       r="19" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="801"
+       cy="1807"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="41"
+       ry="18"
+       id="ellipse198" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="750"
+       cy="1806"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="27"
+       ry="34"
+       id="ellipse199" />
+    <circle
+       clip-path="url(#badge_clip_5)"
+       cx="818"
+       cy="1846"
+       fill="#bed5de"
+       opacity="0.16"
+       id="ellipse200"
+       r="19" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="818"
+       cy="1895"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="23"
+       ry="15"
+       id="ellipse201" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="750"
+       cy="1805"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="34"
+       ry="22"
+       id="ellipse202" />
+    <circle
+       clip-path="url(#badge_clip_5)"
+       cx="753"
+       cy="1869"
+       fill="#d7ecf4"
+       opacity="0.16"
+       id="ellipse203"
+       r="21" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="788"
+       cy="1835"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="25"
+       ry="30"
+       id="ellipse204" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="832"
+       cy="1898"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="44"
+       ry="28"
+       id="ellipse205" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="784"
+       cy="1892"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="31"
+       ry="22"
+       id="ellipse206" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="743"
+       cy="1822"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="29"
+       ry="34"
+       id="ellipse207" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="770"
+       cy="1857"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="34"
+       ry="27"
+       id="ellipse208" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="807"
+       cy="1880"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="34"
+       ry="22"
+       id="ellipse209" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="770"
+       cy="1860"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="28"
+       ry="15"
+       id="ellipse210" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="804"
+       cy="1816"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="44"
+       ry="25"
+       id="ellipse211" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="766"
+       cy="1897"
+       fill="#d7ecf4"
+       opacity="0.16"
+       rx="30"
+       ry="34"
+       id="ellipse212" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="754"
+       cy="1827"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="35"
+       ry="21"
+       id="ellipse213" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="829"
+       cy="1874"
+       fill="#dceef5"
+       opacity="0.16"
+       rx="35"
+       ry="21"
+       id="ellipse214" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="785"
+       cy="1811"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="42"
+       ry="27"
+       id="ellipse215" />
+    <ellipse
+       clip-path="url(#badge_clip_5)"
+       cx="766"
+       cy="1833"
+       fill="#bed5de"
+       opacity="0.16"
+       rx="46"
+       ry="30"
+       id="ellipse216" />
+    <g
+       transform="matrix(0.89079989,0,0,0.89079989,772.99112,1839.8295)"
+       id="g228">
+      <rect
+         fill="#fff9f6"
+         height="78"
+         rx="12"
+         ry="12"
+         stroke="#4a2e2d"
+         stroke-width="4.2"
+         width="78"
+         x="-58"
+         y="-38"
+         id="rect216" />
+      <polygon
+         fill="#f6cad5"
+         points="-38,-10 -18,-24 10,-20 18,-2 8,20 -20,24 -40,8 "
+         stroke="#c8a1ab"
+         stroke-width="2.6"
+         id="polygon216" />
+      <circle
+         cx="-26"
+         cy="-6"
+         fill="#decff3"
+         r="6"
+         stroke="#9e92ae"
+         stroke-width="2"
+         id="circle216" />
+      <circle
+         cx="-10"
+         cy="4"
+         fill="#d7e9d7"
+         r="6"
+         stroke="#98a798"
+         stroke-width="2"
+         id="circle217" />
+      <circle
+         cx="5"
+         cy="2"
+         fill="#f7d9bd"
+         r="6"
+         stroke="#b19a84"
+         stroke-width="2"
+         id="circle218" />
+      <circle
+         cx="0"
+         cy="-12"
+         fill="#d2e9f3"
+         r="6"
+         stroke="#95a7ae"
+         stroke-width="2"
+         id="circle219" />
+      <circle
+         cx="-18"
+         cy="16"
+         fill="#f3e7ac"
+         r="6"
+         stroke="#aea476"
+         stroke-width="2"
+         id="circle220" />
+      <line
+         stroke="#95a7ae"
+         stroke-linecap="round"
+         stroke-width="3"
+         x1="44"
+         x2="72"
+         y1="-18"
+         y2="-6"
+         id="line220" />
+      <line
+         stroke="#95a7ae"
+         stroke-linecap="round"
+         stroke-width="3"
+         x1="72"
+         x2="54"
+         y1="-6"
+         y2="22"
+         id="line221" />
+      <line
+         stroke="#95a7ae"
+         stroke-linecap="round"
+         stroke-width="3"
+         x1="54"
+         x2="86"
+         y1="22"
+         y2="18"
+         id="line222" />
+      <line
+         stroke="#95a7ae"
+         stroke-linecap="round"
+         stroke-width="3"
+         x1="44"
+         x2="54"
+         y1="-18"
+         y2="22"
+         id="line223" />
+      <circle
+         cx="44"
+         cy="-18"
+         fill="#d2e9f3"
+         r="7"
+         stroke="#4a2e2d"
+         stroke-width="2.2"
+         id="circle223" />
+      <circle
+         cx="72"
+         cy="-6"
+         fill="#d2e9f3"
+         r="7"
+         stroke="#4a2e2d"
+         stroke-width="2.2"
+         id="circle224" />
+      <circle
+         cx="54"
+         cy="22"
+         fill="#d2e9f3"
+         r="7"
+         stroke="#4a2e2d"
+         stroke-width="2.2"
+         id="circle225" />
+      <circle
+         cx="86"
+         cy="18"
+         fill="#d2e9f3"
+         r="7"
+         stroke="#4a2e2d"
+         stroke-width="2.2"
+         id="circle226" />
+      <rect
+         fill="#f7d6b8"
+         height="12"
+         rx="3"
+         ry="3"
+         stroke="#4a2e2d"
+         stroke-width="1.8"
+         width="8"
+         x="34"
+         y="28"
+         id="rect226" />
+      <rect
+         fill="#d4e8d4"
+         height="20"
+         rx="3"
+         ry="3"
+         stroke="#4a2e2d"
+         stroke-width="1.8"
+         width="8"
+         x="48"
+         y="28"
+         id="rect227" />
+      <rect
+         fill="#dccbf3"
+         height="30"
+         rx="3"
+         ry="3"
+         stroke="#4a2e2d"
+         stroke-width="1.8"
+         width="8"
+         x="62"
+         y="28"
+         id="rect228" />
+    </g>
+    <g
+       transform="translate(1086.8193,1456.5449)"
+       id="g228-2">
+      <rect
+         fill="#fff9f6"
+         height="77.729767"
+         rx="13.641118"
+         ry="11.958426"
+         stroke="#4a2e2d"
+         stroke-width="4.47023"
+         width="88.667267"
+         x="-57.864883"
+         y="-37.864883"
+         id="rect216-3" />
+      <polygon
+         fill="#f6cad5"
+         points="-20,24 -40,8 -38,-10 -18,-24 10,-20 18,-2 8,20 "
+         stroke="#c8a1ab"
+         stroke-width="2.6"
+         id="polygon216-3" />
+      <circle
+         cx="-26"
+         cy="-6"
+         fill="#decff3"
+         r="6"
+         stroke="#9e92ae"
+         stroke-width="2"
+         id="circle216-7" />
+      <circle
+         cx="-10"
+         cy="4"
+         fill="#d7e9d7"
+         r="6"
+         stroke="#98a798"
+         stroke-width="2"
+         id="circle217-0" />
+      <circle
+         cx="5"
+         cy="2"
+         fill="#f7d9bd"
+         r="6"
+         stroke="#b19a84"
+         stroke-width="2"
+         id="circle218-0" />
+      <circle
+         cx="0"
+         cy="-12"
+         fill="#d2e9f3"
+         r="6"
+         stroke="#95a7ae"
+         stroke-width="2"
+         id="circle219-1" />
+      <circle
+         cx="-18"
+         cy="16"
+         fill="#f3e7ac"
+         r="6"
+         stroke="#aea476"
+         stroke-width="2"
+         id="circle220-0" />
+    </g>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g232"
+     transform="translate(16.071429,39.285714)">
+    <rect
+       fill="#fff9f6"
+       height="219.83096"
+       rx="29.622656"
+       ry="27.978487"
+       stroke="#4a2e2d"
+       stroke-width="6.16904"
+       width="687.66882"
+       x="1030.0845"
+       y="2045.0845"
+       id="rect229" />
+    <path
+       d="m 1054,2085 c 116,-30 486,-30 602,0"
+       fill="none"
+       opacity="0.5"
+       stroke="#e1d2f4"
+       stroke-linecap="round"
+       stroke-width="20"
+       id="path229" />
+    <circle
+       cx="1669.1892"
+       cy="2075.7026"
+       fill="#ddcdf3"
+       r="26"
+       stroke="#4a2e2d"
+       stroke-width="4"
+       id="circle229" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="30px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="1669.1892"
+       y="2085.7026"
+       id="text229">6</text>
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="44px"
+       font-weight="bold"
+       x="1088.3783"
+       y="2131.054"
+       id="text230"><tspan
+         sodipodi:role="line"
+         id="tspan300"
+         x="1088.3783"
+         y="2131.054">Tissue or microstructure</tspan><tspan
+         sodipodi:role="line"
+         x="1088.3783"
+         y="2186.054"
+         id="tspan11">inference</tspan></text>
+    <text
+       fill="#452b2a"
+       font-family="NanumSquareRound, 'Comic Neue', 'Noto Sans', sans-serif"
+       font-size="28px"
+       font-weight="bold"
+       x="1077.5676"
+       y="2216.8379"
+       id="text231"><tspan
+         sodipodi:role="line"
+         x="1077.5676"
+         y="2216.8379"
+         id="tspan303">Assign local tissue classes or</tspan><tspan
+         sodipodi:role="line"
+         x="1077.5676"
+         y="2251.8379"
+         id="tspan12">higher-order microenvironment labels</tspan></text>
+  </g>
+  <path
+     d="m 899.61425,2155.3846 c 37.31224,-11.7349 48.50591,0 144.77155,0"
+     fill="none"
+     stroke="#e8bbc6"
+     stroke-linecap="round"
+     stroke-width="11.2295"
+     id="path232" />
+  <path
+     d="m 899.8084,2155.1912 c 40.34674,-10.8615 52.45077,0 156.5454,0"
+     fill="none"
+     opacity="0.75"
+     stroke="#f4bbc9"
+     stroke-linecap="round"
+     stroke-width="5.61715"
+     id="path233" />
+  <g
+     filter="url(#shadow)"
+     id="g265"
+     transform="translate(-1.3513511,-18.918923)">
+    <circle
+       cx="1012"
+       cy="2155"
+       fill="#dccbf3"
+       r="82"
+       stroke="#4a2e2d"
+       stroke-width="6"
+       id="circle233" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="986"
+       cy="2138"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="20"
+       ry="30"
+       id="ellipse233" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1003"
+       cy="2161"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="36"
+       ry="29"
+       id="ellipse234" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1036"
+       cy="2173"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="27"
+       ry="25"
+       id="ellipse235" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1057"
+       cy="2191"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="30"
+       ry="34"
+       id="ellipse236" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="976"
+       cy="2168"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="46"
+       ry="24"
+       id="ellipse237" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1057"
+       cy="2145"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="31"
+       ry="21"
+       id="ellipse238" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1052"
+       cy="2167"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="46"
+       ry="21"
+       id="ellipse239" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1010"
+       cy="2111"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="38"
+       ry="21"
+       id="ellipse240" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1048"
+       cy="2132"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="24"
+       ry="19"
+       id="ellipse241" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1015"
+       cy="2189"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="20"
+       ry="23"
+       id="ellipse242" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1013"
+       cy="2195"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="36"
+       ry="17"
+       id="ellipse243" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1033"
+       cy="2157"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="36"
+       ry="27"
+       id="ellipse244" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1030"
+       cy="2133"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="39"
+       ry="24"
+       id="ellipse245" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="994"
+       cy="2168"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="32"
+       ry="23"
+       id="ellipse246" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="973"
+       cy="2137"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="42"
+       ry="17"
+       id="ellipse247" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1008"
+       cy="2140"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="32"
+       ry="22"
+       id="ellipse248" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1000"
+       cy="2156"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="40"
+       ry="28"
+       id="ellipse249" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="966"
+       cy="2123"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="39"
+       ry="34"
+       id="ellipse250" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="978"
+       cy="2192"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="32"
+       ry="18"
+       id="ellipse251" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1003"
+       cy="2197"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="34"
+       ry="19"
+       id="ellipse252" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1001"
+       cy="2135"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="42"
+       ry="32"
+       id="ellipse253" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1001"
+       cy="2124"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="30"
+       ry="16"
+       id="ellipse254" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="982"
+       cy="2160"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="29"
+       ry="19"
+       id="ellipse255" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1009"
+       cy="2112"
+       fill="#e2d4f5"
+       opacity="0.16"
+       rx="34"
+       ry="27"
+       id="ellipse256" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1000"
+       cy="2122"
+       fill="#cabadf"
+       opacity="0.16"
+       rx="27"
+       ry="14"
+       id="ellipse257" />
+    <ellipse
+       clip-path="url(#badge_clip_6)"
+       cx="1027"
+       cy="2190"
+       fill="#e5d9f6"
+       opacity="0.16"
+       rx="29"
+       ry="30"
+       id="ellipse258" />
+    <g
+       transform="translate(1012,2155)"
+       id="g264">
+      <path
+         d="m -46,-40 h 62 l 30,30 v 52 h -92 z"
+         fill="#fff9f6"
+         stroke="#4a2e2d"
+         stroke-width="4.2"
+         id="path258" />
+      <polyline
+         fill="none"
+         points="16.0,-40.0 16.0,-10.0 46.0,-10.0"
+         stroke="#4a2e2d"
+         stroke-width="4.2"
+         id="polyline258" />
+      <rect
+         fill="#f5c8d3"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#c49da7"
+         stroke-width="1.6"
+         width="14"
+         x="-28"
+         y="-16"
+         id="rect258" />
+      <rect
+         fill="#f7d8bc"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#c5ab93"
+         stroke-width="1.6"
+         width="14"
+         x="-10"
+         y="-16"
+         id="rect259" />
+      <rect
+         fill="#f3e6aa"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#c2b784"
+         stroke-width="1.6"
+         width="14"
+         x="8"
+         y="-16"
+         id="rect260" />
+      <rect
+         fill="#d6e9d6"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#a9b9a9"
+         stroke-width="1.6"
+         width="14"
+         x="-28"
+         y="2"
+         id="rect261" />
+      <rect
+         fill="#d1e9f2"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#a5b9c1"
+         stroke-width="1.6"
+         width="14"
+         x="-10"
+         y="2"
+         id="rect262" />
+      <rect
+         fill="#decef3"
+         height="14"
+         rx="3"
+         ry="3"
+         stroke="#b0a2c2"
+         stroke-width="1.6"
+         width="14"
+         x="8"
+         y="2"
+         id="rect263" />
+      <polyline
+         fill="none"
+         points="-28.0,22.0 -8.0,14.0 6.0,20.0 26.0,4.0"
+         stroke="#ab9ebd"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-width="4"
+         id="polyline263" />
+      <circle
+         cx="30"
+         cy="8"
+         fill="none"
+         r="12"
+         stroke="#9fae9f"
+         stroke-width="3.5"
+         id="circle263" />
+      <polyline
+         fill="none"
+         points="24.0,8.0 29.0,13.0 37.0,2.0"
+         stroke="#9fae9f"
+         stroke-linecap="round"
+         stroke-linejoin="round"
+         stroke-width="3.5"
+         id="polyline264" />
+    </g>
+  </g>
+  <g
+     filter="url(#shadow)"
+     id="g266"
+     transform="translate(-22)">
+    <rect
+       fill="#f6cdd7"
+       height="86.508202"
+       rx="68.190887"
+       ry="41.288006"
+       stroke="#4a2e2d"
+       stroke-width="6.58367"
+       width="1721.0082"
+       x="68.96019"
+       y="2365.7458"
+       id="rect265" />
+    <text
+       fill="#4a2e2d"
+       font-family="'Comic Neue', NanumSquareRound, 'Noto Sans', sans-serif"
+       font-size="42px"
+       font-weight="bold"
+       text-anchor="middle"
+       x="933.78381"
+       y="2422.6487"
+       id="text265">Whole-slide cell-to-tissue maps and quantitative placental phenotypes</text>
+  </g>
+  <circle
+     cx="150"
+     cy="350"
+     fill="#f5c9d4"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle266" />
+  <circle
+     cx="168"
+     cy="362"
+     fill="#f6cfd9"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle267" />
+  <circle
+     cx="1650"
+     cy="365"
+     fill="#f5c9d4"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle268" />
+  <circle
+     cx="1668"
+     cy="377"
+     fill="#f6cfd9"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle269" />
+  <circle
+     cx="400"
+     cy="370"
+     fill="#f7d9bd"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle270" />
+  <circle
+     cx="418"
+     cy="382"
+     fill="#f8ddc4"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle271" />
+  <circle
+     cx="1400"
+     cy="350"
+     fill="#f7d9bd"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle272" />
+  <circle
+     cx="1418"
+     cy="362"
+     fill="#f8ddc4"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle273" />
+  <circle
+     cx="650"
+     cy="350"
+     fill="#f3e7ac"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle274" />
+  <circle
+     cx="668"
+     cy="362"
+     fill="#f5e9b5"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle275" />
+  <circle
+     cx="1150"
+     cy="365"
+     fill="#f3e7ac"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle276" />
+  <circle
+     cx="1168"
+     cy="377"
+     fill="#f5e9b5"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle277" />
+  <circle
+     cx="1150"
+     cy="350"
+     fill="#d2e9f3"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle282" />
+  <circle
+     cx="1168"
+     cy="362"
+     fill="#d7ecf4"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle283" />
+  <circle
+     cx="650"
+     cy="365"
+     fill="#d2e9f3"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle284" />
+  <circle
+     cx="668"
+     cy="377"
+     fill="#d7ecf4"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle285" />
+  <circle
+     cx="1400"
+     cy="370"
+     fill="#decff3"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle286" />
+  <circle
+     cx="1418"
+     cy="382"
+     fill="#e2d4f5"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle287" />
+  <circle
+     cx="400"
+     cy="350"
+     fill="#decff3"
+     opacity="0.7"
+     r="8"
+     stroke="none"
+     id="circle288" />
+  <circle
+     cx="418"
+     cy="362"
+     fill="#e2d4f5"
+     opacity="0.5"
+     r="5"
+     stroke="none"
+     id="circle289" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 726.37363,436.26374 c 30.50978,-17.28254 64.21995,-28.89382 98.9011,-34.06594 36.68889,-5.47154 74.08605,-3.76618 110.98901,0 34.07758,3.47783 68.37726,8.81057 99.99996,21.97802 12.2712,5.10964 24.0616,11.37327 35.1649,18.68132"
+     id="path312"
+     inkscape:path-effect="#path-effect313"
+     inkscape:original-d="m 726.37363,436.26374 c 31.86813,-10.98901 65.93406,-21.97803 98.9011,-34.06594 32.96703,-12.08791 73.62637,-0.3663 110.98901,0 37.36263,0.3663 66.30036,15.01832 99.99996,21.97802 33.6997,6.95971 23.8096,12.08792 35.1649,18.68132"
+     transform="matrix(1.0129648,0,0,0.99938028,-8.2066178,-14.025118)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d=""
+     id="path314"
+     inkscape:path-effect="#path-effect315"
+     inkscape:original-d="M 951.64835,363.73626 Z" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d=""
+     id="path315"
+     inkscape:path-effect="#path-effect316"
+     inkscape:original-d="M 995.6044,483.51648 Z" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 854.94505,468.13187 c -2.57399,3.35505 -3.61696,7.83953 -2.78764,11.9861 0.82931,4.14657 3.51685,7.88494 7.18325,9.99192 0.71042,0.40826 1.45312,0.75711 2.1978,1.0989 8.11922,3.72657 16.59545,6.67482 25.27473,8.79121"
+     id="path316"
+     inkscape:path-effect="#path-effect317"
+     inkscape:original-d="m 854.94505,468.13187 c 2.19781,5.8608 3.29671,15.01831 4.39561,21.97802 1.0989,6.95971 1.4652,-0.3663 2.1978,1.0989 0.7326,1.4652 16.84982,6.22711 25.27473,8.79121"
+     transform="translate(2,2)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 908.79121,452.74725 c 3.13327,7.22117 3.53182,15.5907 1.0989,23.07693 -2.14194,6.59086 -6.44565,12.45956 -12.08791,16.48351"
+     id="path317"
+     inkscape:path-effect="#path-effect318"
+     inkscape:original-d="m 908.79121,452.74725 c -1.4652,6.22711 0.3663,14.65202 1.0989,23.07693 0.7326,8.4249 -8.42491,10.98901 -12.08791,16.48351"
+     transform="translate(0,2)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 971.42857,452.74725 c -6.44827,-0.97623 -13.20759,0.23252 -18.91789,3.38303 -5.7103,3.15052 -10.33739,8.22392 -12.95024,14.19939 -1.91076,4.36983 -2.74651,9.11883 -3.63885,13.80393 -0.89234,4.6851 -1.87928,9.42368 -4.05346,13.6686 -4.00749,7.82432 -12.1345,13.3849 -20.87912,14.28571"
+     id="path318"
+     inkscape:path-effect="#path-effect319"
+     inkscape:original-d="m 971.42857,452.74725 c -10.62271,5.86081 -21.24542,11.72161 -31.86813,17.58242 -10.62271,5.86081 -5.12821,18.31502 -7.69231,27.47253 -2.5641,9.15751 -13.91941,9.52381 -20.87912,14.28571" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 1014.2857,493.40659 c -14.0534,-3.71186 -29.25711,-2.93218 -42.85713,2.19781 -8.15524,3.07619 -15.74801,7.66683 -24.17582,9.89011 -5.71433,1.50745 -11.72486,1.88311 -17.58242,1.0989"
+     id="path319"
+     inkscape:path-effect="#path-effect320"
+     inkscape:original-d="m 1014.2857,493.40659 c -15.0183,-0.7326 -28.93771,0.7326 -42.85713,2.19781 -13.91941,1.4652 -16.11721,6.5934 -24.17582,9.89011 -8.05861,3.2967 -11.72161,0.7326 -17.58242,1.0989"
+     transform="translate(-4)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 950.54945,530.76923 c -7.95628,4.48621 -18.07173,4.90768 -26.37363,1.0989 C 917.92423,529 912.75824,523.83401 909.89011,517.58242"
+     id="path320"
+     inkscape:path-effect="#path-effect321"
+     inkscape:original-d="m 950.54945,530.76923 c -8.42491,0.7326 -17.94872,0.3663 -26.37363,1.0989 -8.4249,0.7326 -9.1575,-9.15751 -14.28571,-14.28571" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 756.04396,448.35165 c -2.81129,5.83238 -3.3855,12.7096 -1.58032,18.92743 1.80517,6.21783 5.97292,11.71835 11.47043,15.1385 5.77599,3.59339 12.6863,4.83243 19.44684,5.58714 6.76054,0.7547 13.64084,1.11172 20.1136,3.20407 7.38038,2.38574 13.85929,6.90802 20.08469,11.5347 6.22541,4.62669 12.39842,9.4673 19.47575,12.64113 10.2634,4.60262 22.18349,5.39729 32.96703,2.1978"
+     id="path321"
+     inkscape:path-effect="#path-effect322"
+     inkscape:original-d="m 756.04396,448.35165 c 4.0293,10.62271 6.9597,22.34432 9.89011,34.06593 2.9304,11.72161 26.37362,5.86081 39.56044,8.79121 13.18681,2.9304 26.73992,16.48352 39.56044,24.17583 12.82051,7.6923 21.61172,1.0989 32.96703,2.1978"
+     transform="translate(8)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 819.78022,418.68132 c -3.80466,-0.26155 -7.67775,0.55858 -11.04985,2.33981 -3.3721,1.78123 -6.23275,4.51803 -8.16138,7.80806 -1.92864,3.29002 -2.91926,7.12304 -2.82625,10.93554 0.093,3.81251 1.26938,7.59266 3.35616,10.78472 2.14087,3.2748 5.16437,5.87084 8.29093,8.22291 3.12656,2.35208 6.40867,4.51653 9.29149,7.16171 4.73944,4.34876 8.30479,9.96517 10.22338,16.10464 1.91858,6.13947 2.18559,12.78661 0.76563,19.06019"
+     id="path322"
+     inkscape:path-effect="#path-effect323"
+     inkscape:original-d="m 819.78022,418.68132 c -5.86081,10.62271 -11.72161,22.34432 -18.68132,31.86813 -6.95971,9.52381 11.72161,9.52381 17.58242,15.38462 5.8608,5.8608 6.95971,23.44322 10.98901,35.16483" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 876.92308,415.38462 c -4.50705,7.9058 -6.09499,17.43341 -4.39561,26.37362 1.43839,7.56717 5.19957,14.67644 10.64618,20.12305 5.44661,5.44661 12.55588,9.20779 20.12305,10.64618"
+     id="path323"
+     inkscape:path-effect="#path-effect324"
+     inkscape:original-d="m 876.92308,415.38462 c -1.4652,8.0586 -2.93041,17.21611 -4.39561,26.37362 -1.4652,9.15751 20.51282,20.51282 30.76923,30.76923"
+     transform="translate(10.087912,-4.3956044)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 972.52747,409.89011 c -13.89809,4.01697 -25.84726,14.31798 -31.86813,27.47253 -3.59841,7.8619 -5.12843,16.65956 -4.3956,25.27472"
+     id="path324"
+     inkscape:path-effect="#path-effect325"
+     inkscape:original-d="m 972.52747,409.89011 c -12.08791,8.42491 -21.97802,19.04762 -31.86813,27.47253 -9.89011,8.42491 -2.9304,16.11721 -4.3956,25.27472"
+     transform="translate(5.4945055,2.1978022)" />
+  <path
+     style="fill:none;fill-opacity:0.997685;stroke:#f4bbc9;stroke-width:6.651;stroke-dasharray:none;stroke-opacity:1"
+     d="m 1045.0549,445.05495 c -9.1944,2.57222 -18.073,6.27161 -26.3736,10.98901 -15.2296,8.65525 -28.4798,20.76976 -38.46152,35.16483"
+     id="path325"
+     inkscape:path-effect="#path-effect326"
+     inkscape:original-d="m 1045.0549,445.05495 c -8.4249,1.8315 -17.9487,6.9597 -26.3736,10.98901 -8.4249,4.0293 -25.27471,23.07692 -38.46152,35.16483" />
+</svg>

@@ -5,12 +5,38 @@ permalink: /research/pathomics/
 nav: false
 ---
 
+<style>
+.pathomics-page {
+  font-size: 1.125rem;
+  line-height: 1.75;
+  width: 100%;
+}
+.pathomics-page .content-figure {
+  float: right;
+  clear: right;
+  width: 52%;
+  margin: 0.25rem 0 1.25rem 1.5rem;
+}
+.pathomics-page .content-figure img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 900px) {
+  .pathomics-page .content-figure {
+    float: none;
+    width: 100%;
+    margin: 1rem 0;
+  }
+}
+</style>
+
+<div class="pathomics-page">
 Pathomics refers to the high‑throughput quantitative analysis of digital histopathology images, typically whole‑slide images, to extract measurable information about tissue architecture, cell morphology, texture, and spatial organization. By transforming placental histology into structured quantitative data, pathomics complements conventional microscopy and enables more reproducible and scalable assessment of placental structure and disease. This is particularly valuable for the placenta, an organ characterized by marked spatial heterogeneity and dynamic changes across gestation.
 
 <!-- FIGURE 1: Overview schematic -->
 <figure class="content-figure">
-  <img src="/assets/img/figures/pathomics-overview.png" alt="Pathomics overview schematic">
-  <figcaption>Figure 1. Overview of the pathomics workflow in placental histology.</figcaption>
+  <img src="/assets/img/placental_pathomics_workflow.svg" alt="Pathomics overview schematic">
 </figure>
 
 Recent placental applications illustrate this potential: deep learning models such as GestAltNet have estimated gestational age from placental whole‑slide images; hierarchical convolutional approaches have identified decidual vasculopathy; whole‑slide learning models have classified villous infarction and other parenchymal lesions; and computational pathology models have distinguished preeclamptic placentas from controls.
@@ -18,7 +44,6 @@ Recent placental applications illustrate this potential: deep learning models su
 <!-- FIGURE 2: Example model results -->
 <figure class="content-figure">
   <img src="/assets/img/figures/pathomics-models.png" alt="Example model results">
-  <figcaption>Figure 2. Example outputs from placental pathomics models.</figcaption>
 </figure>
 
 Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologically interpretable framework for quantifying nuclei, cell types, and tissue microstructures across placenta whole‑slide images, and subsequent work has shown that lesion‑associated changes can extend beyond visibly abnormal regions. Together, these studies suggest that placental pathomics can improve diagnostic reproducibility, reveal subtle disease‑associated morphology, and support biomarker discovery, although broader validation and standardization are still needed for routine clinical implementation.
@@ -26,7 +51,6 @@ Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologic
 <!-- FIGURE 3: Tissue microstructure quantification -->
 <figure class="content-figure">
   <img src="/assets/img/figures/pathomics-microstructure.png" alt="Tissue microstructure quantification">
-  <figcaption>Figure 3. Microstructure quantification and cell‑to‑tissue mapping.</figcaption>
 </figure>
 
 **References**
@@ -39,3 +63,4 @@ Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologic
   <li><a href="https://www.biorxiv.org/content/10.64898/2025.12.22.693945v1">Walker EC, Vanea C, Ernst LM, et al. Biologically Inspired Digital Histology for Deep Phenotyping of Placental Composition Changes Across Major Lesion Types. 2025.</a></li>
   <li><a href="https://www.mdpi.com/2313-433X/11/4/110">d’Amati A, Baldini GM, Difonzo T, et al. Artificial Intelligence in Placental Pathology: New Diagnostic Imaging Tools in Evolution and in Perspective. 2025.</a></li>
 </ol>
+</div>

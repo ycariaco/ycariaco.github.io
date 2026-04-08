@@ -18,7 +18,7 @@ nav: false
 }
 
 .pathomics-page .content-figure {
-  width: 20%;
+  width: 35%;
   max-width: 220px;
   margin: 0.25rem 0 1rem 0;
   box-sizing: border-box;
@@ -37,7 +37,7 @@ nav: false
 }
 
 .pathomics-page .figure-large {
-  width: 26%;
+  width: 90%;
   max-width: 280px;
 }
 

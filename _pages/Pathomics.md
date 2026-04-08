@@ -31,7 +31,7 @@ nav: false
 
 .pathomics-page .content-figure img,
 .pathomics-page .content-figure video {
-  width: 100%;
+  width: 15%;
   height: auto;
   display: block;
 }
@@ -88,4 +88,3 @@ nav: false
     <li><a href="https://www.biorxiv.org/content/10.64898/2025.12.22.693945v1">Walker EC, Vanea C, Ernst LM, et al. Biologically Inspired Digital Histology for Deep Phenotyping of Placental Composition Changes Across Major Lesion Types. 2025.</a></li>
     <li><a href="https://www.mdpi.com/2313-433X/11/4/110">d’Amati A, Baldini GM, Difonzo T, et al. Artificial Intelligence in Placental Pathology: New Diagnostic Imaging Tools in Evolution and in Perspective. 2025.</a></li>
   </ol>
-</div>

@@ -20,8 +20,8 @@ nav: false
 .pathomics-page .content-figure-right,
 .pathomics-page .content-figure-left {
   clear: both;
-  width: 15%;
-  max-width: 170px;
+  width: 50%;
+  max-width: 200px;
   margin: 0.25rem 0 1.25rem 0;
   box-sizing: border-box;
 }
@@ -31,7 +31,7 @@ nav: false
 
 .pathomics-page .content-figure img,
 .pathomics-page .content-figure video {
-  width: 15%;
+  width: 50%;
   height: auto;
   display: block;
 }

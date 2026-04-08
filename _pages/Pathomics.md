@@ -95,7 +95,7 @@ nav: false
   <figcaption>Figure 2. HAPPY-based cell classification in our human placental samples.</figcaption>
 </figure>
 
-  <p>Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologically interpretable framework for quantifying nuclei, cell types, and tissue microstructures across placenta whole‑slide images, and subsequent work has shown that lesion‑associated changes can extend beyond visibly abnormal regions. We are now applying this framework in our laboratory to generate quantitative whole-slide human placental phenotypes in our own cohorts (Figure 2), while also developing new tools to characterize tissue regions and cell composition in mouse placentas (Figure 3).</p>
+  <p>Notably, the HAPPY pipeline (Histology Analysis Pipeline.PY) provides a biologically interpretable framework for quantifying nuclei, cell types, and tissue microstructures across placenta whole‑slide images, and subsequent work has shown that lesion‑associated changes can extend beyond visibly abnormal regions. We are now applying this framework in our laboratory to generate quantitative whole-slide human placental phenotypes in our own cohorts (Figure 2), while also developing AI‑powered image analysis and deep learning workflows to segment tissue regions, classify cell types, and quantify their spatial organization in mouse placentas (Figure 3).</p>
 
   <!-- FIGURE 3: Tissue microstructure quantification -->
   <figure class="content-figure figure-right figure-large figure-pink">

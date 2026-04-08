@@ -64,6 +64,10 @@ nav: false
   box-sizing: border-box;
 }
   
+.pathomics-page .figure-nudge-up {
+  margin-top: -0.6rem;
+}
+  
 @media (max-width: 900px) {
   .pathomics-page .content-figure {
     float: none;
@@ -78,7 +82,7 @@ nav: false
   <p>Pathomics refers to the high‑throughput quantitative analysis of digital histopathology images, typically whole‑slide images, to extract measurable information about tissue architecture, cell morphology, texture, and spatial organization (Figure 1). By transforming placental histology into structured quantitative data, pathomics complements conventional microscopy and enables more reproducible and scalable assessment of placental structure and disease. This is particularly valuable for the placenta, an organ characterized by marked spatial heterogeneity and dynamic changes across gestation.</p>
 
   <!-- FIGURE 1: Overview schematic -->
-  <figure class="content-figure figure-right figure-pink">
+  <figure class="content-figure figure-right figure-pink figure-nudge-up">
   <img src="/assets/img/placental_pathomics_workflow.svg" alt="Pathomics overview schematic">
   <figcaption>Figure 1. Overview of the pathomics workflow in placental histology.</figcaption>
 </figure>

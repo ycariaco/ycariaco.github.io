@@ -65,7 +65,7 @@ nav: false
 }
   
 .pathomics-page .figure-nudge-up {
-  margin-top: -0.6rem;
+  margin-top: -0.2rem;
 }
   
 @media (max-width: 900px) {

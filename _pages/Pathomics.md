@@ -36,7 +36,7 @@ nav: false
 }
 
 .pathomics-page .figure-large {
-  width: clamp(520px, 60vw, 820px);
+  width: clamp(440px, 52vw, 680px);
 }
 
 .pathomics-page .content-figure img,

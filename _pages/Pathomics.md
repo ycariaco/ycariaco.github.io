@@ -52,7 +52,7 @@ nav: false
 
   <!-- FIGURE 2: Example model results -->
   <figure class="content-figure">
-    <img src="/assets/img/figures/HAPPY.gif" alt="Example model results">
+    <img src="/assets/img/HAPPY.gif" alt="Example model results">
     <figcaption>Figure 2. HAPPY-based cell classification in our placental samples.</figcaption>
   </figure>
 

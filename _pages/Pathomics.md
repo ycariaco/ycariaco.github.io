@@ -20,8 +20,8 @@ nav: false
 .pathomics-page .content-figure-right,
 .pathomics-page .content-figure-left {
   clear: both;
-  width: 22%;
-  max-width: 240px;
+  width: 15%;
+  max-width: 170px;
   margin: 0.25rem 0 1.25rem 0;
   box-sizing: border-box;
 }
@@ -78,7 +78,7 @@ nav: false
 
   <p>Together, these studies suggest that placental pathomics can improve diagnostic reproducibility, reveal subtle disease‑associated morphology, and support biomarker discovery, although broader validation and standardization are still needed for routine clinical implementation.</p>
 
-  **References**
+  <strong>References<strong>
   <ol class="ref-list">
     <li><a href="https://www.nature.com/articles/s41540-023-00301-9">Bülow RD, Jäger PF, Isensee F, et al. Extending the landscape of omics technologies by pathomics. 2023.</a></li>
     <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10900832/">Hosseini MS, Bera K, Wang S, et al. Computational pathology: A survey review and the way forward. 2024.</a></li>

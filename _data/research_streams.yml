@@ -1,6 +1,6 @@
 nodes:
   - id: metabolic
-    label: "Metabolic stress / weight-loss drugs"
+    label: "Metabolic stress"
     group: exposure
     x: 100
     y: 90

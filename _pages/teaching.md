@@ -18,7 +18,7 @@ calendar: false
 </div>
 
 <div style="font-size:1.25rem; line-height:1.7; margin-top:18px; text-align:center; margin-bottom: 20px;">
-  Our lab is located in the SB (Sciences Biologiques) building.<br>
+  Our lab is located in the Sciences Biologiques (SB) building, room SB-2450<br>
   The subway station Place‑des‑Arts is directly connected to the university.<br>
   There is car parking under the SB building and numerous bike parking stations around.
 </div>

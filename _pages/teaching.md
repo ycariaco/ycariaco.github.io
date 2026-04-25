@@ -8,10 +8,13 @@ nav_order: 6
 calendar: false
 ---
 
-<div style="font-size:1.25rem; line-height:1.7; font-weight:700; text-align:center; margin-bottom: 20px;">
-  For all applications, please send a complete CV (including transcripts)<br>
-  along with the contact details of 3 references to
-  <a href="mailto:ycariaco@uottawa.ca">ycariaco@uottawa.ca</a>.
+<div style="font-size:1.25rem; line-height:1.7; font-weight:700; text-align:center; margin-bottom:20px;">
+  <p style="margin:0;">
+    For all applications, please send a complete CV (including transcripts) to
+  </p>
+  <p style="margin:0;">
+    <a href="mailto:ycariaco@uottawa.ca">ycariaco@uottawa.ca</a>
+  </p>
 </div>
 
 <div style="font-size:1.25rem; line-height:1.7; margin-top:18px; text-align:center; margin-bottom: 20px;">

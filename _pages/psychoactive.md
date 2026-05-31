@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Psychoactive Drugs
+title: Prenatal Psychoactive Drug Exposure and the Placenta–Brain Axis
 permalink: /research/psychoactive/
 nav: false
 ---
@@ -59,7 +59,8 @@ nav: false
   aspect-ratio: 4 / 3;
   border: 2px dashed #f2a1c3;
   border-radius: 16px;
-  background: #ffe9f2;
+  background: rgba(242, 161, 195, 0.16);
+  color: var(--global-text-color, #2b2b2b);
   box-sizing: border-box;
   display: flex;
   align-items: center;
@@ -77,6 +78,7 @@ nav: false
   margin-top: 0.4rem;
   font-size: 1rem;
   line-height: 1.4;
+  color: var(--global-text-color, #2b2b2b);
 }
 
 .psychoactive-page .figure-pink img,
@@ -84,13 +86,14 @@ nav: false
   border: 2px solid #f2a1c3;
   border-radius: 16px;
   padding: 6px;
-  background: #ffe9f2;
+  background: rgba(242, 161, 195, 0.16);
   box-sizing: border-box;
 }
 
 .psychoactive-page .axis-callout {
   border-left: 5px solid #f2a1c3;
-  background: #fff4f8;
+  background: rgba(242, 161, 195, 0.16);
+  color: var(--global-text-color, #2b2b2b);
   padding: 1rem 1.25rem;
   margin: 1.25rem 0;
   border-radius: 0 14px 14px 0;
@@ -98,11 +101,53 @@ nav: false
 
 .psychoactive-page .axis-callout p {
   margin-bottom: 0;
+  color: inherit;
+}
+
+.psychoactive-page .axis-callout strong {
+  color: inherit;
 }
 
 .psychoactive-page .clear-section {
   clear: both;
   margin-top: 1.5rem;
+}
+
+/* Extra protection for dark/night mode */
+html[data-theme="dark"] .psychoactive-page .axis-callout,
+html[data-theme="dark"] .psychoactive-page .figure-placeholder,
+body[data-theme="dark"] .psychoactive-page .axis-callout,
+body[data-theme="dark"] .psychoactive-page .figure-placeholder,
+[data-theme="dark"] .psychoactive-page .axis-callout,
+[data-theme="dark"] .psychoactive-page .figure-placeholder {
+  background: rgba(242, 161, 195, 0.14);
+  color: var(--global-text-color, #f4f4f4);
+}
+
+html[data-theme="dark"] .psychoactive-page .axis-callout p,
+html[data-theme="dark"] .psychoactive-page .axis-callout strong,
+body[data-theme="dark"] .psychoactive-page .axis-callout p,
+body[data-theme="dark"] .psychoactive-page .axis-callout strong,
+[data-theme="dark"] .psychoactive-page .axis-callout p,
+[data-theme="dark"] .psychoactive-page .axis-callout strong {
+  color: inherit;
+}
+
+@media (prefers-color-scheme: dark) {
+  .psychoactive-page .axis-callout,
+  .psychoactive-page .figure-placeholder {
+    background: rgba(242, 161, 195, 0.14);
+    color: var(--global-text-color, #f4f4f4);
+  }
+
+  .psychoactive-page .axis-callout p,
+  .psychoactive-page .axis-callout strong {
+    color: inherit;
+  }
+
+  .psychoactive-page .content-figure figcaption {
+    color: var(--global-text-color, #f4f4f4);
+  }
 }
 
 @media (max-width: 900px) {
@@ -121,8 +166,6 @@ nav: false
 
 <div class="psychoactive-page">
 
-  <h2>Prenatal Psychoactive Drug Exposure and the Placenta–Brain Axis</h2>
-
   <p>Substance use during pregnancy is often complex, and many pregnancies affected by opioid exposure also involve exposure to other substances, including cannabis. However, we still know relatively little about how these drugs interact during development or how combined exposure may shape the fetal brain.</p>
 
   <div class="axis-callout">
@@ -134,7 +177,7 @@ nav: false
     <!-- 
     Replace the placeholder below with your actual figure when ready:
 
-    <img src="/assets/img/placenta_brain_axis.svg" alt="Placenta-brain axis schematic">
+    <img src="{{ '/assets/img/placenta_brain_axis.svg' | relative_url }}" alt="Placenta–brain axis schematic">
     -->
 
     <div class="figure-placeholder">
@@ -147,7 +190,7 @@ nav: false
 
   <p>Our previous work showed that prenatal opioid and cannabis exposure can disrupt placental function and contribute to fetal growth restriction. In particular, combined fentanyl and Δ-9-THC exposure appears to alter placental pathways involved in immune response, mitochondrial function, vascular development, and placental efficiency. This project extends those findings by asking whether placental dysfunction is connected to measurable changes in the developing brain.</p>
 
-  <p>In simple terms, we are trying to understand whether prenatal drug exposure changes the “message” sent by the placenta to the fetus. If the placenta becomes less efficient, inflamed, metabolically altered, or poorly vascularized, the fetal brain may receive different levels of nutrients, oxygen, hormones, inflammatory signals, or growth-related cues. These altered signals may help explain why prenatal substance exposure can lead to changes in brain structure, molecular pathways, and behavior later in life.</p>
+  <p>In simple terms, we are trying to understand whether prenatal drug exposure changes the “message” sent by the placenta to the fetus, and whether opioids and cannabis have additive or interactive effects on shaping neurodevelopmental programming. If the placenta becomes less efficient, inflamed, metabolically altered, or poorly vascularized, the fetal brain may receive different levels of nutrients, oxygen, hormones, inflammatory signals, or growth-related cues. These altered signals may help explain why prenatal substance exposure can lead to changes in brain structure, molecular pathways, and behavior later in life.</p>
 
   <p>We use global and spatial proteomics to better understand how prenatal exposure changes protein expression in the placenta and brain. Global proteomics provides a broad overview of thousands of proteins, while spatial proteomics allows us to map protein changes within specific brain regions and cell types. Together, these methods help us identify which molecular pathways may link placental dysfunction to altered fetal brain development.</p>
 

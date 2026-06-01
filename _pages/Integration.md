@@ -11,10 +11,20 @@ nav: false
   line-height: 1.8;
   width: 100%;
   display: flow-root;
+
+  --mo-theme: var(--global-theme-color, #e83e8c);
+  --mo-text: var(--global-text-color, #2b2b2b);
+  --mo-border: #f2a1c3;
+  --mo-soft-bg: rgba(242, 161, 195, 0.16);
+  --mo-card-bg: rgba(242, 161, 195, 0.10);
+  --mo-mini-bg: rgba(255, 255, 255, 0.72);
+  --mo-box-bg: #fff7fb;
+  --mo-figure-bg: #ffe9f2;
 }
 
 .multiomics-page p {
   margin: 0 0 1.25rem 0;
+  color: var(--mo-text);
 }
 
 .multiomics-page h2 {
@@ -22,6 +32,7 @@ nav: false
   margin-bottom: 0.8rem;
   font-size: 1.65rem;
   line-height: 1.35;
+  color: var(--mo-theme);
 }
 
 .multiomics-page .omics-figure-center {
@@ -36,10 +47,10 @@ nav: false
   width: 100%;
   height: auto;
   display: block;
-  border: 2px solid #f2a1c3;
+  border: 2px solid var(--mo-border);
   border-radius: 16px;
   padding: 6px;
-  background: #ffe9f2;
+  background: var(--mo-figure-bg);
   box-sizing: border-box;
 }
 
@@ -50,12 +61,13 @@ nav: false
   margin-top: 0.4rem;
   font-size: 1rem;
   line-height: 1.4;
+  color: var(--mo-text);
 }
 
 .multiomics-page .integration-callout {
-  border-left: 5px solid #f2a1c3;
-  background: rgba(242, 161, 195, 0.16);
-  color: var(--global-text-color, #2b2b2b);
+  border-left: 5px solid var(--mo-border);
+  background: var(--mo-soft-bg);
+  color: var(--mo-text);
   padding: 1rem 1.25rem;
   margin: 1.25rem 0;
   border-radius: 0 14px 14px 0;
@@ -78,23 +90,24 @@ nav: false
 }
 
 .multiomics-page .integration-card {
-  border: 2px solid #f2a1c3;
+  border: 2px solid var(--mo-border);
   border-radius: 18px;
-  background: rgba(242, 161, 195, 0.10);
+  background: var(--mo-card-bg);
+  color: var(--mo-text);
   padding: 1.1rem 1.2rem;
   box-sizing: border-box;
 }
 
 .multiomics-page .integration-card h2 {
   margin-top: 0;
-  color: var(--global-theme-color, #e83e8c);
+  color: var(--mo-theme);
 }
 
 .multiomics-page .mini-visual {
   margin: 1rem 0;
   padding: 1rem;
   border-radius: 16px;
-  background: rgba(255, 255, 255, 0.65);
+  background: var(--mo-mini-bg);
   border: 1px solid rgba(242, 161, 195, 0.55);
 }
 
@@ -106,17 +119,22 @@ nav: false
 }
 
 .multiomics-page .cohort-box {
-  border: 2px solid #f2a1c3;
+  border: 2px solid var(--mo-border);
   border-radius: 14px;
   padding: 0.8rem 0.55rem;
   text-align: center;
-  background: #fff7fb;
+  background: var(--mo-box-bg);
+  color: var(--mo-text);
   font-size: 1rem;
   line-height: 1.35;
 }
 
+.multiomics-page .cohort-box strong {
+  color: var(--mo-theme);
+}
+
 .multiomics-page .visual-arrow {
-  color: var(--global-theme-color, #e83e8c);
+  color: var(--mo-theme);
   font-weight: bold;
   font-size: 1.4rem;
   text-align: center;
@@ -135,8 +153,9 @@ nav: false
   text-align: center;
   font-size: 1rem;
   line-height: 1.3;
+  font-weight: 600;
   border: 2px solid rgba(242, 161, 195, 0.75);
-  background: #fff7fb;
+  background: var(--mo-box-bg);
 }
 
 .multiomics-page .omics-layer.layer-genomics {
@@ -156,10 +175,10 @@ nav: false
 }
 
 .multiomics-page .omics-layer.layer-metabolomics {
-  color: #eab308;
+  color: #d99a00;
 }
 
-.multiomics-page .omics-layer.layer-pathomics {
+.multiomics-page .omics-layer.layer-spatial {
   color: #a16207;
 }
 
@@ -169,8 +188,8 @@ nav: false
   padding: 0.7rem;
   text-align: center;
   font-weight: 600;
-  background: rgba(242, 161, 195, 0.18);
-  color: var(--global-text-color, #2b2b2b);
+  background: var(--mo-soft-bg);
+  color: var(--mo-text);
 }
 
 .multiomics-page .workflow-strip {
@@ -181,10 +200,11 @@ nav: false
 }
 
 .multiomics-page .workflow-step {
-  border: 2px solid #f2a1c3;
+  border: 2px solid var(--mo-border);
   border-radius: 16px;
   padding: 0.85rem 0.7rem;
-  background: rgba(242, 161, 195, 0.10);
+  background: var(--mo-card-bg);
+  color: var(--mo-text);
   text-align: center;
   font-size: 1rem;
   line-height: 1.35;
@@ -192,7 +212,7 @@ nav: false
 
 .multiomics-page .workflow-step strong {
   display: block;
-  color: var(--global-theme-color, #e83e8c);
+  color: var(--mo-theme);
   margin-bottom: 0.25rem;
 }
 
@@ -200,37 +220,37 @@ nav: false
   clear: both;
   margin-top: 2rem;
   padding-top: 0.5rem;
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .references strong {
   display: block;
   font-size: 1.2rem;
   margin-bottom: 0.6rem;
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .ref-list {
   padding-left: 1.4rem;
   margin-top: 0.75rem;
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .ref-list li {
   margin-bottom: 0.8rem;
   font-size: 1rem;
   line-height: 1.5;
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .ref-list li::marker {
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .references a,
 .multiomics-page .references a:visited,
 .multiomics-page .references em {
-  color: var(--global-theme-color, #e83e8c) !important;
+  color: var(--mo-theme) !important;
 }
 
 .multiomics-page .references a {
@@ -239,6 +259,108 @@ nav: false
 
 .multiomics-page .references a:hover {
   text-decoration: underline;
+}
+
+/* Dark/night mode protection */
+html[data-theme="dark"] .multiomics-page,
+body[data-theme="dark"] .multiomics-page,
+[data-theme="dark"] .multiomics-page {
+  --mo-text: var(--global-text-color, #f4f4f4);
+  --mo-soft-bg: rgba(242, 161, 195, 0.14);
+  --mo-card-bg: rgba(242, 161, 195, 0.09);
+  --mo-mini-bg: rgba(255, 255, 255, 0.06);
+  --mo-box-bg: rgba(255, 255, 255, 0.08);
+  --mo-figure-bg: #ffffff;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-figure-center img,
+body[data-theme="dark"] .multiomics-page .omics-figure-center img,
+[data-theme="dark"] .multiomics-page .omics-figure-center img {
+  background: #ffffff;
+}
+
+html[data-theme="dark"] .multiomics-page .cohort-box,
+html[data-theme="dark"] .multiomics-page .omics-layer,
+body[data-theme="dark"] .multiomics-page .cohort-box,
+body[data-theme="dark"] .multiomics-page .omics-layer,
+[data-theme="dark"] .multiomics-page .cohort-box,
+[data-theme="dark"] .multiomics-page .omics-layer {
+  color: var(--mo-text);
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-genomics,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-genomics,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-genomics {
+  color: #c4a5ff;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-epigenomics,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-epigenomics,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-epigenomics {
+  color: #7ee7b8;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-transcriptomics,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-transcriptomics,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-transcriptomics {
+  color: #ff9de0;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-proteomics,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-proteomics,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-proteomics {
+  color: #ff8b8b;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-metabolomics,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-metabolomics,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-metabolomics {
+  color: #ffd166;
+}
+
+html[data-theme="dark"] .multiomics-page .omics-layer.layer-spatial,
+body[data-theme="dark"] .multiomics-page .omics-layer.layer-spatial,
+[data-theme="dark"] .multiomics-page .omics-layer.layer-spatial {
+  color: #f5c16c;
+}
+
+@media (prefers-color-scheme: dark) {
+  .multiomics-page {
+    --mo-text: var(--global-text-color, #f4f4f4);
+    --mo-soft-bg: rgba(242, 161, 195, 0.14);
+    --mo-card-bg: rgba(242, 161, 195, 0.09);
+    --mo-mini-bg: rgba(255, 255, 255, 0.06);
+    --mo-box-bg: rgba(255, 255, 255, 0.08);
+    --mo-figure-bg: #ffffff;
+  }
+
+  .multiomics-page .omics-figure-center img {
+    background: #ffffff;
+  }
+
+  .multiomics-page .omics-layer.layer-genomics {
+    color: #c4a5ff;
+  }
+
+  .multiomics-page .omics-layer.layer-epigenomics {
+    color: #7ee7b8;
+  }
+
+  .multiomics-page .omics-layer.layer-transcriptomics {
+    color: #ff9de0;
+  }
+
+  .multiomics-page .omics-layer.layer-proteomics {
+    color: #ff8b8b;
+  }
+
+  .multiomics-page .omics-layer.layer-metabolomics {
+    color: #ffd166;
+  }
+
+  .multiomics-page .omics-layer.layer-spatial {
+    color: #f5c16c;
+  }
 }
 
 @media (max-width: 900px) {
@@ -276,18 +398,18 @@ nav: false
 
 <div class="multiomics-page">
 
-  <p>Multi-omics integration brings together different layers of biological information to understand how a system works as a whole. In placental biology, no single dataset can fully explain function. Gene expression may show that a pathway is activated, proteomics can reveal whether this signal is translated into protein changes, metabolomics can capture the biochemical state of the tissue, and pathomics can show where these changes occur within the placental architecture.</p>
+  <p>Multi-omics integration brings together different layers of biological information to understand how a system works as a whole. In placental biology, no single dataset can fully explain function. Gene expression may show that a pathway is activated, proteomics can reveal whether this signal is translated into protein changes, metabolomics can capture the biochemical state of the tissue, and spatial histology can show where these changes occur within placental architecture.</p>
 
   <figure class="omics-figure-center" aria-label="Multi-omics integration schematic">
     <img
       src="{{ '/assets/img/integration.png' | relative_url }}"
-      alt="Schematic showing integration of genomics, methylomics, transcriptomics, proteomics, metabolomics, and pathomics to generate biological insights"
+      alt="Schematic showing integration of genomics, methylomics, transcriptomics, proteomics, metabolomics, and tissue-level image analysis to generate biological insights"
       loading="lazy"
       decoding="async">
     <figcaption>Figure 1. Multi-omics integration connects molecular and tissue-level datasets to identify pathways and biological insights.</figcaption>
   </figure>
 
-  <p>One way to think about multi-omics is as a layered biological system. Genomics represents the inherited biological instructions. Methylomics and other epigenomic marks act as regulatory switches that influence which instructions are accessible. Transcriptomics captures which genes are being actively read. Proteomics measures the proteins that carry out many cellular functions. Metabolomics reflects biochemical products and energetic state. Pathomics adds spatial and structural context by measuring tissue architecture, cell organization, vascular patterning, and regional heterogeneity.</p>
+  <p>One way to think about multi-omics is as a layered biological system. Genomics represents the inherited biological instructions. Methylomics and other epigenomic marks act as regulatory switches that influence which instructions are accessible. Transcriptomics captures which genes are being actively read. Proteomics measures the proteins that carry out many cellular functions. Metabolomics reflects biochemical products and energetic state. Tissue-level image analysis adds spatial and structural context by measuring architecture, cell organization, vascular patterning, and regional heterogeneity.</p>
 
   <div class="integration-callout">
     <p><strong>In our research, multi-omics integration helps move from lists of altered molecules toward biological mechanisms.</strong> We use it to ask how maternal exposures reshape placental regulation across molecular, cellular, metabolic, vascular, and structural scales.</p>
@@ -310,7 +432,7 @@ nav: false
         </div>
       </div>
 
-      <p>For example, we can compare placental transcriptomic signatures from mouse models of maternal exposure with human placental datasets to identify shared inflammatory, metabolic, mitochondrial, or vascular programs. Similarly, pathomics features extracted from different cohorts can be integrated horizontally to test whether structural phenotypes are robust across datasets.</p>
+      <p>For example, we can compare placental transcriptomic signatures from mouse models of maternal exposure with human placental datasets to identify shared inflammatory, metabolic, mitochondrial, or vascular programs. Similarly, image-derived tissue features from different cohorts can be integrated horizontally to test whether structural phenotypes are robust across datasets.</p>
     </div>
 
     <div class="integration-card">
@@ -325,7 +447,7 @@ nav: false
           <div class="omics-layer layer-transcriptomics">Transcriptomics</div>
           <div class="omics-layer layer-proteomics">Proteomics</div>
           <div class="omics-layer layer-metabolomics">Metabolomics</div>
-          <div class="omics-layer layer-pathomics">Pathomics</div>
+          <div class="omics-layer layer-spatial">Spatial histology</div>
           <div class="vertical-result">Integrated mechanism</div>
         </div>
       </div>
@@ -368,7 +490,7 @@ nav: false
 
   <p>In our laboratory, this approach allows us to link maternal exposures with placental biology at multiple scales. We first analyze each data layer separately to identify exposure-associated changes. We then use pathway analysis, correlation networks, latent-factor models, multivariate integration, and machine-learning approaches to identify molecular and structural features that move together. This helps us prioritize pathways that are not only statistically altered, but also biologically connected across layers.</p>
 
-  <p>The final goal is to build interpretable models of placental function. Instead of treating transcriptomics, proteomics, metabolomics, and pathomics as separate datasets, we use them as complementary views of the same biological process. This allows us to identify candidate mechanisms, generate testable hypotheses, and better understand how the placenta adapts, compensates, or fails in response to maternal exposures.</p>
+  <p>The final goal is to build interpretable models of placental function. Instead of treating transcriptomics, proteomics, metabolomics, and histology as separate datasets, we use them as complementary views of the same biological process. This allows us to identify candidate mechanisms, generate testable hypotheses, and better understand how the placenta adapts, compensates, or fails in response to maternal exposures.</p>
 
   <div class="references" id="references">
     <strong>References</strong>

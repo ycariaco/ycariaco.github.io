@@ -148,7 +148,7 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
 
   <figure class="axis-figure-center" aria-label="Placenta–brain axis schematic">
     <img
-      src="{{ '/assets/img/placenta_brain_axis_transparent_cropped.png' | relative_url }}"
+      src="{{ '/assets/img/placenta brain axis.png' | relative_url }}"
       alt="Illustration of placenta-derived molecules, proteins, and metabolites moving from the placenta toward the fetal brain after prenatal psychoactive drug exposure"
       loading="lazy"
       decoding="async">

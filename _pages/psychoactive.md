@@ -142,10 +142,6 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
 
   <p>Substance use during pregnancy is often complex, and many pregnancies affected by opioid exposure also involve exposure to other substances, including cannabis.<sup><a href="#ref-1">1</a>,<a href="#ref-2">2</a></sup> However, we still know relatively little about how these drugs interact during development or how combined exposure may shape the fetal brain.<sup><a href="#ref-1">1</a>,<a href="#ref-3">3</a></sup></p>
 
-  <div class="axis-callout">
-    <p><strong>A central focus of this work is the placenta–brain axis.</strong> The placenta is an active communication hub between the mother and the developing baby. It helps regulate immune signals, metabolism, vascular development, hormones, and nutrient transport.<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup> Our research asks: <strong>what is the placenta sending, or failing to send, to the fetal brain that may contribute to altered neurodevelopment?</strong></p>
-  </div>
-
   <figure class="axis-figure-center" aria-label="Placenta–brain axis schematic">
     <img
       src="{{ '/assets/img/placenta brain axis.png' | relative_url }}"
@@ -157,6 +153,10 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
   <p>Our previous work showed that prenatal opioid and cannabis exposure can disrupt placental function and contribute to fetal growth restriction. In particular, combined fentanyl and Δ-9-THC exposure appears to alter placental pathways involved in immune response, mitochondrial function, vascular development, and placental efficiency. This project extends those findings by asking whether placental dysfunction is connected to measurable changes in the developing brain.</p>
 
   <p>In simple terms, we are trying to understand whether prenatal drug exposure changes the “message” sent by the placenta to the fetus, and whether opioids and cannabis have additive or interactive effects on shaping neurodevelopmental programming. If the placenta becomes less efficient, inflamed, metabolically altered, or poorly vascularized, the fetal brain may receive different levels of nutrients, oxygen, hormones, inflammatory signals, or growth-related cues. These altered signals may help explain why prenatal substance exposure can lead to changes in brain structure, molecular pathways, and behavior later in life.<sup><a href="#ref-3">3</a>,<a href="#ref-4">4</a></sup></p>
+
+    <div class="axis-callout">
+    <p><strong>A central focus of this work is the placenta–brain axis.</strong> The placenta is an active communication hub between the mother and the developing baby. It helps regulate immune signals, metabolism, vascular development, hormones, and nutrient transport.<sup><a href="#ref-4">4</a>,<a href="#ref-5">5</a></sup> Our research asks: <strong>what is the placenta sending, or failing to send, to the fetal brain that may contribute to altered neurodevelopment?</strong></p>
+  </div>
 
   <p>We use global and spatial proteomics to better understand how prenatal exposure changes protein expression in the placenta and brain. Global proteomics provides a broad overview of thousands of proteins, while spatial proteomics allows us to map protein changes within specific brain regions and cell types. Together, these methods help us identify which molecular pathways may link placental dysfunction to altered fetal brain development.</p>
 

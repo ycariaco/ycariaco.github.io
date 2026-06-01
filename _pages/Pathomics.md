@@ -68,12 +68,12 @@ nav: false
   margin-top: -1rem;
 }
 
-/* Figure 1: centered and full page width */
+/* Figure 1: centered and moderately large */
 .pathomics-page .figure-full-width {
   float: none;
   clear: both;
-  width: 100%;
-  max-width: 100%;
+  width: min(92%, 860px);
+  max-width: 860px;
   margin: 1.5rem auto 1.75rem auto;
 }
 
@@ -100,11 +100,12 @@ nav: false
 }
 
 .pathomics-page .ref-list a {
-  color: inherit;
+  color: var(--global-theme-color, #e83e8c);
   text-decoration: none;
 }
 
 .pathomics-page .ref-list a:hover {
+  color: var(--global-theme-color, #e83e8c);
   text-decoration: underline;
 }
 
@@ -123,6 +124,7 @@ nav: false
 
   .pathomics-page .figure-full-width {
     width: 100%;
+    max-width: 100%;
     margin: 1.25rem auto 1.5rem auto;
   }
 

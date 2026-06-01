@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Prenatal Psychoactive Drug Exposure and the Placenta–Brain Axis
+title: Prenatal Drug Exposure and the Placenta–Brain Axis
 permalink: /research/psychoactive/
 nav: false
 ---

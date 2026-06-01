@@ -61,47 +61,57 @@ nav: false
   box-shadow: none;
 }
 
+.psychoactive-page .clear-section {
+  clear: both;
+  margin-top: 1.5rem;
+}
+
+/* References */
 .psychoactive-page .references {
   clear: both;
   margin-top: 2rem;
   padding-top: 0.5rem;
+  color: var(--global-theme-color, #e83e8c) !important;
 }
 
 .psychoactive-page .references strong {
   display: block;
   font-size: 1.2rem;
   margin-bottom: 0.6rem;
-  color: var(--global-theme-color, #e83e8c);
+  color: var(--global-theme-color, #e83e8c) !important;
 }
 
 .psychoactive-page .ref-list {
   padding-left: 1.4rem;
   margin-top: 0.75rem;
+  color: var(--global-theme-color, #e83e8c) !important;
 }
 
 .psychoactive-page .ref-list li {
   margin-bottom: 0.8rem;
   font-size: 1rem;
   line-height: 1.5;
+  color: var(--global-theme-color, #e83e8c) !important;
 }
 
 .psychoactive-page .ref-list li::marker {
-  color: var(--global-theme-color, #e83e8c);
+  color: var(--global-theme-color, #e83e8c) !important;
 }
 
-.psychoactive-page .ref-list a {
-  color: var(--global-theme-color, #e83e8c);
+.psychoactive-page .references a,
+.psychoactive-page .references a:visited,
+.psychoactive-page .references em,
+.psychoactive-page .references span {
+  color: var(--global-theme-color, #e83e8c) !important;
+}
+
+.psychoactive-page .references a {
   text-decoration: none;
 }
 
-.psychoactive-page .ref-list a:hover {
-  color: var(--global-theme-color, #e83e8c);
+.psychoactive-page .references a:hover {
+  color: var(--global-theme-color, #e83e8c) !important;
   text-decoration: underline;
-}
-
-.psychoactive-page .clear-section {
-  clear: both;
-  margin-top: 1.5rem;
 }
 
 /* Dark/night mode protection */

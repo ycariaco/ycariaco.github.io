@@ -16,7 +16,7 @@ nav_order: 4
     </a>
 
     <a class="team-card" href="/people/elisabethmouge">
-      <img src="/assets/img/Profiles_pink.jpg" alt="Elisabeth Mouge">
+      <img src="/assets/img/Profiles_pink.png" alt="Elisabeth Mouge">
       <h3 class="team-name">Elisabeth Mouge</h3>
       <p class="team-position">Master's student</p>
     </a>

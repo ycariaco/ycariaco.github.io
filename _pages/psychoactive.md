@@ -177,7 +177,7 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
     <!-- 
     Replace the placeholder below with your actual figure when ready:
 
-    <img src="{{ '/assets/img/placenta_brain_axis.svg' | relative_url }}" alt="Placenta–brain axis schematic">
+    <img src="{{ '/assets/img/placenta brain axis.png' | relative_url }}" alt="Placenta–brain axis schematic">
     -->
 
     <div class="figure-placeholder">

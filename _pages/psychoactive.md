@@ -71,6 +71,7 @@ nav: false
   display: block;
   font-size: 1.2rem;
   margin-bottom: 0.6rem;
+  color: var(--global-theme-color, #e83e8c);
 }
 
 .psychoactive-page .ref-list {
@@ -84,12 +85,17 @@ nav: false
   line-height: 1.5;
 }
 
+.psychoactive-page .ref-list li::marker {
+  color: var(--global-theme-color, #e83e8c);
+}
+
 .psychoactive-page .ref-list a {
-  color: inherit;
+  color: var(--global-theme-color, #e83e8c);
   text-decoration: none;
 }
 
 .psychoactive-page .ref-list a:hover {
+  color: var(--global-theme-color, #e83e8c);
   text-decoration: underline;
 }
 
@@ -213,13 +219,13 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
 
       <li id="ref-7">
         <a href="https://www.sciencedirect.com/science/article/pii/S014340042400537X" target="_blank" rel="noopener">
-          ScienceDirect article. <em>Placenta</em>. 2024.
+          Cariaco et al. Synergistic impact of opioids and Δ-9-THC on altering placental gene expression and fetal growth patterns. <em>Placenta</em>. 2024.
         </a>
       </li>
 
       <li id="ref-8">
         <a href="https://www.sciencedirect.com/science/article/pii/S0143400423004046" target="_blank" rel="noopener">
-          ScienceDirect article. <em>Placenta</em>. 2023.
+          Cariaco et al. Opioid and cannabis exposure adversely affect fetal and placental growth trajectories in a mouse model of drug consumption during pregnancy. <em>Placenta</em>. 2023.
         </a>
       </li>
     </ol>

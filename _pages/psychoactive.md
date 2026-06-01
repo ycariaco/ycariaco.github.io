@@ -185,7 +185,7 @@ body[data-theme="dark"] .psychoactive-page .axis-callout strong,
       Placenta–brain axis schematic
     </div>
 
-    <figcaption>Figure 1. The placenta–brain axis: placental signals, nutrient transport, vascular development, immune regulation, and metabolic pathways may influence fetal brain development.</figcaption>
+    <figcaption>Figure 1. The placenta–brain axis: placenta-derived signals may influence fetal brain development.</figcaption>
   </figure>
 
   <p>Our previous work showed that prenatal opioid and cannabis exposure can disrupt placental function and contribute to fetal growth restriction. In particular, combined fentanyl and Δ-9-THC exposure appears to alter placental pathways involved in immune response, mitochondrial function, vascular development, and placental efficiency. This project extends those findings by asking whether placental dysfunction is connected to measurable changes in the developing brain.</p>

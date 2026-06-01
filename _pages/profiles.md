@@ -8,17 +8,24 @@ nav_order: 4
 
 <div class="team-container">
   <div class="team-grid">
+
     <a class="team-card" href="/people/yusmariscariaco">
       <img src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
       <h3 class="team-name">Yusmaris Cariaco</h3>
       <p class="team-position">Principal Investigator</p>
     </a>
 
+    <a class="team-card" href="/people/elisabethmouge">
+      <img src="/assets/img/Profiles_pink.jpg" alt="Elisabeth Mouge">
+      <h3 class="team-name">Elisabeth Mouge</h3>
+      <p class="team-position">Master's student</p>
+    </a>
+
     <a class="team-card team-card--wide" href="/contact/">
-  <img src="/assets/img/You.png" alt="Open Position">
-  <h3 class="team-name">Open Position</h3>
-  <p class="team-position">Join our lab</p>
-</a>
+      <img src="/assets/img/You.png" alt="Open Position">
+      <h3 class="team-name">Open Position</h3>
+      <p class="team-position">Join our lab</p>
+    </a>
 
   </div>
 </div>

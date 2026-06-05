@@ -294,14 +294,6 @@ body[data-theme="dark"] .placenta-page,
 
   <p>However, this resilience has limits. When stress overwhelms these compensatory mechanisms, the placenta shifts toward maladaptive dysfunction, rewriting the trajectory of fetal growth. Our research focuses on identifying the early structural and molecular biomarkers that define this transition, allowing us to spot vulnerabilities before they compromise pregnancy outcomes.</p>
 
-  <figure class="placenta-figure-slot" aria-label="Figure placeholder: resilience versus dysfunction">
-    <div class="figure-placeholder">
-      <strong>Figure space</strong>
-      <span>Suggested figure: two-panel schematic showing placental resilience versus dysfunction after maternal exposure, with examples such as immune tone, vascular remodeling, nutrient transport, and trophoblast function.</span>
-    </div>
-    <figcaption>Figure 3. Maternal exposures can produce compensatory or maladaptive placental responses.</figcaption>
-  </figure>
-
   <h2>The Vascular Tree: Engineering the Exchange</h2>
 
   <p>The placenta operates like a tree of life. Its dense canopy of fetal capillaries, organized into tree-like chorionic villi, sits directly within pools of maternal blood. This intricate vascularization allows maternal and fetal blood to come into incredibly close contact to swap oxygen and nutrients without ever truly mixing.</p>
@@ -313,25 +305,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: placental vascular tree showing maternal spiral artery remodeling, intervillous space, chorionic villi, and fetal capillaries.</span>
     </div>
-    <figcaption>Figure 4. Placental vascularization supports oxygen and nutrient exchange across the maternal–fetal interface.</figcaption>
-  </figure>
-
-  <h2>The Placenta–Brain Axis</h2>
-
-  <p>The consequences of placental adaptation ripple far beyond immediate fetal growth. The developing brain is highly sensitive to the surrounding biological environment, which is strictly patrolled by the placenta. Fluctuations in oxygenation, hormone signaling, or inflammatory cytokines can fundamentally alter early neural programming.</p>
-
-  <p>This critical link forms the placenta–brain axis. Rather than treating reproductive organs and neurological development as isolated systems, our work treats them as a conversation. We study how altered placental messaging alters the intrauterine environment, directly shaping long-term neurodevelopmental trajectories.</p>
-
-  <div class="placenta-callout">
-    <p><strong>The placenta–brain axis asks what the placenta sends, modifies, or fails to protect:</strong> from essential nutrients and hormones to inflammatory mediators and metabolic signaling vesicles.</p>
-  </div>
-
-  <figure class="placenta-figure-slot" aria-label="Figure placeholder: placenta-brain axis">
-    <div class="figure-placeholder">
-      <strong>Figure space</strong>
-      <span>Suggested figure: placenta–brain axis schematic showing maternal exposures, placental response, fetal circulation, and fetal brain development.</span>
-    </div>
-    <figcaption>Figure 5. Placental signals may influence fetal brain development through oxygen, nutrient, endocrine, immune, and metabolic pathways.</figcaption>
+    <figcaption>Figure 3. Placental vascularization supports oxygen and nutrient exchange across the maternal–fetal interface.</figcaption>
   </figure>
 
   <h2>Decoding Human Pregnancy Through Preclinical Models</h2>
@@ -384,7 +358,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: side-by-side comparison of human chorionic villi and mouse labyrinth, emphasizing conserved functions and species-specific anatomy.</span>
     </div>
-    <figcaption>Figure 6. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
+    <figcaption>Figure 4. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
   </figure>
 
   <h2>What the Cariaco Lab is Unlocking</h2>
@@ -408,11 +382,6 @@ body[data-theme="dark"] .placenta-page,
       We target the molecular thresholds where compensatory changes fail, leading to restricted exchange capacity and poor fetal growth.
     </div>
 
-    <div class="question-card">
-      <strong>How does the placenta shape the brain?</strong>
-      We explore the placenta–brain axis to identify how altered intrauterine signals disrupt fetal neurodevelopmental pathways.
-    </div>
-
   </div>
 
   <p>To answer these questions, our lab bridges the gap between classic histology and computational pathology. By designing automated, AI-driven digital pipelines alongside standard molecular profiling, we are making advanced quantitative tissue analysis faster, highly reproducible, and universally accessible.</p>
@@ -423,12 +392,6 @@ body[data-theme="dark"] .placenta-page,
       <li>
         <a href="https://doi.org/10.1016/j.rbmo.2015.10.005" target="_blank" rel="noopener">
           Costa MA. The endocrine function of human placenta: an overview. <em>Reproductive BioMedicine Online</em>. 2016;32(1):14–43.
-        </a>
-      </li>
-
-      <li>
-        <a href="https://doi.org/10.1002/jnr.24603" target="_blank" rel="noopener">
-          Rosenfeld CS. The Placenta-Brain-Axis. <em>Journal of Neuroscience Research</em>. 2021;99(1):271–283.
         </a>
       </li>
 
@@ -454,11 +417,6 @@ body[data-theme="dark"] .placenta-page,
         <a href="https://doi.org/10.1016/j.placenta.2006.11.002" target="_blank" rel="noopener">
           Carter AM. Animal models of human placentation — a review. <em>Placenta</em>. 2007;28 Suppl A:S41–S47.
         </a>
-      </li>
-    </ol>
-  </div>
-
-</div>
       </li>
     </ol>
   </div>

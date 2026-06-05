@@ -258,9 +258,9 @@ body[data-theme="dark"] .placenta-page,
 
 <div class="placenta-page">
 
-  <p>When people think about pregnancy, attention naturally goes to the developing baby. Yet fetal development depends on another remarkable organ working at the maternal–fetal interface: the placenta. The placenta is temporary, fetal-derived, and highly specialized. It supports pregnancy for only a short period, but during that time it performs functions essential for growth, protection, communication, and adaptation.</p>
+  <p>The placenta is a temporary powerhouse created by the embryo to nurture, protect, and support life. Far from a passive sieve, it acts as a dynamic biological interface between mother and baby, continuously reading environmental cues to dictate the course of pregnancy.</p>
 
-  <p>In our laboratory, we study the placenta as an active biological interface. It does not simply pass nutrients from mother to fetus. It senses the maternal environment, interprets signals such as metabolism, inflammation, oxygenation, xenobiotic exposure, and nutrient availability, and adjusts cellular, vascular, endocrine, immune, and transport programs that influence fetal development.</p>
+  <p>In our laboratory, we study the placenta as an active biosensor. It continuously decodes complex maternal signals—including metabolic shifts, inflammation, oxygenation fluctuations, and environmental exposures. By interpreting these inputs, the placenta dynamically adjusts its cellular, vascular, and transport programs to optimize fetal development.</p>
 
   <figure class="placenta-figure-slot" aria-label="Figure placeholder: placenta overview">
     <div class="figure-placeholder">
@@ -270,9 +270,9 @@ body[data-theme="dark"] .placenta-page,
     <figcaption>Figure 1. The placenta as an active interface between maternal physiology and fetal development.</figcaption>
   </figure>
 
-  <h2>A temporary organ with many jobs</h2>
+  <h2>A One-Organ Symphony: Master of All Trades</h2>
 
-  <p>For a developing fetus, many organs are still forming. The placenta helps support functions that, after birth, will be carried out by specialized organs. It manages gas exchange, nutrient transfer, waste removal, endocrine signaling, immune communication, and vascular regulation. This makes the placenta one of the most biologically complex organs in pregnancy.</p>
+  <p>While an adult relies on a complex network of organ systems to survive, a developing fetus relies entirely on the placenta. Because fetal organs are still under construction, this temporary tissue steps in to mimic their vital workloads simultaneously. It acts as the lungs for gas exchange, the gut and liver for nutrient transfer and detoxification, the kidneys for waste clearing, and an endocrine control center for immune and vascular regulation.</p>
 
   <figure class="placenta-figure-slot" aria-label="Figure: placenta as a multitasking organ">
     <img
@@ -285,14 +285,14 @@ body[data-theme="dark"] .placenta-page,
   </figure>
 
   <div class="placenta-callout">
-    <p><strong>Our central question is simple:</strong> how does the placenta decide whether to adapt, compensate, or fail when the maternal environment changes?</p>
+    <p><strong>Our central challenge is clear:</strong> we want to map the precise tipping point where a placenta shifts from a shield of adaptive resilience into an engine of developmental dysfunction.</p>
   </div>
 
-  <h2>A sensor of resilience and dysfunction</h2>
+  <h2>A Sensor of Resilience and Dysfunction</h2>
 
-  <p>The placenta is a sensitive recorder of pregnancy conditions. Maternal stressors such as metabolic imbalance, inflammation, altered oxygenation, medication exposure, environmental contaminants, or poor nutrient availability can leave measurable traces in placental structure and molecular activity. These traces may appear as changes in trophoblast behavior, vascular development, nutrient transport, immune signaling, hormone production, or tissue architecture.</p>
+  <p>When a pregnancy faces challenges, the placenta records the struggle. Maternal stressors like poor nutrition, metabolic imbalances, or toxicant exposures alter tissue architecture and protein expression long before clinical symptoms manifest. Yet, what makes this organ truly remarkable is its capacity for resilience; it can alter its own structure and accelerate nutrient transport to protect the fetus from harm.</p>
 
-  <p>One of the most interesting features of the placenta is its capacity for resilience. In some pregnancies, the placenta adapts to maternal stress and continues to support fetal growth. In others, similar stressors push the organ toward dysfunction. Understanding this difference is a major goal of our research. We want to identify which placental responses are protective, which ones mark early vulnerability, and which mechanisms determine the transition from compensation to failure.</p>
+  <p>However, this resilience has limits. When stress overwhelms these compensatory mechanisms, the placenta shifts toward maladaptive dysfunction, rewriting the trajectory of fetal growth. Our research focuses on identifying the early structural and molecular biomarkers that define this transition, allowing us to spot vulnerabilities before they compromise pregnancy outcomes.</p>
 
   <figure class="placenta-figure-slot" aria-label="Figure placeholder: resilience versus dysfunction">
     <div class="figure-placeholder">
@@ -302,11 +302,11 @@ body[data-theme="dark"] .placenta-page,
     <figcaption>Figure 3. Maternal exposures can produce compensatory or maladaptive placental responses.</figcaption>
   </figure>
 
-  <h2>The vascular tree of the placenta</h2>
+  <h2>The Vascular Tree: Engineering the Exchange</h2>
 
-  <p>The placenta is highly vascularized. In the human placenta, tree-like chorionic villi contain fetal blood vessels and are surrounded by maternal blood. This arrangement allows maternal and fetal blood to come into close contact while remaining physically separated by placental tissue. Efficient exchange depends on proper vascular development, trophoblast function, and blood flow on both sides of the maternal–fetal interface.</p>
+  <p>The placenta operates like a tree of life. Its dense canopy of fetal capillaries, organized into tree-like chorionic villi, sits directly within pools of maternal blood. This intricate vascularization allows maternal and fetal blood to come into incredibly close contact to swap oxygen and nutrients without ever truly mixing.</p>
 
-  <p>Early in pregnancy, maternal spiral arteries must remodel from narrow, high-resistance vessels into wider, low-resistance channels that can deliver blood to the placenta. At the same time, the placenta develops a dense fetal vascular network within the villous tree. When these vascular programs are disrupted, oxygen and nutrient delivery can be compromised, increasing the risk of poor fetal growth and placental dysfunction.</p>
+  <p>A successful pregnancy requires an extraordinary vascular remodeling process: maternal spiral arteries must transform from narrow, high-resistance vessels into wide, low-resistance channels to flood the tissue canopy with blood. When these vascular blueprints are disrupted, the resulting flow resistance starves the fetus, sparking severe clinical complications like Intrauterine Growth Restriction (IUGR) or maternal preeclampsia.</p>
 
   <figure class="placenta-figure-slot" aria-label="Figure placeholder: placental vascularization">
     <div class="figure-placeholder">
@@ -316,14 +316,14 @@ body[data-theme="dark"] .placenta-page,
     <figcaption>Figure 4. Placental vascularization supports oxygen and nutrient exchange across the maternal–fetal interface.</figcaption>
   </figure>
 
-  <h2>The placenta–brain axis</h2>
+  <h2>The Placenta–Brain Axis</h2>
 
-  <p>The consequences of placental adaptation may extend beyond fetal growth. The developing brain is sensitive to oxygen delivery, nutrient availability, inflammatory signals, endocrine cues, and metabolic balance. Since the placenta helps regulate each of these signals, changes in placental function may influence fetal brain development.</p>
+  <p>The consequences of placental adaptation ripple far beyond immediate fetal growth. The developing brain is highly sensitive to the surrounding biological environment, which is strictly patrolled by the placenta. Fluctuations in oxygenation, hormone signaling, or inflammatory cytokines can fundamentally alter early neural programming.</p>
 
-  <p>This idea is known as the placenta–brain axis. In our work, we use this concept to ask how placental responses to maternal exposures may shape fetal neurodevelopmental programs. Rather than viewing the placenta and brain as separate systems, we study how altered placental signaling may change the environment in which the fetal brain develops.</p>
+  <p>This critical link forms the placenta–brain axis. Rather than treating reproductive organs and neurological development as isolated systems, our work treats them as a conversation. We study how altered placental messaging alters the intrauterine environment, directly shaping long-term neurodevelopmental trajectories.</p>
 
   <div class="placenta-callout">
-    <p><strong>The placenta–brain axis asks what the placenta sends, modifies, or fails to send to the developing brain.</strong> These signals may include oxygen, nutrients, hormones, inflammatory mediators, metabolic cues, extracellular vesicles, and growth-related factors.</p>
+    <p><strong>The placenta–brain axis asks what the placenta sends, modifies, or fails to protect:</strong> from essential nutrients and hormones to inflammatory mediators and metabolic signaling vesicles.</p>
   </div>
 
   <figure class="placenta-figure-slot" aria-label="Figure placeholder: placenta-brain axis">
@@ -334,46 +334,46 @@ body[data-theme="dark"] .placenta-page,
     <figcaption>Figure 5. Placental signals may influence fetal brain development through oxygen, nutrient, endocrine, immune, and metabolic pathways.</figcaption>
   </figure>
 
-  <h2>Why mouse models still matter</h2>
+  <h2>Decoding Human Pregnancy Through Preclinical Models</h2>
 
-  <p>Many important questions in placental biology cannot be tested directly during human pregnancy. Mouse models allow researchers to study placental development, gene function, maternal exposures, and fetal outcomes in controlled experimental systems. They are especially useful for identifying mechanisms and testing cause-and-effect relationships.</p>
+  <p>Ethical boundaries mean we cannot experiment on a developing human placenta in real-time. To unlock these mechanisms, we look to mouse models. While a mouse placenta differs structurally from a human's, they share core cellular, genetic, and physiological pathways that make them invaluable tools for evaluating pregnancy complications and decoding cause-and-effect relationships.</p>
 
-  <p>Mouse models are powerful, but they are not miniature humans. Translation requires careful attention to both conserved and species-specific features of placentation. Mouse and human placentas share important biological principles, including trophoblast differentiation, maternal–fetal exchange, and hemochorial organization. They also differ in structure, depth of trophoblast invasion, endocrine programs, and developmental timing.</p>
+  <p>Translation, however, requires precise attention to species-specific anatomy. Both systems share a hemochorial organization and overlapping trophoblast differentiation pathways, but their underlying architectures are shaped by wildly different evolutionary timelines. Understanding these structural contrasts is what allows us to translate preclinical breakthroughs into actionable human health insights.</p>
 
   <div class="comparison-table-wrap">
     <table class="comparison-table">
       <thead>
         <tr>
           <th>Feature</th>
-          <th>Human placenta</th>
-          <th>Mouse placenta</th>
+          <th>Human Placenta</th>
+          <th>Mouse Placenta</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td>Overall shape</td>
+          <td><strong>Overall Shape</strong></td>
           <td>Discoid, with a villous exchange structure.</td>
           <td>Discoid, with a labyrinthine exchange structure.</td>
         </tr>
         <tr>
-          <td>Main exchange region</td>
-          <td>Chorionic villi containing fetal vessels surrounded by maternal blood.</td>
-          <td>Labyrinth zone where fetal vessels and maternal blood spaces are closely interdigitated.</td>
+          <td><strong>Main Exchange Region</strong></td>
+          <td>Tree-like chorionic villi containing fetal vessels bathed in pools of maternal blood.</td>
+          <td>A dense labyrinth zone where fetal capillaries and maternal blood spaces tightly interdigitate.</td>
         </tr>
         <tr>
-          <td>Trophoblast invasion</td>
-          <td>Extravillous trophoblasts invade deeply into the decidua and inner myometrium and contribute to spiral artery remodeling.</td>
-          <td>Invasion is more limited and involves species-specific trophoblast populations such as trophoblast giant cells and glycogen trophoblasts.</td>
+          <td><strong>Trophoblast Invasion</strong></td>
+          <td>Deep, aggressive invasion: extravillous trophoblasts penetrate the decidua and inner myometrium to aggressively remodel spiral arteries.</td>
+          <td>Shallow, restricted invasion: limited to the decidua, mediated by species-specific trophoblast giant cells and glycogen trophoblasts.</td>
         </tr>
         <tr>
-          <td>Gestational timing</td>
-          <td>Approximately nine months, allowing prolonged placental growth and maturation.</td>
-          <td>Approximately 19–21 days, with rapid placental development supporting a short pregnancy and larger litters.</td>
+          <td><strong>Gestational Timeline</strong></td>
+          <td>~9 months: allows for slow, highly complex structural development, branching, and prolonged maturation.</td>
+          <td>~19–21 days: characterized by rapid, hyper-accelerated development optimized to support large litters over a brief period.</td>
         </tr>
         <tr>
-          <td>Best use in research</td>
-          <td>Human tissues provide direct relevance to human pregnancy and placental pathology.</td>
-          <td>Mouse models allow controlled perturbation, genetic manipulation, and mechanistic testing.</td>
+          <td><strong>Translational Value</strong></td>
+          <td>Provides direct human pathological relevance, validation datasets, and clinical endpoints.</td>
+          <td>Enables controlled maternal environmental perturbations, genetic manipulation, and real-time mechanistic tracking.</td>
         </tr>
       </tbody>
     </table>
@@ -387,35 +387,35 @@ body[data-theme="dark"] .placenta-page,
     <figcaption>Figure 6. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
   </figure>
 
-  <h2>What our lab is trying to understand</h2>
+  <h2>What the Cariaco Lab is Unlocking</h2>
 
-  <p>The Cariaco Lab studies how the placenta senses maternal exposures and converts them into biological responses that influence fetal development. We are especially interested in the mechanisms that separate resilience from dysfunction.</p>
+  <p>We blend computational innovation with tissue biology to decipher the placenta's molecular playbook. By combining advanced mouse models and human datasets with high-throughput imaging, we explore how the maternal environment alters tissue architecture across multiple scales.</p>
 
   <div class="question-grid">
 
     <div class="question-card">
       <strong>How does the placenta sense maternal exposures?</strong>
-      We study how metabolic stress, inflammation, drugs, xenobiotics, and environmental contaminants alter placental signaling and tissue organization.
+      We map how metabolic stress, inflammation, and environmental contaminants alter early tissue organization and baseline signaling.
     </div>
 
     <div class="question-card">
-      <strong>What makes a placenta resilient?</strong>
-      We investigate how some placentas preserve vascular development, nutrient transport, immune balance, and growth support under stress.
+      <strong>What drives placental resilience?</strong>
+      We investigate the protective programs that allow some placentas to maintain vascular growth and stable nutrient transport under stress.
     </div>
 
     <div class="question-card">
-      <strong>When does adaptation become dysfunction?</strong>
-      We examine how compensatory responses may become maladaptive, leading to altered exchange capacity, trophoblast function, and fetal development.
+      <strong>When does adaptation cross into dysfunction?</strong>
+      We target the molecular thresholds where compensatory changes fail, leading to restricted exchange capacity and poor fetal growth.
     </div>
 
     <div class="question-card">
-      <strong>How does placental state relate to fetal brain development?</strong>
-      We study the placenta–brain axis to understand how altered placental signals may shape fetal neurodevelopmental programs.
+      <strong>How does the placenta shape the brain?</strong>
+      We explore the placenta–brain axis to identify how altered intrauterine signals disrupt fetal neurodevelopmental pathways.
     </div>
 
   </div>
 
-  <p>To answer these questions, we combine experimental models, human placental datasets, histology, immunofluorescence, molecular profiling, and computational image analysis. This integrated approach allows us to study the placenta across scales, from molecular pathways to tissue architecture to fetal developmental outcomes.</p>
+  <p>To answer these questions, our lab bridges the gap between classic histology and computational pathology. By designing automated, AI-driven digital pipelines alongside standard molecular profiling, we are making advanced quantitative tissue analysis faster, highly reproducible, and universally accessible.</p>
 
   <div class="references" id="references">
     <strong>References</strong>
@@ -454,6 +454,11 @@ body[data-theme="dark"] .placenta-page,
         <a href="https://doi.org/10.1016/j.placenta.2006.11.002" target="_blank" rel="noopener">
           Carter AM. Animal models of human placentation — a review. <em>Placenta</em>. 2007;28 Suppl A:S41–S47.
         </a>
+      </li>
+    </ol>
+  </div>
+
+</div>
       </li>
     </ol>
   </div>

@@ -5,7 +5,6 @@ permalink: /research/placenta/
 nav: false
 ---
 
-
 <style>
 .placenta-page {
   font-size: 1.3rem;
@@ -107,32 +106,6 @@ nav: false
   font-size: 1rem;
   line-height: 1.4;
   color: var(--pl-text);
-}
-
-.placenta-page .organ-grid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1.25rem;
-  margin: 1.4rem 0 1.7rem 0;
-}
-
-.placenta-page .organ-card {
-  border: 2px solid var(--pl-border);
-  border-radius: 18px;
-  background: var(--pl-card-bg);
-  color: var(--pl-text);
-  padding: 1.1rem 1.2rem;
-  box-sizing: border-box;
-}
-
-.placenta-page .organ-card h2 {
-  margin-top: 0;
-  font-size: 1.3rem;
-  color: var(--pl-theme);
-}
-
-.placenta-page .organ-card p {
-  margin-bottom: 0;
 }
 
 .placenta-page .question-grid {
@@ -260,7 +233,6 @@ body[data-theme="dark"] .placenta-page,
     line-height: 1.7;
   }
 
-  .placenta-page .organ-grid,
   .placenta-page .question-grid {
     grid-template-columns: 1fr;
   }
@@ -302,29 +274,15 @@ body[data-theme="dark"] .placenta-page,
 
   <p>For a developing fetus, many organs are still forming. The placenta helps support functions that, after birth, will be carried out by specialized organs. It manages gas exchange, nutrient transfer, waste removal, endocrine signaling, immune communication, and vascular regulation. This makes the placenta one of the most biologically complex organs in pregnancy.</p>
 
-  <div class="organ-grid">
-
-    <div class="organ-card">
-      <h2>Gas exchange</h2>
-      <p>The placenta transfers oxygen from maternal blood to the fetus and helps remove carbon dioxide from the fetal circulation.</p>
-    </div>
-
-    <div class="organ-card">
-      <h2>Nutrient handling</h2>
-      <p>The placenta transports glucose, amino acids, lipids, vitamins, and other nutrients, while also modifying metabolism within placental tissue.</p>
-    </div>
-
-    <div class="organ-card">
-      <h2>Waste transfer</h2>
-      <p>The placenta helps move fetal waste products into the maternal circulation for clearance through maternal organs.</p>
-    </div>
-
-    <div class="organ-card">
-      <h2>Endocrine and immune signaling</h2>
-      <p>The placenta produces hormones and signaling molecules that help maintain pregnancy and coordinate communication between maternal and fetal systems.</p>
-    </div>
-
-  </div>
+  <figure class="placenta-figure-slot" aria-label="Figure: placenta as a multitasking organ">
+    <img
+      src="{{ '/assets/multitasker.png' | relative_url }}"
+      alt="Schematic showing the placenta as a multitasking organ during pregnancy"
+    >
+    <figcaption>
+      Figure 2. The placenta functions as a multitasking organ during pregnancy, supporting gas exchange, nutrient handling, waste transfer, endocrine signaling, immune communication, and vascular regulation.
+    </figcaption>
+  </figure>
 
   <div class="placenta-callout">
     <p><strong>Our central question is simple:</strong> how does the placenta decide whether to adapt, compensate, or fail when the maternal environment changes?</p>
@@ -341,7 +299,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: two-panel schematic showing placental resilience versus dysfunction after maternal exposure, with examples such as immune tone, vascular remodeling, nutrient transport, and trophoblast function.</span>
     </div>
-    <figcaption>Figure 2. Maternal exposures can produce compensatory or maladaptive placental responses.</figcaption>
+    <figcaption>Figure 3. Maternal exposures can produce compensatory or maladaptive placental responses.</figcaption>
   </figure>
 
   <h2>The vascular tree of the placenta</h2>
@@ -355,7 +313,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: placental vascular tree showing maternal spiral artery remodeling, intervillous space, chorionic villi, and fetal capillaries.</span>
     </div>
-    <figcaption>Figure 3. Placental vascularization supports oxygen and nutrient exchange across the maternal–fetal interface.</figcaption>
+    <figcaption>Figure 4. Placental vascularization supports oxygen and nutrient exchange across the maternal–fetal interface.</figcaption>
   </figure>
 
   <h2>The placenta–brain axis</h2>
@@ -373,7 +331,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: placenta–brain axis schematic showing maternal exposures, placental response, fetal circulation, and fetal brain development.</span>
     </div>
-    <figcaption>Figure 4. Placental signals may influence fetal brain development through oxygen, nutrient, endocrine, immune, and metabolic pathways.</figcaption>
+    <figcaption>Figure 5. Placental signals may influence fetal brain development through oxygen, nutrient, endocrine, immune, and metabolic pathways.</figcaption>
   </figure>
 
   <h2>Why mouse models still matter</h2>
@@ -426,7 +384,7 @@ body[data-theme="dark"] .placenta-page,
       <strong>Figure space</strong>
       <span>Suggested figure: side-by-side comparison of human chorionic villi and mouse labyrinth, emphasizing conserved functions and species-specific anatomy.</span>
     </div>
-    <figcaption>Figure 5. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
+    <figcaption>Figure 6. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
   </figure>
 
   <h2>What our lab is trying to understand</h2>

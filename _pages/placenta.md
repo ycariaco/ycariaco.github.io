@@ -1,9 +1,10 @@
 ---
 layout: page
-title: The Placenta: A Dynamic Interface of Pregnancy
+title: "The Placenta: A Dynamic Interface of Pregnancy"
 permalink: /research/placenta/
 nav: false
 ---
+
 
 <style>
 .placenta-page {

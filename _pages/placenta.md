@@ -276,7 +276,7 @@ body[data-theme="dark"] .placenta-page,
 
   <figure class="placenta-figure-slot" aria-label="Figure: placenta as a multitasking organ">
     <img
-      src="{{ '/assets/multitasker.png' | relative_url }}"
+      src="{{ '/assets/img/multitasker.png' | relative_url }}"
       alt="Schematic showing the placenta as a multitasking organ during pregnancy"
     >
     <figcaption>

@@ -87,7 +87,8 @@ nav: false
   max-width: 760px;
 }
 
-.placenta-page .placenta-figure-slot img {
+.placenta-page .placenta-figure-slot img,
+.placenta-page .placenta-figure-img {
   width: 100%;
   height: auto;
   display: block;
@@ -262,28 +263,37 @@ body[data-theme="dark"] .placenta-page,
 
   <p>In our laboratory, we study the placenta as an active biosensor. It continuously decodes complex maternal signals—including metabolic shifts, inflammation, oxygenation fluctuations, and environmental exposures. By interpreting these inputs, the placenta dynamically adjusts its cellular, vascular, and transport programs to optimize fetal development.</p>
 
-  <figure class="placenta-figure-slot" aria-label="Figure placeholder: placenta overview">
-    <div class="figure-placeholder">
-      <strong>Figure space</strong>
-      <span>Suggested figure: simple schematic of the maternal–fetal interface showing maternal blood, placental villi, fetal vessels, trophoblast layers, and umbilical cord.</span>
-    </div>
-    <figcaption>Figure 1. The placenta as an active interface between maternal physiology and fetal development.</figcaption>
+  <figure class="placenta-figure-slot" aria-labelledby="fig1-human-placenta-caption">
+    <img
+      src="{{ '/assets/img/human-placenta.svg' | relative_url }}"
+      alt="Schematic of the human placenta showing the maternal–fetal interface, placental villi, trophoblast layers, fetal vessels, maternal blood, and umbilical cord."
+      class="placenta-figure-img"
+      loading="lazy"
+    />
+
+    <figcaption id="fig1-human-placenta-caption">
+      <strong>Figure 1. The placenta as an active interface between maternal physiology and fetal development.</strong>
+      The schematic highlights the maternal–fetal interface, including maternal blood, placental villi, trophoblast layers, fetal vessels, and the umbilical cord.
+    </figcaption>
   </figure>
 
   <h2>A One-Organ Symphony: Master of All Trades</h2>
 
   <p>While an adult relies on a complex network of organ systems to survive, a developing fetus relies entirely on the placenta. Because fetal organs are still under construction, this temporary tissue steps in to mimic their vital workloads simultaneously. It acts as the lungs for gas exchange, the gut and liver for nutrient transfer and detoxification, the kidneys for waste clearing, and an endocrine control center for immune and vascular regulation.</p>
 
-  <figure class="placenta-figure-slot" aria-label="Figure: placenta as a multitasking organ">
+  <figure class="placenta-figure-slot" aria-labelledby="fig2-multitasker-caption">
     <img
       src="{{ '/assets/img/multitasker.png' | relative_url }}"
       alt="Schematic showing the placenta as a multitasking organ during pregnancy"
-    >
-    <figcaption>
-      Figure 2. The placenta functions as a multitasking organ during pregnancy, supporting gas exchange, nutrient handling, waste transfer, endocrine signaling, immune communication, and vascular regulation.
+      class="placenta-figure-img"
+      loading="lazy"
+    />
+
+    <figcaption id="fig2-multitasker-caption">
+      <strong>Figure 2. The placenta functions as a multitasking organ during pregnancy.</strong>
+      The placenta supports gas exchange, nutrient handling, waste transfer, endocrine signaling, immune communication, and vascular regulation.
     </figcaption>
   </figure>
-
 
   <h2>A Sensor of Resilience and Dysfunction</h2>
 
@@ -298,30 +308,20 @@ body[data-theme="dark"] .placenta-page,
   <p>A successful pregnancy requires an extraordinary vascular remodeling process: maternal spiral arteries must transform from narrow, high-resistance vessels into wide, low-resistance channels to flood the tissue canopy with blood. When these vascular blueprints are disrupted, the resulting flow resistance starves the fetus, sparking severe clinical complications like Intrauterine Growth Restriction (IUGR) or maternal preeclampsia.</p>
 
   <figure class="placenta-figure-slot" aria-labelledby="fig3-placental-vascularization-caption">
+    <img
+      src="{{ '/assets/img/vascular.svg' | relative_url }}"
+      alt="Comparative schematic of mouse and human placental vascularization, showing maternal and fetal circulation, placental vascular compartments, and the placental barrier."
+      class="placenta-figure-img"
+      loading="lazy"
+    />
 
-  <img
-
-    src="{{ '/assets/img/vascular.svg' | relative_url }}"
-
-    alt="Comparative schematic of mouse and human placental vascularization, showing maternal and fetal circulation, placental vascular compartments, and the placental barrier."
-
-    class="placenta-figure-img"
-
-    loading="lazy"
-
-  />
-
-  <figcaption id="fig3-placental-vascularization-caption">
-
-    <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
-
-    The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
-
-    <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.
-
-  </figcaption>
-
-</figure>
+    <figcaption id="fig3-placental-vascularization-caption">
+      <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
+      The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
+      <br><br>
+      <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.
+    </figcaption>
+  </figure>
 
   <h2>Decoding Human Pregnancy Through Preclinical Models</h2>
 
@@ -367,14 +367,6 @@ body[data-theme="dark"] .placenta-page,
       </tbody>
     </table>
   </div>
-
-  <figure class="placenta-figure-slot" aria-label="Figure placeholder: mouse and human placentation">
-    <div class="figure-placeholder">
-      <strong>Figure space</strong>
-      <span>Suggested figure: side-by-side comparison of human chorionic villi and mouse labyrinth, emphasizing conserved functions and species-specific anatomy.</span>
-    </div>
-    <figcaption>Figure 4. Mouse and human placentas share key functions but differ in tissue organization and developmental timing.</figcaption>
-  </figure>
 
   <h2>What the Cariaco Lab is Unlocking</h2>
 

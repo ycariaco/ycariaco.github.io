@@ -284,9 +284,6 @@ body[data-theme="dark"] .placenta-page,
     </figcaption>
   </figure>
 
-  <div class="placenta-callout">
-    <p><strong>Our central challenge is clear:</strong> we want to map the precise tipping point where a placenta shifts from a shield of adaptive resilience into an engine of developmental dysfunction.</p>
-  </div>
 
   <h2>A Sensor of Resilience and Dysfunction</h2>
 
@@ -318,7 +315,7 @@ body[data-theme="dark"] .placenta-page,
 
     <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
 
-    The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types.
+    The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
 
     <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.
 

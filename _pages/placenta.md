@@ -301,19 +301,6 @@ body[data-theme="dark"] .placenta-page,
 
   <p>In some pregnancies, the placenta compensates and continues to support fetal growth. In others, these adaptive responses are overwhelmed and shift toward dysfunction. Our research aims to identify the molecular and structural features that distinguish resilience from early failure.</p>
 
-  <figure class="placenta-figure-slot" aria-labelledby="fig3-resilience-dysfunction-caption">
-    <img
-      src="{{ '/assets/img/resilience-dysfunction.png' | relative_url }}"
-      alt="Two-panel schematic comparing placental resilience and placental dysfunction after maternal exposure."
-      class="placenta-figure-img"
-      loading="lazy"
-    />
-
-    <figcaption id="fig3-resilience-dysfunction-caption">
-      <strong>Figure 3. Placental resilience and dysfunction after maternal exposure.</strong>
-      The schematic contrasts adaptive and maladaptive placental responses, including changes in immune tone, vascular remodeling, nutrient transport, and trophoblast function.
-    </figcaption>
-  </figure>
 
   <h2>The Vascular Tree: Building the Exchange Surface</h2>
 
@@ -336,7 +323,7 @@ body[data-theme="dark"] .placenta-page,
     />
 
     <figcaption id="fig4-placental-vascularization-caption">
-      <strong>Figure 4. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
+      <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
       The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
       <br><br>
       <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.

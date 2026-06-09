@@ -259,9 +259,9 @@ body[data-theme="dark"] .placenta-page,
 
 <div class="placenta-page">
 
-  <p>The placenta is a temporary powerhouse created by the embryo to nurture, protect, and support life. Far from a passive sieve, it acts as a dynamic biological interface between mother and baby, continuously reading environmental cues to dictate the course of pregnancy.</p>
+  <p>The placenta is a temporary, fetal-derived organ that supports pregnancy by connecting maternal physiology with fetal development. It is not simply a barrier. It senses changes in the maternal environment and adjusts transport, vascular, endocrine, and immune functions that help regulate fetal growth.</p>
 
-  <p>In our laboratory, we study the placenta as an active biosensor. It continuously decodes complex maternal signals—including metabolic shifts, inflammation, oxygenation fluctuations, and environmental exposures. By interpreting these inputs, the placenta dynamically adjusts its cellular, vascular, and transport programs to optimize fetal development.</p>
+  <p>In the Cariaco Lab, we study the placenta as an active biological interface. We ask how maternal signals such as metabolism, inflammation, oxygenation, medications, and environmental exposures reshape placental structure and function.</p>
 
   <figure class="placenta-figure-slot" aria-labelledby="fig1-human-placenta-caption">
     <img
@@ -277,9 +277,9 @@ body[data-theme="dark"] .placenta-page,
     </figcaption>
   </figure>
 
-  <h2>A One-Organ Symphony: Master of All Trades</h2>
+  <h2>A Temporary Organ with Many Jobs</h2>
 
-  <p>While an adult relies on a complex network of organ systems to survive, a developing fetus relies entirely on the placenta. Because fetal organs are still under construction, this temporary tissue steps in to mimic their vital workloads simultaneously. It acts as the lungs for gas exchange, the gut and liver for nutrient transfer and detoxification, the kidneys for waste clearing, and an endocrine control center for immune and vascular regulation.</p>
+  <p>During pregnancy, the placenta supports many functions that fetal organs cannot yet perform on their own. It transfers oxygen and nutrients, removes waste products, produces hormones, regulates immune communication, and helps coordinate maternal–fetal exchange.</p>
 
   <figure class="placenta-figure-slot" aria-labelledby="fig2-multitasker-caption">
     <img
@@ -297,17 +297,37 @@ body[data-theme="dark"] .placenta-page,
 
   <h2>A Sensor of Resilience and Dysfunction</h2>
 
-  <p>When a pregnancy faces challenges, the placenta records the struggle. Maternal stressors like poor nutrition, metabolic imbalances, or toxicant exposures alter tissue architecture and protein expression long before clinical symptoms manifest. Yet, what makes this organ truly remarkable is its capacity for resilience; it can alter its own structure and accelerate nutrient transport to protect the fetus from harm.</p>
+  <p>Maternal stressors such as poor nutrition, metabolic imbalance, inflammation, medication exposure, or toxicant exposure can alter placental tissue architecture, immune signaling, transport capacity, and protein expression. These changes may reveal how the placenta responds to stress before clinical symptoms are visible.</p>
 
-  <p>However, this resilience has limits. When stress overwhelms these compensatory mechanisms, the placenta shifts toward maladaptive dysfunction, rewriting the trajectory of fetal growth. Our research focuses on identifying the early structural and molecular biomarkers that define this transition, allowing us to spot vulnerabilities before they compromise pregnancy outcomes.</p>
+  <p>In some pregnancies, the placenta compensates and continues to support fetal growth. In others, these adaptive responses are overwhelmed and shift toward dysfunction. Our research aims to identify the molecular and structural features that distinguish resilience from early failure.</p>
 
-  <h2>The Vascular Tree: Engineering the Exchange</h2>
+  <figure class="placenta-figure-slot" aria-labelledby="fig3-resilience-dysfunction-caption">
+    <img
+      src="{{ '/assets/img/resilience-dysfunction.png' | relative_url }}"
+      alt="Two-panel schematic comparing placental resilience and placental dysfunction after maternal exposure."
+      class="placenta-figure-img"
+      loading="lazy"
+    />
 
-  <p>The placenta operates like a tree of life. Its dense canopy of fetal capillaries, organized into tree-like chorionic villi, sits directly within pools of maternal blood. This intricate vascularization allows maternal and fetal blood to come into incredibly close contact to swap oxygen and nutrients without ever truly mixing.</p>
+    <figcaption id="fig3-resilience-dysfunction-caption">
+      <strong>Figure 3. Placental resilience and dysfunction after maternal exposure.</strong>
+      The schematic contrasts adaptive and maladaptive placental responses, including changes in immune tone, vascular remodeling, nutrient transport, and trophoblast function.
+    </figcaption>
+  </figure>
 
-  <p>A successful pregnancy requires an extraordinary vascular remodeling process: maternal spiral arteries must transform from narrow, high-resistance vessels into wide, low-resistance channels to flood the tissue canopy with blood. When these vascular blueprints are disrupted, the resulting flow resistance starves the fetus, sparking severe clinical complications like Intrauterine Growth Restriction (IUGR) or maternal preeclampsia.</p>
+  <h2>The Vascular Tree: Building the Exchange Surface</h2>
 
-  <figure class="placenta-figure-slot" aria-labelledby="fig3-placental-vascularization-caption">
+  <p>The placenta contains a dense network of fetal blood vessels organized within tree-like chorionic villi. These villi are surrounded by maternal blood in the intervillous space, bringing maternal and fetal circulation into close proximity while keeping the two blood supplies physically separated.</p>
+
+  <p>A successful pregnancy also requires remodeling of maternal spiral arteries. These arteries normally transform from narrow, high-resistance vessels into wider, low-resistance channels that deliver blood to the placenta. When vascular remodeling or villous vascular development is disrupted, oxygen and nutrient exchange can be compromised, contributing to fetal growth restriction and placental dysfunction.</p>
+
+  <h2>Decoding Human Pregnancy Through Preclinical Models</h2>
+
+  <p>Many key mechanisms of placental development cannot be tested directly during human pregnancy. Mouse models allow controlled studies of maternal exposures, gene function, placental development, and fetal outcomes. They are especially useful for testing cause-and-effect relationships.</p>
+
+  <p>Translation, however, requires careful attention to species-specific anatomy. Mouse and human placentas share important biological principles, including hemochorial organization, trophoblast differentiation, and maternal–fetal exchange. They also differ in tissue architecture, trophoblast invasion, vascular organization, and developmental timing.</p>
+
+  <figure class="placenta-figure-slot" aria-labelledby="fig4-placental-vascularization-caption">
     <img
       src="{{ '/assets/img/vascular.svg' | relative_url }}"
       alt="Comparative schematic of mouse and human placental vascularization, showing maternal and fetal circulation, placental vascular compartments, and the placental barrier."
@@ -315,19 +335,13 @@ body[data-theme="dark"] .placenta-page,
       loading="lazy"
     />
 
-    <figcaption id="fig3-placental-vascularization-caption">
-      <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
+    <figcaption id="fig4-placental-vascularization-caption">
+      <strong>Figure 4. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
       The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
       <br><br>
       <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.
     </figcaption>
   </figure>
-
-  <h2>Decoding Human Pregnancy Through Preclinical Models</h2>
-
-  <p>Ethical boundaries mean we cannot experiment on a developing human placenta in real-time. To unlock these mechanisms, we look to mouse models. While a mouse placenta differs structurally from a human's, they share core cellular, genetic, and physiological pathways that make them invaluable tools for evaluating pregnancy complications and decoding cause-and-effect relationships.</p>
-
-  <p>Translation, however, requires precise attention to species-specific anatomy. Both systems share a hemochorial organization and overlapping trophoblast differentiation pathways, but their underlying architectures are shaped by wildly different evolutionary timelines. Understanding these structural contrasts is what allows us to translate preclinical breakthroughs into actionable human health insights.</p>
 
   <div class="comparison-table-wrap">
     <table class="comparison-table">
@@ -346,52 +360,57 @@ body[data-theme="dark"] .placenta-page,
         </tr>
         <tr>
           <td><strong>Main Exchange Region</strong></td>
-          <td>Tree-like chorionic villi containing fetal vessels bathed in pools of maternal blood.</td>
-          <td>A dense labyrinth zone where fetal capillaries and maternal blood spaces tightly interdigitate.</td>
+          <td>Tree-like chorionic villi containing fetal vessels surrounded by maternal blood in the intervillous space.</td>
+          <td>A labyrinth zone where fetal capillaries and maternal blood spaces are closely interdigitated.</td>
         </tr>
         <tr>
           <td><strong>Trophoblast Invasion</strong></td>
-          <td>Deep, aggressive invasion: extravillous trophoblasts penetrate the decidua and inner myometrium to aggressively remodel spiral arteries.</td>
-          <td>Shallow, restricted invasion: limited to the decidua, mediated by species-specific trophoblast giant cells and glycogen trophoblasts.</td>
+          <td>Extravillous trophoblasts invade the decidua and inner myometrium and contribute to spiral artery remodeling.</td>
+          <td>Trophoblast invasion is more limited and involves species-specific trophoblast populations, including trophoblast giant cells and glycogen trophoblasts.</td>
         </tr>
         <tr>
           <td><strong>Gestational Timeline</strong></td>
-          <td>~9 months: allows for slow, highly complex structural development, branching, and prolonged maturation.</td>
-          <td>~19–21 days: characterized by rapid, hyper-accelerated development optimized to support large litters over a brief period.</td>
+          <td>Approximately nine months, allowing prolonged placental growth, branching, and maturation.</td>
+          <td>Approximately 19–21 days, with rapid placental development that supports a short pregnancy and larger litters.</td>
         </tr>
         <tr>
           <td><strong>Translational Value</strong></td>
-          <td>Provides direct human pathological relevance, validation datasets, and clinical endpoints.</td>
-          <td>Enables controlled maternal environmental perturbations, genetic manipulation, and real-time mechanistic tracking.</td>
+          <td>Provides direct relevance to human placental biology and pregnancy complications.</td>
+          <td>Enables controlled maternal environmental perturbations, genetic manipulation, and mechanistic testing.</td>
         </tr>
       </tbody>
     </table>
   </div>
 
-  <h2>What the Cariaco Lab is Unlocking</h2>
+  <h2>What the Cariaco Lab Studies</h2>
 
-  <p>We blend computational innovation with tissue biology to decipher the placenta's molecular playbook. By combining advanced mouse models and human datasets with high-throughput imaging, we explore how the maternal environment alters tissue architecture across multiple scales.</p>
+  <p>The Cariaco Lab combines placental biology, experimental models, human tissue datasets, histology, molecular profiling, and computational image analysis to study how maternal exposures reshape placental structure and function.</p>
 
   <div class="question-grid">
 
     <div class="question-card">
       <strong>How does the placenta sense maternal exposures?</strong>
-      We map how metabolic stress, inflammation, and environmental contaminants alter early tissue organization and baseline signaling.
+      We map how metabolic stress, inflammation, medications, and environmental contaminants alter placental tissue organization and signaling.
     </div>
 
     <div class="question-card">
       <strong>What drives placental resilience?</strong>
-      We investigate the protective programs that allow some placentas to maintain vascular growth and stable nutrient transport under stress.
+      We investigate the protective programs that allow some placentas to maintain vascular growth, immune balance, and nutrient transport under stress.
     </div>
 
     <div class="question-card">
-      <strong>When does adaptation cross into dysfunction?</strong>
-      We target the molecular thresholds where compensatory changes fail, leading to restricted exchange capacity and poor fetal growth.
+      <strong>When does adaptation become dysfunction?</strong>
+      We study the molecular and structural thresholds where compensatory changes fail, leading to restricted exchange capacity and altered fetal growth.
+    </div>
+
+    <div class="question-card">
+      <strong>How can we measure placental structure more precisely?</strong>
+      We develop quantitative image-analysis tools to make placental histology faster, more reproducible, and easier to compare across models and datasets.
     </div>
 
   </div>
 
-  <p>To answer these questions, our lab bridges the gap between classic histology and computational pathology. By designing automated, AI-driven digital pipelines alongside standard molecular profiling, we are making advanced quantitative tissue analysis faster, highly reproducible, and universally accessible.</p>
+  <p>To answer these questions, our lab bridges classic placental histology with computational pathology. We design automated digital pipelines alongside molecular profiling approaches to connect tissue architecture, cellular organization, and biological function.</p>
 
   <div class="references" id="references">
     <strong>References</strong>
@@ -423,6 +442,12 @@ body[data-theme="dark"] .placenta-page,
       <li>
         <a href="https://doi.org/10.1016/j.placenta.2006.11.002" target="_blank" rel="noopener">
           Carter AM. Animal models of human placentation — a review. <em>Placenta</em>. 2007;28 Suppl A:S41–S47.
+        </a>
+      </li>
+
+      <li>
+        <a href="https://doi.org/10.3390/cells12040620" target="_blank" rel="noopener">
+          Rusidzé et al. Comparative placental vascularization and maternal–fetal barrier organization. <em>Cells</em>. 2023;12(4):620.
         </a>
       </li>
     </ol>

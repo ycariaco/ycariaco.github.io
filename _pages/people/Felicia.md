@@ -46,7 +46,9 @@ permalink: /people/feliciaannmaltais/
   <div class="profile-bio">
     
     <br><br>
-    Félicia-Ann is an undergraduate in biology at UQAM. Although finding an interest in multiple areas of study, she is currently focusing her attention on the intersection between environmental changes in relation to global warming and human health. 
+    Félicia-Ann is an undergraduate in Biology at UQAM. 
+    <br><br>
+    Although finding an interest in multiple areas of study, she is currently focusing her attention on the intersection between environmental changes in relation to global warming and human health. 
     <br><br>
     Her research interests are rooted in the desire to build resilience in communities facing the harshest effects of climate change.
     </div>

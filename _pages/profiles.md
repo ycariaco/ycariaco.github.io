@@ -22,8 +22,8 @@ nav_order: 4
     </a>
 
     <a class="team-card" href="/people/feliciaannmaltais">
-      <img src="/assets/img/felicia.jpg" alt="Felicia-Ann Maltais">
-      <h3 class="team-name">Felicia-Ann Maltais</h3>
+      <img src="/assets/img/Felicia.jpg" alt="Felicia-Ann Maltais">
+      <h3 class="team-name">Félicia-Ann Maltais</h3>
       <p class="team-position">Undergraduate student</p>
     </a>
 

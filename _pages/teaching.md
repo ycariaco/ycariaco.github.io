@@ -13,7 +13,7 @@ calendar: false
     For all applications, please send a complete CV (including transcripts) to
   </p>
   <p style="margin:0;">
-    <a href="mailto:ycariaco@uottawa.ca">ycariaco@uottawa.ca</a>
+    <a href="mailto:cariaco.yusmaris@uqam.ca">cariaco.yusmaris@uqam.ca</a>
   </p>
 </div>
 

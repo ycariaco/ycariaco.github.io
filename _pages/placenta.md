@@ -261,27 +261,13 @@ body[data-theme="dark"] .placenta-page,
 
   <p>The placenta is a temporary, fetal-derived organ that supports pregnancy by connecting maternal physiology with fetal development. It is not simply a barrier. It senses changes in the maternal environment and adjusts transport, vascular, endocrine, and immune functions that help regulate fetal growth.</p>
 
-  <p>In the Cariaco Lab, we study the placenta as an active biological interface. We ask how maternal signals such as metabolism, inflammation, oxygenation, medications, and environmental exposures reshape placental structure and function. As shown in Figure 1, this interface relies on specialized cell layers, such as the syncytiotrophoblast, which is in direct contact with maternal blood, and immune residents like Hofbauer cells that help maintain a healthy environment.</p>
-
-  <figure class="placenta-figure-slot" aria-labelledby="fig1-human-placenta-caption">
-    <img
-      src="{{ '/assets/img/human-placenta.svg' | relative_url }}"
-      alt="Schematic of the human placenta showing the maternal–fetal interface, placental villi, trophoblast layers, fetal vessels, maternal blood, and umbilical cord."
-      class="placenta-figure-img"
-      loading="lazy"
-    />
-
-    <figcaption id="fig1-human-placenta-caption">
-      <strong>Figure 1. The placenta as an active interface between maternal physiology and fetal development.</strong>
-      The schematic highlights the maternal–fetal interface, including maternal blood, placental villi, trophoblast layers, fetal vessels, and the umbilical cord.
-    </figcaption>
-  </figure>
+  <p>In the Cariaco Lab, we study the placenta as an active biological interface. We ask how maternal signals such as metabolism, inflammation, oxygenation, medications, and environmental exposures reshape placental structure and function. This interface relies on specialized cell layers, such as the syncytiotrophoblast, which is in direct contact with maternal blood, and immune residents like Hofbauer cells that help maintain a healthy environment.</p>
 
   <h2>A Temporary Organ with Many Jobs</h2>
 
-  <p>During pregnancy, the placenta supports many functions that fetal organs cannot yet perform on their own. It transfers oxygen and nutrients, removes waste products, produces hormones, regulates immune communication, and helps coordinate maternal–fetal exchange. Figure 2 illustrates the distinct pathways the placenta manages—from neuroendocrine regulation to immune modulation and detoxification—highlighting the specific key players driving each process.</p>
+  <p>During pregnancy, the placenta supports many functions that fetal organs cannot yet perform on their own. It transfers oxygen and nutrients, removes waste products, produces hormones, regulates immune communication, and helps coordinate maternal–fetal exchange. Figure 1 illustrates the distinct pathways the placenta manages—from neuroendocrine regulation to immune modulation and detoxification—highlighting the specific key players driving each process.</p>
 
-  <figure class="placenta-figure-slot" aria-labelledby="fig2-multitasker-caption">
+  <figure class="placenta-figure-slot" aria-labelledby="fig1-multitasker-caption">
     <img
       src="{{ '/assets/img/multitasker.png' | relative_url }}"
       alt="Schematic showing the placenta as a multitasking organ during pregnancy"
@@ -289,8 +275,8 @@ body[data-theme="dark"] .placenta-page,
       loading="lazy"
     />
 
-    <figcaption id="fig2-multitasker-caption">
-      <strong>Figure 2. The placenta functions as a multitasking organ during pregnancy.</strong>
+    <figcaption id="fig1-multitasker-caption">
+      <strong>Figure 1. The placenta functions as a multitasking organ during pregnancy.</strong>
       The placenta supports gas exchange, nutrient handling, waste transfer, endocrine signaling, immune communication, and vascular regulation.
     </figcaption>
   </figure>
@@ -314,23 +300,7 @@ body[data-theme="dark"] .placenta-page,
 
   <p>Translation, however, requires careful attention to species-specific anatomy. Mouse and human placentas share important biological principles, including hemochorial organization, trophoblast differentiation, and maternal–fetal exchange. They also differ in tissue architecture, trophoblast invasion, vascular organization, and developmental timing.</p>
 
-  <figure class="placenta-figure-slot" aria-labelledby="fig4-placental-vascularization-caption">
-    <img
-      src="{{ '/assets/img/vascular.svg' | relative_url }}"
-      alt="Comparative schematic of mouse and human placental vascularization, showing maternal and fetal circulation, placental vascular compartments, and the placental barrier."
-      class="placenta-figure-img"
-      loading="lazy"
-    />
-
-    <figcaption id="fig4-placental-vascularization-caption">
-      <strong>Figure 3. Comparative placental vascularization and maternal–fetal barrier organization in mouse and human placenta.</strong>
-      The schematic compares the organization of maternal and fetal blood flow in mouse and human placentas. In the mouse placenta, maternal blood enters through uterine, radial, and spiral arteries and passes through the decidua, junctional zone, blood sinusoids, and labyrinth, where exchange occurs near fetal capillaries. In the human placenta, maternal blood is supplied through uterine, radial, and spiral arteries into the intervillous space surrounding chorionic villi, while fetal circulation is connected through the umbilical cord and fetal capillaries. The lower panels highlight the placental barrier, including maternal red blood cells, fetal red blood cells, endothelial cells, trophoblast layers, and species-specific placental cell types. Adapted from Rusidzé et al. 2023 https://doi.org/10.3390/cells12040620.
-      <br><br>
-      <em>Abbreviations:</em> S-TGC, sinusoidal trophoblast giant cell; SynT-I and SynT-II, syncytiotrophoblast layers I and II; SynT, syncytiotrophoblast; CTB, cytotrophoblast; EC, endothelial cell; mRBC, maternal red blood cell; fRBC, fetal red blood cell.
-    </figcaption>
-  </figure>
-
-  <p>While Figure 3 highlights the structural layout of these barriers, the following table summarizes the key developmental and functional differences between human and mouse placentas.</p>
+  <p>The following table summarizes the key developmental and functional differences between human and mouse placentas.</p>
 
   <div class="comparison-table-wrap">
     <table class="comparison-table">

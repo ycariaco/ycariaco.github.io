@@ -20,7 +20,13 @@ nav_order: 4
       <h3 class="team-name">Elisabeth Mouge</h3>
       <p class="team-position">Master's student</p>
     </a>
-
+    
+<a class="team-card" href="/people/mouniasaaiou">
+      <img src="/assets/img/Mounia.jpeg" alt="Mounia Saaiou">
+      <h3 class="team-name">Mounia Saaiou</h3>
+      <p class="team-position">Incoming Master's student</p>
+    </a>
+    
     <a class="team-card" href="/people/feliciaannmaltais">
       <img src="/assets/img/Felicia.jpg" alt="Felicia-Ann Maltais">
       <h3 class="team-name">Félicia-Ann Maltais</h3>

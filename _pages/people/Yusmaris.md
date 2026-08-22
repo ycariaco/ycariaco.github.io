@@ -18,17 +18,28 @@ permalink: /people/yusmariscariaco/
   .profile-name {
     font-size: 42px;
   }
-  .profile-position {
-    font-size: 20px;
-  }
-  .profile-bio {
-    font-size: 18px;
-    line-height: 1.7;
-  }
+.profile-position {
+  font-size: 20px;
+}
 
-  @media (max-width: 900px) {
-    .profile-wrap {
-      grid-template-columns: 1fr;
+.profile-bio {
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+.photo-credit {
+  margin-top: 6px;
+  font-size: 12px;
+  color: #777;
+  text-align: center;
+  font-style: italic;
+}
+
+@media (max-width: 900px) {
+  .profile-wrap {
+    grid-template-columns: 1fr;
+  }
+}
     }
     .profile-photo {
       width: 100%;
@@ -41,7 +52,11 @@ permalink: /people/yusmariscariaco/
 <p class="profile-position" style="color:#e91e63; font-weight:600;">Principal Investigator</p>
 
 <div class="profile-wrap">
-  <img class="profile-photo" src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
+
+  <div class="photo-container">
+    <img class="profile-photo" src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
+    <p class="photo-credit"><em>Photo: UQAM / Émilie Tournevache</em></p>
+  </div>
 
   <div class="profile-bio">
     <h2>Training</h2>

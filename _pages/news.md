@@ -13,7 +13,7 @@ nav_order: 6
   <div class="news-item">
     <div class="news-date">September 2026</div>
     <div class="news-content">
-      <h3>Congratulations Elisabeth!</h3>
+      <h3>Elisabeth Starts Her Master's</h3>
       <p>
         Elisabeth Mouge begins her Master's in Biology at UQAM with the support of FRQ and NSERC scholarships. Congratulations, Elisabeth!
       </p>

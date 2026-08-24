@@ -100,7 +100,7 @@ nav: false
   <!-- FIGURE 1: DNA, RNA processing, and protein production -->
   <figure class="content-figure figure-full-width figure-pink">
     <img
-      src="{{ '/assets/img/transcriptomics_figure1_dna_rna_protein.png' | relative_url }}"
+      src="{{ '/assets/img/transcriptomics/trans1.png' | relative_url }}"
       alt="DNA is transcribed into pre-mRNA, processed and regulated to form mature mRNA, and translated into protein"
       loading="lazy"
       decoding="async">
@@ -164,7 +164,7 @@ nav: false
   <!-- FIGURE 2: Transcriptomic methods -->
   <figure class="content-figure figure-full-width figure-pink">
     <img
-      src="{{ '/assets/img/transcriptomics_figure2_methods.png' | relative_url }}"
+      src="{{ '/assets/img/transcriptomics/trans2.png' | relative_url }}"
       alt="Comparison of bulk, single-cell, single-nucleus, and spatial transcriptomics"
       loading="lazy"
       decoding="async">
@@ -198,7 +198,7 @@ nav: false
   <!-- FIGURE 3: Transcriptomics workflow -->
   <figure class="content-figure figure-full-width figure-pink">
     <img
-      src="{{ '/assets/img/transcriptomics_figure3_workflow.png' | relative_url }}"
+      src="{{ '/assets/img/transcriptomics/trans3.png' | relative_url }}"
       alt="Five-step transcriptomics workflow from study design to interpretation and validation"
       loading="lazy"
       decoding="async">

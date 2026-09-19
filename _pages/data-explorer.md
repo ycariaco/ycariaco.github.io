@@ -160,8 +160,8 @@ calendar: false
   </div>
 
   <div>
-    <p class="data-launch-kicker">Cariaco Lab Research Tool</p>
-    <h2 class="data-launch-title">Cariaco Data Explorer</h2>
+    <p class="data-launch-kicker">Lab Research Tool</p>
+    <h2 class="data-launch-title">Data Explorer</h2>
 
     <p class="data-launch-description">
       Create customizable figures and perform exploratory analyses directly

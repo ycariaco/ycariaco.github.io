@@ -60,7 +60,7 @@ ninja.data = [{
           },
         },{id: "nav-data-explorer",
           title: "Data Explorer",
-          description: "Explore and visualize research data.",
+          description: "Interactive visualization and exploratory analysis.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/data-explorer/";

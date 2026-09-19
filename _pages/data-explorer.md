@@ -1,8 +1,6 @@
 ---
 layout: page
-permalink: /data-explorer/
-title: Data Explorer
-description: Interactive visualization and exploratory analysis.
+permalink: /tools/
 nav: true
 nav_order: 8
 calendar: false

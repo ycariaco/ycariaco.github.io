@@ -58,12 +58,12 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/contact/";
           },
-        },{id: "nav-data-explorer",
-          title: "Data Explorer",
-          description: "Interactive visualization and exploratory analysis.",
+        },{id: "nav-",
+          title: "",
+          description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/data-explorer/";
+            window.location.href = "/tools/";
           },
         },{id: "books-the-godfather",
           title: 'The Godfather',

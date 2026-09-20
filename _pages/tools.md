@@ -2,8 +2,8 @@
 layout: page
 permalink: /tools/
 title: Tools
-nav: true
-nav_order: x
+nav: false
+nav_order: x8
 calendar: false
 ---
 

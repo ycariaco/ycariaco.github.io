@@ -33,12 +33,6 @@ nav_order: 4
       <p class="team-position">Undergraduate student</p>
     </a>
 
-    <a class="team-card team-card--wide" href="/contact/">
-      <img src="/assets/img/You.png" alt="Open Position">
-      <h3 class="team-name">Open Position</h3>
-      <p class="team-position">Join our lab</p>
-    </a>
-
   </div>
 </div>
 

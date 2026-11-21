@@ -38,7 +38,7 @@ permalink: /people/mouniasaaiou/
 </style>
 
 <h1 class="profile-name">Mounia Saaiou</h1>
-<p class="profile-position" style="color:#e91e63; font-weight:600;">Incoming Master's student</p>
+<p class="profile-position" style="color:#e91e63; font-weight:600;">Master's student</p>
 
 <div class="profile-wrap">
   <img class="profile-photo" src="/assets/img/Mounia.jpeg" alt="Mounia Saaiou">

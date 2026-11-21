@@ -24,7 +24,7 @@ nav_order: 4
     <a class="team-card" href="/people/mouniasaaiou">
       <img src="/assets/img/Mounia.jpeg" alt="Mounia Saaiou">
       <h3 class="team-name">Mounia Saaiou</h3>
-      <p class="team-position">Incoming Master's student</p>
+      <p class="team-position">Master's student</p>
     </a>
 
     <a class="team-card" href="/people/feliciaannmaltais">

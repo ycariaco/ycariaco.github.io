@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Add verified publications from PubMed without deleting curated entries.
+"""Add verified articles and preprints without deleting curated entries.
 
 Only public bibliographic metadata is requested. No API key or third-party
 Python package is required. See docs/publications.md for maintenance details.
@@ -21,19 +21,25 @@ import time
 import unicodedata
 import xml.etree.ElementTree as ET
 from urllib.error import HTTPError, URLError
-from urllib.parse import urlencode, unquote
+from urllib.parse import urlencode, unquote, quote, urlparse
 from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
 API_URL = "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/"
-USER_AGENT = "CariacoLabPublicationSync/1.0 (+https://cariacolab.com/)"
+CROSSREF_URL = "https://api.crossref.org/works"
+PREPRINT_URL = "https://api.biorxiv.org/details/"
+USER_AGENT = "CariacoLabPublicationSync/2.0 (+https://cariacolab.com/)"
 DOI_PATTERN = re.compile(r"^10\.\d{4,9}/[^\s<>\"']+$", re.IGNORECASE)
 ORCID_PATTERN = re.compile(r"^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$")
 
 
 class SyncError(Exception):
     """An unsafe or incomplete update; leave the published data untouched."""
+
+
+class SourceNotFound(SyncError):
+    """A source explicitly reports that an identifier is not registered."""
 
 
 class PlainTextParser(HTMLParser):
@@ -46,8 +52,13 @@ class PlainTextParser(HTMLParser):
 
 
 def plain_text(value):
+    # Crossref titles can put line breaks around superscripts, e.g. NAD <sup>+</sup>.
+    # Keep the scientific notation attached while retaining spaces between words.
+    value = re.sub(r"\s*(<(?:\w+:)?(?:sup|sub)\b[^>]*>)\s*", r"\1", str(value or ""), flags=re.I)
+    value = re.sub(r"\s*(</(?:\w+:)?(?:sup|sub)>)", r"\1", value, flags=re.I)
+    value = re.sub(r"(</(?:\w+:)?(?:sup|sub)>)\s+(?=[-−])", r"\1", value, flags=re.I)
     parser = PlainTextParser()
-    parser.feed(str(value or ""))
+    parser.feed(value)
     parser.close()
     return " ".join(html.unescape("".join(parser.parts)).split())
 
@@ -92,6 +103,12 @@ def validate_config(config):
             raise SyncError(f"{key} must be a list of strings.")
     if not config["include_types"] or any('"' in value for value in config["include_types"]):
         raise SyncError("Included publication types must be non-empty and cannot contain query quotation marks.")
+    servers = config.get("preprint_servers")
+    if not isinstance(servers, list) or not servers or any(server not in ("biorxiv", "medrxiv") for server in servers) or len(set(servers)) != len(servers):
+        raise SyncError("Preprint servers must be a non-empty list of biorxiv and/or medrxiv.")
+    separate = config.get("keep_preprints_separate", [])
+    if not isinstance(separate, list) or any(not normalized_doi(doi) for doi in separate):
+        raise SyncError("Preprints kept separately must have valid DOIs.")
 
 
 def validate_publications(publications):
@@ -123,6 +140,29 @@ def validate_publications(publications):
         pmid = str(publication.get("pmid") or "")
         if pmid and not re.fullmatch(r"\d+", pmid):
             raise SyncError(f"Publication {identifier} has an invalid PMID.")
+        if publication.get("kind", "article") not in ("article", "preprint"):
+            raise SyncError(f"Publication {identifier} has an invalid kind.")
+        if publication.get("kind") == "preprint" and (not doi or pmid):
+            raise SyncError(f"Preprint {identifier} must have a DOI and no PMID.")
+        preprint_dois = publication.get("preprint_dois", [])
+        if not isinstance(preprint_dois, list) or any(not normalized_doi(value) for value in preprint_dois):
+            raise SyncError(f"Publication {identifier} has invalid preprint DOI links.")
+        normalized_preprints = [normalized_doi(value) for value in preprint_dois]
+        if len(set(normalized_preprints)) != len(normalized_preprints) or doi in normalized_preprints:
+            raise SyncError(f"Publication {identifier} has duplicate preprint DOI links.")
+        if "citation_count" in publication:
+            count = publication["citation_count"]
+            if type(count) is not int or count < 0 or publication.get("citation_source") != "Crossref":
+                raise SyncError(f"Publication {identifier} has invalid Crossref citation metadata.")
+        elif "citation_source" in publication:
+            raise SyncError(f"Publication {identifier} has a citation source without a count.")
+        versions = publication.get("preprint_versions", [])
+        if not isinstance(versions, list) or any(
+            not isinstance(version, dict) or not isinstance(version.get("id"), str)
+            or not version["id"] or version.get("kind") != "preprint" or not normalized_doi(version.get("doi"))
+            for version in versions
+        ):
+            raise SyncError(f"Publication {identifier} has invalid archived preprint versions.")
 
 
 def author_orcids(author):
@@ -165,11 +205,15 @@ def record_to_publication(record, config):
     if not matches_author(record, config):
         return None
     types = {str(t).casefold() for t in record.get("pubTypeList", {}).get("pubType", [])}
-    if types.intersection(t.casefold() for t in config["exclude_types"]):
+    preprint = record.get("source") == "PPR" and record.get("verified_preprint_server") in config["preprint_servers"]
+    if "preprint" in types and not preprint:
         return None
-    if not types.intersection(t.casefold() for t in config["include_types"]):
+    excluded_types = {t.casefold() for t in config["exclude_types"]}
+    if types.intersection(excluded_types):
         return None
-    if record.get("source") == "PPR":
+    if not preprint and not types.intersection(t.casefold() for t in config["include_types"]):
+        return None
+    if record.get("source") == "PPR" and not preprint:
         return None
     doi = normalized_doi(record.get("doi"))
     pmid = str(record.get("pmid") or (record.get("id") if record.get("source") == "MED" else "") or "")
@@ -191,7 +235,7 @@ def record_to_publication(record, config):
         if name:
             authors.append(name)
     stable_key = doi or f"pmid:{pmid}"
-    return {
+    publication = {
         "id": "publication_" + hashlib.sha256(stable_key.encode()).hexdigest()[:16],
         "title": title,
         "authors": authors,
@@ -200,7 +244,11 @@ def record_to_publication(record, config):
         "doi": doi,
         "pmid": pmid,
         "tags": [],
+        "kind": "preprint" if preprint else "article",
     }
+    if record.get("preprint_dois"):
+        publication["preprint_dois"] = sorted({normalized_doi(value) for value in record["preprint_dois"]})
+    return publication
 
 
 def query_for(config):
@@ -219,8 +267,10 @@ def request_bytes(url):
             with urlopen(request, timeout=45) as response:
                 return response.read()
         except (HTTPError, URLError, TimeoutError) as exc:
+            if isinstance(exc, HTTPError) and exc.code == 404:
+                raise SourceNotFound(f"Publication source did not find this identifier: {url}") from exc
             if attempt == 2:
-                raise SyncError(f"PubMed is unavailable; existing publications preserved: {exc}") from exc
+                raise SyncError(f"A publication source is unavailable; existing publications preserved: {exc}") from exc
             time.sleep(2 ** attempt)
 
 
@@ -305,18 +355,304 @@ def fetch_records(config, fetch=request_bytes):
     return records
 
 
+def source_json(url, source, fetch):
+    try:
+        payload = json.loads(fetch(url))
+    except (ValueError, TypeError) as exc:
+        raise SyncError(f"{source} returned invalid JSON; catalogue preserved.") from exc
+    if not isinstance(payload, dict):
+        raise SyncError(f"{source} returned an unexpected document.")
+    return payload
+
+
+def crossref_search(parameters, fetch=request_bytes):
+    """Read every result; never treat a truncated author query as a full check."""
+    cursor = "*"
+    records = []
+    seen_dois = set()
+    expected_count = None
+    while True:
+        url = CROSSREF_URL + "?" + urlencode({**parameters, "rows": 100, "cursor": cursor})
+        payload = source_json(url, "Crossref", fetch)
+        message = payload.get("message")
+        if payload.get("status") != "ok" or not isinstance(message, dict):
+            raise SyncError("Crossref search failed; catalogue preserved.")
+        count = message.get("total-results")
+        items = message.get("items")
+        if type(count) is not int or not 0 <= count <= 10000 or not isinstance(items, list):
+            raise SyncError("Crossref search returned an invalid or unexpectedly large result set.")
+        if expected_count is None:
+            expected_count = count
+        if count != expected_count:
+            raise SyncError("Crossref results changed during pagination; try again later.")
+        for item in items:
+            doi = normalized_doi(item.get("DOI")) if isinstance(item, dict) else ""
+            if not doi or doi in seen_dois:
+                raise SyncError("Crossref returned invalid or repeated search results.")
+            seen_dois.add(doi)
+            records.append(item)
+        if len(records) == expected_count:
+            return records
+        if not items or len(records) > expected_count:
+            raise SyncError("Crossref returned incomplete search results.")
+        next_cursor = message.get("next-cursor")
+        if not isinstance(next_cursor, str) or not next_cursor:
+            raise SyncError("Crossref pagination ended before all results were received.")
+        cursor = next_cursor
+        time.sleep(0.4)
+
+
+def crossref_record(item):
+    """Normalize publisher metadata into the same author structure as PubMed."""
+    authors = item.get("author", [])
+    if not isinstance(authors, list) or any(not isinstance(author, dict) for author in authors):
+        raise SyncError("Crossref returned invalid author metadata.")
+    normalized_authors = []
+    for author in authors:
+        normalized_authors.append({
+            "firstName": author.get("given", ""),
+            "lastName": author.get("family", ""),
+            "fullName": author.get("name", ""),
+            "authorId": [{"type": "ORCID", "value": author["ORCID"]}] if author.get("ORCID") else [],
+        })
+    titles = item.get("title")
+    journals = item.get("container-title")
+    year = ""
+    for date_key in ("published", "published-online", "published-print", "issued"):
+        parts = item.get(date_key, {}).get("date-parts", [])
+        if parts and isinstance(parts[0], list) and parts[0]:
+            year = str(parts[0][0])
+            break
+    return {
+        "id": normalized_doi(item.get("DOI")),
+        "source": "CROSSREF",
+        "doi": normalized_doi(item.get("DOI")),
+        "pmid": "",
+        "title": titles[0] if isinstance(titles, list) and titles else "",
+        "pubYear": year,
+        "journalInfo": {"journal": {"title": journals[0] if isinstance(journals, list) and journals else ""}},
+        "authorList": {"author": normalized_authors},
+        "pubTypeList": {"pubType": ["Journal Article"] if item.get("type") == "journal-article" else ["Preprint"]},
+    }
+
+
+def preprint_server(item, config):
+    if item.get("type") != "posted-content" or item.get("subtype") != "preprint":
+        return None
+    # Check publisher-deposited server identity, not the DOI prefix (bioRxiv
+    # has used more than one prefix). The official server API verifies it next.
+    institutions = item.get("institution", [])
+    if not isinstance(institutions, list):
+        raise SyncError("Crossref returned invalid preprint-server metadata.")
+    names = {str(value.get("name", "")).casefold() for value in institutions if isinstance(value, dict)}
+    resource_url = item.get("resource", {}).get("primary", {}).get("URL", "")
+    hostname = (urlparse(str(resource_url)).hostname or "").lower()
+    for server in config["preprint_servers"]:
+        if server in names or hostname in (server + ".org", "www." + server + ".org"):
+            return server
+    return None
+
+
+def fetch_preprint_detail(doi, server, fetch=request_bytes):
+    url = PREPRINT_URL + server + "/" + quote(doi, safe="/")
+    payload = source_json(url, server, fetch)
+    messages = payload.get("messages")
+    versions = payload.get("collection")
+    if not isinstance(messages, list) or not messages or any(
+        not isinstance(message, dict) or message.get("status") != "ok" for message in messages
+    ) or not isinstance(versions, list) or not versions:
+        raise SyncError(f"{server} did not verify preprint {doi}.")
+    seen_versions = set()
+    for version in versions:
+        if not isinstance(version, dict) or normalized_doi(version.get("doi")) != doi or str(version.get("server", "")).casefold() != server:
+            raise SyncError(f"{server} returned a different preprint or server.")
+        number = str(version.get("version", ""))
+        if not number.isdigit() or int(number) < 1 or int(number) in seen_versions:
+            raise SyncError(f"{server} returned incomplete or repeated preprint versions.")
+        seen_versions.add(int(number))
+    latest = max(versions, key=lambda value: int(value["version"]))
+    if any(term in str(latest.get("type", "")).casefold() for term in ("withdraw", "retract")):
+        raise SyncError(f"Preprint {doi} is withdrawn or retracted; manual review is required.")
+    try:
+        datetime.strptime(latest["date"], "%Y-%m-%d")
+    except (KeyError, TypeError, ValueError) as exc:
+        raise SyncError(f"{server} returned an invalid preprint date.") from exc
+    if not plain_text(latest.get("title")) or "published" not in latest:
+        raise SyncError(f"{server} returned incomplete preprint metadata.")
+    published_value = str(latest["published"] or "").strip()
+    published_doi = "" if published_value.upper() in ("", "NA", "N/A") else normalized_doi(published_value)
+    if published_value.upper() not in ("", "NA", "N/A") and not published_doi:
+        raise SyncError(f"{server} returned an invalid published-article DOI.")
+    if published_doi == doi:
+        raise SyncError(f"{server} returned a circular preprint relationship.")
+    return latest, published_doi
+
+
+def fetch_crossref_work(doi, fetch=request_bytes, cache=None, allow_missing=False):
+    if cache is not None and doi in cache:
+        item = cache[doi]
+    else:
+        try:
+            time.sleep(0.4)
+            payload = source_json(CROSSREF_URL + "/" + quote(doi, safe="/"), "Crossref", fetch)
+        except SourceNotFound:
+            if not allow_missing:
+                raise
+            if cache is not None:
+                cache[doi] = None
+            return None
+        item = payload.get("message")
+        if payload.get("status") != "ok":
+            raise SyncError("Crossref did not verify the requested DOI.")
+    if item is None and allow_missing:
+        return None
+    if not isinstance(item, dict) or normalized_doi(item.get("DOI")) != doi:
+        raise SyncError("Crossref returned metadata for a different DOI.")
+    if cache is not None:
+        cache[doi] = item
+    return item
+
+
+def fetch_crossref_article(doi, config, fetch=request_bytes, cache=None):
+    item = fetch_crossref_work(doi, fetch, cache)
+    if item.get("type") != "journal-article":
+        raise SyncError("The linked published version is not a journal article.")
+    record = crossref_record(item)
+    if record_to_publication(record, config) is None:
+        raise SyncError("The linked published article could not be verified for this author.")
+    return record
+
+
+def fetch_preprint_records(config, published_records=(), existing=(), fetch=request_bytes, crossref_cache=None):
+    """Discover by name/ORCID, then verify each DOI with its preprint server."""
+    items = {}
+    searches = [{"filter": "type:posted-content,orcid:" + config["orcid"]}]
+    searches += [
+        {"filter": "type:posted-content", "query.author": name["first"] + " " + name["last"]}
+        for name in config["author_names"]
+    ]
+    for parameters in searches:
+        for item in crossref_search(parameters, fetch):
+            if crossref_cache is not None:
+                crossref_cache[normalized_doi(item["DOI"])] = item
+            server = preprint_server(item, config)
+            if server and matches_author(crossref_record(item), config):
+                items[normalized_doi(item["DOI"])] = (item, server)
+    # Recheck known preprints even if a later author search omits them. That also
+    # allows the server's eventual journal-version link to promote an entry.
+    known_preprints = set()
+    for publication in existing:
+        if publication.get("kind") == "preprint":
+            known_preprints.add(normalized_doi(publication.get("doi")))
+        known_preprints.update(normalized_doi(value) for value in publication.get("preprint_dois", []))
+    excluded = {normalized_doi(value) for value in config["exclude_dois"]}
+    for doi in sorted(known_preprints - set(items) - excluded):
+        if not doi:
+            continue
+        item = fetch_crossref_work(doi, fetch, crossref_cache)
+        server = preprint_server(item, config)
+        if not server or not matches_author(crossref_record(item), config):
+            raise SyncError("A previously imported preprint no longer has verifiable author metadata.")
+        items[doi] = (item, server)
+    published_by_doi = {
+        normalized_doi(record.get("doi")): record for record in published_records
+        if record_to_publication(record, config) is not None and normalized_doi(record.get("doi"))
+    }
+    separate = {normalized_doi(doi) for doi in config.get("keep_preprints_separate", [])}
+    records = []
+    for doi, (item, server) in sorted(items.items()):
+        if doi in excluded:
+            continue
+        detail, published_doi = fetch_preprint_detail(doi, server, fetch)
+        if published_doi and doi not in separate:
+            if published_doi in excluded:
+                continue
+            article = copy.deepcopy(published_by_doi.get(published_doi))
+            if article is None:
+                article = fetch_crossref_article(published_doi, config, fetch, crossref_cache)
+            article["preprint_dois"] = [doi]
+            records.append(article)
+            continue
+        record = crossref_record(item)
+        record.update({
+            "source": "PPR", "title": detail["title"], "pubYear": detail["date"][:4],
+            "journalInfo": {"journal": {"title": "bioRxiv" if server == "biorxiv" else "medRxiv"}},
+            "verified_preprint_server": server,
+        })
+        records.append(record)
+    return records
+
+
+def refresh_citations(publications, fetch=request_bytes, crossref_cache=None):
+    """Crossref counts describe one index; an unknown count is never a zero."""
+    output = copy.deepcopy(publications)
+    changed = 0
+    known = 0
+    total = 0
+    for publication in output:
+        before = (publication.get("citation_count"), publication.get("citation_source"))
+        doi = normalized_doi(publication.get("doi"))
+        work = fetch_crossref_work(doi, fetch, crossref_cache, allow_missing=True) if doi else None
+        count = work.get("is-referenced-by-count") if work is not None else None
+        if count is None:
+            publication.pop("citation_count", None)
+            publication.pop("citation_source", None)
+        else:
+            if type(count) is not int or count < 0:
+                raise SyncError(f"Crossref returned an invalid citation count for {doi}.")
+            publication["citation_count"] = count
+            publication["citation_source"] = "Crossref"
+            known += 1
+            total += count
+        if before != (publication.get("citation_count"), publication.get("citation_source")):
+            changed += 1
+    validate_publications(output)
+    return output, {"citation_counts_updated": changed, "citation_records": known, "citation_total": total}
+
+
+def merge_preprint_links(publication, candidate):
+    links = {normalized_doi(value) for value in publication.get("preprint_dois", [])}
+    links.update(normalized_doi(value) for value in candidate.get("preprint_dois", []))
+    if links:
+        publication["preprint_dois"] = sorted(links)
+
+
+def archive_preprint(publication, preprint):
+    """Keep the prior ID and all curated preprint metadata when versions join."""
+    snapshot = copy.deepcopy(preprint)
+    snapshot.pop("preprint_versions", None)
+    versions = publication.setdefault("preprint_versions", [])
+    if not any(version["id"] == snapshot["id"] and normalized_doi(version["doi"]) == normalized_doi(snapshot["doi"]) for version in versions):
+        versions.append(snapshot)
+
+
 def merge_publications(existing, records, config):
     validate_publications(existing)
     output = copy.deepcopy(existing)
     added = 0
     corrected_pmids = 0
     matched = 0
-    for record in sorted(records, key=lambda p: (str(p.get("doi", "")).lower(), str(p.get("id", "")))):
-        candidate = record_to_publication(record, config)
-        if not candidate:
-            continue
+    promoted = 0
+    consolidated = 0
+    candidates = [candidate for record in records if (candidate := record_to_publication(record, config)) is not None]
+    separate = {normalized_doi(value) for value in config.get("keep_preprints_separate", [])}
+    for candidate in candidates:
+        if candidate.get("preprint_dois"):
+            candidate["preprint_dois"] = [doi for doi in candidate["preprint_dois"] if doi not in separate]
+            if not candidate["preprint_dois"]:
+                candidate.pop("preprint_dois")
+    # Process explicit version relationships first, before the same article's
+    # independent PubMed record can be appended beside its existing preprint.
+    candidates.sort(key=lambda p: (0 if p.get("preprint_dois") else 1, p["doi"], p["pmid"]))
+    for candidate in candidates:
         matched += 1
         candidate_doi = normalized_doi(candidate["doi"])
+        related_preprints = {normalized_doi(value) for value in candidate.get("preprint_dois", [])}
+        if candidate["kind"] == "preprint" and candidate_doi not in separate and any(
+            publication.get("kind", "article") == "article" and candidate_doi in publication.get("preprint_dois", [])
+            for publication in output
+        ):
+            continue
         same_doi = next((p for p in output if candidate_doi and normalized_doi(p.get("doi")) == candidate_doi), None)
         if same_doi:
             # Preserve curated wording, display IDs and tags. Only correct a
@@ -324,6 +660,24 @@ def merge_publications(existing, records, config):
             if candidate["pmid"] and candidate["pmid"] != str(same_doi.get("pmid") or ""):
                 same_doi["pmid"] = candidate["pmid"]
                 corrected_pmids += 1
+            merge_preprint_links(same_doi, candidate)
+            if candidate["kind"] == "article":
+                for prior in list(output):
+                    if prior.get("kind") == "preprint" and normalized_doi(prior.get("doi")) in related_preprints:
+                        archive_preprint(same_doi, prior)
+                        output.remove(prior)
+                        consolidated += 1
+            continue
+        prior_preprint = next((p for p in output if p.get("kind") == "preprint" and normalized_doi(p.get("doi")) in related_preprints), None)
+        if prior_preprint and candidate["kind"] == "article":
+            # Keep stable graph identity, curated wording, authors and tags.
+            # Only an official server relationship permits publication status,
+            # canonical identifiers and venue/year to change automatically.
+            archive_preprint(prior_preprint, prior_preprint)
+            for field in ("doi", "pmid", "journal", "year", "kind"):
+                prior_preprint[field] = candidate[field]
+            merge_preprint_links(prior_preprint, candidate)
+            promoted += 1
             continue
         same_pmid = next((p for p in output if candidate["pmid"] and str(p.get("pmid") or "") == candidate["pmid"]), None)
         if same_pmid and (not normalized_doi(same_pmid.get("doi")) or not candidate_doi):
@@ -331,16 +685,19 @@ def merge_publications(existing, records, config):
                 same_pmid["doi"] = candidate_doi
             continue
         same_title = next((p for p in output if normalized_name(p["title"]) == normalized_name(candidate["title"])), None)
-        if same_title:
-            # A title match is enough to avoid a duplicate, but not enough to
-            # replace conflicting identifiers without manual investigation.
+        if same_title and same_title.get("kind", "article") == candidate["kind"] and (
+            not normalized_doi(same_title.get("doi")) or not candidate_doi
+        ):
+            # A title can deduplicate records missing identifiers. Distinct
+            # DOIs, particularly a preprint and an article, remain distinct
+            # unless the source supplies an explicit version relationship.
             continue
         output.append(candidate)
         added += 1
     if not matched:
-        raise SyncError("No verified published papers matched the configured author; existing catalogue preserved.")
+        raise SyncError("No verified publications matched the configured author; existing catalogue preserved.")
     validate_publications(output)
-    return output, {"added": added, "corrected_pmids": corrected_pmids, "verified_records": matched, "total": len(output)}
+    return output, {"added": added, "corrected_pmids": corrected_pmids, "promoted_preprints": promoted, "consolidated_preprints": consolidated, "verified_records": matched, "total": len(output)}
 
 
 def atomic_write(path, publications):
@@ -372,6 +729,12 @@ def checkpoint_update(path, publications, config, now=None):
     catalogue_hash = hashlib.sha256(json.dumps(
         publications, ensure_ascii=False, sort_keys=True, separators=(",", ":")
     ).encode("utf-8")).hexdigest()
+    configuration_hash = hashlib.sha256(json.dumps(config, sort_keys=True, separators=(",", ":")).encode()).hexdigest()
+    sources = [
+        {"name": "PubMed", "url": "https://pubmed.ncbi.nlm.nih.gov/", "purpose": "published articles"},
+        {"name": "Crossref", "url": "https://api.crossref.org/", "purpose": "preprint discovery, linked articles and citation counts"},
+        {"name": "/".join(config["preprint_servers"]), "url": "https://api.biorxiv.org/", "purpose": "preprint verification and published-version links"},
+    ]
     try:
         recorded = datetime.fromisoformat(previous.get("last_recorded_success", "").replace("Z", "+00:00"))
         if recorded.tzinfo is None:
@@ -379,11 +742,12 @@ def checkpoint_update(path, publications, config, now=None):
         due = now - recorded >= timedelta(days=28)
     except (ValueError, TypeError, AttributeError):
         due = True
-    if not due and previous.get("catalogue_sha256") == catalogue_hash and previous.get("author_orcid") == config["orcid"]:
+    if not due and previous.get("catalogue_sha256") == catalogue_hash and previous.get("author_orcid") == config["orcid"] and previous.get("configuration_sha256") == configuration_hash and previous.get("sources") == sources:
         return previous, False
     return {
-        "source": "PubMed (NCBI E-utilities)",
-        "source_url": "https://pubmed.ncbi.nlm.nih.gov/",
+        "source": "PubMed, Crossref and verified preprint servers",
+        "sources": sources,
+        "configuration_sha256": configuration_hash,
         "author_orcid": config["orcid"],
         "last_recorded_success": now.astimezone(timezone.utc).isoformat(timespec="seconds"),
         "publication_count": len(publications),
@@ -409,7 +773,12 @@ def main(argv=None):
             print(f"Validated {len(existing)} publications.")
             return 0
         records = fetch_records(config)
+        crossref_cache = {}
+        preprints = fetch_preprint_records(config, published_records=records, existing=existing, crossref_cache=crossref_cache)
+        records.extend(preprints)
         updated, summary = merge_publications(existing, records, config)
+        updated, citation_summary = refresh_citations(updated, crossref_cache=crossref_cache)
+        summary.update(citation_summary)
         changed = updated != existing
         summary["changed"] = changed
         checkpoint, checkpoint_changed = checkpoint_update(args.checkpoint, updated, config) if args.checkpoint else ({}, False)

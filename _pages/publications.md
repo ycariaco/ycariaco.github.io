@@ -8,15 +8,33 @@ nav_order: 5
 
 <hr style="margin:40px 0;">
 
+<div id="pub-citation-summary" class="pub-citation-summary" aria-live="polite"></div>
 <div id="pub-list" class="pub-list"></div>
 
 <style>
   .pub-list { margin-top: 16px; }
-  .pub-item { padding: 14px 0; border-bottom: 1px solid #eee; }
+  .pub-item { padding: 14px 0; border-bottom: 1px solid var(--global-divider-color, #eee); }
   .pub-title { font-weight: 600; }
-  .pub-meta { color: #555; margin-top: 4px; }
+  .pub-meta { color: var(--global-text-color, #555); opacity: .8; margin-top: 4px; }
   .pub-links { margin-top: 6px; }
   .pub-links a { margin-right: 10px; text-decoration: none; }
+  .pub-citation-summary { margin-bottom: 18px; }
+  .pub-citation-summary strong { font-size: 1.15rem; }
+  .pub-citation-note { font-size: .85rem; opacity: .75; margin-top: 4px; }
+  .publication-garden { margin: 38px 0 24px; }
+  .publication-garden-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+  .publication-garden-heading h2 { margin: 0; }
+  .publication-garden-help { margin: 12px 0 18px; font-size: .9rem; opacity: .8; }
+  .publication-garden-button { border: 1px solid currentColor; border-radius: 20px; background: transparent; color: inherit; padding: 6px 14px; font: inherit; font-size: .85rem; cursor: pointer; }
+  .publication-garden-button:focus-visible, .publication-garden-select:focus-visible { outline: 2px solid var(--global-theme-color, #e91e63); outline-offset: 3px; }
+  .publication-garden-button:disabled { opacity: .5; cursor: default; }
+  #cytoscape { width: 100%; min-height: 220px; border: 1px solid rgba(148, 163, 184, .3); border-radius: 16px; background: rgba(148, 163, 184, .035); }
+  .publication-garden-picker { display: block; margin: 18px 0 6px; font-size: .85rem; }
+  .publication-garden-select { width: 100%; min-width: 0; max-width: 100%; padding: 8px 10px; border: 1px solid rgba(148, 163, 184, .6); border-radius: 6px; font: inherit; font-size: .9rem; color: var(--global-text-color, #333); background: var(--global-bg-color, #fff); }
+  .publication-garden-detail { min-height: 100px; margin-top: 12px; padding: 14px 16px; border-left: 3px solid var(--global-theme-color, #e91e63); background: rgba(148, 163, 184, .07); border-radius: 0 8px 8px 0; }
+  .publication-garden-detail-title { font-weight: 600; }
+  .publication-garden-detail-meta { margin: 6px 0; font-size: .88rem; opacity: .8; }
+  @media (max-width: 480px) { .publication-garden-heading h2 { font-size: 1.4rem; } }
 </style>
 
 <script>
@@ -31,6 +49,17 @@ nav_order: 5
     return /^\d+$/.test(pmid) ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/` : "";
   }
 
+  function publicationCitationCount(pub) {
+    return pub.citation_source === "Crossref" && Number.isSafeInteger(pub.citation_count) && pub.citation_count >= 0
+      ? pub.citation_count
+      : null;
+  }
+
+  function publicationCitationText(pub) {
+    const count = publicationCitationCount(pub);
+    return count === null ? "" : `${count.toLocaleString()} Crossref ${count === 1 ? "citation" : "citations"}`;
+  }
+
   fetch("/assets/json/publications.json")
     .then((r) => {
       if (!r.ok) throw new Error("Failed to load publications.json");
@@ -39,6 +68,25 @@ nav_order: 5
     .then((data) => {
       data.sort((a, b) => (b.year || 0) - (a.year || 0));
       const container = document.getElementById("pub-list");
+      const citationCounts = data.map(publicationCitationCount).filter((count) => count !== null);
+      const summary = document.getElementById("pub-citation-summary");
+      if (citationCounts.length) {
+        const total = citationCounts.reduce((sum, count) => sum + count, 0);
+        const countText = document.createElement("strong");
+        countText.textContent = `${total.toLocaleString()} ${total === 1 ? "citation" : "citations"}`;
+        const source = document.createElement("a");
+        source.href = "https://www.crossref.org/services/cited-by/";
+        source.textContent = "Crossref";
+        source.target = "_blank";
+        source.rel = "noopener";
+        const note = document.createElement("div");
+        note.className = "pub-citation-note";
+        note.textContent = "Counts reflect references indexed by Crossref and may differ from other databases.";
+        if (citationCounts.length < data.length) {
+          note.textContent += ` Counts are available for ${citationCounts.length} of ${data.length} publications.`;
+        }
+        summary.replaceChildren(countText, " · ", source, note);
+      }
       const items = data.map((pub) => {
         const item = document.createElement("div");
         item.className = "pub-item";
@@ -54,10 +102,30 @@ nav_order: 5
           metadata.append(" ", journal);
         }
         item.append(title, metadata);
+        if (pub.kind === "preprint") {
+          const status = document.createElement("div");
+          status.className = "pub-meta";
+          status.textContent = "Preprint · Not peer reviewed";
+          item.append(status);
+        }
+
+        const citationText = publicationCitationText(pub);
+        if (citationText) {
+          const citations = document.createElement("div");
+          citations.className = "pub-meta";
+          citations.textContent = citationText;
+          item.append(citations);
+        }
 
         const urls = [
           ["DOI", publicationDoiUrl(pub.doi)],
           ["PMID", publicationPmidUrl(pub.pmid)],
+          ...(pub.kind !== "preprint" && Array.isArray(pub.preprint_dois)
+            ? pub.preprint_dois.map((doi, index) => [
+                pub.preprint_dois.length > 1 ? `Preprint ${index + 1}` : "Preprint",
+                publicationDoiUrl(doi),
+              ])
+            : []),
         ].filter(([, url]) => url);
         if (urls.length) {
           const links = document.createElement("div");
@@ -83,274 +151,252 @@ nav_order: 5
     });
 </script>
 
-<div
-  id="cytoscape"
-  style="width: 100%; height: 800px; border: 1px solid #ddd; margin: 20px 0;"
-></div>
+<section class="publication-garden" aria-labelledby="publication-garden-title">
+  <div class="publication-garden-heading">
+    <h2 id="publication-garden-title">Publications by year</h2>
+    <button id="publication-motion" class="publication-garden-button" type="button" aria-pressed="false" disabled>Pause animation</button>
+  </div>
+  <p id="publication-garden-help" class="publication-garden-help">Each year is a flower center, with a paper on every petal. Hover to explore or click a petal to open the paper. Dashed petals are preprints.</p>
+  <div id="cytoscape" role="img" aria-label="Publication flowers grouped by year" aria-describedby="publication-garden-help"></div>
+  <label for="publication-picker" class="publication-garden-picker">Explore a publication</label>
+  <select id="publication-picker" class="publication-garden-select" disabled>
+    <option>Loading publications…</option>
+  </select>
+  <div id="publication-garden-detail" class="publication-garden-detail" aria-live="polite">
+    Select a publication to see its details.
+  </div>
+</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
 
 <script>
-  fetch("/assets/json/publications.json")
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to load publications.json");
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Loaded publications:", data.length);
+  (() => {
+    const garden = document.getElementById("cytoscape");
+    const motionButton = document.getElementById("publication-motion");
+    const picker = document.getElementById("publication-picker");
+    const detail = document.getElementById("publication-garden-detail");
 
-      const nodes = [];
-      const edges = [];
-      const years = new Set();
-
-      const pastel = [
-        "#F8BBD0",
-        "#BBDEFB",
-        "#C8E6C9",
-        "#FFE0B2",
-        "#D1C4E9",
-        "#B2EBF2",
-        "#FFCDD2",
-        "#DCEDC8",
-        "#FFF9C4",
-        "#E1BEE7",
-      ];
-
-      // Create publication nodes
-      data.forEach((pub) => {
-        const title =
-          pub.title.length > 50
-            ? pub.title.substring(0, 50) + "..."
-            : pub.title;
-        nodes.push({
-          data: {
-            id: pub.id,
-            label: title,
-            fullTitle: pub.title,
-            year: pub.year,
-            journal: pub.journal,
-            doi: pub.doi,
-            pmid: pub.pmid,
-          },
-        });
-        years.add(pub.year);
-      });
-
-      // Create year nodes (for grouping)
-      Array.from(years)
-        .sort((a, b) => b - a)
-        .forEach((year) => {
-          nodes.push({
-            data: {
-              id: `year-${year}`,
-              label: year.toString(),
-            },
-          });
-        });
-
-      const yearsSorted = Array.from(years).sort((a, b) => a - b);
-      const yearColor = {};
-      yearsSorted.forEach((year, i) => {
-        yearColor[year] = pastel[i % pastel.length];
-      });
-
-      nodes.forEach((n) => {
-        if (!n.data.id.startsWith("year-")) {
-          n.data.color = yearColor[n.data.year];
+    fetch("/assets/json/publications.json")
+      .then((response) => {
+        if (!response.ok) throw new Error("Failed to load publications.json");
+        return response.json();
+      })
+      .then((data) => {
+        const publications = [...data].sort((a, b) => (b.year || 0) - (a.year || 0));
+        if (!publications.length) {
+          garden.textContent = "Publications will appear here as they are added.";
+          picker.replaceChildren(new Option("No publications yet", ""));
+          return;
         }
-      });
-
-      // Create edges: publications to years
-      data.forEach((pub) => {
-        edges.push({
-          data: {
-            source: pub.id,
-            target: `year-${pub.year}`,
-          },
-        });
-      });
-
-      // Create edges between co-authored papers
-      for (let i = 0; i < data.length; i++) {
-        for (let j = i + 1; j < data.length; j++) {
-          const pubA = data[i];
-          const pubB = data[j];
-
-          if (
-            !Array.isArray(pubA.authors) ||
-            !Array.isArray(pubB.authors)
-          ) {
-            continue;
-          }
-
-          const commonAuthors = pubA.authors.filter((a) =>
-            pubB.authors.some(
-              (b) =>
-                a.toLowerCase().includes(b.toLowerCase()) ||
-                b.toLowerCase().includes(a.toLowerCase())
-            )
-          );
-
-          if (commonAuthors.length > 0) {
-            edges.push({
-              data: {
-                source: pubA.id,
-                target: pubB.id,
-                weight: commonAuthors.length,
-              },
+        const byId = new Map(publications.map((pub) => [pub.id, pub]));
+        const years = [...new Set(publications.map((pub) => pub.year))].sort((a, b) => b - a);
+        const palette = ["#F8BBD0", "#BBDEFB", "#C8E6C9", "#FFE0B2", "#D1C4E9", "#B2EBF2", "#FFCDD2", "#DCEDC8", "#FFF9C4", "#E1BEE7"];
+        const flowers = years.map((year, index) => ({
+          year,
+          color: palette[index % palette.length],
+          papers: publications.filter((pub) => pub.year === year),
+          angle: index * .7,
+          speed: (index % 2 ? -1 : 1) * (.085 + (index % 3) * .012),
+          center: { x: 0, y: 0 },
+        }));
+        const elements = [];
+        flowers.forEach((flower) => {
+          elements.push({
+            data: { id: `year-${flower.year}`, label: String(flower.year), color: flower.color },
+            classes: "year-center",
+          });
+          flower.papers.forEach((pub) => {
+            elements.push({
+              data: { id: pub.id, color: flower.color, year: flower.year },
+              classes: pub.kind === "preprint" ? "paper preprint" : "paper",
             });
-          }
-        }
-      }
-
-      console.log("Nodes:", nodes.length, "Edges:", edges.length);
-
-      const cy = cytoscape({
-        container: document.getElementById("cytoscape"),
-        elements: [...nodes, ...edges],
-        style: [
-          {
-            selector: "node",
-            style: {
-              "background-color": "data(color)",
-              label: "",
-              "text-opacity": 0,
-              "font-size": 9,
-              "text-valign": "center",
-              "text-halign": "center",
-              "text-background-color": "rgba(255,255,255,0.9)",
-              "text-background-opacity": 1,
-              "text-background-padding": 3,
-              "text-background-shape": "round-rectangle",
-              width: 26,
-              height: 26,
-              "border-width": 1,
-              "border-color": "#94a3b8",
-            },
-          },
-          {
-            selector: 'node[id ^= "year"]',
-            style: {
-              "background-color": "#94a3b8",
-              label: "data(label)",
-              "text-opacity": 1,
-              width: 42,
-              height: 42,
-              "font-size": 12,
-              "font-weight": "bold",
-              "border-width": 2,
-              "border-color": "#475569",
-            },
-          },
-          {
-            selector: "node:hover",
-            style: {
-              label: "data(label)",
-              "text-opacity": 1,
-              "border-width": 2,
-              "border-color": "#64748b",
-            },
-          },
-          {
-            selector: "edge",
-            style: {
-              "line-color": "#cbd5e1",
-              width: "mapData(weight, 1, 5, 1, 3)",
-              opacity: 0.5,
-              "curve-style": "bezier",
-            },
-          },
-        ],
-        layout: {
-          name: "preset",
-        },
-      });
-
-      const yearsClock = Array.from(years).sort((a, b) => b - a);
-      const yearNodes = cy.nodes('[id ^= "year-"]');
-      const center = { x: cy.width() / 2, y: cy.height() / 2 };
-      const radius = Math.min(cy.width(), cy.height()) * 0.38;
-
-      yearsClock.forEach((year, i) => {
-        const angle = (i / yearsClock.length) * 2 * Math.PI - Math.PI / 2;
-        const node = cy.getElementById(`year-${year}`);
-        node.position({
-          x: center.x + radius * Math.cos(angle),
-          y: center.y + radius * Math.sin(angle),
-        });
-      });
-
-      yearNodes.lock();
-      yearNodes.grabbable(false);
-
-      cy.layout({
-        name: "cose",
-        directed: false,
-        animate: true,
-        animationDuration: 600,
-        avoidOverlap: true,
-        nodeSpacing: 40,
-        nodeRepulsion: 9000,
-        idealEdgeLength: 160,
-        edgeElasticity: 0.2,
-        gravity: 0.08,
-        numIter: 2000,
-        randomize: true,
-      }).run();
-
-      const floatSpeed = 0.02;
-      const jitter = 0.004;
-
-      const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
-
-      floating.forEach((n) => {
-        n.scratch("_v", {
-          vx: (Math.random() - 0.5) * floatSpeed,
-          vy: (Math.random() - 0.5) * floatSpeed,
-        });
-      });
-
-      function floatTick() {
-        const w = cy.width();
-        const h = cy.height();
-
-        cy.batch(() => {
-          floating.forEach((n) => {
-            const v = n.scratch("_v");
-            v.vx += (Math.random() - 0.5) * jitter;
-            v.vy += (Math.random() - 0.5) * jitter;
-
-            let x = n.position("x") + v.vx;
-            let y = n.position("y") + v.vy;
-
-            if (x < 0 || x > w) v.vx *= -1;
-            if (y < 0 || y > h) v.vy *= -1;
-
-            n.position({ x, y });
+            elements.push({ data: { source: `year-${flower.year}`, target: pub.id, color: flower.color } });
           });
         });
 
-        requestAnimationFrame(floatTick);
-      }
+        const cy = cytoscape({
+          container: garden,
+          elements,
+          layout: { name: "preset", fit: false },
+          zoom: 1,
+          pan: { x: 0, y: 0 },
+          userZoomingEnabled: false,
+          userPanningEnabled: false,
+          boxSelectionEnabled: false,
+          autoungrabify: true,
+          autounselectify: true,
+          style: [
+            {
+              selector: "node",
+              style: { "background-color": "data(color)", width: 30, height: 30, "border-width": 1.5, "border-color": "#64748b", "overlay-opacity": 0 },
+            },
+            {
+              selector: ".year-center",
+              style: { width: 48, height: 48, label: "data(label)", color: "#263245", "font-size": 13, "font-weight": 600, "text-valign": "center", "text-halign": "center", "border-width": 2, "border-color": "#64748b" },
+            },
+            {
+              selector: ".preprint",
+              style: { "border-style": "dashed", "border-width": 2.5 },
+            },
+            {
+              selector: ".paper.highlighted",
+              style: { "border-width": 3, "border-color": "#d81b60", "underlay-color": "#e91e63", "underlay-opacity": .12, "underlay-padding": 5 },
+            },
+            {
+              selector: "edge",
+              style: { width: 2, "line-color": "data(color)", opacity: .8, "curve-style": "straight", "events": "no", "overlay-opacity": 0 },
+            },
+          ],
+        });
 
-      floatTick();
-
-      // Add hover tooltip
-      cy.on("tap", "node", function (evt) {
-        const node = evt.target;
-
-        // ignore year nodes
-        if (node.id().startsWith("year-")) return;
-
-        const data = node.data();
-        const url = publicationDoiUrl(data.doi) || publicationPmidUrl(data.pmid);
-
-        if (url) {
-          window.open(url, "_blank", "noopener,noreferrer");
-        } else {
-          console.log("No link found for:", data);
+        function showPublication(pub) {
+          picker.value = pub.id;
+          cy.nodes(".highlighted").removeClass("highlighted");
+          cy.getElementById(pub.id).addClass("highlighted");
+          const title = document.createElement("div");
+          title.className = "publication-garden-detail-title";
+          title.textContent = pub.title;
+          const meta = document.createElement("div");
+          meta.className = "publication-garden-detail-meta";
+          meta.textContent = [pub.year, pub.journal, pub.kind === "preprint" ? "Preprint · Not peer reviewed" : "", publicationCitationText(pub)].filter(Boolean).join(" · ");
+          const url = publicationDoiUrl(pub.doi) || publicationPmidUrl(pub.pmid);
+          const children = [title, meta];
+          if (url) {
+            const link = document.createElement("a");
+            link.href = url;
+            link.target = "_blank";
+            link.rel = "noopener";
+            link.textContent = "Open publication ↗";
+            children.push(link);
+          }
+          detail.replaceChildren(...children);
         }
+
+        picker.replaceChildren(...publications.map((pub) => new Option(`${pub.year} · ${pub.title}${pub.kind === "preprint" ? " (Preprint)" : ""}`, pub.id)));
+        picker.disabled = false;
+        picker.addEventListener("change", () => showPublication(byId.get(picker.value)));
+        showPublication(publications[0]);
+
+        let cellWidth = 220;
+        let heldYear = null;
+        let lastWidth = 0;
+        function positionPetals() {
+          cy.batch(() => {
+            flowers.forEach((flower) => {
+              if (!flower.rings) return;
+              cy.getElementById(`year-${flower.year}`).position(flower.center);
+              let paperIndex = 0;
+              flower.rings.forEach((ring, ringIndex) => {
+                for (let i = 0; i < ring.count; i++) {
+                  const angle = flower.angle * (ringIndex % 2 ? -.7 : 1) + i * 2 * Math.PI / ring.count - Math.PI / 2;
+                  const pub = flower.papers[paperIndex++];
+                  cy.getElementById(pub.id).position({ x: flower.center.x + ring.radius * flower.scale * Math.cos(angle), y: flower.center.y + ring.radius * flower.scale * Math.sin(angle) });
+                }
+              });
+            });
+          });
+        }
+
+        function arrangeFlowers() {
+          const width = garden.clientWidth;
+          if (!width || Math.abs(width - lastWidth) < 1) return;
+          lastWidth = width;
+          // Add rings for prolific years; scale each flower to fit even narrow screens.
+          flowers.forEach((flower) => {
+            flower.rings = [];
+            let remaining = flower.papers.length;
+            let radius = 62;
+            while (remaining > 0) {
+              const count = Math.min(remaining, Math.floor(2 * Math.PI * radius / 38));
+              flower.rings.push({ radius, count });
+              remaining -= count;
+              radius += 38;
+            }
+          });
+          const outerRadius = Math.max(...flowers.map((flower) => flower.rings[flower.rings.length - 1].radius));
+          const desiredCell = Math.max(210, (outerRadius + 28) * 2);
+          const columns = Math.max(1, Math.min(4, Math.floor(width / desiredCell)));
+          cellWidth = width / columns;
+          const cellHeight = Math.max(190, Math.min(outerRadius, cellWidth / 2 - 28) * 2 + 56);
+          const rows = Math.ceil(flowers.length / columns);
+          garden.style.height = `${rows * cellHeight + 24}px`;
+          flowers.forEach((flower, index) => {
+            const row = Math.floor(index / columns);
+            const flowersInRow = Math.min(columns, flowers.length - row * columns);
+            const rowOffset = (width - flowersInRow * cellWidth) / 2;
+            flower.center = { x: rowOffset + (index % columns + .5) * cellWidth, y: 12 + (row + .5) * cellHeight };
+            const radius = flower.rings[flower.rings.length - 1].radius;
+            flower.scale = Math.min(1, Math.max(30, cellWidth / 2 - 28) / radius);
+            flower.papers.forEach((pub) => cy.getElementById(pub.id).style({ width: 30 * flower.scale, height: 30 * flower.scale }));
+            cy.getElementById(`year-${flower.year}`).style({ width: Math.max(32, 48 * flower.scale), height: Math.max(32, 48 * flower.scale) });
+          });
+          cy.resize();
+          positionPetals();
+        }
+
+        const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
+        let paused = reducedMotion.matches;
+        let visible = true;
+        let frame = 0;
+        let lastTime = null;
+        function updateMotionButton() {
+          motionButton.textContent = paused ? "Resume animation" : "Pause animation";
+          motionButton.setAttribute("aria-pressed", String(paused));
+        }
+        function tick(time) {
+          frame = 0;
+          if (paused || !visible || document.hidden) { lastTime = null; return; }
+          if (lastTime !== null) {
+            const elapsed = Math.min((time - lastTime) / 1000, .05);
+            flowers.forEach((flower) => { if (flower.year !== heldYear) flower.angle += elapsed * flower.speed; });
+            positionPetals();
+          }
+          lastTime = time;
+          frame = requestAnimationFrame(tick);
+        }
+        function syncAnimation() {
+          if (frame) cancelAnimationFrame(frame);
+          frame = 0;
+          lastTime = null;
+          if (!paused && visible && !document.hidden) frame = requestAnimationFrame(tick);
+          updateMotionButton();
+        }
+        motionButton.disabled = false;
+        motionButton.addEventListener("click", () => { paused = !paused; syncAnimation(); });
+        reducedMotion.addEventListener("change", (event) => { paused = event.matches; syncAnimation(); });
+        document.addEventListener("visibilitychange", syncAnimation);
+        const intersectionObserver = new IntersectionObserver(([entry]) => { visible = entry.isIntersecting; syncAnimation(); });
+        intersectionObserver.observe(garden);
+        const resizeObserver = new ResizeObserver(arrangeFlowers);
+        resizeObserver.observe(garden);
+
+        cy.on("mouseover", ".paper", (event) => {
+          const pub = byId.get(event.target.id());
+          heldYear = pub.year;
+          garden.style.cursor = "pointer";
+          showPublication(pub);
+        });
+        cy.on("mouseout", ".paper", () => { heldYear = null; garden.style.cursor = "default"; });
+        cy.on("tap", ".paper", (event) => {
+          const pub = byId.get(event.target.id());
+          showPublication(pub);
+          const url = publicationDoiUrl(pub.doi) || publicationPmidUrl(pub.pmid);
+          if (url) window.open(url, "_blank", "noopener,noreferrer");
+        });
+        window.addEventListener("pagehide", () => {
+          if (frame) cancelAnimationFrame(frame);
+          frame = 0;
+          lastTime = null;
+        });
+        window.addEventListener("pageshow", syncAnimation);
+        arrangeFlowers();
+        syncAnimation();
+      })
+      .catch((error) => {
+        console.error("Error loading publication flowers:", error);
+        garden.textContent = "The publication map is temporarily unavailable. All publication links are listed above.";
+        picker.replaceChildren(new Option("Map unavailable", ""));
+        detail.textContent = "You can browse every publication in the list above.";
       });
-    })
-    .catch((err) => console.error("Error loading publications:", err));
+  })();
 </script>

@@ -4,15 +4,15 @@ title: Publications
 permalink: /publications/
 nav: true
 nav_order: 5
+hide_title: true
 ---
 
 <section class="publication-garden" aria-labelledby="publication-garden-title">
   <div class="publication-garden-heading">
-    <h2 id="publication-garden-title">Publications by year</h2>
+    <h1 id="publication-garden-title" class="publication-section-title">Publications by year</h1>
     <button id="publication-motion" class="publication-garden-button" type="button" aria-pressed="false" disabled>Pause animation</button>
   </div>
-  <p id="publication-garden-help" class="publication-garden-help">Organ icons orbit each year in matching colors. Hover to explore or click an icon to open the paper. A small P badge marks preprints.</p>
-  <div id="cytoscape" role="img" aria-label="Publication organ icons orbiting each year" aria-describedby="publication-garden-help"></div>
+  <div id="cytoscape" role="img" aria-label="Publication organ icons orbiting each year"></div>
   <div id="publication-organ-legend" class="publication-organ-legend" aria-label="Publication icon guide"></div>
   <label for="publication-picker" class="publication-garden-picker">Explore a publication</label>
   <select id="publication-picker" class="publication-garden-select" disabled>
@@ -25,9 +25,8 @@ nav_order: 5
 
 <hr style="margin:40px 0;">
 
-<h2>Full list of publications</h2>
+<h2 class="publication-section-title">Full list of publications</h2>
 
-<div id="pub-citation-summary" class="pub-citation-summary" aria-live="polite"></div>
 <div id="pub-list" class="pub-list"></div>
 
 <style>
@@ -37,13 +36,10 @@ nav_order: 5
   .pub-meta { color: var(--global-text-color, #555); opacity: .8; margin-top: 4px; }
   .pub-links { margin-top: 6px; }
   .pub-links a { margin-right: 10px; text-decoration: none; }
-  .pub-citation-summary { margin-bottom: 18px; }
-  .pub-citation-summary strong { font-size: 1.15rem; }
-  .pub-citation-note { font-size: .85rem; opacity: .75; margin-top: 4px; }
+  .publication-section-title { color: var(--global-theme-color, #e91e63); font-size: 2rem; font-weight: 400; line-height: 1.2; }
   .publication-garden { margin: 0 0 24px; }
-  .publication-garden-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .publication-garden-heading h2 { margin: 0; }
-  .publication-garden-help { margin: 12px 0 18px; font-size: .9rem; opacity: .8; }
+  .publication-garden-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-bottom: 20px; }
+  .publication-garden-heading .publication-section-title { margin: 0; }
   .publication-garden-button { border: 1px solid currentColor; border-radius: 20px; background: transparent; color: inherit; padding: 6px 14px; font: inherit; font-size: .85rem; cursor: pointer; }
   .publication-garden-button:focus-visible, .publication-garden-select:focus-visible { outline: 2px solid var(--global-theme-color, #e91e63); outline-offset: 3px; }
   .publication-garden-button:disabled { opacity: .5; cursor: default; }
@@ -56,7 +52,7 @@ nav_order: 5
   .publication-garden-detail { min-height: 100px; margin-top: 12px; padding: 14px 16px; border-left: 3px solid var(--global-theme-color, #e91e63); background: rgba(148, 163, 184, .07); border-radius: 0 8px 8px 0; }
   .publication-garden-detail-title { font-weight: 600; }
   .publication-garden-detail-meta { margin: 6px 0; font-size: .88rem; opacity: .8; }
-  @media (max-width: 480px) { .publication-garden-heading h2 { font-size: 1.4rem; } }
+  @media (max-width: 480px) { .publication-section-title { font-size: 1.4rem; } }
 </style>
 
 <script>
@@ -90,25 +86,6 @@ nav_order: 5
     .then((data) => {
       data.sort((a, b) => (b.year || 0) - (a.year || 0));
       const container = document.getElementById("pub-list");
-      const citationCounts = data.map(publicationCitationCount).filter((count) => count !== null);
-      const summary = document.getElementById("pub-citation-summary");
-      if (citationCounts.length) {
-        const total = citationCounts.reduce((sum, count) => sum + count, 0);
-        const countText = document.createElement("strong");
-        countText.textContent = `${total.toLocaleString()} ${total === 1 ? "citation" : "citations"}`;
-        const source = document.createElement("a");
-        source.href = "https://www.crossref.org/services/cited-by/";
-        source.textContent = "Crossref";
-        source.target = "_blank";
-        source.rel = "noopener";
-        const note = document.createElement("div");
-        note.className = "pub-citation-note";
-        note.textContent = "Counts reflect references indexed by Crossref and may differ from other databases.";
-        if (citationCounts.length < data.length) {
-          note.textContent += ` Counts are available for ${citationCounts.length} of ${data.length} publications.`;
-        }
-        summary.replaceChildren(countText, " · ", source, note);
-      }
       const items = data.map((pub) => {
         const item = document.createElement("div");
         item.className = "pub-item";
@@ -176,13 +153,15 @@ nav_order: 5
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
 
 <script>
-  // Returns an encoded SVG data URI for Cytoscape's background-image.
-  // The caller supplies the year color; preprints receive a small vector P badge.
-  function publicationOrganSvg(type, color, preprint = false) {
+// Glossy, filter-free organ SVGs. Returns an encoded data URI.
+function publicationOrganSvg(type, color, preprint = false) {
     const fill = /^#[0-9a-f]{6}$/i.test(color) ? color : "#e9b6cc";
-    const outline = `#${[1, 3, 5]
-      .map((i) => Math.round(parseInt(fill.slice(i, i + 2), 16) * 0.57).toString(16).padStart(2, "0"))
-      .join("")}`;
+    const channels = [1, 3, 5].map((i) => parseInt(fill.slice(i, i + 2), 16));
+    const blend = (target, amount) => `#${channels.map((value) => Math.round(value + (target - value) * amount).toString(16).padStart(2, "0")).join("")}`;
+    const outline = blend(0, .43);
+    const pale = blend(255, .56);
+    const light = blend(255, .18);
+    const shade = blend(0, .18);
     const organs = {
       placenta: `
         <path d="M32 22C45 20 56 28 56 40C57 52 46 60 33 60C19 61 8 52 8 40C8 29 18 22 32 22Z"/>
@@ -190,7 +169,7 @@ nav_order: 5
           <path d="M32 33L31 43L24 53M31 43L40 54M32 35L21 32L15 35M21 32L19 27M31 40L18 44L14 41M18 44L18 50M33 35L44 30L49 33M44 30L44 26M33 41L45 45L51 41M45 45L48 51M31 47L33 56"/>
         </g>
         <path d="M32 34C29 26 29 20 35 15C40 11 46 15 48 11C51 6 44 3 40 6" fill="none" stroke-width="6.2"/>
-        <path d="M32 34C29 26 29 20 35 15C40 11 46 15 48 11C51 6 44 3 40 6" fill="none" stroke="${fill}" stroke-width="3.1"/>
+        <path d="M32 34C29 26 29 20 35 15C40 11 46 15 48 11C51 6 44 3 40 6" fill="none" stroke="url(#enamel)" stroke-width="3.1"/>
         <path d="M14 34C17 28 22 27 26 27" class="shine"/>`,
       brain: `
         <path d="M31 12C25 7 17 10 14 16C7 17 5 24 9 30C4 36 7 44 14 46C15 54 25 58 32 53C39 58 49 54 51 47C59 44 61 36 55 30C58 23 54 16 48 16C45 8 37 7 31 12Z"/>
@@ -201,7 +180,7 @@ nav_order: 5
       intestine: `
         <path d="M16 56C9 56 7 52 7 45V22C7 13 12 8 20 8H43C52 8 57 13 57 22V45C57 52 53 56 46 56H37V48H46C48 48 49 46 49 43V23C49 19 47 17 43 17H21C17 17 15 19 15 23V45C15 48 17 49 20 49H24V56Z"/>
         <path d="M23 24H39C44 24 44 31 39 31H25C20 31 20 38 25 38H39C44 38 44 45 39 45H31V56" fill="none" stroke-width="6.7"/>
-        <path d="M23 24H39C44 24 44 31 39 31H25C20 31 20 38 25 38H39C44 38 44 45 39 45H31V56" fill="none" stroke="${fill}" stroke-width="3.1"/>
+        <path d="M23 24H39C44 24 44 31 39 31H25C20 31 20 38 25 38H39C44 38 44 45 39 45H31V56" fill="none" stroke="url(#enamel)" stroke-width="3.1"/>
         <g fill="none" stroke-width="1.5"><path d="M9 23H14M9 34H14M10 45H14M20 10V15M31 10V15M42 10V15M51 23H55M51 34H55M50 45H54"/></g>
         <path d="M12 18C13 14 16 13 19 13" class="shine"/>`,
       liver: `
@@ -213,11 +192,11 @@ nav_order: 5
         <path d="M34 8C21 5 11 14 9 28C6 42 13 54 24 56C32 58 39 53 40 46C41 41 38 38 33 36C29 34 29 29 33 27C38 25 42 24 42 18C42 13 39 9 34 8Z"/>
         <path d="M31 18C22 17 17 25 17 33C17 42 22 47 29 47M29 27L24 25M29 35L22 37" fill="none" stroke-width="1.8"/>
         <path d="M35 31C42 31 48 35 48 44V56" fill="none" stroke-width="5.3"/>
-        <path d="M35 31C42 31 48 35 48 44V56" fill="none" stroke="${fill}" stroke-width="2.3"/>
+        <path d="M35 31C42 31 48 35 48 44V56" fill="none" stroke="url(#enamel)" stroke-width="2.3"/>
         <path d="M15 23C18 16 23 13 28 13" class="shine"/>`,
       uterus: `
         <path d="M26 25C22 16 14 14 9 18C6 20 6 25 9 27M38 25C42 16 50 14 55 18C58 20 58 25 55 27" fill="none" stroke-width="6.4"/>
-        <path d="M26 25C22 16 14 14 9 18C6 20 6 25 9 27M38 25C42 16 50 14 55 18C58 20 58 25 55 27" fill="none" stroke="${fill}" stroke-width="3.3"/>
+        <path d="M26 25C22 16 14 14 9 18C6 20 6 25 9 27M38 25C42 16 50 14 55 18C58 20 58 25 55 27" fill="none" stroke="url(#enamel)" stroke-width="3.3"/>
         <path d="M22 25C22 18 42 18 42 25C44 34 37 41 36 48V56H28V48C27 41 20 34 22 25Z"/>
         <path d="M26 28C28 25 36 25 38 28L32 39V50" fill="none" stroke-width="1.9"/>
         <path d="M13 27C17 28 18 33 14 36C10 39 6 35 7 31C8 28 10 26 13 27ZM51 27C47 28 46 33 50 36C54 39 58 35 57 31C56 28 54 26 51 27Z"/>
@@ -229,18 +208,47 @@ nav_order: 5
         <path d="M17 25C20 22 21 25 19 27M44 43C41 46 44 48 47 45M20 43L23 45M43 19L45 22" fill="none" stroke-width="2.2"/>
         <path d="M15 19C18 15 22 15 25 14" class="shine"/>`,
     };
+    const gloss = {
+      placenta: "M13 35C16 28 24 25 33 25C42 24 49 28 52 34C42 31 35 39 24 38C19 38 15 37 13 35Z",
+      brain: "M12 25C10 21 14 17 18 17C21 11 27 12 31 15C36 11 43 12 46 18C49 18 52 22 51 26C43 23 38 28 31 24C24 20 19 28 12 25Z",
+      intestine: "M12 22C11 15 15 11 22 11H43C50 11 54 16 53 22L50 22C50 17 47 15 43 15H21C17 15 14 17 14 22Z",
+      liver: "M9 26C7 21 16 17 25 16C37 13 49 16 53 20C47 23 40 21 33 27C25 32 16 33 9 31Z",
+      kidney: "M13 30C13 18 21 10 30 11C36 11 40 16 38 21C33 19 30 22 26 26C21 30 17 32 13 30Z",
+      uterus: "M25 26C25 21 39 21 39 26C40 29 38 32 36 33C32 30 29 31 26 33C25 30 24 28 25 26Z",
+      cell: "M13 26C12 18 19 14 25 14C32 10 37 15 43 17C47 18 51 22 51 26C41 22 36 30 28 27C21 24 17 30 13 26Z",
+    };
+    const chosenType = Object.prototype.hasOwnProperty.call(organs, type) ? type : "cell";
     const badge = preprint
-      ? `<rect x="50" y="3" width="13" height="15" rx="4" fill="${outline}" stroke="#fff" stroke-width="1"/>
+      ? `<rect x="50" y="3" width="13" height="15" rx="4" fill="url(#badge)" stroke="#fff" stroke-width="1"/>
          <path d="M54 14V7H57C60 7 60 11 57 11H54" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>`
       : "";
     const svg = `<?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE svg>
       <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 64 64">
-        <style>.shine{fill:none;stroke:#fff;stroke-width:2.8;opacity:.65}</style>
+        <defs>
+          <linearGradient id="enamel" gradientUnits="userSpaceOnUse" x1="10" y1="6" x2="48" y2="59">
+            <stop stop-color="${pale}"/><stop offset=".35" stop-color="${light}"/>
+            <stop offset=".65" stop-color="${fill}"/><stop offset="1" stop-color="${shade}"/>
+          </linearGradient>
+          <linearGradient id="rim" x1="0" y1="0" x2=".7" y2="1">
+            <stop stop-color="${blend(0, .23)}"/><stop offset="1" stop-color="${outline}"/>
+          </linearGradient>
+          <linearGradient id="gloss" gradientUnits="userSpaceOnUse" x1="0" y1="12" x2="0" y2="39">
+            <stop stop-color="#fff" stop-opacity=".68"/><stop offset=".65" stop-color="#fff" stop-opacity=".25"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </linearGradient>
+          <linearGradient id="badge" x1="0" y1="0" x2="0" y2="1">
+            <stop stop-color="${blend(0, .32)}"/><stop offset="1" stop-color="${blend(0, .58)}"/>
+          </linearGradient>
+        </defs>
+        <style>.shine{fill:none;stroke:#fff;stroke-width:2.9;opacity:.94}</style>
 
-        <g fill="${fill}" stroke="${outline}" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
-          ${Object.prototype.hasOwnProperty.call(organs, type) ? organs[type] : organs.cell}
+        <g fill="url(#enamel)" stroke="url(#rim)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+          ${organs[chosenType]}
         </g>
+        <path d="${gloss[chosenType]}" fill="url(#gloss)"/>
+        <path d="M9 4L10.3 7.6L14 9L10.3 10.3L9 14L7.7 10.3L4 9L7.7 7.6Z" fill="${pale}" stroke="${outline}" stroke-opacity=".7" stroke-width=".65" stroke-linejoin="round"/>
+        <path d="M9 7V11M7 9H11" fill="none" stroke="#fff" stroke-width="1.1" stroke-linecap="round"/>
         ${badge}
       </svg>`;
     return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;

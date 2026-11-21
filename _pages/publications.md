@@ -24,6 +24,8 @@ nav_order: 5
 
 <hr style="margin:40px 0;">
 
+<h2>Full list of publications</h2>
+
 <div id="pub-citation-summary" class="pub-citation-summary" aria-live="polite"></div>
 <div id="pub-list" class="pub-list"></div>
 

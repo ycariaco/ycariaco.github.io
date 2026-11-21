@@ -1,0 +1,47 @@
+---
+layout: page
+title: Team
+permalink: /team/
+nav: true
+nav_order: 4
+---
+
+<div class="team-container">
+  <div class="team-grid">
+
+    <a class="team-card" href="/people/yusmariscariaco">
+      <img src="/assets/img/Yusmaris.jpg" alt="Yusmaris Cariaco">
+      <h3 class="team-name">Yusmaris Cariaco</h3>
+      <p class="team-position">Principal Investigator</p>
+    </a>
+
+    <a class="team-card" href="/people/elisabethmouge">
+      <img src="/assets/img/Elisabeth.jpg" alt="Elisabeth Mouge">
+      <h3 class="team-name">Elisabeth Mouge</h3>
+      <p class="team-position">Master's student</p>
+    </a>
+
+    <a class="team-card" href="/people/mouniasaaiou">
+      <img src="/assets/img/Mounia.jpeg" alt="Mounia Saaiou">
+      <h3 class="team-name">Mounia Saaiou</h3>
+      <p class="team-position">Incoming Master's student</p>
+    </a>
+
+    <a class="team-card" href="/people/feliciaannmaltais">
+      <img src="/assets/img/Felicia.jpg" alt="Felicia-Ann Maltais">
+      <h3 class="team-name">Félicia-Ann Maltais</h3>
+      <p class="team-position">Undergraduate student</p>
+    </a>
+
+  </div>
+</div>
+
+<div class="alumni-section">
+  <h2 class="section-title">Alumni</h2>
+  <div class="alumni-box">
+    <ul class="alumni-list">
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+</div>

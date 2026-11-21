@@ -7,8 +7,11 @@ on:
       - main
     paths:
       - "assets/**"
+      - "_data/**"
       - "_sass/**"
       - "_scripts/**"
+      - "bin/update_publications.py"
+      - "tests/**"
       - "**.bib"
       - "**.html"
       - "**.js"
@@ -19,16 +22,9 @@ on:
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
       - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
+      - "!docs/**"
       - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
       - "!README.md"
   pull_request:
     branches:
@@ -36,8 +32,11 @@ on:
       - main
     paths:
       - "assets/**"
+      - "_data/**"
       - "_sass/**"
       - "_scripts/**"
+      - "bin/update_publications.py"
+      - "tests/**"
       - "**.bib"
       - "**.html"
       - "**.js"
@@ -48,29 +47,37 @@ on:
       - "Gemfile.lock"
       - "!.github/workflows/axe.yml"
       - "!.github/workflows/broken-links.yml"
-      - "!.github/workflows/deploy-docker-tag.yml"
-      - "!.github/workflows/deploy-image.yml"
-      - "!.github/workflows/docker-slim.yml"
-      - "!.github/workflows/lighthouse-badger.yml"
       - "!.github/workflows/prettier.yml"
-      - "!lighthouse_results/**"
+      - "!docs/**"
       - "!CONTRIBUTING.md"
-      - "!CUSTOMIZE.md"
-      - "!FAQ.md"
-      - "!INSTALL.md"
       - "!README.md"
+  schedule:
+    - cron: "37 10 * * *"
   workflow_dispatch:
 
 permissions:
   contents: write
 
+defaults:
+  run:
+    shell: bash
+
+# Newer default-branch runs supersede production builds; other refs stay isolated.
+concurrency:
+  group: website-${{ github.ref == format('refs/heads/{0}', github.event.repository.default_branch) && 'production' || github.ref }}
+  cancel-in-progress: true
+
 jobs:
   deploy:
     # available images: https://github.com/actions/runner-images#available-images
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v4
+      - name: Record source revision
+        id: source
+        run: echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
       - name: Setup Ruby 💎
         uses: ruby/setup-ruby@v1
         with:
@@ -81,13 +88,24 @@ jobs:
         with:
           python-version: "3.13"
           cache: "pip" # caching pip dependencies
-      - name: Update _config.yml ⚙️
-        uses: fjogeleit/yaml-update-action@main
-        with:
-          commitChange: false
-          valueFile: "_config.yml"
-          propertyPath: "giscus.repo"
-          value: ${{ github.repository }}
+      - name: Test publication updater and validate catalogue
+        run: |
+          python -m unittest discover -s tests -v
+          python bin/update_publications.py --validate-only
+      - name: Check PubMed for verified publications
+        id: sync
+        if: >-
+          (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        run: |
+          python bin/update_publications.py \
+            --output "$RUNNER_TEMP/publications-candidate.json" \
+            --checkpoint assets/json/publications-sync.json \
+            | tee "$RUNNER_TEMP/publication-sync-summary.json"
+          cp "$RUNNER_TEMP/publications-candidate.json" assets/json/publications.json
+          npm ci --ignore-scripts
+          npx prettier assets/json/publications.json assets/json/publications-sync.json --write
+          cat "$RUNNER_TEMP/publication-sync-summary.json" >> "$GITHUB_STEP_SUMMARY"
       - name: Install and Build 🔧
         run: |
           sudo apt-get update && sudo apt-get install -y imagemagick
@@ -98,8 +116,39 @@ jobs:
         run: |
           npm install -g purgecss
           purgecss -c purgecss.config.js
+      - name: Verify source and save checked publication data
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+        env:
+          SOURCE_BRANCH: ${{ github.ref_name }}
+          EXPECTED_SOURCE_SHA: ${{ steps.source.outputs.sha }}
+          SYNC_SUCCEEDED: ${{ steps.sync.outcome == 'success' }}
+        run: |
+          remote_sha=$(git ls-remote origin "refs/heads/$SOURCE_BRANCH" | cut -f1)
+          if [ "$remote_sha" != "$EXPECTED_SOURCE_SHA" ]; then
+            echo "The source branch changed during this build; leaving publication data untouched."
+            exit 1
+          fi
+          if [ "$SYNC_SUCCEEDED" = "true" ]; then
+            git add -- assets/json/publications.json assets/json/publications-sync.json
+            if ! git diff --cached --quiet; then
+              git config user.name "github-actions[bot]"
+              git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+              git commit -m "chore: Update verified publications and sync record"
+              # A concurrent source edit makes this ordinary push fail safely.
+              git push origin "HEAD:refs/heads/$SOURCE_BRANCH"
+            fi
+          fi
+          remote_sha=$(git ls-remote origin "refs/heads/$SOURCE_BRANCH" | cut -f1)
+          if [ "$remote_sha" != "$(git rev-parse HEAD)" ]; then
+            echo "The source branch changed before deployment; a newer run will publish it."
+            exit 1
+          fi
       - name: Deploy 🚀
-        if: github.event_name != 'pull_request'
+        if: >-
+          github.event_name != 'pull_request' &&
+          github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: _site

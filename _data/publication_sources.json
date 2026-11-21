@@ -1,0 +1,12 @@
+{
+  "orcid": "0000-0003-3473-3555",
+  "author_names": [
+    { "first": "Yusmaris", "last": "Cariaco" },
+    { "first": "Yusmaris", "last": "Cariaco Sifontes" },
+    { "first": "Yusmaris Josefina", "last": "Cariaco Sifontes" }
+  ],
+  "include_types": ["journal article", "review"],
+  "exclude_types": ["preprint", "published erratum", "retraction of publication", "retracted publication"],
+  "exclude_dois": [],
+  "exclude_pmids": []
+}

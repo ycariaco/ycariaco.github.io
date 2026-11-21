@@ -10,7 +10,7 @@
   const baseSpeed = 0.35;
 
   const LINE = "236,72,153"; // pink
-  const DOT = "236,72,153";  // pink
+  const DOT = "236,72,153"; // pink
 
   const mouse = { x: 0, y: 0, active: false };
 

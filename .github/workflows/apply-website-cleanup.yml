@@ -1,0 +1,198 @@
+name: Apply checked website cleanup
+
+on:
+  push:
+    branches:
+      - codex/website-cleanup-publications
+    paths:
+      - website-cleanup-transfer.json
+      - .github/workflows/apply-website-cleanup.yml
+
+permissions:
+  contents: write
+
+concurrency:
+  group: checked-website-cleanup-transfer
+  cancel-in-progress: false
+
+jobs:
+  apply:
+    if: github.repository == 'ycariaco/ycariaco.github.io' && github.ref == 'refs/heads/codex/website-cleanup-publications'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          fetch-depth: 0
+      - name: Verify and apply the reviewed source changes
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          import stat
+          import subprocess
+          import tempfile
+          import unittest
+
+          REPOSITORY = "ycariaco/ycariaco.github.io"
+          BRANCH = "codex/website-cleanup-publications"
+          BASE = "0f4a2cd50073d5cedc28ca0fe2a3d01bab2c3e32"
+          PAYLOAD = "website-cleanup-transfer.json"
+          MANIFEST_SHA = "8d760ea69399c91bf59b117f52ffbdba4cbc7b63d7a200050df21832da80dcd7"
+
+
+          def git(*args, check=True):
+              return subprocess.run(["git", *args], check=check, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
+
+
+          def safe_path(value):
+              if not isinstance(value, str) or not value or "\\" in value:
+                  raise RuntimeError("Invalid transfer path")
+              parts = value.split("/")
+              if any(part in ("", ".", "..") or part.casefold() == ".git" for part in parts):
+                  raise RuntimeError("Unsafe transfer path")
+              if any(ord(char) < 32 or ord(char) == 127 for char in value):
+                  raise RuntimeError("Control character in transfer path")
+              path = Path(value)
+              for parent in [path, *path.parents]:
+                  if parent.is_symlink():
+                      raise RuntimeError("Symlink in transfer path")
+              if not path.resolve().is_relative_to(Path.cwd().resolve()):
+                  raise RuntimeError("Transfer path escaped checkout")
+              return path
+
+
+          def tree_map(raw):
+              result = {}
+              for row in raw.split(b"\0"):
+                  if not row:
+                      continue
+                  attrs, path = row.split(b"\t", 1)
+                  mode, kind, oid = attrs.decode().split()
+                  if kind != "blob" or mode not in ("100644", "100755"):
+                      raise RuntimeError("Unsupported tree entry")
+                  result[path.decode()] = {"mode": mode, "blob": oid}
+              return result
+
+
+          def state(path):
+              if not path.exists():
+                  return (None, None)
+              if not path.is_file():
+                  raise RuntimeError("Expected an ordinary file")
+              mode = "100755" if path.stat().st_mode & stat.S_IXUSR else "100644"
+              return (hashlib.sha256(path.read_bytes()).hexdigest(), mode)
+
+
+          def fingerprint(tree):
+              rows = [[p, v["mode"], v["blob"]] for p, v in sorted(tree.items())]
+              return hashlib.sha256(json.dumps(rows, ensure_ascii=False, separators=(",", ":")).encode()).hexdigest()
+
+
+          def apply_checked_manifest():
+              if os.environ.get("GITHUB_REPOSITORY") != REPOSITORY:
+                  raise RuntimeError("Unexpected repository")
+              if os.environ.get("GITHUB_REF") != "refs/heads/" + BRANCH or os.environ.get("GITHUB_EVENT_NAME") != "push":
+                  raise RuntimeError("Unexpected branch or event")
+              run_sha = os.environ["GITHUB_SHA"]
+              if git("rev-parse", "HEAD").stdout.decode().strip() != run_sha:
+                  raise RuntimeError("Checkout is not the triggering revision")
+              git("merge-base", "--is-ancestor", BASE, "HEAD")
+              raw = safe_path(PAYLOAD).read_bytes()
+              if hashlib.sha256(raw).hexdigest() != MANIFEST_SHA:
+                  raise RuntimeError("Transfer manifest checksum mismatch")
+              manifest = json.loads(raw)
+              if (manifest["schema_version"], manifest["repository"], manifest["branch"], manifest["base_commit"]) != (1, REPOSITORY, BRANCH, BASE):
+                  raise RuntimeError("Unexpected manifest identity")
+              changes = manifest["changes"]
+              if len(changes) != manifest["change_count"] or not changes:
+                  raise RuntimeError("Invalid change count")
+              names = [change["path"] for change in changes]
+              if names != sorted(set(names)):
+                  raise RuntimeError("Duplicate or unordered paths")
+              baseline = tree_map(git("ls-tree", "-r", "-z", BASE).stdout)
+              # Validate every operation before changing any file.
+              for change in changes:
+                  name = change["path"]
+                  path = safe_path(name)
+                  if name == PAYLOAD or name.casefold().startswith(".github/workflows/"):
+                      raise RuntimeError("Manifest cannot change payload or workflow files")
+                  original = baseline.get(name)
+                  if original:
+                      old_data = git("cat-file", "blob", original["blob"]).stdout
+                      old_state = (hashlib.sha256(old_data).hexdigest(), original["mode"])
+                  else:
+                      old_state = (None, None)
+                  if old_state != (change["original_sha256"], change["original_mode"]):
+                      raise RuntimeError("Baseline mismatch for " + name)
+                  content = change["content"]
+                  if content is None:
+                      desired = (None, None)
+                  else:
+                      if not isinstance(content, str) or "\0" in content or change["desired_mode"] not in ("100644", "100755"):
+                          raise RuntimeError("Invalid desired content for " + name)
+                      desired = (hashlib.sha256(content.encode("utf-8")).hexdigest(), change["desired_mode"])
+                  if desired != (change["desired_sha256"], change["desired_mode"]):
+                      raise RuntimeError("Desired checksum mismatch for " + name)
+                  if state(path) not in (old_state, desired):
+                      raise RuntimeError("File changed outside the checked transfer: " + name)
+              for change in changes:
+                  path = safe_path(change["path"])
+                  if change["content"] is None:
+                      if path.exists():
+                          path.unlink()
+                  else:
+                      path.parent.mkdir(parents=True, exist_ok=True)
+                      with tempfile.NamedTemporaryFile(dir=path.parent, delete=False) as temporary:
+                          temporary.write(change["content"].encode("utf-8"))
+                          temporary_name = temporary.name
+                      os.chmod(temporary_name, 0o755 if change["desired_mode"] == "100755" else 0o644)
+                      os.replace(temporary_name, path)
+              # Check the whole resulting source tree, including untouched tracked files.
+              tracked = set(git("ls-files", "-z").stdout.decode().split("\0"))
+              candidates = tracked | set(names)
+              actual = {}
+              for name in sorted(candidates):
+                  if not name or name == PAYLOAD or name.startswith(".github/workflows/"):
+                      continue
+                  path = safe_path(name)
+                  if not path.exists():
+                      continue
+                  data = path.read_bytes()
+                  actual[name] = {"mode": state(path)[1], "blob": hashlib.sha1(b"blob " + str(len(data)).encode() + b"\0" + data).hexdigest()}
+              if fingerprint(actual) != manifest["desired_nonworkflow_tree_sha256"]:
+                  raise RuntimeError("Resulting non-workflow tree differs from reviewed source")
+              safe_path(PAYLOAD).unlink()
+              return names, run_sha
+
+
+          def main():
+              names, run_sha = apply_checked_manifest()
+              suite = unittest.defaultTestLoader.discover("tests")
+              if suite.countTestCases() != 20:
+                  raise RuntimeError("Expected exactly 20 publication updater tests")
+              if not unittest.TextTestRunner(verbosity=2).run(suite).wasSuccessful():
+                  raise RuntimeError("Publication tests failed")
+              subprocess.run(["python3", "bin/update_publications.py", "--validate-only"], check=True)
+              git("diff", "--check")
+              git("add", "--", *names, PAYLOAD)
+              staged = set(filter(None, git("diff", "--cached", "--name-only", "-z").stdout.decode().split("\0")))
+              if not staged.issubset(set(names) | {PAYLOAD}) or any(p.startswith(".github/workflows/") for p in staged):
+                  raise RuntimeError("Unexpected staged file")
+              remote = git("ls-remote", "--exit-code", "origin", "refs/heads/" + BRANCH).stdout.decode().split()
+              if not remote or remote[0] != run_sha:
+                  raise RuntimeError("Remote branch changed; refusing to commit or push")
+              git("config", "user.name", "github-actions[bot]")
+              git("config", "user.email", "41898282+github-actions[bot]@users.noreply.github.com")
+              git("commit", "-m", "chore: Apply checked website cleanup and publication updates")
+              git("push", "origin", "HEAD:refs/heads/" + BRANCH)
+              print("Applied checked source changes and removed the transfer payload on " + BRANCH)
+
+
+          if __name__ == "__main__":
+              main()
+          PY

@@ -3,6 +3,8 @@ layout: page
 permalink: /tools/
 title: Tools
 nav: false
+sitemap: false
+noindex: true
 nav_order: x8
 calendar: false
 ---
@@ -177,7 +179,7 @@ calendar: false
 
     <a
       class="data-launch-button"
-      href="https://cariaco-lab-data-explorer.pages.dev/"
+      href="https://data.cariacolab.com/"
       target="_blank"
       rel="noopener noreferrer"
     >

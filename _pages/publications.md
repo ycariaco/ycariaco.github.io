@@ -6,6 +6,22 @@ nav: true
 nav_order: 5
 ---
 
+<section class="publication-garden" aria-labelledby="publication-garden-title">
+  <div class="publication-garden-heading">
+    <h2 id="publication-garden-title">Publications by year</h2>
+    <button id="publication-motion" class="publication-garden-button" type="button" aria-pressed="false" disabled>Pause animation</button>
+  </div>
+  <p id="publication-garden-help" class="publication-garden-help">Each year is a flower center, with a paper on every petal. Hover to explore or click a petal to open the paper. Dashed petals are preprints.</p>
+  <div id="cytoscape" role="img" aria-label="Publication flowers grouped by year" aria-describedby="publication-garden-help"></div>
+  <label for="publication-picker" class="publication-garden-picker">Explore a publication</label>
+  <select id="publication-picker" class="publication-garden-select" disabled>
+    <option>Loading publications…</option>
+  </select>
+  <div id="publication-garden-detail" class="publication-garden-detail" aria-live="polite">
+    Select a publication to see its details.
+  </div>
+</section>
+
 <hr style="margin:40px 0;">
 
 <div id="pub-citation-summary" class="pub-citation-summary" aria-live="polite"></div>
@@ -21,7 +37,7 @@ nav_order: 5
   .pub-citation-summary { margin-bottom: 18px; }
   .pub-citation-summary strong { font-size: 1.15rem; }
   .pub-citation-note { font-size: .85rem; opacity: .75; margin-top: 4px; }
-  .publication-garden { margin: 38px 0 24px; }
+  .publication-garden { margin: 0 0 24px; }
   .publication-garden-heading { display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
   .publication-garden-heading h2 { margin: 0; }
   .publication-garden-help { margin: 12px 0 18px; font-size: .9rem; opacity: .8; }
@@ -150,22 +166,6 @@ nav_order: 5
       document.getElementById("pub-list").textContent = "Publications are temporarily unavailable. Please try again later.";
     });
 </script>
-
-<section class="publication-garden" aria-labelledby="publication-garden-title">
-  <div class="publication-garden-heading">
-    <h2 id="publication-garden-title">Publications by year</h2>
-    <button id="publication-motion" class="publication-garden-button" type="button" aria-pressed="false" disabled>Pause animation</button>
-  </div>
-  <p id="publication-garden-help" class="publication-garden-help">Each year is a flower center, with a paper on every petal. Hover to explore or click a petal to open the paper. Dashed petals are preprints.</p>
-  <div id="cytoscape" role="img" aria-label="Publication flowers grouped by year" aria-describedby="publication-garden-help"></div>
-  <label for="publication-picker" class="publication-garden-picker">Explore a publication</label>
-  <select id="publication-picker" class="publication-garden-select" disabled>
-    <option>Loading publications…</option>
-  </select>
-  <div id="publication-garden-detail" class="publication-garden-detail" aria-live="polite">
-    Select a publication to see its details.
-  </div>
-</section>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
 

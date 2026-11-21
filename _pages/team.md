@@ -4,6 +4,7 @@ title: Team
 permalink: /team/
 nav: true
 nav_order: 4
+show_alumni: false
 ---
 
 <div class="team-container">
@@ -36,6 +37,8 @@ nav_order: 4
   </div>
 </div>
 
+{% if page.show_alumni %}
+
 <div class="alumni-section">
   <h2 class="section-title">Alumni</h2>
   <div class="alumni-box">
@@ -45,3 +48,4 @@ nav_order: 4
     </ul>
   </div>
 </div>
+{% endif %}

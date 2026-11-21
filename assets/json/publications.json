@@ -7,7 +7,9 @@
     "journal": "Frontiers in endocrinology",
     "doi": "10.3389/fendo.2023.1330396",
     "pmid": "38239985",
-    "tags": ["Microplastics", "Pregnancy", "Toxicity", "Environmental Health"]
+    "tags": ["Microplastics", "Pregnancy", "Toxicity", "Environmental Health"],
+    "citation_count": 148,
+    "citation_source": "Crossref"
   },
   {
     "id": "jahan_nad_2024",
@@ -25,7 +27,9 @@
     "journal": "Life science alliance",
     "doi": "10.26508/lsa.202302505",
     "pmid": "39389781",
-    "tags": ["Preeclampsia", "NAD Metabolism", "Placental Dysfunction", "Inflammation"]
+    "tags": ["Preeclampsia", "NAD Metabolism", "Placental Dysfunction", "Inflammation"],
+    "citation_count": 12,
+    "citation_source": "Crossref"
   },
   {
     "id": "cariaco_ferroptosis_2025",
@@ -35,7 +39,9 @@
     "journal": "Placenta",
     "doi": "10.1016/j.placenta.2025.07.085",
     "pmid": "40738047",
-    "tags": ["Ferroptosis", "Preeclampsia", "Placental Dysfunction", "Iron Metabolism"]
+    "tags": ["Ferroptosis", "Preeclampsia", "Placental Dysfunction", "Iron Metabolism"],
+    "citation_count": 12,
+    "citation_source": "Crossref"
   },
   {
     "id": "cariaco_ccr5_2023",
@@ -45,7 +51,9 @@
     "journal": "Cytokine",
     "doi": "10.1016/j.cyto.2022.156110",
     "pmid": "36565608",
-    "tags": ["Malaria", "Pregnancy", "CCR5", "Immune Response"]
+    "tags": ["Malaria", "Pregnancy", "CCR5", "Immune Response"],
+    "citation_count": 7,
+    "citation_source": "Crossref"
   },
   {
     "id": "araujo_toxoplasma_2022",
@@ -63,7 +71,9 @@
     "journal": "Infection and immunity",
     "doi": "10.1128/iai.00029-22",
     "pmid": "35658510",
-    "tags": ["Toxoplasmosis", "Intestinal Immunity", "Lipoxygenase", "Parasite Control"]
+    "tags": ["Toxoplasmosis", "Intestinal Immunity", "Lipoxygenase", "Parasite Control"],
+    "citation_count": 3,
+    "citation_source": "Crossref"
   },
   {
     "id": "briceno_effects_2022",
@@ -82,7 +92,9 @@
     "journal": "Tissue & cell",
     "doi": "10.1016/j.tice.2022.101952",
     "pmid": "36209640",
-    "tags": ["Toxoplasmosis", "Notch Signaling", "Inflammation", "Drug Therapy"]
+    "tags": ["Toxoplasmosis", "Notch Signaling", "Inflammation", "Drug Therapy"],
+    "citation_count": 3,
+    "citation_source": "Crossref"
   },
   {
     "id": "jahan_comparison_2023",
@@ -100,7 +112,9 @@
     "journal": "Frontiers in endocrinology",
     "doi": "10.3389/fendo.2023.1219205",
     "pmid": "37842294",
-    "tags": ["Preeclampsia", "Disease Models", "Inflammation", "Hypertension"]
+    "tags": ["Preeclampsia", "Disease Models", "Inflammation", "Hypertension"],
+    "citation_count": 17,
+    "citation_source": "Crossref"
   },
   {
     "id": "cariaco_inhibition_2022",
@@ -119,7 +133,9 @@
     "journal": "Frontiers in immunology",
     "doi": "10.3389/fimmu.2022.879158",
     "pmid": "35619717",
-    "tags": ["Malaria", "Pregnancy", "Heme Oxygenase", "Ferroptosis", "Iron Metabolism"]
+    "tags": ["Malaria", "Pregnancy", "Heme Oxygenase", "Ferroptosis", "Iron Metabolism"],
+    "citation_count": 9,
+    "citation_source": "Crossref"
   },
   {
     "id": "cristina_borges_araujo_beneficial_2021",
@@ -138,7 +154,9 @@
     "journal": "Parasite immunology",
     "doi": "10.1111/pim.12811",
     "pmid": "33247953",
-    "tags": ["Toxoplasmosis", "Helminth", "Immune Modulation", "Parasite Control"]
+    "tags": ["Toxoplasmosis", "Helminth", "Immune Modulation", "Parasite Control"],
+    "citation_count": 4,
+    "citation_source": "Crossref"
   },
   {
     "id": "coutinho_both_2023",
@@ -157,7 +175,9 @@
     "journal": "Acta tropica",
     "doi": "10.1016/j.actatropica.2023.107022",
     "pmid": "37716667",
-    "tags": ["Congenital Toxoplasmosis", "Genetic Susceptibility", "Pregnancy", "Immune Response"]
+    "tags": ["Congenital Toxoplasmosis", "Genetic Susceptibility", "Pregnancy", "Immune Response"],
+    "citation_count": 2,
+    "citation_source": "Crossref"
   },
   {
     "id": "cariaco_ethanolic_2018",
@@ -177,7 +197,9 @@
     "journal": "Scientific reports",
     "doi": "10.1038/s41598-018-19840-x",
     "pmid": "29367729",
-    "tags": ["Cerebral Malaria", "Natural Products", "Anti-Inflammatory", "Fungi"]
+    "tags": ["Cerebral Malaria", "Natural Products", "Anti-Inflammatory", "Fungi"],
+    "citation_count": 26,
+    "citation_source": "Crossref"
   },
   {
     "id": "sousa_imbalance_2021",
@@ -202,7 +224,9 @@
     "journal": "Cytokine",
     "doi": "10.1016/j.cyto.2021.155517",
     "pmid": "33814270",
-    "tags": ["Congenital Toxoplasmosis", "Cytokines", "Maternal-Fetal Interface", "Immune Response"]
+    "tags": ["Congenital Toxoplasmosis", "Cytokines", "Maternal-Fetal Interface", "Immune Response"],
+    "citation_count": 16,
+    "citation_source": "Crossref"
   },
   {
     "id": "miranda_anti-parasitic_2021",
@@ -221,7 +245,9 @@
     "journal": "Journal of ethnopharmacology",
     "doi": "10.1016/j.jep.2021.114019",
     "pmid": "33716084",
-    "tags": ["Toxoplasmosis", "Plant Extract", "Ethnopharmacology", "Parasite Control"]
+    "tags": ["Toxoplasmosis", "Plant Extract", "Ethnopharmacology", "Parasite Control"],
+    "citation_count": 24,
+    "citation_source": "Crossref"
   },
   {
     "id": "nascimento_ethanolic_2022",
@@ -245,7 +271,9 @@
     "journal": "Current research in microbial sciences",
     "doi": "10.1016/j.crmicr.2022.100173",
     "pmid": "36518177",
-    "tags": ["Toxoplasmosis", "Fungi", "Parasite Replication", "Anti-inflammatory"]
+    "tags": ["Toxoplasmosis", "Fungi", "Parasite Replication", "Anti-inflammatory"],
+    "citation_count": 0,
+    "citation_source": "Crossref"
   },
   {
     "id": "duran-rodriguez_macrophage_2025",
@@ -263,7 +291,9 @@
     "journal": "The American journal of pathology",
     "doi": "10.1016/j.ajpath.2025.03.004",
     "pmid": "40204186",
-    "tags": ["Gestational Malaria", "Macrophage Function", "Pregnancy Outcomes", "Immune Response"]
+    "tags": ["Gestational Malaria", "Macrophage Function", "Pregnancy Outcomes", "Immune Response"],
+    "citation_count": 0,
+    "citation_source": "Crossref"
   },
   {
     "id": "berrizbeitia_de_morgado_activity_2017",
@@ -281,7 +311,9 @@
       "Plant Leaves",
       "Time Factors",
       "Natural Products"
-    ]
+    ],
+    "citation_count": 6,
+    "citation_source": "Crossref"
   },
   {
     "id": "cariaco_placental_ferroptosis_2026",
@@ -291,6 +323,63 @@
     "journal": "Clin Sci (Lond)",
     "doi": "10.1042/CS20257407",
     "pmid": "41885260",
-    "tags": ["Placenta", "Ferroptosis", "Fetal Growth", "SARS-CoV-2", "COVID-19", "Pregnancy"]
+    "tags": ["Placenta", "Ferroptosis", "Fetal Growth", "SARS-CoV-2", "COVID-19", "Pregnancy"],
+    "citation_count": 3,
+    "citation_source": "Crossref"
+  },
+  {
+    "id": "publication_34266565f33b8246",
+    "title": "NAD+ depletion and altered mitochondrial function are key to the establishment of placental dysfunction in an inflammatory-driven subclass of preeclampsia",
+    "authors": [
+      "Fahmida Jahan",
+      "Goutham Vasam",
+      "Yusmaris Cariaco",
+      "Abolfazl Nik-Akhtar",
+      "Alex Green",
+      "Keir J. Menzies",
+      "Shannon A. Bainbridge"
+    ],
+    "year": 2023,
+    "journal": "bioRxiv",
+    "doi": "10.1101/2023.09.09.556974",
+    "pmid": "",
+    "tags": [],
+    "kind": "preprint",
+    "citation_count": 0,
+    "citation_source": "Crossref"
+  },
+  {
+    "id": "publication_f777991ea1223f03",
+    "title": "Prenatal fentanyl and Δ9-tetrahydrocannabinol exposure disrupt placental function and fetal growth in a mouse model of multidrug use",
+    "authors": ["Yusmaris Cariaco", "Nikita Larionov", "Abolfazl Nik-Akhtar", "Jessica Pudwell", "Kira King", "Laura Gaudet", "Shannon Bainbridge"],
+    "year": 2026,
+    "journal": "bioRxiv",
+    "doi": "10.64898/2026.09.17.752392",
+    "pmid": "",
+    "tags": [],
+    "kind": "preprint",
+    "citation_count": 0,
+    "citation_source": "Crossref"
+  },
+  {
+    "id": "publication_ae590e55ba1ee0d5",
+    "title": "PARP1/2-linked ADP-ribosylation impairs trophoblast mitochondrial respiration in a TNF-α model of inflammation-mediated preeclampsia.",
+    "authors": [
+      "Abolfazl Nik-Akhtar",
+      "Sophia Vanegas Pineda",
+      "Jacob Ouellet",
+      "Fahmida Jahan",
+      "Yusmaris Cariaco",
+      "Keir J. Menzies",
+      "Shannon A. Bainbridge"
+    ],
+    "year": 2026,
+    "journal": "bioRxiv",
+    "doi": "10.64898/2026.10.20.758860",
+    "pmid": "",
+    "tags": [],
+    "kind": "preprint",
+    "citation_count": 0,
+    "citation_source": "Crossref"
   }
 ]

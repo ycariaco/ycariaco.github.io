@@ -92,7 +92,7 @@ jobs:
         run: |
           python -m unittest discover -s tests -v
           python bin/update_publications.py --validate-only
-      - name: Check PubMed for verified publications
+      - name: Check publications, preprints and citation counts
         id: sync
         if: >-
           (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch') &&

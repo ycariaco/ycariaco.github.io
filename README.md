@@ -27,7 +27,8 @@ The Tools page remains available at `/tools/` without appearing in the main navi
 ## Automatic publication updates
 
 The site’s publication list is maintained in `assets/json/publications.json`.
-An automated PubMed check adds verified matching publications while preserving curated records.
+Daily checks add verified PubMed articles and bioRxiv/medRxiv preprints while preserving curated records.
+Crossref citation counts are refreshed in the same update. Preprints are clearly labeled, and citation counts identify their source.
 
 - Author matching and search settings: `_data/publication_sources.json`.
 - Update script: `bin/update_publications.py`.

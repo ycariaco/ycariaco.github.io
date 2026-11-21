@@ -6,7 +6,9 @@
     { "first": "Yusmaris Josefina", "last": "Cariaco Sifontes" }
   ],
   "include_types": ["journal article", "review"],
-  "exclude_types": ["preprint", "published erratum", "retraction of publication", "retracted publication"],
+  "exclude_types": ["published erratum", "retraction of publication", "retracted publication"],
+  "preprint_servers": ["biorxiv", "medrxiv"],
+  "keep_preprints_separate": ["10.1101/2023.09.09.556974"],
   "exclude_dois": [],
   "exclude_pmids": []
 }

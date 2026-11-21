@@ -2,16 +2,11 @@
   {
     "id": "zurub_microplastics_2023",
     "title": "Microplastics exposure: implications for human fertility, pregnancy and child health.",
-    "authors": [
-      "Rewa E. Zurub",
-      "Yusmaris Cariaco",
-      "Michael G. Wade",
-      "Shannon A. Bainbridge"
-    ],
+    "authors": ["Rewa E. Zurub", "Yusmaris Cariaco", "Michael G. Wade", "Shannon A. Bainbridge"],
     "year": 2023,
     "journal": "Frontiers in endocrinology",
     "doi": "10.3389/fendo.2023.1330396",
-    "pmid": "37900788",
+    "pmid": "38239985",
     "tags": ["Microplastics", "Pregnancy", "Toxicity", "Environmental Health"]
   },
   {
@@ -29,40 +24,27 @@
     "year": 2024,
     "journal": "Life science alliance",
     "doi": "10.26508/lsa.202302505",
-    "pmid": "38466134",
+    "pmid": "39389781",
     "tags": ["Preeclampsia", "NAD Metabolism", "Placental Dysfunction", "Inflammation"]
   },
   {
     "id": "cariaco_ferroptosis_2025",
     "title": "Ferroptosis as a mechanism of placenta dysfunction in inflammation-driven preeclampsia.",
-    "authors": [
-      "Yusmaris Cariaco",
-      "Megan Beck",
-      "Fahmida Jahan",
-      "Jade Gamelin Kao",
-      "Abolfazl Nik-Akhtar",
-      "Keir Menzies",
-      "Shannon Bainbridge"
-    ],
+    "authors": ["Yusmaris Cariaco", "Megan Beck", "Fahmida Jahan", "Jade Gamelin Kao", "Abolfazl Nik-Akhtar", "Keir Menzies", "Shannon Bainbridge"],
     "year": 2025,
     "journal": "Placenta",
     "doi": "10.1016/j.placenta.2025.07.085",
-    "pmid": "",
+    "pmid": "40738047",
     "tags": ["Ferroptosis", "Preeclampsia", "Placental Dysfunction", "Iron Metabolism"]
   },
   {
     "id": "cariaco_ccr5_2023",
     "title": "CCR5 contributes to adverse outcomes during malaria in pregnancy.",
-    "authors": [
-      "Yusmaris Cariaco",
-      "Andrea Tatiana Durán-Rodriguez",
-      "Marcos Paulo Oliveira Almeida",
-      "Neide Maria Silva"
-    ],
+    "authors": ["Yusmaris Cariaco", "Andrea Tatiana Durán-Rodriguez", "Marcos Paulo Oliveira Almeida", "Neide Maria Silva"],
     "year": 2023,
     "journal": "Cytokine",
     "doi": "10.1016/j.cyto.2022.156110",
-    "pmid": "36598651",
+    "pmid": "36565608",
     "tags": ["Malaria", "Pregnancy", "CCR5", "Immune Response"]
   },
   {
@@ -80,7 +62,7 @@
     "year": 2022,
     "journal": "Infection and immunity",
     "doi": "10.1128/iai.00029-22",
-    "pmid": "35354608",
+    "pmid": "35658510",
     "tags": ["Toxoplasmosis", "Intestinal Immunity", "Lipoxygenase", "Parasite Control"]
   },
   {
@@ -99,7 +81,7 @@
     "year": 2022,
     "journal": "Tissue & cell",
     "doi": "10.1016/j.tice.2022.101952",
-    "pmid": "35417521",
+    "pmid": "36209640",
     "tags": ["Toxoplasmosis", "Notch Signaling", "Inflammation", "Drug Therapy"]
   },
   {
@@ -117,7 +99,7 @@
     "year": 2023,
     "journal": "Frontiers in endocrinology",
     "doi": "10.3389/fendo.2023.1219205",
-    "pmid": "36998463",
+    "pmid": "37842294",
     "tags": ["Preeclampsia", "Disease Models", "Inflammation", "Hypertension"]
   },
   {
@@ -136,7 +118,7 @@
     "year": 2022,
     "journal": "Frontiers in immunology",
     "doi": "10.3389/fimmu.2022.879158",
-    "pmid": "35733696",
+    "pmid": "35619717",
     "tags": ["Malaria", "Pregnancy", "Heme Oxygenase", "Ferroptosis", "Iron Metabolism"]
   },
   {
@@ -155,7 +137,7 @@
     "year": 2021,
     "journal": "Parasite immunology",
     "doi": "10.1111/pim.12811",
-    "pmid": "34379360",
+    "pmid": "33247953",
     "tags": ["Toxoplasmosis", "Helminth", "Immune Modulation", "Parasite Control"]
   },
   {
@@ -174,7 +156,7 @@
     "year": 2023,
     "journal": "Acta tropica",
     "doi": "10.1016/j.actatropica.2023.107022",
-    "pmid": "37909906",
+    "pmid": "37716667",
     "tags": ["Congenital Toxoplasmosis", "Genetic Susceptibility", "Pregnancy", "Immune Response"]
   },
   {
@@ -194,7 +176,7 @@
     "year": 2018,
     "journal": "Scientific reports",
     "doi": "10.1038/s41598-018-19840-x",
-    "pmid": "29449548",
+    "pmid": "29367729",
     "tags": ["Cerebral Malaria", "Natural Products", "Anti-Inflammatory", "Fungi"]
   },
   {
@@ -219,7 +201,7 @@
     "year": 2021,
     "journal": "Cytokine",
     "doi": "10.1016/j.cyto.2021.155517",
-    "pmid": "34452849",
+    "pmid": "33814270",
     "tags": ["Congenital Toxoplasmosis", "Cytokines", "Maternal-Fetal Interface", "Immune Response"]
   },
   {
@@ -238,7 +220,7 @@
     "year": 2021,
     "journal": "Journal of ethnopharmacology",
     "doi": "10.1016/j.jep.2021.114019",
-    "pmid": "34210633",
+    "pmid": "33716084",
     "tags": ["Toxoplasmosis", "Plant Extract", "Ethnopharmacology", "Parasite Control"]
   },
   {
@@ -262,7 +244,7 @@
     "year": 2022,
     "journal": "Current research in microbial sciences",
     "doi": "10.1016/j.crmicr.2022.100173",
-    "pmid": "36311196",
+    "pmid": "36518177",
     "tags": ["Toxoplasmosis", "Fungi", "Parasite Replication", "Anti-inflammatory"]
   },
   {
@@ -280,52 +262,35 @@
     "year": 2025,
     "journal": "The American journal of pathology",
     "doi": "10.1016/j.ajpath.2025.03.004",
-    "pmid": "",
+    "pmid": "40204186",
     "tags": ["Gestational Malaria", "Macrophage Function", "Pregnancy Outcomes", "Immune Response"]
   },
   {
-  "id": "berrizbeitia_de_morgado_activity_2017",
-  "title": "Activity of Artemisia annua infusions on epimastigotes of Trypanosoma cruzi",
-  "authors": [
-    "Mariolga Berrizbeitia de Morgado",
-    "Yusmaris Cariaco Sifontes",
-    "José Imery Buiza",
-    "Pierre Lutgen"
-  ],
-  "year": 2017,
-  "journal": "Enferm Infecc Microbiol Clin",
-  "doi": "10.1016/j.eimc.2016.09.011",
-  "pmid": "27884407",
-  "tags": [
-    "Artemisia annua",
-    "Trypanosoma cruzi",
-    "Drug effects",
-    "Dose-Response Relationship, Drug",
-    "Plant Leaves",
-    "Time Factors",
-    "Natural Products"]
-},
+    "id": "berrizbeitia_de_morgado_activity_2017",
+    "title": "Activity of Artemisia annua infusions on epimastigotes of Trypanosoma cruzi",
+    "authors": ["Mariolga Berrizbeitia de Morgado", "Yusmaris Cariaco Sifontes", "José Imery Buiza", "Pierre Lutgen"],
+    "year": 2017,
+    "journal": "Enferm Infecc Microbiol Clin",
+    "doi": "10.1016/j.eimc.2016.09.011",
+    "pmid": "27884407",
+    "tags": [
+      "Artemisia annua",
+      "Trypanosoma cruzi",
+      "Drug effects",
+      "Dose-Response Relationship, Drug",
+      "Plant Leaves",
+      "Time Factors",
+      "Natural Products"
+    ]
+  },
   {
-  "id": "cariaco_placental_ferroptosis_2026",
-  "title": "Placental Ferroptosis and Impaired Fetal Growth in Symptomatic and Asymptomatic SARS-CoV-2 Infections",
-  "authors": [
-    "Yusmaris Cariaco",
-    "A. Nik-Akhtar",
-    "M. E. Brien",
-    "K. Menzies",
-    "S. Girard",
-    "S. Bainbridge"
-  ],
-  "year": 2026,
-  "journal": "Clin Sci (Lond)",
-  "doi": "10.1042/CS20257407",
-  "pmid": "41885260",
-  "tags": [
-    "Placenta",
-    "Ferroptosis",
-    "Fetal Growth",
-    "SARS-CoV-2",
-    "COVID-19",
-    "Pregnancy"]
-}
+    "id": "cariaco_placental_ferroptosis_2026",
+    "title": "Placental Ferroptosis and Impaired Fetal Growth in Symptomatic and Asymptomatic SARS-CoV-2 Infections",
+    "authors": ["Yusmaris Cariaco", "A. Nik-Akhtar", "M. E. Brien", "K. Menzies", "S. Girard", "S. Bainbridge"],
+    "year": 2026,
+    "journal": "Clin Sci (Lond)",
+    "doi": "10.1042/CS20257407",
+    "pmid": "41885260",
+    "tags": ["Placenta", "Ferroptosis", "Fetal Growth", "SARS-CoV-2", "COVID-19", "Pregnancy"]
+  }
 ]

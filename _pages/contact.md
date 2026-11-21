@@ -2,9 +2,9 @@
 layout: page
 permalink: /contact/
 title: Contact
-description: 
+description:
 nav: true
-nav_order: 7
+nav_order: 8
 calendar: false
 ---
 
@@ -42,4 +42,3 @@ calendar: false
   loading="lazy"
   referrerpolicy="no-referrer-when-downgrade">
 </iframe>
-

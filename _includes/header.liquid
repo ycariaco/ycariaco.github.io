@@ -3,14 +3,14 @@
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
       <a class="navbar-brand title font-weight-lighter" href="{{ site.baseurl }}/">
-  <span class="site-logo">
-    {% include cariaco-logo.svg %}
-  </span>
-</a>
+        <span class="site-logo">
+          {% include cariaco-logo.svg %}
+        </span>
+      </a>
 
-{% if site.enable_navbar_social %}
-  <div class="navbar-brand social">{% social_links %}</div>
-{% endif %}
+      {% if site.enable_navbar_social %}
+        <div class="navbar-brand social">{% social_links %}</div>
+      {% endif %}
 
       <!-- Navbar Toggle -->
       <button

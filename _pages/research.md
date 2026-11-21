@@ -1,339 +1,56 @@
 ---
-layout: page
-title: Publications
-permalink: /publications/
+layout: about
+title: Research
+permalink: /research/
+subtitle: <a href="https://bio.uqam.ca/" target="_blank">Department of Biological Sciences, UQAM</a>
 nav: true
-nav_order: 4
+nav_order: 2
+
+selected_papers: false
+social: false
+
+announcements:
+  enabled: false
+  scrollable: false
+  limit: 5
+
+latest_posts:
+  enabled: false
+  scrollable: false
+  limit: 3
 ---
-<hr style="margin:40px 0;">
 
-<div id="pub-list" class="pub-list"></div>
+<img src="/assets/img/CariacoLab.jpeg" style="width:100%; max-width:100%; display:block;">
 
-<style>
-  .pub-list { margin-top: 16px; }
-  .pub-item { padding: 14px 0; border-bottom: 1px solid #eee; }
-  .pub-title { font-weight: 600; }
-  .pub-meta { color: #555; margin-top: 4px; }
-  .pub-links { margin-top: 6px; }
-  .pub-links a { margin-right: 10px; text-decoration: none; }
-</style>
+<div style="font-size:1.15rem; line-height:1.7;">
+  <p style="margin:0 0 18px;">
+    Our research program seeks to redefine the placenta as a dynamic, adaptive sensor that integrates maternal metabolic, inflammatory, and environmental signals to shape fetal development. Moving forward, we aim to uncover how diverse stressors—ranging from obesity and infection to drugs and environmental contaminants—reprogram placental biology and drive lifelong developmental outcomes.
+  </p>
 
-<script>
-  fetch("/assets/json/publications.json")
-    .then((r) => {
-      if (!r.ok) throw new Error("Failed to load publications.json");
-      return r.json();
-    })
-    .then((data) => {
-      data.sort((a, b) => (b.year || 0) - (a.year || 0));
+  <p style="margin:0 0 12px;">
+We will advance this vision through the following research directions:
+</p>
+<ul style="margin:0 0 18px; padding-left:20px;">
+<li style="margin-bottom:14px;">
+  <span style="color: var(--global-theme-color); font-weight:600;">Mapping placental response networks to complex prenatal exposures</span><br>
+  We aim to characterize how the placenta integrates diverse external stressors into coordinated molecular and cellular programs, revealing how exposure-specific signals translate into functional changes in placental biology. In particular, we will define how these signals reshape key processes such as immune signaling, metabolism, and tissue organization, and how their integration ultimately influences placental function and fetal development.
+</li>
 
-      const container = document.getElementById("pub-list");
-      container.innerHTML = data.map((pub) => {
-        const authors = Array.isArray(pub.authors) ? pub.authors.join(", ") : "";
-        const year = pub.year ? ` (${pub.year})` : "";
-        const journal = pub.journal ? ` <em>${pub.journal}</em>` : "";
+<li style="margin-bottom:0;">
+  <span style="color: var(--global-theme-color); font-weight:600;">Advancing next-generation AI-powered image analysis and multi-omics integration frameworks</span><br>
+ A central innovation of our program is both the development and application of integrative computational tools that unify transcriptomics, proteomics, metabolomics, and pathomics. By moving beyond single-layer analyses, we aim to capture coordinated biological signals across molecular, cellular, and tissue scales. This integrated approach will enable the identification of pathway-level signatures that reflect how placental function is reprogrammed in response to prenatal stressors.
+</li>
+</ul>
 
-        const doiLink = pub.doi
-          ? `<a href="https://doi.org/${pub.doi}" target="_blank" rel="noopener">DOI</a>`
-          : "";
-        const pmidLink = pub.pmid
-          ? `<a href="https://pubmed.ncbi.nlm.nih.gov/${pub.pmid}/" target="_blank" rel="noopener">PMID</a>`
-          : "";
+  <p style="margin:0;">
+    By combining experimental systems, human cohorts, and computational innovation, our program will generate a systems-level understanding of placental biology. Ultimately, we aim to identify actionable pathways that can be targeted to improve fetal growth, protect neurodevelopment, and reduce long-term disease risk.
+  </p>
+</div>
 
-        const links = [doiLink, pmidLink].filter(Boolean).join(" · ");
+<img src="/assets/img/UQAM_BUILDING.png" style="width:100%; max-width:100%; display:block; margin:32px 0;">
 
-        return `
-          <div class="pub-item">
-            <div class="pub-title">${pub.title || "Untitled"}${year}</div>
-            <div class="pub-meta">${authors}${journal}</div>
-            ${links ? `<div class="pub-links">${links}</div>` : ""}
-          </div>
-        `;
-      }).join("");
-    })
-    .catch((err) => console.error(err));
-</script>
+<div style="font-size:1.15rem; line-height:1.7;">
 
+Located in Montréal, a vibrant and diverse research hub, our lab is based at the Université du Québec à Montréal (UQAM) within the Department of Biological Sciences. Our environment fosters interdisciplinary collaboration across life sciences, computational biology, and clinical research, allowing us to connect fundamental placental biology with real‑world questions in maternal and fetal health.
 
-<div
-  id="cytoscape"
-  style="width: 100%; height: 800px; border: 1px solid #ddd; margin: 20px 0;"
-></div>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cytoscape/3.28.1/cytoscape.min.js"></script>
-
-<script>
-  fetch("/assets/json/publications.json")
-    .then((response) => {
-      if (!response.ok) throw new Error("Failed to load publications.json");
-      return response.json();
-    })
-    .then((data) => {
-      console.log("Loaded publications:", data.length);
-
-      const nodes = [];
-      const edges = [];
-      const years = new Set();
-
-      const pastel = [
-        "#F8BBD0",
-        "#BBDEFB",
-        "#C8E6C9",
-        "#FFE0B2",
-        "#D1C4E9",
-        "#B2EBF2",
-        "#FFCDD2",
-        "#DCEDC8",
-        "#FFF9C4",
-        "#E1BEE7",
-      ];
-
-      // Create publication nodes
-      data.forEach((pub) => {
-        const title =
-          pub.title.length > 50
-            ? pub.title.substring(0, 50) + "..."
-            : pub.title;
-        nodes.push({
-          data: {
-            id: pub.id,
-            label: title,
-            fullTitle: pub.title,
-            year: pub.year,
-            journal: pub.journal,
-            doi: pub.doi,
-          },
-        });
-        years.add(pub.year);
-      });
-
-      // Create year nodes (for grouping)
-      Array.from(years)
-        .sort((a, b) => b - a)
-        .forEach((year) => {
-          nodes.push({
-            data: {
-              id: `year-${year}`,
-              label: year.toString(),
-            },
-          });
-        });
-
-      const yearsSorted = Array.from(years).sort((a, b) => a - b);
-      const yearColor = {};
-      yearsSorted.forEach((year, i) => {
-        yearColor[year] = pastel[i % pastel.length];
-      });
-
-      nodes.forEach((n) => {
-        if (!n.data.id.startsWith("year-")) {
-          n.data.color = yearColor[n.data.year];
-        }
-      });
-
-      // Create edges: publications to years
-      data.forEach((pub) => {
-        edges.push({
-          data: {
-            source: pub.id,
-            target: `year-${pub.year}`,
-          },
-        });
-      });
-
-      // Create edges between co-authored papers
-      for (let i = 0; i < data.length; i++) {
-        for (let j = i + 1; j < data.length; j++) {
-          const pubA = data[i];
-          const pubB = data[j];
-
-          if (
-            !Array.isArray(pubA.authors) ||
-            !Array.isArray(pubB.authors)
-          ) {
-            continue;
-          }
-
-          const commonAuthors = pubA.authors.filter((a) =>
-            pubB.authors.some(
-              (b) =>
-                a.toLowerCase().includes(b.toLowerCase()) ||
-                b.toLowerCase().includes(a.toLowerCase())
-            )
-          );
-
-          if (commonAuthors.length > 0) {
-            edges.push({
-              data: {
-                source: pubA.id,
-                target: pubB.id,
-                weight: commonAuthors.length,
-              },
-            });
-          }
-        }
-      }
-
-      console.log("Nodes:", nodes.length, "Edges:", edges.length);
-
-      const cy = cytoscape({
-        container: document.getElementById("cytoscape"),
-        elements: [...nodes, ...edges],
-        style: [
-          {
-            selector: "node",
-            style: {
-              "background-color": "data(color)",
-              label: "",
-              "text-opacity": 0,
-              "font-size": 9,
-              "text-valign": "center",
-              "text-halign": "center",
-              "text-background-color": "rgba(255,255,255,0.9)",
-              "text-background-opacity": 1,
-              "text-background-padding": 3,
-              "text-background-shape": "round-rectangle",
-              width: 26,
-              height: 26,
-              "border-width": 1,
-              "border-color": "#94a3b8",
-            },
-          },
-          {
-            selector: 'node[id ^= "year"]',
-            style: {
-              "background-color": "#94a3b8",
-              label: "data(label)",
-              "text-opacity": 1,
-              width: 42,
-              height: 42,
-              "font-size": 12,
-              "font-weight": "bold",
-              "border-width": 2,
-              "border-color": "#475569",
-            },
-          },
-          {
-            selector: "node:hover",
-            style: {
-              label: "data(label)",
-              "text-opacity": 1,
-              "border-width": 2,
-              "border-color": "#64748b",
-            },
-          },
-          {
-            selector: "edge",
-            style: {
-              "line-color": "#cbd5e1",
-              width: "mapData(weight, 1, 5, 1, 3)",
-              opacity: 0.5,
-              "curve-style": "bezier",
-            },
-          },
-        ],
-        layout: {
-          name: "preset",
-        },
-      });
-
-      const yearsClock = Array.from(years).sort((a, b) => b - a);
-      const yearNodes = cy.nodes('[id ^= "year-"]');
-      const center = { x: cy.width() / 2, y: cy.height() / 2 };
-      const radius = Math.min(cy.width(), cy.height()) * 0.38;
-
-      yearsClock.forEach((year, i) => {
-        const angle = (i / yearsClock.length) * 2 * Math.PI - Math.PI / 2;
-        const node = cy.getElementById(`year-${year}`);
-        node.position({
-          x: center.x + radius * Math.cos(angle),
-          y: center.y + radius * Math.sin(angle),
-        });
-      });
-
-      yearNodes.lock();
-      yearNodes.grabbable(false);
-
-      cy.layout({
-        name: "cose",
-        directed: false,
-        animate: true,
-        animationDuration: 600,
-        avoidOverlap: true,
-        nodeSpacing: 40,
-        nodeRepulsion: 9000,
-        idealEdgeLength: 160,
-        edgeElasticity: 0.2,
-        gravity: 0.08,
-        numIter: 2000,
-        randomize: true,
-      }).run();
-
-      const floatSpeed = 0.02;
-      const jitter = 0.004;
-
-      const floating = cy.nodes().filter((n) => !n.id().startsWith("year-"));
-
-      floating.forEach((n) => {
-        n.scratch("_v", {
-          vx: (Math.random() - 0.5) * floatSpeed,
-          vy: (Math.random() - 0.5) * floatSpeed,
-        });
-      });
-
-      function floatTick() {
-        const w = cy.width();
-        const h = cy.height();
-
-        cy.batch(() => {
-          floating.forEach((n) => {
-            const v = n.scratch("_v");
-            v.vx += (Math.random() - 0.5) * jitter;
-            v.vy += (Math.random() - 0.5) * jitter;
-
-            let x = n.position("x") + v.vx;
-            let y = n.position("y") + v.vy;
-
-            if (x < 0 || x > w) v.vx *= -1;
-            if (y < 0 || y > h) v.vy *= -1;
-
-            n.position({ x, y });
-          });
-        });
-
-        requestAnimationFrame(floatTick);
-      }
-
-      floatTick();
-
-      // Add hover tooltip
-      cy.on("tap", "node", function (evt) {
-        const node = evt.target;
-
-        // ignore year nodes
-        if (node.id().startsWith("year-")) return;
-
-        const data = node.data();
-        const pmid = data.pmid || "";
-        const doi = data.doi || "";
-        const url =
-          data.url ||
-          (pmid
-            ? `https://pubmed.ncbi.nlm.nih.gov/${pmid}/`
-            : doi
-              ? `https://doi.org/${doi}`
-              : "");
-
-        if (url) {
-          window.open(url, "_blank");
-        } else {
-          console.log("No link found for:", data);
-        }
-      });
-    })
-    .catch((err) => console.error("Error loading publications:", err));
-</script>
-
-
-
-
+</div>
